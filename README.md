@@ -1,8 +1,8 @@
-# Mes Adresses
+# Mes Adresses CV
 
-"Mes Adresses" est un outil en ligne qui vous permet de gérer simplement vos adresses, de la constitution d’une Base Adresse Locale à sa mise à jour. Il est accessible sans compétences techniques et dispose d’un tutoriel embarqué.
+The [French project "Mes Adresses"](https://github.com/BaseAdresseNationale/mes-adresses) is being adapted as Community Version (CV), to become multilingual and open to community requests. The original Mes Address is an online tool that allows you to easily manage your addresses, from creating a Local Address Base to updating it. It is accessible without technical skills and includes a built-in tutorial.
 
-Il est disponible en ligne à l'adresse [mes-adresses.data.gouv.fr](https://mes-adresses.data.gouv.fr).
+For France, it is available online at [mes-adresses.data.gouv.fr](https://mes-adresses.data.gouv.fr).
 
 ## Guide
 
@@ -12,38 +12,38 @@ https://adresse.data.gouv.fr/data/docs/guide-mes-adresses-v4.0.pdf
 
 https://adresse-data-gouv-fr.gitbook.io/bal/mes-adresses
 
-## Pré-requis
+## Prerequisites
 
 - [Node.js](https://nodejs.org) 22
 - [yarn](https://www.yarnpkg.com)
 
-## Utilisation
+## Usage
 
 ### Installation
 
-Installation des dépendances Node.js
+Installing Node.js dependencies
 
 ```
 $ yarn
 ```
 
-Créer la liste des drapeaux disponibles pour les langues régionales
+Create the list of available flags for regional languages
 
 ```
 $ yarn build-available-flags
 ```
 
-Créer les variables d'environnement
+Create environment variables
 
 ```bash
 cp .env.sample .env
 ```
 
-On pourra ensuite éditer les variables d'environnement dans le fichier `.env` si nécessaire.
+You can then edit the environment variables in the `.env` file if necessary.
 
-### Développement
+### Development
 
-Lancer le serveur de développement :
+Start the development server:
 
 ```
 $ yarn dev
@@ -51,13 +51,13 @@ $ yarn dev
 
 ### Production
 
-Créer une version de production :
+Create a production version:
 
 ```
 $ yarn build
 ```
 
-Démarrer le serveur (port 3000 par défaut) :
+Start the server (default port 3000):
 
 ```
 $ yarn start
@@ -65,7 +65,7 @@ $ yarn start
 
 ### Linter
 
-Rapport du linter (eslint) :
+Linter report (eslint):
 
 ```
 $ yarn lint
@@ -73,30 +73,30 @@ $ yarn lint
 
 ## Configuration
 
-Cette application utilise des variables d'environnement pour sa configuration.
-Elles peuvent être définies classiquement ou en créant un fichier `.env` sur la base du modèle `.env.sample`.
+This application uses environment variables for its configuration. They can be set conventionally or by creating a `.env` file based on the `.env.sample` template.
 
-| Nom de la variable               | Description                                                 |
-| -------------------------------- | ----------------------------------------------------------- |
-| `NEXT_PUBLIC_BAL_API_URL`        | URL de base de l’API BAL                                    |
-| `NEXT_PUBLIC_GEO_API_URL`        | URL de base de l’API Géo                                    |
-| `NEXT_PUBLIC_ADRESSE_URL`        | URL de base du site adresse.data.gouv.fr                    |
-| `NEXT_PUBLIC_EDITEUR_URL`        | URL de base pour les redirection sur l'éditeur mes-adresses |
-| `NEXT_PUBLIC_API_BAN_URL`        | URL de base de ban plateforme                               |
-| `NEXT_PUBLIC_BAN_API_DEPOT`      | URL de base de l'api de depot                               |
-| `NEXT_PUBLIC_PEERTUBE`           | URL du peertube                                             |
-| `NEXT_PUBLIC_MATOMO_TRACKER_URL` | URL du matomo                                               |
-| `NEXT_PUBLIC_MATOMO_SITE_ID`     | Id du site sur matomo                                       |
-| `NEXT_PUBLIC_API_SIGNALEMENT`    | URL de l'API signalement                                    |
-| `NEXT_PUBLIC_BAL_ADMIN_URL`      | URL de base de bal admin                                    |
-| `PORT`                           | Port de l'application                                       |
+| Variable Name                    | Description                                                 |
+| --------------------------------- | ----------------------------------------------------------- |
+| `NEXT_PUBLIC_BAL_API_URL`        | Base URL of the BAL API                                     |
+| `NEXT_PUBLIC_GEO_API_URL`        | Base URL of the Geo API                                    |
+| `NEXT_PUBLIC_ADRESSE_URL`        | Base URL of the adresse.data.gouv.fr website               |
+| `NEXT_PUBLIC_EDITEUR_URL`        | Base URL for redirections to the My Addresses editor       |
+| `NEXT_PUBLIC_API_BAN_URL`        | Base URL of the BAN platform                              |
+| `NEXT_PUBLIC_BAN_API_DEPOT`      | Base URL of the deposit API                               |
+| `NEXT_PUBLIC_PEERTUBE`           | Peertube URL                                              |
+| `NEXT_PUBLIC_MATOMO_TRACKER_URL` | Matomo URL                                                |
+| `NEXT_PUBLIC_MATOMO_SITE_ID`     | Site ID on Matomo                                         |
+| `NEXT_PUBLIC_API_SIGNALEMENT`    | URL of the reporting API                                  |
+| `NEXT_PUBLIC_BAL_ADMIN_URL`      | Base URL of BAL admin                                     |
+| `PORT`                           | Application port                                          |
 
-Toutes ces variables ont des valeurs par défaut que vous trouverez dans le fichier `.env.sample`.
+All these variables have default values that you can find in the `.env.sample` file.
 
-## Gouvernance
+## Governance
 
-Ce outil a été conçu à l'initiative d'Etalab. Il est depuis 2020 piloté conjointement par Etalab et l'ANCT.
+This tool was designed at the initiative of Etalab. Since 2020, it has been jointly managed by Etalab and the ANCT.
 
-## Licence
+## License
 
 MIT
+
