@@ -9,6 +9,7 @@ const withBundleAnalyzer = _withBundleAnalyzer({
 });
 
 const nextConfig = withBundleAnalyzer({
+  output: "standalone",
   reactCompiler: true,
   redirects: async () => {
     return [
