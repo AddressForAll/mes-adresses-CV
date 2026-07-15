@@ -4,7 +4,6 @@ import { fr } from "date-fns/locale";
 import {
   Card,
   Pane,
-  Link,
   Heading,
   Text,
   EyeOffIcon,
@@ -26,9 +25,6 @@ import { getCommuneFlagProxy } from "@/lib/api-blason-commune";
 import styles from "./base-locale-card.module.css";
 import { TabsEnum } from "../sidebar/main-tabs/main-tabs";
 
-const ADRESSE_URL =
-  process.env.NEXT_PUBLIC_ADRESSE_URL || "https://adresse.data.gouv.fr";
-
 interface BaseLocaleCardProps {
   baseLocale: BaseLocaleWithHabilitationDTO & { token: string };
   onRemove: () => void;
@@ -42,8 +38,6 @@ function BaseLocaleCard({ baseLocale, onRemove }: BaseLocaleCardProps) {
     status,
     sync,
     nom,
-    communeNom,
-    commune: communeCode,
     updatedAt,
     nbNumeros,
     nbNumerosCertifies,
@@ -138,19 +132,6 @@ function BaseLocaleCard({ baseLocale, onRemove }: BaseLocaleCardProps) {
               ? "Dernière mise à jour il y a " + majDate
               : "Jamais mise à jour"}{" "}
           </Text>
-          {communeNom && (
-            <Link
-              href={`${ADRESSE_URL}/commune/${communeCode}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              fontSize={12}
-              fontStyle="italic"
-              textDecoration="underline"
-              width="fit-content"
-            >
-              Voir la page de {communeNom}
-            </Link>
-          )}
         </Pane>
         <Pane display="flex" flexDirection="column">
           <Pane marginTop={5} display="flex">

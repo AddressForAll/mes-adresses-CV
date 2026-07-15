@@ -8,12 +8,9 @@ import {
 } from "@ban-team/validateur-bal";
 import {
   Alert,
-  Button,
-  InboxIcon,
   Pane,
   Paragraph,
   Radio,
-  ShareIcon,
   Strong,
   Text,
 } from "evergreen-ui";
@@ -51,23 +48,12 @@ function extractCommuneFromCSV(rows: ValidateRowFullType[]): CommuneRow[] {
   return uniqBy(communes, "code");
 }
 
-const getImportOptions = (commune: CommuneType) => [
+const IMPORT_OPTIONS = [
   {
     label: "Partir des données existantes dans la Base Adresse Nationale",
     value: "ban",
-    description: (
-      <>
-        Cette méthode est recommandée dans la plupart des cas. Elle vous permet
-        de partir des adresses déjà présentes dans la{" "}
-        <a
-          href={`${process.env.NEXT_PUBLIC_ADRESSE_URL}/carte-base-adresse-nationale?id=${commune.code}`}
-          target="_blank"
-        >
-          Base Adresse Nationale
-        </a>{" "}
-        (BAN) et de les enrichir avec vos propres données.
-      </>
-    ),
+    description:
+      "Cette méthode est recommandée dans la plupart des cas. Elle vous permet de partir des adresses déjà présentes dans la Base Adresse Nationale (BAN) et de les enrichir avec vos propres données.",
   },
   {
     label: "Utiliser un fichier CSV au format BAL",
@@ -88,7 +74,7 @@ function ImportDataStep({
 }: ImportDataStepProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [alert, setAlert] = useState<JSX.Element | null>(null);
-  const options = getImportOptions(commune);
+  const options = IMPORT_OPTIONS;
 
   const onAlert = (alert: JSX.Element, canCreateBAL?: boolean) => {
     if (!canCreateBAL) {
@@ -187,20 +173,6 @@ function ImportDataStep({
                 En continuant, seules les adresses conformes seront utilisées
                 pour créer votre Base Adresse Locale.
               </Paragraph>
-
-              <Paragraph>
-                Pour obtenir un rapport détaillé des erreurs qui ont été
-                détectées, consultez{" "}
-                <a
-                  href={`${process.env.NEXT_PUBLIC_ADRESSE_URL}/bases-locales/validateur`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  le validateur de Bases Adresses Locales{" "}
-                  <ShareIcon verticalAlign="middle" />
-                </a>
-                .
-              </Paragraph>
             </Alert>,
             true
           );
@@ -286,27 +258,6 @@ function ImportDataStep({
             isLoading={isLoading}
           />
           {alert}
-
-          <Alert
-            title="Vous disposez déjà d’une Base Adresse Locale au format CSV gérée à partir d’un autre outil ?"
-            marginY={16}
-          >
-            <Paragraph marginTop={16}>
-              Utilisez le formulaire de dépôt afin de publier vos adresses dans
-              la Base Adresse Nationale.
-            </Paragraph>
-            <Pane marginTop={16}>
-              <Button
-                appearance="primary"
-                iconBefore={InboxIcon}
-                is="a"
-                href={`${process.env.NEXT_PUBLIC_ADRESSE_URL}/bases-locales/publication`}
-                target="_blank"
-              >
-                Accéder au formulaire de dépôt
-              </Button>
-            </Pane>
-          </Alert>
         </Pane>
       )}
     </>
