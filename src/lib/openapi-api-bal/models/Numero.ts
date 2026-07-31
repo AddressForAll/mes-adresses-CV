@@ -22,6 +22,7 @@ export type Numero = {
     parcelles: Array<string>;
     certifie: boolean;
     communeDeleguee: string;
+    gersId?: string;
     positions: Array<Position>;
     baseLocale: BaseLocale;
     voie: Voie;

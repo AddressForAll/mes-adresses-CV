@@ -3,10 +3,16 @@ import { fromJS } from "immutable";
 import orthoStyle from "@/components/map/styles/ortho.json";
 import vectorStyle from "@/components/map/styles/vector.json";
 import planIGNStyle from "@/components/map/styles/plan-ign.json";
+import streetStyle from "@/components/map/styles/street.json";
+import satelliteStyle from "@/components/map/styles/satellite.json";
 
 export const ortho = fromJS(orthoStyle);
 export const vector = fromJS(vectorStyle);
 export const planIGN = fromJS(planIGNStyle);
+// Worldwide, keyless — used for any country outside France's basemap
+// coverage. See src/lib/countries.
+export const street = fromJS(streetStyle);
+export const satellite = fromJS(satelliteStyle);
 
 export const getStyleDynamically = ({ name, url }) => {
   return fromJS({

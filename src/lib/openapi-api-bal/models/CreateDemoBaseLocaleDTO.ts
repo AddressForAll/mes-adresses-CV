@@ -5,5 +5,6 @@
 export type CreateDemoBaseLocaleDTO = {
     commune: string;
     populate?: boolean | null;
+    country?: string | null;
 };
 

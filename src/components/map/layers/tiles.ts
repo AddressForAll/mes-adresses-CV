@@ -206,7 +206,11 @@ const toponymeLabelLayer = {
     "text-field": ["get", "nom"],
     "text-anchor": "top",
     "text-size": 15,
-    "text-font": ["Segoe UI Bold"],
+    // "Segoe UI Bold" alone is not served by the worldwide glyph server
+    // (fonts.openmaptiles.org) used outside France — it silently falls back
+    // to an empty glyph range there, so this label would render nothing.
+    // "Open Sans Bold" is available on both that server and France's.
+    "text-font": ["Segoe UI Bold", "Open Sans Bold"],
   },
 };
 

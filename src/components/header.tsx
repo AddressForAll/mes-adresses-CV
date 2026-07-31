@@ -15,6 +15,7 @@ import HelpContext from "@/contexts/help";
 import { PEERTUBE_LINK } from "@/components/help/video-container";
 import { MobileHelpMenu } from "./mobile-layout/mobile-help-menu";
 import LayoutContext from "@/contexts/layout";
+import CountrySelector from "@/components/country-selector";
 
 function Header() {
   const { isMobile } = useContext(LayoutContext);
@@ -67,6 +68,7 @@ function Header() {
             justifyContent="space-around"
             alignItems="center"
           >
+            <CountrySelector />
             <Button
               appearance="minimal"
               marginRight="12px"
@@ -102,7 +104,10 @@ function Header() {
             </Button>
           </Pane>
         ) : (
-          <MobileHelpMenu />
+          <Pane display="flex" alignItems="center">
+            <CountrySelector />
+            <MobileHelpMenu />
+          </Pane>
         )}
       </Pane>
     </Pane>

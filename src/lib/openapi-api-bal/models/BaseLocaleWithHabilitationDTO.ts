@@ -17,6 +17,8 @@ export type BaseLocaleWithHabilitationDTO = {
     communeNom?: string;
     communeNomsAlt: Record<string, any>;
     commune: string;
+    sourceDivisionId?: string;
+    country: string;
     status: BaseLocaleWithHabilitationDTO.status;
     importType: BaseLocaleWithHabilitationDTO.importType;
     habilitationId: string;
@@ -41,6 +43,7 @@ export namespace BaseLocaleWithHabilitationDTO {
         API_DEPOT = 'api-depot',
         BAN = 'ban',
         CSV = 'csv',
+        OVERTURE = 'overture',
     }
 }
 

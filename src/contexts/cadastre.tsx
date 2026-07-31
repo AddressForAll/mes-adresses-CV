@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 
 import { CadastreService } from "@/lib/cadastre/cadastre";
+import { getCountry } from "@/lib/countries";
 
 export type ParcelleType = {
   id: string;
@@ -22,18 +23,28 @@ const CadastreContext = React.createContext<CadastreContextType | null>(null);
 
 interface CadastreContextProviderProps {
   codeCommune: string;
+  country: string;
   children: React.ReactNode;
 }
 
 export function CadastreContextProvider({
   codeCommune,
+  country,
   children,
 }: CadastreContextProviderProps) {
   const [communeParcellesIds, setcommuneParcellesIds] = useState<string[]>([]);
 
   const [communeParcelles, setCommuneParcelles] = useState<ParcelleType[]>([]);
 
+  // The French land registry has no data outside France — skip the call
+  // rather than let it 404 on every non-French BAL.
+  const hasCadastre = getCountry(country).hasCadastre;
+
   useEffect(() => {
+    if (!hasCadastre) {
+      return;
+    }
+
     async function fetchCommuneParcelles() {
       try {
         const featureCollection =
@@ -59,7 +70,7 @@ export function CadastreContextProvider({
     }
 
     fetchCommuneParcelles();
-  }, [codeCommune]);
+  }, [codeCommune, hasCadastre]);
 
   const value = useMemo(
     () => ({

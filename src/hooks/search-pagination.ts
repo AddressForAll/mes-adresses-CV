@@ -1,4 +1,4 @@
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 import { useCallback, useContext, useEffect } from "react";
 import useFuse from "./fuse";
 import { TabsEnum } from "@/components/sidebar/main-tabs/main-tabs";
@@ -40,7 +40,6 @@ export function useSearchPagination<T>(
   tab: TabsEnum,
   items: Array<T>
 ): UsePaginationType<T> {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
@@ -72,9 +71,12 @@ export function useSearchPagination<T>(
       } else {
         nextSearchParams.set(QUERY_PAGE, String(change));
       }
-      router.replace(`${pathname}?${nextSearchParams}`);
+      // Shallow update: keeps useSearchParams() in sync without a server
+      // round-trip (router.replace refetches the RSC payload on every call,
+      // which wedges the UI when the server is slow)
+      window.history.replaceState(null, "", `${pathname}?${nextSearchParams}`);
     },
-    [router, pathname, searchParams]
+    [pathname, searchParams]
   );
 
   const changeFilter = useCallback(
@@ -86,11 +88,14 @@ export function useSearchPagination<T>(
         nextSearchParams.set(QUERY_SEARCH, change);
       }
       nextSearchParams.delete(QUERY_PAGE);
-      router.replace(`${pathname}?${nextSearchParams}`);
+      // Shallow update (see changePage): a per-keystroke router.replace made
+      // the controlled search input revert to the stale URL value between
+      // keystrokes, eating typed characters
+      window.history.replaceState(null, "", `${pathname}?${nextSearchParams}`);
 
       setFilter(change);
     },
-    [setFilter, router, pathname, searchParams]
+    [setFilter, pathname, searchParams]
   );
 
   return [page, changePage, search, changeFilter, filtered];

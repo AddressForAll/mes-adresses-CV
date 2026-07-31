@@ -17,6 +17,8 @@ export type ExtendedBaseLocaleDTO = {
     communeNom?: string;
     communeNomsAlt: Record<string, any>;
     commune: string;
+    sourceDivisionId?: string;
+    country: string;
     emails: Array<string>;
     token: string;
     status: ExtendedBaseLocaleDTO.status;
@@ -43,6 +45,7 @@ export namespace ExtendedBaseLocaleDTO {
         API_DEPOT = 'api-depot',
         BAN = 'ban',
         CSV = 'csv',
+        OVERTURE = 'overture',
     }
 }
 

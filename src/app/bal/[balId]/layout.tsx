@@ -7,6 +7,7 @@ import { TokenContextProvider } from "@/contexts/token";
 import Editor from "@/layouts/editor";
 import { BasesLocalesService } from "@/lib/openapi-api-bal";
 import { notFound } from "next/navigation";
+import BalCountryOverride from "@/components/bal-country-override";
 
 export default async function EditorLayout({
   children,
@@ -28,7 +29,11 @@ export default async function EditorLayout({
 
   return (
     <TokenContextProvider balId={balId}>
-      <CadastreContextProvider codeCommune={baseLocale.commune}>
+      <BalCountryOverride country={baseLocale.country} />
+      <CadastreContextProvider
+        codeCommune={baseLocale.commune}
+        country={baseLocale.country}
+      >
         <AlertsContextProvider>
           <BalDataContextProvider initialBaseLocale={baseLocale}>
             <SearchPaginationContextProvider>

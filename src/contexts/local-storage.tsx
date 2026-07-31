@@ -26,6 +26,8 @@ interface LocalStorageContextType {
   }) => void;
   certificatEmetteur?: string;
   setCertificatEmetteur: (value: string | undefined) => void;
+  selectedCountry?: string;
+  setSelectedCountry: (value: string) => void;
 }
 
 const LocalStorageContext = React.createContext<LocalStorageContextType | null>(
@@ -40,6 +42,7 @@ const PRODUCT_TOUR = "product-tour";
 const LAST_NEWS_SEEN = "last-news-seen";
 const MAP_STYLE = "map-style";
 const CERTIFICAT_EMETTEUR = "certificat-emetteur";
+const SELECTED_COUNTRY = "selected-country";
 
 export function LocalStorageContextProvider(props: ChildrenProps) {
   const [balAccess, , getBalToken, addBalAccess, removeBalAccess] =
@@ -55,6 +58,8 @@ export function LocalStorageContextProvider(props: ChildrenProps) {
     useLocalStorage(MAP_STYLE);
   const [certificatEmetteur, setCertificatEmetteur] =
     useLocalStorage(CERTIFICAT_EMETTEUR);
+  const [selectedCountry, setSelectedCountry] =
+    useLocalStorage(SELECTED_COUNTRY);
 
   const value = useMemo(
     () => ({
@@ -76,6 +81,8 @@ export function LocalStorageContextProvider(props: ChildrenProps) {
       registeredMapStyle,
       certificatEmetteur,
       setCertificatEmetteur,
+      selectedCountry,
+      setSelectedCountry,
     }),
     [
       balAccess,
@@ -96,6 +103,8 @@ export function LocalStorageContextProvider(props: ChildrenProps) {
       registeredMapStyle,
       certificatEmetteur,
       setCertificatEmetteur,
+      selectedCountry,
+      setSelectedCountry,
     ]
   );
 

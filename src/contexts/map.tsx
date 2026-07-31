@@ -14,6 +14,10 @@ import { ChildrenProps } from "@/types/context";
 import { TilesLayerMode } from "@/components/map/layers/tiles";
 import { CommuneDTO } from "@/lib/openapi-api-bal";
 import BalDataContext from "@/contexts/bal-data";
+import { MapStyle } from "@/lib/map-style";
+import { getCountry } from "@/lib/countries";
+
+export { MapStyle } from "@/lib/map-style";
 
 interface MapContextType {
   map: MaplibreMap | null;
@@ -48,14 +52,15 @@ export const BAL_API_URL =
 
 export const SOURCE_TILE_ID = "tiles";
 
-export enum MapStyle {
-  ORTHO = "ortho",
-  VECTOR = "vector",
-  PLAN_IGN = "plan-ign",
-}
-
-export const getDefaultStyle = (commune: CommuneDTO) =>
-  commune.hasOrtho ? MapStyle.ORTHO : MapStyle.VECTOR;
+export const getDefaultStyle = (commune: CommuneDTO, country: string) => {
+  // hasOrtho/hasOpenMapTiles/hasPlanIGN vary per French commune (outre-mer
+  // coverage gaps); non-French countries have no such per-commune data, so
+  // the registry's default applies unconditionally.
+  if (country !== "fr") {
+    return getCountry(country).defaultBasemap;
+  }
+  return commune.hasOrtho ? MapStyle.ORTHO : MapStyle.VECTOR;
+};
 
 export function MapContextProvider(props: ChildrenProps) {
   const { baseLocale, commune } = useContext(BalDataContext);
@@ -65,7 +70,7 @@ export function MapContextProvider(props: ChildrenProps) {
     ? registeredMapStyle[baseLocale.id]
     : null;
   const [style, setStyle] = useState<MapStyle | string>(
-    registeredBalMapStyle || getDefaultStyle(commune)
+    registeredBalMapStyle || getDefaultStyle(commune, baseLocale.country)
   );
   const [viewport, setViewport] = useState<Partial<ViewState>>(defaultViewport);
   const [isCadastreDisplayed, setIsCadastreDisplayed] =
