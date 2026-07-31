@@ -1,8 +1,9 @@
 import { CommuneSearchField } from "@/components/commune-search";
 import { CommuneType } from "@/types/commune";
-import { Pane } from "evergreen-ui";
-import { useEffect, useState } from "react";
+import { Alert, Pane } from "evergreen-ui";
+import { useContext, useEffect, useState } from "react";
 import CommunePublicationInfos from "../commune-publication-infos";
+import CountryContext from "@/contexts/country";
 
 interface SearchCommuneStepProps {
   commune: CommuneType | null;
@@ -20,12 +21,23 @@ function SearchCommuneStep({
   onCreateNewBAL,
 }: SearchCommuneStepProps) {
   const [ref, setRef] = useState<HTMLInputElement>();
+  const { countryProfile } = useContext(CountryContext);
 
   useEffect(() => {
     if (ref) {
       ref.focus();
     }
   }, [ref]);
+
+  if (!countryProfile.geoApi) {
+    return (
+      <Alert intent="none" title={`Aucune recherche de commune pour ${countryProfile.label}`}>
+        Les Bases Adresses Locales pour ce pays sont créées avec
+        l&apos;importeur Overture Maps, en ligne de commande — il n&apos;y a
+        pas encore de recherche de commune pour cette création guidée.
+      </Alert>
+    );
+  }
 
   return (
     <Pane>

@@ -17,6 +17,8 @@ export type BaseLocale = {
     communeNom?: string;
     communeNomsAlt: Record<string, any>;
     commune: string;
+    sourceDivisionId?: string;
+    country: string;
     emails: Array<string>;
     token: string;
     status: BaseLocale.status;
@@ -39,6 +41,7 @@ export namespace BaseLocale {
         API_DEPOT = 'api-depot',
         BAN = 'ban',
         CSV = 'csv',
+        OVERTURE = 'overture',
     }
 }
 

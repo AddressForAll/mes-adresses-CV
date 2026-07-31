@@ -19,6 +19,7 @@ export type Voie = {
     bbox: Array<number>;
     codeVoie: string;
     comment: string;
+    gersId?: string;
     baseLocale: BaseLocale;
     numeros: Array<Numero>;
 };

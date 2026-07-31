@@ -4,6 +4,7 @@ import { MatomoTrackingContextProvider } from "@/contexts/matomo-tracking";
 import { LayoutContextProvider } from "@/contexts/layout";
 import { BALWidgetProvider } from "@/contexts/bal-widget";
 import { LocalStorageContextProvider } from "@/contexts/local-storage";
+import { CountryContextProvider } from "@/contexts/country";
 import { HelpContextProvider } from "@/contexts/help";
 import Help from "@/components/help";
 import { initialOpenAPIBaseURL } from "@/lib/open-api";
@@ -43,12 +44,14 @@ export default async function RootLayout({
             <LayoutContextProvider>
               <BALWidgetProvider>
                 <LocalStorageContextProvider>
-                  <HelpContextProvider>
-                    <BALRecoveryProvider>
-                      <Help />
-                      <Main>{children}</Main>
-                    </BALRecoveryProvider>
-                  </HelpContextProvider>
+                  <CountryContextProvider>
+                    <HelpContextProvider>
+                      <BALRecoveryProvider>
+                        <Help />
+                        <Main>{children}</Main>
+                      </BALRecoveryProvider>
+                    </HelpContextProvider>
+                  </CountryContextProvider>
                 </LocalStorageContextProvider>
               </BALWidgetProvider>
             </LayoutContextProvider>

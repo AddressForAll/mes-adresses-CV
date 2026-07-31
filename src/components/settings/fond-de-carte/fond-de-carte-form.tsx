@@ -15,6 +15,9 @@ import MatomoTrackingContext, {
   MatomoEventCategory,
 } from "@/contexts/matomo-tracking";
 import LayoutContext from "@/contexts/layout";
+import { STYLE_LABELS } from "@/components/map/controls/style-control";
+
+const RESERVED_BASEMAP_NAMES = Object.values(STYLE_LABELS);
 
 function FondDeCarteForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -67,9 +70,7 @@ function FondDeCarteForm() {
 
         const nameIsValid =
           Boolean(styleMap.name) &&
-          !["Photographie aérienne", "Plan OpenStreetMap", "Plan IGN"].includes(
-            styleMap.name
-          ) &&
+          !RESERVED_BASEMAP_NAMES.includes(styleMap.name) &&
           fondsDeCartesForm
             .slice(0, index)
             .every((s) => s.name !== styleMap.name);

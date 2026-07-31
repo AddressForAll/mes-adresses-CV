@@ -20,6 +20,7 @@ import { CommuneSearchField } from "@/components/commune-search";
 import { CommuneType } from "@/types/commune";
 import { hasBeenSentRecently } from "@/lib/utils/date";
 import { ApiDepotService } from "@/lib/api-depot";
+import CountryContext from "@/contexts/country";
 
 interface RecoverBALCommuneProps {
   baseLocale?: BaseLocale;
@@ -41,6 +42,7 @@ function RecoverBALCommune({
   const { recoveryEmailCommuneSent, setRecoveryEmailCommuneSent } =
     useContext(LocalStorageContext);
   const { pushToast } = useContext(LayoutContext);
+  const { countryProfile } = useContext(CountryContext);
   const [commune, setCommune] = useState<CommuneType | null>(null);
   const [emailsCommune, setEmailsCommune] = useState<string[]>([]);
   const [isLoadingEmails, setIsLoadingEmails] = useState<boolean>(false);
@@ -148,7 +150,7 @@ function RecoverBALCommune({
             Locales.
           </Paragraph>
         )}
-        {!baseLocale && (
+        {!baseLocale && countryProfile.geoApi && (
           <CommuneSearchField
             id="commune"
             required={false}
@@ -160,6 +162,14 @@ function RecoverBALCommune({
             maxWidth={500}
             onSelect={selectCommune}
           />
+        )}
+        {!baseLocale && !countryProfile.geoApi && (
+          <Alert intent="none" hasIcon={false}>
+            <Paragraph>
+              La récupération par commune n&apos;est pas disponible pour{" "}
+              {countryProfile.label}.
+            </Paragraph>
+          </Alert>
         )}
         {error && (
           <Alert marginTop={16} intent="danger">

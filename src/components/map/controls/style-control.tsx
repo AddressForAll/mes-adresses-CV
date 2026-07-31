@@ -9,6 +9,15 @@ import { MapStyle } from "@/contexts/map";
 import LocalStorageContext from "@/contexts/local-storage";
 import { ExtendedBaseLocaleDTO } from "@/lib/openapi-api-bal";
 import CadastreSearchInput from "./cadastre-search-input";
+import { getCountry } from "@/lib/countries";
+
+export const STYLE_LABELS: Record<MapStyle, string> = {
+  [MapStyle.ORTHO]: "Photographie aérienne",
+  [MapStyle.VECTOR]: "Plan OpenStreetMap",
+  [MapStyle.PLAN_IGN]: "Plan IGN",
+  [MapStyle.STREET]: "Plan (CARTO)",
+  [MapStyle.SATELLITE]: "Satellite (Esri)",
+};
 
 interface StyleControlProps {
   style: string;
@@ -33,25 +42,27 @@ function StyleControl({
 
   const availableStyles = useMemo(() => {
     const { hasOrtho, hasOpenMapTiles, hasPlanIGN } = commune;
+    // hasOrtho/hasOpenMapTiles/hasPlanIGN are France-specific per-commune
+    // availability flags (outre-mer coverage gaps) — they don't apply to the
+    // worldwide basemaps, which the registry always offers.
+    const perCommuneAvailability: Partial<Record<MapStyle, boolean>> = {
+      [MapStyle.ORTHO]: hasOrtho,
+      [MapStyle.VECTOR]: hasOpenMapTiles,
+      [MapStyle.PLAN_IGN]: hasPlanIGN,
+    };
     return [
-      {
-        label: "Photographie aérienne",
-        value: MapStyle.ORTHO,
-        isAvailable: hasOrtho,
-      },
-      {
-        label: "Plan OpenStreetMap",
-        value: MapStyle.VECTOR,
-        isAvailable: hasOpenMapTiles,
-      },
-      { label: "Plan IGN", value: MapStyle.PLAN_IGN, isAvailable: hasPlanIGN },
+      ...getCountry(baseLocale.country).basemaps.map((value) => ({
+        label: STYLE_LABELS[value],
+        value,
+        isAvailable: perCommuneAvailability[value] ?? true,
+      })),
       ...(baseLocale.settings?.fondsDeCartes?.map((styleMap) => ({
         label: styleMap.name,
         value: styleMap.name,
         isAvailable: true,
       })) || []),
     ].filter(({ isAvailable }) => isAvailable);
-  }, [commune, baseLocale.settings.fondsDeCartes]);
+  }, [commune, baseLocale.country, baseLocale.settings.fondsDeCartes]);
 
   const onSelect = (style: MapStyle | string) => {
     const updatedRegisteredMapStyle = registeredMapStyle
@@ -62,7 +73,13 @@ function StyleControl({
   };
 
   useEffect(() => {
-    if (!availableStyles.find(({ value }) => value === style)) {
+    // A territory outside the French basemap coverage (an Overture-imported
+    // BAL, say) reports every fond de carte as unavailable, leaving this list
+    // empty. Indexing into it unguarded crashes the whole editor.
+    if (
+      availableStyles.length > 0 &&
+      !availableStyles.find(({ value }) => value === style)
+    ) {
       onSelect(availableStyles[0].value);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -107,7 +124,9 @@ function StyleControl({
           <LayersIcon
             style={{ marginRight: ".5em", borderRadius: "0 3px 3px 0" }}
           />
-          <div className="map-style-label">{availableStyles[0].label}</div>
+          <div className="map-style-label">
+            {availableStyles[0]?.label ?? "Aucun fond de carte"}
+          </div>
         </Button>
       )}
       <Pane display="flex" alignItems="center">

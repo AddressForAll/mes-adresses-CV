@@ -50,7 +50,15 @@ import {
   setMapFilter,
 } from "@/lib/utils/map";
 import GeolocationControl from "./controls/geolocation-control";
-import { getStyleDynamically, ortho, planIGN, vector } from "./styles";
+import {
+  getStyleDynamically,
+  ortho,
+  planIGN,
+  vector,
+  street,
+  satellite,
+} from "./styles";
+import { getCountry } from "@/lib/countries";
 import {
   cadastreLayers,
   LAYER as CADASTRE_LAYER,
@@ -155,14 +163,25 @@ function Map({
 
       case MapStyle.PLAN_IGN:
         return planIGN;
+
+      case MapStyle.STREET:
+        return street;
+
+      case MapStyle.SATELLITE:
+        return satellite;
+
       default:
-        return vector;
+        return getBaseStyle(getCountry(baseLocale.country).defaultBasemap);
     }
   }
 
   function generateNewStyle(style: MapStyle | string) {
     const baseStyle = getBaseStyle(style);
-    return baseStyle.updateIn(["layers"], (arr: any[]) => arr.push(...LAYERS));
+    // The worldwide basemaps (street/satellite) declare no "cadastre" vector
+    // source — pushing cadastreLayers onto them would reference a
+    // non-existent source and error. Only the French styles carry it.
+    const layers = getCountry(baseLocale.country).hasCadastre ? LAYERS : [];
+    return baseStyle.updateIn(["layers"], (arr: any[]) => arr.push(...layers));
   }
 
   const updatePositionsLayer = useCallback(() => {
@@ -346,12 +365,25 @@ function Map({
         const camera = map.cameraForBounds(bounds as LngLatBoundsLike, {
           padding: 100,
         });
+        // Only clamp the initial commune-wide view (identified by reference —
+        // useBounds hands back the exact `commune.bbox` array for it, and a
+        // different array for voie/toponyme/editingItem zoom-to-item, which
+        // already produce good zooms and must not be touched). A
+        // territory-sized bbox (a US county, say) would otherwise center
+        // below the BAL tiles' minZoom and render nothing — see
+        // src/lib/countries's minInitialZoom.
+        const isCommuneView = bounds === commune.bbox;
+        const minInitialZoom = getCountry(baseLocale.country).minInitialZoom;
+        const zoom =
+          isCommuneView && minInitialZoom
+            ? Math.max(camera.zoom, minInitialZoom)
+            : camera.zoom;
         setViewport((viewport: ViewState) => ({
           ...viewport,
           bearing: camera.bearing,
+          zoom,
           longitude: (camera.center as any).lng,
           latitude: (camera.center as any).lat,
-          zoom: camera.zoom,
         }));
       } else if (hash) {
         const [zoom, latitude, longitude]: string[] = hash.split("/");
@@ -363,7 +395,7 @@ function Map({
         }));
       }
     }
-  }, [map, bounds, setViewport]);
+  }, [map, bounds, setViewport, commune.bbox, baseLocale.country]);
 
   const sourceTiles: SourceProps = useMemo(() => {
     return {
