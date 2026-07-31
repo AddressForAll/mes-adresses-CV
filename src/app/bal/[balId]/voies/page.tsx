@@ -129,7 +129,8 @@ export default function VoiesPage() {
   const handleFilter = useCallback(
     (value: string) => {
       const query = value ? `?filter=${value}` : "";
-      router.push(`${pathname}${query}`);
+      // Shallow update: same-page query param, no need for a server round-trip
+      window.history.replaceState(null, "", `${pathname}${query}`);
       setFilter(value);
       if (value === "with-suggestions") {
         matomoTrackEvent(
@@ -138,7 +139,7 @@ export default function VoiesPage() {
         );
       }
     },
-    [setFilter, matomoTrackEvent, router, pathname]
+    [setFilter, matomoTrackEvent, pathname]
   );
 
   const handleRemove = async () => {
