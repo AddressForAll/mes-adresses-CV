@@ -13,6 +13,7 @@ import {
   Text,
   Badge,
 } from "evergreen-ui";
+import { useTranslations, useLocale } from "next-intl";
 import SignalementList from "@/components/signalement/signalement-list";
 import { useRouter, useSearchParams } from "next/navigation";
 import ProtectedPage from "@/layouts/protected-page";
@@ -41,6 +42,10 @@ interface SignalementsPageProps {
 export default function SignalementsPage({
   paginatedReports: initialReports,
 }: SignalementsPageProps) {
+  const t = useTranslations("signalementsPage");
+  const tt = useTranslations("signalementTypes");
+  const locale = useLocale();
+  const tc = useTranslations("common");
   const { commune, baseLocale } = useContext(BalDataContext);
   const [signalements, setSignalements] = useState<Report[]>(
     initialReports.data
@@ -73,16 +78,16 @@ export default function SignalementsPage({
   });
 
   const tabs = [
-    { label: "En cours", key: "pending", count: pendingSignalementsCount },
+    { label: t("tabPending"), key: "pending", count: pendingSignalementsCount },
     {
-      label: `Archivé${archivedSignalementsCount > 1 ? "s" : ""}`,
+      label: t("tabArchived", { count: archivedSignalementsCount }),
       key: "archived",
       count: archivedSignalementsCount,
     },
   ];
 
   useEffect(() => {
-    setBreadcrumbs(<Text aria-current="page">Signalements</Text>);
+    setBreadcrumbs(<Text aria-current="page">{t("breadcrumb")}</Text>);
     setTileLayersMode(TilesLayerMode.HIDDEN);
 
     return () => {
@@ -137,7 +142,14 @@ export default function SignalementsPage({
   ]);
 
   const signalementsWithLabel = useMemo(
-    () => signalements.map((s) => ({ ...s, label: getSignalementLabel(s) })),
+    () =>
+      signalements.map((s) => ({
+        ...s,
+        label: getSignalementLabel(s, {
+          locale,
+          missingAddressLabel: tt("missingAddress"),
+        }),
+      })),
     [signalements]
   );
 
@@ -188,10 +200,8 @@ export default function SignalementsPage({
   const handleIgnoreSignalements = async (ids: string[]) => {
     const _updateSignalements = toaster(
       () => updateManySignalements(ids, Signalement.status.IGNORED),
-      ids.length > 1
-        ? "Les signalements ont bien été ignorés"
-        : "Le signalement a bien été ignoré",
-      "Une erreur est survenue"
+      t("ignoredManyToast", { count: ids.length }),
+      t("errorToast")
     );
 
     await _updateSignalements();
@@ -230,7 +240,7 @@ export default function SignalementsPage({
         borderBottom="muted"
         textAlign="center"
       >
-        <Text>Demandes d&apos;amélioration</Text>
+        <Text>{t("improvementRequests")}</Text>
       </Pane>
       <Tablist background="white" padding={8}>
         {tabs.map(({ label, key, count }, index) => (
@@ -258,19 +268,19 @@ export default function SignalementsPage({
         {selectedSignalements.length > 1 && (
           <Pane padding={16}>
             <Pane marginBottom={5}>
-              <Heading>Actions groupées</Heading>
+              <Heading>{t("bulkActions")}</Heading>
             </Pane>
             <Pane>
               <Dialog
                 isShown={showWarningDialog}
                 intent="success"
-                title="Confirmer l'action groupée"
+                title={t("confirmBulkAction")}
                 hasFooter={false}
                 onCloseComplete={() => setShowWarningDialog(false)}
               >
                 <Pane marginX="-32px" marginBottom="-8px">
                   <Paragraph marginBottom={8} marginLeft={32} color="muted">
-                    Êtes-vous sûr de vouloir ignorer ces signalements ?
+                    {t("confirmIgnoreQuestion")}
                   </Paragraph>
                 </Pane>
 
@@ -290,7 +300,7 @@ export default function SignalementsPage({
                     appearance="default"
                     onClick={() => setShowWarningDialog(false)}
                   >
-                    Annuler
+                    {tc("cancel")}
                   </Button>
                 </Pane>
               </Dialog>
@@ -300,7 +310,7 @@ export default function SignalementsPage({
                 intent="danger"
                 onClick={() => setShowWarningDialog(true)}
               >
-                Ignorer les signalements
+                {t("ignoreSignalements")}
               </Button>
             </Pane>
           </Pane>

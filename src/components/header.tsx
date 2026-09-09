@@ -10,16 +10,19 @@ import {
   Heading,
   Text,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import HelpContext from "@/contexts/help";
 import { PEERTUBE_LINK } from "@/components/help/video-container";
 import { MobileHelpMenu } from "./mobile-layout/mobile-help-menu";
 import LayoutContext from "@/contexts/layout";
 import CountrySelector from "@/components/country-selector";
+import LanguageSelector from "@/components/language-selector";
 
 function Header() {
   const { isMobile } = useContext(LayoutContext);
   const { showHelp, setShowHelp } = useContext(HelpContext);
+  const t = useTranslations("header");
 
   return (
     <Pane
@@ -49,7 +52,7 @@ function Header() {
           height={34}
           width={72}
           src="/static/images/mes-adresses.svg"
-          alt="Page d’accueil du site mes-adresses.data.gouv.fr"
+          alt={t("logoAlt")}
         />
         <Heading is="h1" size={500} marginLeft={10} display="inline-block">
           <Text is="span" size={400} fontWeight="normal">
@@ -69,6 +72,7 @@ function Header() {
             alignItems="center"
           >
             <CountrySelector />
+            <LanguageSelector />
             <Button
               appearance="minimal"
               marginRight="12px"
@@ -76,7 +80,7 @@ function Header() {
               iconAfter={HelpIcon}
               onClick={() => setShowHelp(!showHelp)}
             >
-              Besoin d’aide
+              {t("help")}
             </Button>
 
             <Button
@@ -88,7 +92,7 @@ function Header() {
               minHeight="55px"
               iconAfter={VideoIcon}
             >
-              Tutoriels vidéos
+              {t("videoTutorials")}
             </Button>
 
             <Button
@@ -100,12 +104,13 @@ function Header() {
               minHeight="55px"
               iconAfter={BookIcon}
             >
-              Guides de l’adressage
+              {t("addressingGuides")}
             </Button>
           </Pane>
         ) : (
           <Pane display="flex" alignItems="center">
             <CountrySelector />
+            <LanguageSelector />
             <MobileHelpMenu />
           </Pane>
         )}

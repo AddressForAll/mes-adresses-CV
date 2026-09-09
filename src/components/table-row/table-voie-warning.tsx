@@ -8,6 +8,7 @@ import WarningLink from "./alerts-warning/warning-link";
 import { TabsEnum } from "../sidebar/main-tabs/main-tabs";
 import WarningVoieEmpty from "./alerts-warning/warning-voie-empty";
 import { Li, majorScale, Menu, Pane, Ul } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import WarningVoieDoublon from "./alerts-warning/warning-voie-doublon";
 
 interface TableVoieWarningProps {
@@ -17,6 +18,7 @@ interface TableVoieWarningProps {
 }
 
 function TableVoieWarning({ baseLocale, voie, alerts }: TableVoieWarningProps) {
+  const t = useTranslations("warnings");
   const dedupedAlerts = alerts.filter(
     (alert, index, self) =>
       alert.model !== AlertModelEnum.NUMERO ||
@@ -42,14 +44,14 @@ function TableVoieWarning({ baseLocale, voie, alerts }: TableVoieWarningProps) {
                     <WarningVoieDoublon baseLocale={baseLocale} voie={voie} />
                   ) : (
                     <WarningLink
-                      title="Suggestion sur le nom de la voie"
+                      title={t("voieNameSuggestion")}
                       url={`/bal/${baseLocale.id}/${TabsEnum.VOIES}/${voie.id}`}
                     />
                   )}
                 </>
               ) : alert.model === AlertModelEnum.NUMERO ? (
                 <WarningLink
-                  title="Suggestion sur les numéros de la voie"
+                  title={t("voieNumerosSuggestion")}
                   url={`/bal/${baseLocale.id}/${TabsEnum.VOIES}/${voie.id}/numeros`}
                 />
               ) : null}

@@ -5,19 +5,11 @@ const NEXT_PUBLIC_BAL_ADMIN_URL =
   process.env.NEXT_PUBLIC_BAL_ADMIN_URL ||
   "https://bal-admin.adresse.data.gouv.fr";
 
+/** Badge colour per training type; the labels live in the `trainingTypes` namespace. */
 export const trainingTypeMap = {
-  [EventTypeTypeEnum.FORMATION]: {
-    color: "green",
-    label: "Formation initiale",
-  },
-  [EventTypeTypeEnum.FORMATION_LVL2]: {
-    color: "blue",
-    label: "Formation approfondie",
-  },
-  [EventTypeTypeEnum.FORMATION_SPECIALE]: {
-    color: "teal",
-    label: "Formation signalement",
-  },
+  [EventTypeTypeEnum.FORMATION]: { color: "green", key: "initial" },
+  [EventTypeTypeEnum.FORMATION_LVL2]: { color: "blue", key: "advanced" },
+  [EventTypeTypeEnum.FORMATION_SPECIALE]: { color: "teal", key: "signalement" },
 };
 
 export class ApiBalAdminService {

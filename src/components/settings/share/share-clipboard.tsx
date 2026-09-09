@@ -5,6 +5,7 @@ import {
   SmallTickIcon,
   IconButton,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useRef, useState } from "react";
 
 interface ShareClipBoardProps {
@@ -12,6 +13,7 @@ interface ShareClipBoardProps {
 }
 
 function ShareClipBoard({ url }: ShareClipBoardProps) {
+  const t = useTranslations("settings");
   const [copySuccess, setCopySuccess] = useState(false);
   const textAreaRef = useRef(null);
 
@@ -38,14 +40,14 @@ function ShareClipBoard({ url }: ShareClipBoardProps) {
           marginLeft={4}
           icon={SmallTickIcon}
           intent="success"
-          title="Copié"
+          title={t("copied")}
         />
       ) : (
         <IconButton
           marginLeft={4}
           icon={ClipboardIcon}
           onClick={copyToClipboard}
-          title="Copier l'url"
+          title={t("copyUrl")}
         />
       )}
     </Pane>

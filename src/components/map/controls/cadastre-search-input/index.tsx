@@ -1,4 +1,5 @@
 import { Pane } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useCallback, useContext } from "react";
 import style from "./cadastre-search-input.module.css";
 import MapContext from "@/contexts/map";
@@ -13,6 +14,7 @@ interface CadastreSearchInputProps {
 }
 
 function CadastreSearchInput({ visible }: CadastreSearchInputProps) {
+  const t = useTranslations("mapControls");
   const { map } = useContext(MapContext);
   const { handleSearchParcelle } = useCadastreSearch();
 
@@ -54,12 +56,12 @@ function CadastreSearchInput({ visible }: CadastreSearchInputProps) {
       <AutocompleteInput
         onSearch={handleSearchParcelle}
         onSelect={handleSelectParcelle}
-        noResultsMessage="Aucune parcelle ne correspond à votre recherche"
+        noResultsMessage={t("noParcelleFound")}
         resultsListPosition="top"
         itemToString={(parcelle) => (parcelle ? parcelle.id : "")}
         inputProps={{
           width: "100%",
-          placeholder: "Rechercher une parcelle",
+          placeholder: t("searchParcelle"),
           style: {
             borderBottomLeftRadius: 0,
             borderTopLeftRadius: 0,

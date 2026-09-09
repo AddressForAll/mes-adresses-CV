@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Pane, Heading, EditIcon, Text, IconButton } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import NextLink from "next/link";
 import TokenContext from "@/contexts/token";
 import BalDataContext from "@/contexts/bal-data";
@@ -13,6 +14,7 @@ interface VoieHeadingProps {
 }
 
 function VoieHeading({ voie, baseLocale }: VoieHeadingProps) {
+  const t = useTranslations("voiePage");
   const { token } = useContext(TokenContext);
   const { numeros } = useContext(BalDataContext);
 
@@ -35,7 +37,7 @@ function VoieHeading({ voie, baseLocale }: VoieHeadingProps) {
               <IconButton
                 is={NextLink}
                 href={`/bal/${baseLocale.id}/${TabsEnum.VOIES}/${voie.id}`}
-                title="Éditer la voie"
+                title={t("editVoie")}
                 icon={EditIcon}
                 marginBottom={-2}
                 marginLeft={8}

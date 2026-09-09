@@ -5,9 +5,11 @@ import {
   BasesLocalesService,
   OpenAPI,
 } from "@/lib/openapi-api-bal";
+import { useTranslations } from "next-intl";
 import { useRef } from "react";
 
 export function useBALDataImport() {
+  const t = useTranslations("importDataStep");
   const interval = useRef<ReturnType<typeof setInterval> | undefined>(
     undefined
   );
@@ -24,7 +26,7 @@ export function useBALDataImport() {
     });
 
     if (!response.isValid) {
-      throw new Error("Le fichier CSV est invalide.");
+      throw new Error(t("invalidCsv"));
     }
   };
 

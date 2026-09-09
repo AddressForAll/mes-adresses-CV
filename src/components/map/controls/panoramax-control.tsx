@@ -8,6 +8,7 @@ import {
   Text,
   Button,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import type { Map as MaplibreMap } from "maplibre-gl";
 import { useContext, useEffect, useState } from "react";
@@ -34,6 +35,7 @@ function PanoramaxControl({
   showPanoramax,
   commune,
 }: PanoramaxControlProps) {
+  const t = useTranslations("mapControls");
   const [disabled, setDisabled] = useState(true);
   const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
@@ -100,16 +102,14 @@ function PanoramaxControl({
       onClick={() => {
         setShowPanoramax(false);
       }}
-      title="Fermer Panoramax"
+      title={t("closePanoramax")}
     />
   ) : disabled ? (
     <Tooltip
       content={
         <>
           <Pane marginBottom={8}>
-            <Text color="white">
-              Aucune photographie du territoire n&apos;est disponible.
-            </Text>
+            <Text color="white">{t("noPanoramaxImagery")}</Text>
           </Pane>
           <Button
             is="a"
@@ -118,7 +118,7 @@ function PanoramaxControl({
             target="_blank"
             rel="noopener noreferrer"
           >
-            Participer à Panoramax
+            {t("contributeToPanoramax")}
           </Button>
         </>
       }

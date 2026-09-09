@@ -1,6 +1,7 @@
 "use client";
 
 import { useContext, useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Pane, Pulsar } from "evergreen-ui";
 import Link from "next/link";
 import styles from "./main-tabs.module.css";
@@ -30,6 +31,7 @@ interface MainTabsProps {
 }
 
 function MainTabs({ balId }: MainTabsProps) {
+  const t = useTranslations("mainTabs");
   const pathname = usePathname();
 
   const selectedTab = useMemo(() => {
@@ -66,7 +68,7 @@ function MainTabs({ balId }: MainTabsProps) {
               <div className={styles.tabImage}>
                 <ResponsiveImage
                   src="/static/images/icone-commune.png"
-                  alt={`Illustration de l'onglet commune`}
+                  alt={t("communeTabIllustration")}
                   draggable={false}
                   orientation="portrait"
                   unoptimized

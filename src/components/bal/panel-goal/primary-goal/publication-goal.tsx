@@ -10,6 +10,7 @@ import {
   Text,
   Link,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import usePublishProcess from "@/hooks/publish-process";
 import { CommuneType } from "@/types/commune";
@@ -29,6 +30,7 @@ interface PublicationGoalProps {
 }
 
 function PublicationGoal({ commune, baseLocale }: PublicationGoalProps) {
+  const t = useTranslations("publicationGoal");
   const { handleShowHabilitationProcess } = usePublishProcess(commune);
   const { habilitation } = useContext(BalDataContext);
   const [isActive, setIsActive] = useState(
@@ -72,11 +74,11 @@ function PublicationGoal({ commune, baseLocale }: PublicationGoalProps) {
           <Pane display="flex" alignItems="center" gap={16} paddingLeft={8}>
             <AchievementBadge
               icone="/static/images/achievements/published-bal.svg"
-              title="Publication"
+              title={t("badgeTitle")}
               completed={isCompleted}
             />
             <Heading color={isCompleted && defaultTheme.colors.green700}>
-              Publication
+              {t("title")}
             </Heading>
           </Pane>
         }
@@ -88,18 +90,17 @@ function PublicationGoal({ commune, baseLocale }: PublicationGoalProps) {
         <Pane padding={8}>
           {Boolean(otherBalIdPublished) && (
             <Pane>
-              <Text is="p">Vous devez repartir de la BAL publiée</Text>
+              <Text is="p">{t("mustStartFromPublished")}</Text>
               <Button
                 height={30}
                 marginTop={8}
                 is={NextLink}
                 href={`/bal/${otherBalIdPublished}`}
               >
-                Accéder à la BAL publiée
+                {t("goToPublished")}
               </Button>
               <Text is="p" marginTop={24}>
-                Si vous voulez quand même repartir de cette BAL, veuillez
-                contacter le support:{" "}
+                {t("contactSupport")}{" "}
                 <Link href="mailto:adresse@data.gouv.fr">
                   adresse@data.gouv.fr
                 </Link>
@@ -109,22 +110,18 @@ function PublicationGoal({ commune, baseLocale }: PublicationGoalProps) {
           {!Boolean(otherBalIdPublished) &&
             baseLocale.status === ExtendedBaseLocaleDTO.status.DRAFT && (
               <Paragraph is="div">
-                Afin d&apos;être synchronisée avec la Base Adresse Nationale,
-                cette Base Adresse Locale doit être publiée par la commune de{" "}
-                {commune.nom}.
-                <br />
-                Notez qu&apos;une fois publiée,{" "}
-                <Strong>
-                  toutes les modifications remonteront automatiquement
-                </Strong>{" "}
-                dans la Base Adresse Nationale.
+                {t.rich("draftContent", {
+                  communeName: commune.nom,
+                  strong: (chunks) => <Strong>{chunks}</Strong>,
+                  br: () => <br />,
+                })}
                 <Pane display="flex" justifyContent="right">
                   <Button
                     appearance="primary"
                     onClick={(e) => handlePublication(e)}
                     textAlign="center"
                   >
-                    Publier
+                    {t("publish")}
                   </Button>
                 </Pane>
               </Paragraph>
@@ -132,17 +129,13 @@ function PublicationGoal({ commune, baseLocale }: PublicationGoalProps) {
           {!Boolean(otherBalIdPublished) &&
             baseLocale.status === ExtendedBaseLocaleDTO.status.PUBLISHED &&
             habilitation?.status === HabilitationDTO.status.ACCEPTED && (
-              <Paragraph>
-                Toutes les modifications remonteront automatiquement dans la
-                Base Adresse Nationale
-              </Paragraph>
+              <Paragraph>{t("publishedContent")}</Paragraph>
             )}
           {!Boolean(otherBalIdPublished) &&
             baseLocale.status === ExtendedBaseLocaleDTO.status.PUBLISHED &&
             habilitation?.status !== HabilitationDTO.status.ACCEPTED && (
               <Paragraph display="flex" flexDirection="column" gap={8} is="div">
-                Votre habilitation n&apos;est plus valide, veuillez la
-                renouveler
+                {t("habilitationExpired")}
                 <Pane display="flex" justifyContent="right">
                   <Button
                     marginRight={8}
@@ -150,7 +143,7 @@ function PublicationGoal({ commune, baseLocale }: PublicationGoalProps) {
                     appearance="primary"
                     onClick={handleShowHabilitationProcess}
                   >
-                    Habiliter la BAL
+                    {t("habiliteBal")}
                   </Button>
                 </Pane>
               </Paragraph>
@@ -159,14 +152,9 @@ function PublicationGoal({ commune, baseLocale }: PublicationGoalProps) {
             baseLocale.status === ExtendedBaseLocaleDTO.status.REPLACED && (
               <Pane>
                 <Paragraph color={defaultTheme.colors.red700}>
-                  La Base Adresse Locale a été remplacée par une autre, une
-                  autre Base Adresses Locale est synchronisée avec la Base
-                  Adresse Nationale.
+                  {t("replacedContent")}
                 </Paragraph>
-                <Paragraph>
-                  Veuillez entrer en contact les administrateurs de l’autre Base
-                  Adresse Locale ou notre support: adresse@data.gouv.fr
-                </Paragraph>
+                <Paragraph>{t("replacedContact")}</Paragraph>
               </Pane>
             )}
         </Pane>

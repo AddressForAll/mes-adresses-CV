@@ -16,7 +16,8 @@ function percentile(sortedValues: number[], p: number): number {
     return sortedValues[lower];
   }
   return (
-    sortedValues[lower] + (sortedValues[upper] - sortedValues[lower]) * (index - lower)
+    sortedValues[lower] +
+    (sortedValues[upper] - sortedValues[lower]) * (index - lower)
   );
 }
 

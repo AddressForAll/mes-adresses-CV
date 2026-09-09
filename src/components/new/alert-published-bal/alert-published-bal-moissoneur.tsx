@@ -1,4 +1,5 @@
 import { Alert } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { Revision } from "@/lib/api-depot/types";
 import { CommuneType } from "@/types/commune";
 import PublishedBALMoissoneur from "./published-bal-moissoneur";
@@ -14,13 +15,14 @@ function AlertPublishedBALMoissoneur({
   outdatedHarvestSources,
   commune,
 }: AlertPublishedBALMoissoneurProps) {
+  const t = useTranslations("alertPublishedBal");
   const isOutdatedSource = outdatedHarvestSources.includes(
     revision.context.extras.sourceId
   );
 
   return (
     <Alert
-      title={`Une Base Adresse Locale a déjà été publiée pour ${commune.nom}`}
+      title={t("alreadyPublished", { communeName: commune.nom })}
       intent={isOutdatedSource ? "info" : "warning"}
       marginTop={16}
     >

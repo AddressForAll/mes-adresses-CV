@@ -1,5 +1,6 @@
 import { useCallback, useContext, useState } from "react";
 import { Paragraph, Pane, Text, Button, defaultTheme } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
 import BalDataContext from "@/contexts/bal-data";
@@ -25,6 +26,7 @@ interface WarningVoieEmptyProps {
 }
 
 function WarningVoieEmpty({ baseLocale, voie }: WarningVoieEmptyProps) {
+  const t = useTranslations("warnings");
   const {
     reloadVoies,
     reloadToponymes,
@@ -57,8 +59,8 @@ function WarningVoieEmpty({ baseLocale, voie }: WarningVoieEmptyProps) {
           `/bal/${baseLocale.id}/${TabsEnum.TOPONYMES}/${toponyme.id}`
         );
       },
-      "La voie a bien été convertie en toponyme",
-      "La voie n’a pas pu être convertie en toponyme"
+      t("convertSuccess"),
+      t("convertError")
     );
 
     await convertToponyme();
@@ -86,14 +88,9 @@ function WarningVoieEmpty({ baseLocale, voie }: WarningVoieEmptyProps) {
   return (
     <>
       <DialogWarningAction
-        confirmLabel="Convertir en voie sans adresses"
+        confirmLabel={t("convertConfirm")}
         isShown={Boolean(toConvert)}
-        content={
-          <Paragraph>
-            Êtes vous bien sûr de vouloir convertir cette voie en voie sans
-            adresses ?
-          </Paragraph>
-        }
+        content={<Paragraph>{t("convertConfirmQuestion")}</Paragraph>}
         isLoading={onConvertLoading}
         onCancel={() => {
           setToConvert(null);
@@ -102,16 +99,16 @@ function WarningVoieEmpty({ baseLocale, voie }: WarningVoieEmptyProps) {
       />
       <>
         <Pane marginBottom={8}>
-          <Text>Cette voie ne contient aucun numéro</Text>
+          <Text>{t("voieEmptyText")}</Text>
         </Pane>
         <Button
           onClick={() => setToConvert(voie)}
           size="small"
-          title="Convertir la voie en voie sans adresses"
+          title={t("convertTitle")}
           appearance="primary"
           style={{ backgroundColor: defaultTheme.colors.purple600 }}
         >
-          Convertir en voie sans adresses
+          {t("convertConfirm")}
         </Button>
       </>
     </>

@@ -12,6 +12,7 @@ import SearchCommuneStep from "@/components/new/steps/search-commune-step";
 import ImportDataStep from "@/components/new/steps/import-data-step";
 import BALInfosStep from "@/components/new/steps/bal-infos-step";
 import { Button, Pane } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { BaseLocale, BasesLocalesService } from "@/lib/openapi-api-bal";
 import LocalStorageContext from "@/contexts/local-storage";
 import { useRouter } from "next/navigation";
@@ -27,15 +28,13 @@ interface NewPageProps {
   outdatedHarvestSources: string[];
 }
 
-const getSuggestedBALName = (commune?: CommuneType) => {
-  return commune ? `Adresses de ${commune.nom}` : null;
-};
-
 export default function NewPageComponent({
   defaultCommune,
   outdatedApiDepotClients,
   outdatedHarvestSources,
 }: NewPageProps) {
+  const t = useTranslations("newBal");
+  const tc = useTranslations("common");
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const { addBalAccess } = useContext(LocalStorageContext);
@@ -53,7 +52,7 @@ export default function NewPageComponent({
 
   useEffect(() => {
     if (commune) {
-      setBalName(getSuggestedBALName(commune));
+      setBalName(t("suggestedName", { communeName: commune.nom }));
     } else {
       setBalName(null);
     }
@@ -62,12 +61,12 @@ export default function NewPageComponent({
   const steps = useMemo(() => {
     return [
       {
-        label: "Choix de la commune",
+        label: t("steps.commune"),
         canBrowseNext: Boolean(commune),
         canBrowseBack: false,
       },
       {
-        label: "Import des données",
+        label: t("steps.import"),
         canBrowseNext:
           importValue === "file"
             ? Boolean(csvImportFile)
@@ -75,7 +74,7 @@ export default function NewPageComponent({
         canBrowseBack: !isLoading,
       },
       {
-        label: "Informations sur la BAL",
+        label: t("steps.infos"),
         canBrowseNext:
           !isLoading &&
           Boolean(balName) &&
@@ -94,6 +93,7 @@ export default function NewPageComponent({
     balName,
     adminEmails,
     newEmailInput,
+    t,
   ]);
 
   const onPreviousStep = useCallback(() => {
@@ -130,9 +130,8 @@ export default function NewPageComponent({
       }
     } catch {
       pushToast({
-        title: "Erreur",
-        message:
-          "Une erreur est survenue lors de la création de la Base Adresse Locale",
+        title: tc("error"),
+        message: t("createError"),
         intent: "danger",
       });
       setIsLoading(false);
@@ -149,9 +148,8 @@ export default function NewPageComponent({
       }
     } catch {
       pushToast({
-        title: "Erreur",
-        message:
-          "Une erreur est survenue lors de l'importation des données dans la Base Adresse Locale",
+        title: tc("error"),
+        message: t("importError"),
         intent: "danger",
       });
       setIsLoading(false);
@@ -226,7 +224,7 @@ export default function NewPageComponent({
                       style: { visibility: "hidden" },
                     })}
                   >
-                    Précédent
+                    {tc("previous")}
                   </Button>
                   <Button
                     appearance="primary"
@@ -238,9 +236,11 @@ export default function NewPageComponent({
                     disabled={!steps[currentStepIndex].canBrowseNext}
                     type="button"
                   >
-                    {currentStepIndex === steps.length - 1
-                      ? `Créer une Base Adresse Locale${isDemoMode ? " de demonstration" : ""}`
-                      : "Suivant"}
+                    {currentStepIndex !== steps.length - 1
+                      ? tc("next")
+                      : isDemoMode
+                        ? t("createDemoBal")
+                        : t("createBal")}
                   </Button>
                 </Pane>
               )}

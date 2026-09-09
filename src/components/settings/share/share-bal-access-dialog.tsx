@@ -1,4 +1,5 @@
 import { Alert, Dialog, MobilePhoneIcon, Pane, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import ShareClipBoard from "./share-clipboard";
 import ShareQRCode from "./share-qr-code";
 import { BaseLocale } from "@/lib/openapi-api-bal";
@@ -19,12 +20,13 @@ export function ShareBALAccessDialog({
   token,
   onCloseComplete,
 }: ShareEmailsDialogProps) {
+  const t = useTranslations("settings");
   const urlAdminBal = `${EDITEUR_URL}/bal/${baseLocale.id}/${token}`;
 
   return (
     <Dialog
       isShown={isShown}
-      title="Partagez l'accès avec d'autres appareils"
+      title={t("shareAccessTitle")}
       hasFooter={false}
       onCloseComplete={onCloseComplete}
     >
@@ -35,10 +37,7 @@ export function ShareBALAccessDialog({
         <Alert intent="success" marginTop={12} hasIcon={false}>
           <Pane display="flex" alignItems="center">
             <MobilePhoneIcon size={24} marginRight={8} />
-            <Text>
-              Mes Adresses fonctionne aussi sur votre mobile. Scannez le code QR
-              pour accéder à votre BAL.
-            </Text>
+            <Text>{t("shareAccessContent")}</Text>
           </Pane>
         </Alert>
       </Pane>

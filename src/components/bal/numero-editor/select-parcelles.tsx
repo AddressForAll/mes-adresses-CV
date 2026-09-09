@@ -9,6 +9,7 @@ import {
   Text,
   defaultTheme,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import ParcellesContext from "@/contexts/parcelles";
 import MapContext from "@/contexts/map";
@@ -25,6 +26,7 @@ function SelectParcelles({
   initialParcelles = [],
   isToponyme,
 }: SelectParcellesProps) {
+  const t = useTranslations("selectParcelles");
   const { isCadastreDisplayed, setIsCadastreDisplayed } =
     useContext(MapContext);
   const {
@@ -36,8 +38,6 @@ function SelectParcelles({
     handleParcelles,
   } = useContext(ParcellesContext);
   const { communeParcellesIds } = useContext(CadastreContext);
-  const addressType = isToponyme ? "toponyme" : "numéro";
-
   const invalidParcelles = highlightedParcelles.filter(
     (p) => communeParcellesIds.length > 0 && !communeParcellesIds.includes(p)
   );
@@ -54,8 +54,8 @@ function SelectParcelles({
   return (
     <Pane display="flex" flexDirection="column">
       <InputLabel
-        title="Parcelles cadastre"
-        help={`Depuis la carte, cliquez sur les parcelles que vous souhaitez ajouter au ${addressType}. En précisant les parcelles associées à cette adresse, vous accélérez sa réutilisation par de nombreux services, DDFiP, opérateurs de courrier, de fibre et de GPS.`}
+        title={t("title")}
+        help={isToponyme ? t("helpToponyme") : t("helpNumero")}
       />
       {highlightedParcelles.length > 0 ? (
         <Pane display="grid" gridTemplateColumns="1fr 1fr 1fr">
@@ -90,10 +90,7 @@ function SelectParcelles({
       ) : (
         <Pane>
           <Alert marginTop={8}>
-            <Text>
-              Depuis la carte, cliquez sur les parcelles que vous souhaitez
-              ajouter au {addressType}.
-            </Text>
+            <Text>{isToponyme ? t("emptyToponyme") : t("emptyNumero")}</Text>
           </Alert>
         </Pane>
       )}
@@ -107,9 +104,7 @@ function SelectParcelles({
           padding={8}
         >
           <Text color={defaultTheme.colors.purple600}>
-            {invalidParcelles.length > 1
-              ? "Plusieurs parcelles n'existent pas dans le cadastre"
-              : "Une parcelle n'existe pas dans le cadastre"}
+            {t("invalidParcelles", { count: invalidParcelles.length })}
           </Text>
         </Alert>
       )}
@@ -122,7 +117,7 @@ function SelectParcelles({
         iconAfter={ControlIcon}
         onClick={() => setIsCadastreDisplayed(!isCadastreDisplayed)}
       >
-        {isCadastreDisplayed ? "Masquer" : "Afficher"} le cadastre
+        {isCadastreDisplayed ? t("hideCadastre") : t("showCadastre")}
       </Button>
     </Pane>
   );

@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useCallback, useMemo } from "react";
 import { sortBy } from "lodash";
 import { Pane, Heading, Table, Checkbox } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { normalizeSort } from "@/lib/normalize";
 
@@ -25,6 +26,7 @@ function ListNumerosDeleted({
   selectedNumerosIds,
   setSelectedNumerosIds,
 }: ListNumerosDeletedProps) {
+  const t = useTranslations("trashList");
   const [filtered, setFilter] = useFuse(numeros, 200, fuseOptions);
 
   const scrollableItems = useMemo(
@@ -81,7 +83,7 @@ function ListNumerosDeleted({
         minHeight={64}
       >
         <Pane>
-          <Heading>Liste des numéros supprimés</Heading>
+          <Heading>{t("deletedNumerosList")}</Heading>
         </Pane>
       </Pane>
 
@@ -93,7 +95,7 @@ function ListNumerosDeleted({
             </Table.Cell>
           )}
           <Table.SearchHeaderCell
-            placeholder="Rechercher un numéro"
+            placeholder={t("searchNumero")}
             onChange={setFilter}
           />
         </Table.Head>
@@ -101,7 +103,7 @@ function ListNumerosDeleted({
         {filtered.length === 0 && (
           <Table.Row>
             <Table.TextCell color="muted" fontStyle="italic">
-              Aucun numéro
+              {t("noNumero")}
             </Table.TextCell>
           </Table.Row>
         )}

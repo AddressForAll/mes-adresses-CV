@@ -7,6 +7,7 @@ import {
   Checkbox,
   RadioGroup,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { Dispatch, SetStateAction, useContext, useState } from "react";
 import {
   DocumentGenerationData,
@@ -32,6 +33,8 @@ export function GenerateCertificatDialog<type extends GeneratedDocumentType>({
   setData,
   onDownload,
 }: GenerateCertificatDialogProps<type>) {
+  const t = useTranslations("documentGeneration");
+  const tc = useTranslations("common");
   const { data } =
     (docData as DocumentGenerationData<GeneratedDocumentType.CERTIFICAT_ADRESSAGE>) ||
     {};
@@ -42,9 +45,9 @@ export function GenerateCertificatDialog<type extends GeneratedDocumentType>({
   return (
     <Dialog
       isShown={docData?.type === GeneratedDocumentType.CERTIFICAT_ADRESSAGE}
-      title="Génération d'un certificat d'adressage"
-      cancelLabel="Annuler"
-      confirmLabel="Télécharger"
+      title={t("certificatDialogTitle")}
+      cancelLabel={tc("cancel")}
+      confirmLabel={t("download")}
       onCloseComplete={() => setData(null)}
       onCancel={() => setData(null)}
       isConfirmLoading={isGeneratingCertificat}
@@ -69,8 +72,8 @@ export function GenerateCertificatDialog<type extends GeneratedDocumentType>({
     >
       <Pane is="form" onSubmit={(e) => e.preventDefault()}>
         <TextInputField
-          label="Émetteur (optionnel)"
-          description="L'émetteur sera mentionné dans le certificat d'adressage"
+          label={t("emetteurLabel")}
+          description={t("emetteurDescription")}
           value={data?.emetteur || ""}
           onChange={(e) =>
             setData((data) => ({
@@ -81,10 +84,10 @@ export function GenerateCertificatDialog<type extends GeneratedDocumentType>({
               },
             }))
           }
-          placeholder="Sylvie Loiseau, Adjointe au Maire"
+          placeholder={t("emetteurPlaceholder")}
         />
         <Checkbox
-          label="Se souvenir de l'émetteur"
+          label={t("rememberEmetteur")}
           checked={data?.rememberEmetteur || false}
           onChange={(e) =>
             setData((data) => ({
@@ -98,8 +101,8 @@ export function GenerateCertificatDialog<type extends GeneratedDocumentType>({
           marginBottom={16}
         />
         <TextInputField
-          label="Destinataire (optionnel)"
-          description="Renseigner le nom du destinataire pour un certificat nominatif"
+          label={t("destinataireLabel")}
+          description={t("destinataireDescription")}
           value={data?.destinataire || ""}
           onChange={(e) =>
             setData((data) => ({
@@ -110,10 +113,10 @@ export function GenerateCertificatDialog<type extends GeneratedDocumentType>({
               },
             }))
           }
-          placeholder="Mr Rémi Dupont"
+          placeholder={t("destinatairePlaceholder")}
         />
         <RadioGroup
-          label="Format"
+          label={t("format")}
           value={format}
           options={[
             { label: ".pdf", value: "pdf" },

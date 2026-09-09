@@ -11,6 +11,7 @@ import {
   SortAscIcon,
   SortDescIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import LocalStorageContext from "@/contexts/local-storage";
 import DeleteWarning from "@/components/delete-warning";
 import BaseLocaleCard from "@/components/base-locale-card";
@@ -59,6 +60,7 @@ const sortFnMap = {
 const PAGE_SIZE = 8;
 
 function BasesLocalesList({ initialBasesLocales }: BasesLocalesListProps) {
+  const t = useTranslations("basesLocalesList");
   const [search, setSearch] = useState("");
   const [basesLocales, setBasesLocales] = useState(initialBasesLocales);
   const [currentPage, setCurrentPage] = useState(1);
@@ -115,8 +117,8 @@ function BasesLocalesList({ initialBasesLocales }: BasesLocalesListProps) {
           await BasesLocalesService.deleteBaseLocale(balId);
           Object.assign(OpenAPI, { TOKEN: null });
         },
-        "La Base Adresse Locale a bien été supprimée",
-        "La Base Adresse Locale n’a pas pu être supprimée"
+        t("deleteSuccess"),
+        t("deleteError")
       );
 
       await deleteBaseLocale();
@@ -159,16 +161,9 @@ function BasesLocalesList({ initialBasesLocales }: BasesLocalesListProps) {
         content={
           BALtoRemove?.status === BaseLocaleWithHabilitationDTO.status.DRAFT ||
           BALtoRemove?.status === BaseLocaleWithHabilitationDTO.status.DEMO ? (
-            <Paragraph>
-              Êtes vous bien sûr de vouloir supprimer cette Base Adresse Locale
-              ? Cette action est définitive.
-            </Paragraph>
+            <Paragraph>{t("deleteConfirm")}</Paragraph>
           ) : (
-            <Paragraph>
-              Êtes vous bien sûr de vouloir masquer cette Base Adresse Locale ?
-              Elle n&apos;apparaitra plus sur votre page d&apos;accueil, mais
-              vous pourrez toujours la récupérer ultérieurement.
-            </Paragraph>
+            <Paragraph>{t("hideConfirm")}</Paragraph>
           )
         }
         onCancel={() => setBALToRemove(null)}
@@ -193,7 +188,7 @@ function BasesLocalesList({ initialBasesLocales }: BasesLocalesListProps) {
               flexWrap="wrap"
             >
               <SearchInput
-                placeholder="Filtrer les bases adresses locales par nom"
+                placeholder={t("filterPlaceholder")}
                 onChange={(e) => {
                   setSearch(e.target.value);
                   setCurrentPage(1);
@@ -208,7 +203,7 @@ function BasesLocalesList({ initialBasesLocales }: BasesLocalesListProps) {
                 justifySelf="flex-end"
               >
                 <IconButton
-                  title="Trier par date de mise à jour"
+                  title={t("sortByDate")}
                   appearance="minimal"
                   className={styles["sort-button"]}
                   icon={
@@ -224,7 +219,7 @@ function BasesLocalesList({ initialBasesLocales }: BasesLocalesListProps) {
                   })}
                 />
                 <IconButton
-                  title="Trier par ordre alphabétique"
+                  title={t("sortByName")}
                   className={styles["sort-button"]}
                   appearance="minimal"
                   icon={

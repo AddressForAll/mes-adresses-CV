@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { formatDistanceToNow } from "date-fns";
-import { fr } from "date-fns/locale";
 import {
   Card,
   Pane,
@@ -12,6 +10,7 @@ import {
   Pulsar,
   Icon,
 } from "evergreen-ui";
+import { useFormatter, useTranslations } from "next-intl";
 import NextLink from "next/link";
 import StatusBadge from "@/components/status-badge";
 import {
@@ -31,17 +30,12 @@ interface BaseLocaleCardProps {
 }
 
 function BaseLocaleCard({ baseLocale, onRemove }: BaseLocaleCardProps) {
+  const t = useTranslations("baseLocaleCard");
+  const format = useFormatter();
   const [pendingSignalementsCount, setPendingSignalementsCount] = useState(0);
   const [flag, setFlag] = useState<string | null>(null);
-  const {
-    id,
-    status,
-    sync,
-    nom,
-    updatedAt,
-    nbNumeros,
-    nbNumerosCertifies,
-  } = baseLocale;
+  const { id, status, sync, nom, updatedAt, nbNumeros, nbNumerosCertifies } =
+    baseLocale;
 
   useEffect(() => {
     const fetchCommuneFlag = async () => {
@@ -82,7 +76,9 @@ function BaseLocaleCard({ baseLocale, onRemove }: BaseLocaleCardProps) {
     }
   }, [baseLocale]);
 
-  const majDate = formatDistanceToNow(new Date(updatedAt), { locale: fr });
+  // Locale-aware relative time — `formatDistanceToNow` from date-fns would
+  // need a separate locale object bundled per supported language.
+  const majDate = format.relativeTime(new Date(updatedAt));
 
   const canHardDelete =
     status === BaseLocaleWithHabilitationDTO.status.DRAFT ||
@@ -129,14 +125,14 @@ function BaseLocaleCard({ baseLocale, onRemove }: BaseLocaleCardProps) {
           </Heading>
           <Text fontSize={12} fontStyle="italic">
             {updatedAt
-              ? "Dernière mise à jour il y a " + majDate
-              : "Jamais mise à jour"}{" "}
+              ? t("lastUpdate", { relative: majDate })
+              : t("neverUpdated")}{" "}
           </Text>
         </Pane>
         <Pane display="flex" flexDirection="column">
           <Pane marginTop={5} display="flex">
             <Text display="block" marginRight={5}>
-              Adresses certifiées :
+              {t("certifiedAddresses")}
             </Text>
             <CertificationCount
               nbNumeros={nbNumeros}
@@ -171,7 +167,7 @@ function BaseLocaleCard({ baseLocale, onRemove }: BaseLocaleCardProps) {
           <button
             onClick={onRemove}
             className={`${styles["custom-button"]} ${styles["delete-button"]}`}
-            title="Supprimer la Base Adresse Locale"
+            title={t("deleteBal")}
           >
             <Icon icon={TrashIcon} />
           </button>
@@ -180,7 +176,7 @@ function BaseLocaleCard({ baseLocale, onRemove }: BaseLocaleCardProps) {
           <button
             onClick={onRemove}
             className={`${styles["custom-button"]} ${styles["hide-button"]}`}
-            title="Masquer la Base Adresse Locale"
+            title={t("hideBal")}
           >
             <Icon icon={EyeOffIcon} />
           </button>
@@ -190,10 +186,10 @@ function BaseLocaleCard({ baseLocale, onRemove }: BaseLocaleCardProps) {
         <NextLink
           href={`/bal/${id}/${TabsEnum.VOIES}`}
           className={`${styles["custom-button"]} ${styles["manage-button"]}`}
-          title="Accéder à la Base Adresse Locale"
+          title={t("openBal")}
         >
           <Text fontSize={16} fontWeight={300} color="inherit">
-            Gérer les adresses
+            {t("manageAddresses")}
           </Text>
           <Icon marginLeft={10} icon={ArrowRightIcon} />
         </NextLink>

@@ -2,6 +2,7 @@
 
 import { useContext, useState } from "react";
 import { Button, CrossIcon, Pane, SideSheet, Tab, Tablist } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import DrawerContext from "@/contexts/drawer";
 import BalDataContext from "@/contexts/bal-data";
@@ -15,6 +16,7 @@ import { BaseLocale } from "@/lib/openapi-api-bal";
 import BALRecoveryContext from "@/contexts/bal-recovery";
 
 function DrawerContent() {
+  const t = useTranslations("drawer");
   const { otherBalIdPublished } = useContext(BALRecoveryContext);
   const { isMobile } = useContext(LayoutContext);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -30,21 +32,21 @@ function DrawerContent() {
     !Boolean(otherBalIdPublished)
       ? [
           {
-            label: "Paramètres",
+            label: t("settings"),
             key: "settings",
             content: <Settings baseLocale={baseLocale} token={token} />,
           },
         ]
       : []),
     {
-      label: "Téléchargements",
+      label: t("downloads"),
       key: "downloads",
       content: <Downloads baseLocale={baseLocale} />,
     },
     ...(isAdmin && !Boolean(otherBalIdPublished)
       ? [
           {
-            label: "Corbeille",
+            label: t("trash"),
             key: "trash",
             content: <Trash />,
           },

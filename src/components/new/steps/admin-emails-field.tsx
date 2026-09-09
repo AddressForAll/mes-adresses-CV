@@ -7,6 +7,7 @@ import {
   AddIcon,
   Button,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import { validateEmail } from "@/lib/utils/email";
 import FormInput from "@/components/form-input";
@@ -27,6 +28,7 @@ function AdminEmailsField({
   setNewEmailInput,
   background = "white",
 }: AdminEmailsFieldProps) {
+  const t = useTranslations("adminEmailsField");
   const canAddEmail = useMemo(() => {
     return (
       newEmailInput &&
@@ -49,7 +51,7 @@ function AdminEmailsField({
   return (
     <FormInput padding={0} background={background}>
       <Pane marginBottom={8}>
-        <Label>Adresses emails des administrateurs *</Label>
+        <Label>{t("label")}</Label>
       </Pane>
       {adminEmails.map((email, index) => (
         <Pane
@@ -74,7 +76,7 @@ function AdminEmailsField({
           display="block"
           type="email"
           width="100%"
-          placeholder="Ajouter une adresse email…"
+          placeholder={t("placeholder")}
           maxWidth={400}
           value={newEmailInput}
           isInvalid={newEmailInput.length > 0 && !validateEmail(newEmailInput)}
@@ -89,14 +91,14 @@ function AdminEmailsField({
         <Button
           marginTop={8}
           type="button"
-          title="Ajouter une adresse mail"
+          title={t("addTitle")}
           iconAfter={AddIcon}
           appearance="primary"
           intent="success"
           onClick={onAddEmail}
           disabled={!canAddEmail}
         >
-          Ajouter un mail administrateur
+          {t("addButton")}
         </Button>
       </Pane>
     </FormInput>

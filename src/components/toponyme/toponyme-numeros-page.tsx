@@ -12,6 +12,7 @@ import {
   Link,
   Text,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import TokenContext from "@/contexts/token";
 import BalDataContext from "@/contexts/bal-data";
@@ -41,6 +42,8 @@ const fuseOptions = {
 };
 
 export default function ToponymeNumerosPage() {
+  const t = useTranslations("toponymePage");
+  const tc = useTranslations("common");
   const { isFormOpen, handleEditing, editedNumero, reset } = useFormState();
 
   const [error, setError] = useState<string | null>(null);
@@ -83,7 +86,7 @@ export default function ToponymeNumerosPage() {
       await reloadNumeros();
       await reloadToponymes();
       pushToast({
-        title: "Les numéros ont bien été modifiés",
+        title: t("updateManySuccess"),
         intent: "success",
       });
     } catch (error: unknown) {
@@ -148,7 +151,7 @@ export default function ToponymeNumerosPage() {
           {toponyme.nom}
         </Link>
         <Text color="muted">{" > "}</Text>
-        <Text aria-current="page">Liste des numéros</Text>
+        <Text aria-current="page">{t("numerosList")}</Text>
       </>
     );
 
@@ -198,7 +201,7 @@ export default function ToponymeNumerosPage() {
             alignItems="center"
             minHeight={64}
           >
-            <Heading>Liste des numéros</Heading>
+            <Heading>{t("numerosList")}</Heading>
             <Pane marginLeft="auto">
               <Button
                 iconBefore={token ? AddIcon : LockIcon}
@@ -213,14 +216,14 @@ export default function ToponymeNumerosPage() {
                       }
                 }
               >
-                Associer des numéros
+                {t("linkNumeros")}
               </Button>
             </Pane>
           </Pane>
         )}
 
         {error && (
-          <Alert marginY={5} intent="danger" title="Erreur">
+          <Alert marginY={5} intent="danger" title={tc("error")}>
             {error}
           </Alert>
         )}
@@ -230,7 +233,7 @@ export default function ToponymeNumerosPage() {
             {!isEditing && (
               <Table.Head>
                 <Table.SearchHeaderCell
-                  placeholder="Rechercher un numéro"
+                  placeholder={t("searchNumero")}
                   onChange={setFilter}
                 />
               </Table.Head>
@@ -239,7 +242,7 @@ export default function ToponymeNumerosPage() {
             {filtered.length === 0 && (
               <Table.Row>
                 <Table.TextCell color="muted" fontStyle="italic">
-                  Aucun numéro
+                  {t("noNumero")}
                 </Table.TextCell>
               </Table.Row>
             )}

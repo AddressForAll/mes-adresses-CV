@@ -3,7 +3,8 @@
 import MarkersContext from "@/contexts/markers";
 import ParcellesContext from "@/contexts/parcelles";
 import { useContext, useEffect, useState } from "react";
-import { getPositionName } from "@/lib/positions-types-list";
+import { getPositionTypeKey } from "@/lib/positions-types-list";
+import { useTranslations } from "next-intl";
 import { useMapStyleLoaded } from "./useMapStyleLoaded";
 import { SignalementDiff } from "@/lib/utils/signalement";
 import { useSignalementCadastre } from "./useSignalementCadastre";
@@ -12,6 +13,7 @@ export function useSignalementMapDiffDeletion(existingLocation: {
   positions: any[];
   parcelles: string[];
 }) {
+  const tp = useTranslations("positionTypes");
   const { parcelles, positions } = existingLocation;
   const [initialized, setInitialized] = useState(false);
   const { addMarker, disableMarkers } = useContext(MarkersContext);
@@ -49,7 +51,7 @@ export function useSignalementMapDiffDeletion(existingLocation: {
           isMapMarker: true,
           isDisabled: true,
           color: "orange",
-          label: getPositionName(position.type),
+          label: tp(getPositionTypeKey(position.type)),
           longitude: position.point.coordinates[0],
           latitude: position.point.coordinates[1],
         });

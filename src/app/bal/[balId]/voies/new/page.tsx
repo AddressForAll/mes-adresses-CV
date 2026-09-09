@@ -8,11 +8,13 @@ import { useContext, useEffect } from "react";
 import LayoutContext from "@/contexts/layout";
 import NextLink from "next/link";
 import { Text, Link } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import MapContext from "@/contexts/map";
 import { TilesLayerMode } from "@/components/map/layers/tiles";
 import BalDataContext from "@/contexts/bal-data";
 
 export default function NewVoiePage() {
+  const t = useTranslations("voiesPage");
   const router = useRouter();
   const { baseLocale } = useContext(BalDataContext);
   const { setBreadcrumbs } = useContext(LayoutContext);
@@ -29,7 +31,7 @@ export default function NewVoiePage() {
           Voies
         </Link>
         <Text color="muted">{" > "}</Text>
-        <Text aria-current="page">Nouvelle voie</Text>
+        <Text aria-current="page">{t("newVoie")}</Text>
       </>
     );
 

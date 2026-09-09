@@ -16,9 +16,18 @@ import {
   EnvelopeIcon,
   Link,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 export default function Accessibilite() {
+  const t = useTranslations("accessibility");
   const router = useRouter();
+
+  // Inline markup for the declaration copy, so translators can move the
+  // emphasised terms to wherever their language needs them.
+  const tags = {
+    strong: (chunks: React.ReactNode) => <Strong>{chunks}</Strong>,
+    br: () => <br />,
+  };
 
   return (
     <>
@@ -43,23 +52,16 @@ export default function Accessibilite() {
 
         <Pane gap="1em" display="flex" flexDirection="column">
           <Heading is="h2" size={900} color="#2952CC">
-            Déclaration d’accessibilité
+            {t("title")}
           </Heading>
           <Pane display="flex" flexDirection="column" justifyContent="center">
             <Pane>
               <Paragraph lineHeight="200%">
-                <Strong>La Base Adresse Nationale</Strong> s’engage à rendre ses
-                sites internet, intranet, extranet et ses progiciels accessibles
-                (et ses applications mobiles et mobilier urbain numérique)
-                conformément à l’article 47 de{" "}
-                <Strong>la loi n°2005-102 du 11 février 2005</Strong>. À cette
-                fin, elle met en œuvre la stratégie et les actions suivantes :
+                {t.rich("commitment", tags)}
               </Paragraph>
               <UnorderedList>
-                <ListItem>Fournir un site web accessible.</ListItem>
-                <ListItem>
-                  Prêter attention aux informations d’accessibilité des données.
-                </ListItem>
+                <ListItem>{t("action1")}</ListItem>
+                <ListItem>{t("action2")}</ListItem>
               </UnorderedList>
             </Pane>
 
@@ -71,18 +73,14 @@ export default function Accessibilite() {
               borderRadius={5}
               marginTop={20}
             >
-              <Text fontSize={16}>
-                Cette déclaration d’accessibilité a été établie le{" "}
-                <Strong>01/08/2022</Strong> et s’applique à{" "}
-                <Strong>mes-adresses.data.gouv</Strong>
-              </Text>
+              <Text fontSize={16}>{t.rich("declarationDate", tags)}</Text>
             </Pane>
           </Pane>
         </Pane>
 
         <Pane display="flex" flexDirection="column" gap="1em">
           <Heading is="h3" size={800} color="#2952CC">
-            État de conformité
+            {t("complianceStatus")}
           </Heading>
           <Pane
             padding="2em"
@@ -94,28 +92,20 @@ export default function Accessibilite() {
           >
             <Text color="#D14343" fontSize={22} fontWeight={600}>
               <DeleteIcon size={22} marginRight={8} />
-              Non-conforme
+              {t("nonCompliant")}
             </Text>
           </Pane>
           <Paragraph lineHeight="200%">
-            <Strong>mes-adresses.data.gouv</Strong> est non-conforme avec le{" "}
-            <Strong>
-              référentiel général d’amélioration de l’accessibilité
-            </Strong>{" "}
-            (RGAA), un audit d’accessibilité n’ayant pas encore été réalisé.
-            L’absence d’audit d’accessibilité ne remet pas en cause{" "}
-            <Strong>le caractère accessible</Strong> du site web actuel.
+            {t.rich("complianceContent", tags)}
           </Paragraph>
         </Pane>
 
         <Pane width="100%" display="flex" flexDirection="column" gap="1em">
           <Heading is="h3" size={800} color="#2952CC">
-            Information et contact
+            {t("infoAndContact")}
           </Heading>
           <Paragraph width="100%" lineHeight="200%">
-            Si vous n’arrivez pas à accéder à un contenu ou à un service, vous
-            pouvez contacter notre équipe pour être orienté vers une alternative
-            accessible ou obtenir le contenu sous une autre forme.
+            {t("infoAndContactContent")}
           </Paragraph>
           <Button
             onClick={async () => {
@@ -125,7 +115,7 @@ export default function Accessibilite() {
             iconBefore={EnvelopeIcon}
             width="fit-content"
           >
-            Nous contacter
+            {t("contactUs")}
           </Button>
         </Pane>
 
@@ -137,18 +127,10 @@ export default function Accessibilite() {
           marginBottom="2em"
         >
           <Heading is="h3" size={800} color="#2952CC">
-            Voie de recours
+            {t("remedies")}
           </Heading>
           <Pane>
-            <Paragraph>
-              Si vous constatez un <Strong>défaut d’accessibilité</Strong> vous
-              empêchant d’accéder à un contenu ou une fonctionnalité du site,
-              que vous nous le signalez et que vous ne parvenez pas à obtenir
-              une réponse de notre part, vous êtes en droit de faire parvenir
-              vos doléances ou une demande de saisine au{" "}
-              <Strong>Défenseur des droits</Strong>.<br />
-              Plusieurs moyens sont à votre disposition :
-            </Paragraph>
+            <Paragraph>{t.rich("remediesContent", tags)}</Paragraph>
             <UnorderedList>
               <ListItem>
                 <Link
@@ -157,7 +139,7 @@ export default function Accessibilite() {
                   color="neutral"
                   target="_blank"
                 >
-                  Écrire un message au <Strong>Défenseur des droits</Strong>.
+                  {t.rich("remedyWrite", tags)}
                 </Link>
               </ListItem>
               <ListItem>
@@ -167,13 +149,12 @@ export default function Accessibilite() {
                   color="neutral"
                   target="_blank"
                 >
-                  Contacter <Strong>le délégué du Défenseur des droits</Strong>
+                  {t.rich("remedyDelegate", tags)}
                 </Link>{" "}
-                dans votre région.
+                {t("remedyDelegateSuffix")}
               </ListItem>
               <ListItem>
-                Envoyer un courrier par la poste (gratuit, ne pas mettre de
-                timbre).
+                {t("remedyPost")}
                 <br />
                 <Strong>
                   Défenseur des droits

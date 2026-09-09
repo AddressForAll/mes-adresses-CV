@@ -1,10 +1,13 @@
 "use client";
 
 import { Pane, Heading, Paragraph } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import useWindowSize from "@/hooks/useWindowSize";
 
 export default function MentionsLegales() {
+  const t = useTranslations("legalNotice");
   const { isMobile } = useWindowSize();
+
   return (
     <>
       <Pane
@@ -18,45 +21,40 @@ export default function MentionsLegales() {
             })}
       >
         <Heading is="h1" fontSize={24} marginBottom={30}>
-          Bases Adresses Locales – Mentions légales
+          {t("title")}
         </Heading>
 
         <Pane marginTop="20px" marginBottom="20px" is="section">
           <Heading is="h2" fontSize={20} marginBottom={10}>
-            Éditeur de la plateforme
+            {t("publisher")}
           </Heading>
 
-          <Paragraph>
-            Bases Adresses Locales est édité au sein de l’Incubateur des
-            Territoires de l’Agence nationale de la cohésion des territoires
-            (ANCT) située :
-          </Paragraph>
+          <Paragraph>{t("publisherContent")}</Paragraph>
           <Pane marginTop="15px">
             <Paragraph>20 avenue de Ségur</Paragraph>
             <Paragraph>75007 Paris</Paragraph>
             <Paragraph>France</Paragraph>
 
-            <Paragraph marginTop="15px">Téléphone : 01 85 58 60 00</Paragraph>
+            <Paragraph marginTop="15px">
+              {t("phone", { number: "01 85 58 60 00" })}
+            </Paragraph>
           </Pane>
         </Pane>
 
         <Pane marginTop="20px" marginBottom="20px" is="section">
           <Heading is="h2" fontSize={20} marginBottom={10}>
-            Directeur de la publication
+            {t("publicationDirector")}
           </Heading>
 
-          <Paragraph>
-            Le directeur de publication est Monsieur Stanislas BOURRON,
-            Directeur général de l’ANCT.
-          </Paragraph>
+          <Paragraph>{t("publicationDirectorContent")}</Paragraph>
         </Pane>
 
         <Pane marginTop="20px" marginBottom="20px" is="section">
           <Heading is="h2" fontSize={20} marginBottom={10}>
-            Hébergement de la plateforme
+            {t("hosting")}
           </Heading>
 
-          <Paragraph>La plateforme est hébergée par :</Paragraph>
+          <Paragraph>{t("hostingContent")}</Paragraph>
 
           <Pane marginTop="15px">
             <Paragraph>Scalingo SAS</Paragraph>
@@ -70,22 +68,17 @@ export default function MentionsLegales() {
 
         <Pane marginTop="20px" marginBottom="20px" is="section">
           <Heading is="h2" fontSize={20} marginBottom={10}>
-            Accessibilité
+            {t("accessibility")}
           </Heading>
 
-          <Paragraph>
-            La conformité aux normes d’accessibilité numérique est un objectif
-            ultérieur mais nous tâchons de rendre cette plateforme accessible à
-            toutes et à tous.
-          </Paragraph>
+          <Paragraph>{t("accessibilityContent")}</Paragraph>
 
           <Heading is="h3" fontSize={18} marginBottom={10} marginTop={10}>
-            En savoir plus
+            {t("learnMore")}
           </Heading>
 
           <Paragraph>
-            Pour en savoir plus sur la politique d’accessibilité numérique de
-            l’État :{" "}
+            {t("learnMoreContent")}{" "}
             <a target="_blank" href="https://accessibilite.numerique.gouv.fr/">
               https://accessibilite.numerique.gouv.fr/
             </a>
@@ -94,39 +87,25 @@ export default function MentionsLegales() {
 
         <Pane marginTop="20px" marginBottom="20px" is="section">
           <Heading is="h2" fontSize={20} marginBottom={10}>
-            Signaler un dysfonctionnement
+            {t("reportIssue")}
           </Heading>
 
           <Paragraph>
-            Si vous rencontrez un défaut d’accessibilité vous empêchant
-            d’accéder à un contenu ou une fonctionnalité de la plateforme, merci
-            de nous en faire part :{" "}
+            {t("reportIssueContent")}{" "}
             <a href="mailto:adresse@data.gouv.fr">adresse@data.gouv.fr</a>
           </Paragraph>
 
-          <Paragraph>
-            Si vous n’obtenez pas de réponse rapide de notre part, vous êtes en
-            droit de faire parvenir vos doléances ou une demande de saisine au
-            Défenseur des Droits.
-          </Paragraph>
+          <Paragraph>{t("noResponseContent")}</Paragraph>
         </Pane>
 
         <Pane marginTop="20px" marginBottom="20px" is="section">
           <Heading is="h2" fontSize={20} marginBottom={10}>
-            Sécurité
+            {t("security")}
           </Heading>
 
-          <Paragraph>
-            La plateforme est protégée par un certificat électronique,
-            matérialisé pour la grande majorité des navigateurs par un cadenas.
-            Cette protection participe à la confidentialité des échanges.
-          </Paragraph>
+          <Paragraph>{t("securityContent1")}</Paragraph>
 
-          <Paragraph>
-            En aucun cas, les services associés à la plateforme ne seront à
-            l’origine d’envoi d’e-mails pour vous demander la saisie
-            d’informations personnelles.
-          </Paragraph>
+          <Paragraph>{t("securityContent2")}</Paragraph>
         </Pane>
       </Pane>
     </>

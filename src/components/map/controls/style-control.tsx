@@ -2,6 +2,7 @@
 
 import { useContext, useMemo, useState, useEffect } from "react";
 import { Pane, SelectMenu, Button, Position, LayersIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import CadastreControl from "@/components/map/controls/cadastre-control";
 import { CommuneType } from "@/types/commune";
@@ -11,12 +12,13 @@ import { ExtendedBaseLocaleDTO } from "@/lib/openapi-api-bal";
 import CadastreSearchInput from "./cadastre-search-input";
 import { getCountry } from "@/lib/countries";
 
-export const STYLE_LABELS: Record<MapStyle, string> = {
-  [MapStyle.ORTHO]: "Photographie aérienne",
-  [MapStyle.VECTOR]: "Plan OpenStreetMap",
-  [MapStyle.PLAN_IGN]: "Plan IGN",
-  [MapStyle.STREET]: "Plan (CARTO)",
-  [MapStyle.SATELLITE]: "Satellite (Esri)",
+/** Catalog keys for the built-in basemap names (`basemaps` namespace). */
+export const STYLE_LABEL_KEYS: Record<MapStyle, string> = {
+  [MapStyle.ORTHO]: "ortho",
+  [MapStyle.VECTOR]: "vector",
+  [MapStyle.PLAN_IGN]: "planIgn",
+  [MapStyle.STREET]: "street",
+  [MapStyle.SATELLITE]: "satellite",
 };
 
 interface StyleControlProps {
@@ -36,6 +38,8 @@ function StyleControl({
   isCadastreDisplayed,
   handleCadastre,
 }: StyleControlProps) {
+  const t = useTranslations("mapControls");
+  const tb = useTranslations("basemaps");
   const [showPopover, setShowPopover] = useState(false);
   const { registeredMapStyle, setRegisteredMapStyle } =
     useContext(LocalStorageContext);
@@ -52,7 +56,7 @@ function StyleControl({
     };
     return [
       ...getCountry(baseLocale.country).basemaps.map((value) => ({
-        label: STYLE_LABELS[value],
+        label: tb(STYLE_LABEL_KEYS[value]),
         value,
         isAvailable: perCommuneAvailability[value] ?? true,
       })),
@@ -102,7 +106,7 @@ function StyleControl({
         <SelectMenu
           closeOnSelect
           position={Position.TOP_LEFT}
-          title="Choix du fond de carte"
+          title={t("chooseBasemap")}
           hasFilter={false}
           height={40 + 33 * availableStyles.length}
           options={availableStyles}
@@ -125,7 +129,7 @@ function StyleControl({
             style={{ marginRight: ".5em", borderRadius: "0 3px 3px 0" }}
           />
           <div className="map-style-label">
-            {availableStyles[0]?.label ?? "Aucun fond de carte"}
+            {availableStyles[0]?.label ?? t("noBasemap")}
           </div>
         </Button>
       )}

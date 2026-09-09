@@ -9,6 +9,7 @@ import {
   CrossIcon,
   Icon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import CommuneFlag from "./commune-flag";
 import { CommuneType } from "@/types/commune";
@@ -17,6 +18,7 @@ import MiniCard from "./mini-card";
 import LocalStorageContext from "@/contexts/local-storage";
 
 function WelcomeMessage({ commune }: { commune: CommuneType }) {
+  const t = useTranslations("welcomeMessage");
   const { wasWelcomed, setWasWelcomed } = useContext(LocalStorageContext);
   const [isShown, setIsShown] = useState(false);
 
@@ -34,9 +36,7 @@ function WelcomeMessage({ commune }: { commune: CommuneType }) {
             <Heading textAlign="center">
               <CommuneFlag codeCommune={commune.code} />
             </Heading>
-            <Heading>
-              Bienvenue sur la nouvelle Base Adresse Locale de {commune.nom}
-            </Heading>
+            <Heading>{t("title", { communeName: commune.nom })}</Heading>
           </Pane>
           <Icon
             icon={CrossIcon}
@@ -48,7 +48,7 @@ function WelcomeMessage({ commune }: { commune: CommuneType }) {
           />
         </Pane>
       }
-      confirmLabel="Commencez l’adressage"
+      confirmLabel={t("start")}
       hasCancel={false}
       onConfirm={() => setWasWelcomed(true)}
       onCloseComplete={() => setWasWelcomed(true)}
@@ -58,7 +58,7 @@ function WelcomeMessage({ commune }: { commune: CommuneType }) {
           <Pane marginRight={32}>
             <AchievementBadge
               icone="/static/images/achievements/published-bal.svg"
-              title="Publication"
+              title={t("publicationBadge")}
               completed={true}
               width={64}
               height={64}
@@ -66,29 +66,27 @@ function WelcomeMessage({ commune }: { commune: CommuneType }) {
           </Pane>
           <Pane>
             <Heading>
-              Commencez par la <b>publication</b> !
+              {t.rich("startWithPublication", {
+                b: (chunks) => <b>{chunks}</b>,
+              })}
             </Heading>
             <Paragraph marginY={16}>
-              La BAL deviendra alors l&apos;unique source officielle des
-              adresses de {commune.nom}
+              {t("officialSource", { communeName: commune.nom })}
             </Paragraph>
           </Pane>
         </Pane>
         <br />
         <Pane display="flex" flexDirection="row">
           <Pane>
-            <Heading>Adressez à votre rythme.</Heading>
+            <Heading>{t("ownPaceTitle")}</Heading>
             <Paragraph marginY={16}>
-              Une fois publiées, les adresses sont syncronisées avec la Base
-              Adresse Nationale.
-              <br />
-              Toutes vos modifications remonteront au fil de l&apos;eau.
+              {t.rich("ownPaceContent", { br: () => <br /> })}
             </Paragraph>
           </Pane>
         </Pane>
 
         <Pane marginY={16}>
-          <Heading marginBottom={16}>Besoin d&apos;aide ?</Heading>
+          <Heading marginBottom={16}>{t("needHelp")}</Heading>
           <Pane
             display="flex"
             flexDirection="row"
@@ -96,17 +94,17 @@ function WelcomeMessage({ commune }: { commune: CommuneType }) {
           >
             <MiniCard
               img="/static/images/education.png"
-              message="Suivez une formation"
+              message={t("training")}
               href="https://adresse.data.gouv.fr/formation-en-ligne"
             />
             <MiniCard
               img="/static/images/video-call.png"
-              message="Regardez les tutoriels"
+              message={t("tutorials")}
               href="https://tube.numerique.gouv.fr/w/p/cm6YcSnDdztzRjKTH3vNFn?playlistPosition=1"
             />
             <MiniCard
               img="/static/images/manual.png"
-              message="Consultez les guides"
+              message={t("guides")}
               href="https://adresse.data.gouv.fr/documentation-bal"
             />
           </Pane>

@@ -1,5 +1,6 @@
 import React, { useContext, useCallback } from "react";
 import { Button, Pane, Paragraph } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import {
   BasesLocalesService,
@@ -12,6 +13,7 @@ interface PopulateSideBarProps {
 }
 
 function PopulateSideBar({ baseLocale }: PopulateSideBarProps) {
+  const t = useTranslations("populate");
   const { reloadVoies, setIsEditing, isEditing } = useContext(BalDataContext);
 
   const onPopulate = useCallback(async () => {
@@ -36,9 +38,7 @@ function PopulateSideBar({ baseLocale }: PopulateSideBarProps) {
         isLoading={isEditing}
         onClick={onPopulate}
       >
-        {isEditing
-          ? "Récupération des adresses…"
-          : "Récupérer les adresses de la BAN"}
+        {isEditing ? t("populating") : t("populate")}
       </Button>
     </Pane>
   );

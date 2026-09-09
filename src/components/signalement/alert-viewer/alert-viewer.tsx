@@ -2,6 +2,7 @@ import { Alert, Signalement } from "@/lib/openapi-signalement";
 import { SignalementHeader } from "../signalement-header";
 import Form from "@/components/form";
 import { Button, Pane, Paragraph } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useAlertMap } from "../hooks/useAlertMap";
 
 interface AlertViewerProps {
@@ -11,6 +12,7 @@ interface AlertViewerProps {
 }
 
 export function AlertViewer({ alert, author, onClose }: AlertViewerProps) {
+  const t = useTranslations("signalementForm");
   useAlertMap(alert);
 
   const createdAddressLabel =
@@ -32,7 +34,10 @@ export function AlertViewer({ alert, author, onClose }: AlertViewerProps) {
       {createdAddressLabel && (
         <Pane marginTop={8} marginBottom={8}>
           <Paragraph>
-            Adresse créée : <b>{createdAddressLabel}</b>
+            {t.rich("createdAddress", {
+              label: createdAddressLabel,
+              b: (chunks) => <b>{chunks}</b>,
+            })}
           </Paragraph>
         </Pane>
       )}

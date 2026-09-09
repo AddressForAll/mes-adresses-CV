@@ -2,6 +2,7 @@ import { ApiDepotService } from "@/lib/api-depot";
 import { Revision } from "@/lib/api-depot/types";
 import { CommuneType } from "@/types/commune";
 import { Button, LabTestIcon, Link, Pane, Spinner, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import AlertPublishedBALMesAdresses from "./alert-published-bal/alert-published-bal-mes-adresses";
 import AlertPublishedBALMoissoneur from "./alert-published-bal/alert-published-bal-moissoneur";
@@ -26,6 +27,7 @@ function CommunePublicationInfos({
   outdatedApiDepotClients,
   onCreateNewBAL,
 }: CommunePublicationInfosProps) {
+  const t = useTranslations("communePublicationInfos");
   const [apiDepotLastRevision, setApiDepotLastRevision] =
     useState<Revision | null>(null);
   const [existingBALCount, setExistingBALCount] = useState(0);
@@ -128,13 +130,12 @@ function CommunePublicationInfos({
               intent="none"
               onClick={() => onCreateNewBAL(false)}
             >
-              Créer une nouvelle Base Adresse Locale
+              {t("createNewBal")}
             </Button>
           ) : (
             <>
               <Text is="div" color="muted" marginTop={16}>
-                Si vous rencontrer un problème vous pouvez contacter notre
-                support:{" "}
+                {t("contactSupport")}{" "}
                 <Link href="mailto:adresse@data.gouv.fr">
                   adresse@data.gouv.fr
                 </Link>
@@ -145,11 +146,10 @@ function CommunePublicationInfos({
                 onClick={() => onCreateNewBAL(true)}
                 iconAfter={LabTestIcon}
               >
-                Créer une Base Adresse Locale de démonstration
+                {t("createDemoBal")}
               </Button>
               <Text is="div" color="muted" marginTop={8}>
-                Cette BAL ne pourra jamais être publiée et ne sera pas
-                sauvegardée
+                {t("demoNotice")}
               </Text>
             </>
           )}

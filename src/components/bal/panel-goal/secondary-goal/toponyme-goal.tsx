@@ -8,6 +8,7 @@ import {
   IconButton,
   TrashIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import NextLink from "next/link";
 import { useContext, useState } from "react";
 
@@ -28,6 +29,7 @@ interface LangGoalProps {
 }
 
 function LangGoal({ baseLocale, onIgnoreGoal }: LangGoalProps) {
+  const t = useTranslations("toponymeGoal");
   const [isActive, setIsActive] = useState(false);
   const { toponymes } = useContext(BalDataContext);
   const { matomoTrackEvent } = useContext(MatomoTrackingContext);
@@ -64,17 +66,17 @@ function LangGoal({ baseLocale, onIgnoreGoal }: LangGoalProps) {
               <Pane display="flex" alignItems="center" gap={16}>
                 <AchievementBadge
                   icone="/static/images/achievements/panneau-directionnel.png"
-                  title="Publication"
+                  title={t("badgeTitle")}
                   completed={isCompleted}
                 />
                 <Heading color={isCompleted && defaultTheme.colors.green700}>
-                  Lieux-dits / Compléments
+                  {t("title")}
                 </Heading>
               </Pane>
               {!hasToponymes && (
                 <IconButton
                   icon={TrashIcon}
-                  title="Supprimer objectif"
+                  title={t("ignoreGoal")}
                   appearance="minimal"
                   intent="danger"
                   onClick={onIgnoreGoal}
@@ -84,36 +86,31 @@ function LangGoal({ baseLocale, onIgnoreGoal }: LangGoalProps) {
             {hasToponymes ? (
               <Pane display="flex" justifyContent="start">
                 <Counter
-                  label={`lieux-dit${
-                    toponymes.length > 1 ? "s" : ""
-                  } / complément${toponymes.length > 1 ? "s" : ""}`}
+                  label={t("toponymesCounter", { count: toponymes.length })}
                   value={toponymes.length}
                   color={defaultTheme.colors.orange700}
                 />
                 <Counter
-                  label={`numéro${
-                    nbNumerosWithToponymes > 1 ? "s" : ""
-                  } associé${nbNumerosWithToponymes > 1 ? "s" : ""}`}
+                  label={t("numerosCounter", {
+                    count: nbNumerosWithToponymes,
+                  })}
                   value={nbNumerosWithToponymes}
                   color={defaultTheme.colors.orange700}
                 />
               </Pane>
             ) : (
               <Pane marginTop={16}>
-                <Paragraph>
-                  Enrichissez l&apos;adressage de votre commune en renseignant
-                  vos lieux-dits complémentaires et voies sans adresse.
-                </Paragraph>
+                <Paragraph>{t("emptyContent")}</Paragraph>
                 <Button
                   marginTop={16}
-                  title="Ajouter un toponyme"
+                  title={t("addToponymeTitle")}
                   is={NextLink}
                   appearance="primary"
                   intent="success"
                   href={`/bal/${baseLocale.id}/${TabsEnum.TOPONYMES}/new`}
                   width="100%"
                 >
-                  Créez un lieu-dit complémentaire ou une voie sans adresse
+                  {t("addToponyme")}
                   <AddIcon marginLeft={8} />
                 </Button>
               </Pane>
@@ -129,10 +126,7 @@ function LangGoal({ baseLocale, onIgnoreGoal }: LangGoalProps) {
       >
         {hasToponymes && (
           <Pane padding={8}>
-            <Paragraph>
-              Conservez vos noms de hameaux et lieux-dits historiques.
-              Associez-les aux numéros comme complément d&apos;adresse.
-            </Paragraph>
+            <Paragraph>{t("explanation")}</Paragraph>
           </Pane>
         )}
       </AccordionCard>

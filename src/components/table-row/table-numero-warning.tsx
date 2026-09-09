@@ -6,6 +6,7 @@ import {
 } from "@/lib/alerts/utils/alerts-numero.utils";
 import WarningNumero from "./alerts-warning/warning-numero";
 import { Li, majorScale, Menu, Pane, Ul } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 interface TableNumeroWarningProps {
   baseLocale: ExtendedBaseLocaleDTO;
@@ -15,6 +16,7 @@ interface TableNumeroWarningProps {
 }
 
 function TableNumeroWarning({ alerts, onSelect }: TableNumeroWarningProps) {
+  const t = useTranslations("warnings");
   const multiAlertsNumeroParcelle =
     alerts.filter((alert) => isAlertNumeroParcelle(alert)).length > 1;
 
@@ -28,7 +30,7 @@ function TableNumeroWarning({ alerts, onSelect }: TableNumeroWarningProps) {
         <Li>
           {multiAlertsNumeroParcelle ? (
             <WarningNumero
-              title="Plusieurs parcelles n'existent pas dans le cadastre"
+              title={t("parcellesMissing")}
               goToFormNumero={onSelect}
             />
           ) : null}
@@ -41,13 +43,13 @@ function TableNumeroWarning({ alerts, onSelect }: TableNumeroWarningProps) {
               )}
               {isAlertNumeroSuffixe(alert) ? (
                 <WarningNumero
-                  title="Le suffixe du numéro est incorrect"
+                  title={t("suffixeIncorrect")}
                   goToFormNumero={onSelect}
                 />
               ) : null}
               {!multiAlertsNumeroParcelle && isAlertNumeroParcelle(alert) ? (
                 <WarningNumero
-                  title="La parcelle n'existe pas dans le cadastre"
+                  title={t("parcelleMissing")}
                   goToFormNumero={onSelect}
                 />
               ) : null}

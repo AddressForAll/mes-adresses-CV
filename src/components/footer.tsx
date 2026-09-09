@@ -1,7 +1,9 @@
 import { Pane, Button } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import NextLink from "next/link";
 
 function Footer() {
+  const t = useTranslations("footer");
   return (
     <Pane
       bottom={0}
@@ -16,7 +18,7 @@ function Footer() {
         href="/mentions-legales"
         fontSize="0.8em"
       >
-        Mentions Légales
+        {t("legalNotice")}
       </Button>
       <Button
         is={NextLink}
@@ -25,7 +27,7 @@ function Footer() {
         href="/accessibilite"
         fontSize="0.8em"
       >
-        Accessibilité : non-conforme
+        {t("accessibility")}
       </Button>
     </Pane>
   );

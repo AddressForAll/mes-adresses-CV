@@ -10,6 +10,7 @@ import {
   HistoryIcon,
   Spinner,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { ApiDepotService } from "@/lib/api-depot";
 
@@ -25,6 +26,7 @@ interface BANHistoryProps {
 }
 
 function BANHistory({ baseLocaleId, syncStatus, commune }: BANHistoryProps) {
+  const t = useTranslations("banHistory");
   const [revisions, setRevisions] = useState<Revision[]>();
   const [isLoading, setIsLoading] = useState(true);
   const [isLimited, setIsLimited] = useState(true);
@@ -47,13 +49,13 @@ function BANHistory({ baseLocaleId, syncStatus, commune }: BANHistoryProps) {
   return (
     <Pane marginY={8}>
       <Heading is="h3" display="flex" alignItems="center" marginY={8}>
-        Historique de mise à jour <Icon icon={HistoryIcon} marginLeft={4} />
+        {t("title")} <Icon icon={HistoryIcon} marginLeft={4} />
       </Heading>
 
       {isLoading ? (
         <Pane display="flex">
           <Spinner marginRight={8} size={22} />
-          <Text fontStyle="italic">Chargement de l’historique</Text>
+          <Text fontStyle="italic">{t("loading")}</Text>
         </Pane>
       ) : (
         <>
@@ -77,7 +79,7 @@ function BANHistory({ baseLocaleId, syncStatus, commune }: BANHistoryProps) {
                   ))}
               </Pane>
             ) : (
-              <Text color="muted">Aucune Base Adresses Locales trouvée</Text>
+              <Text color="muted">{t("empty")}</Text>
             )}
           </Pane>
 
@@ -88,7 +90,7 @@ function BANHistory({ baseLocaleId, syncStatus, commune }: BANHistoryProps) {
                 marginTop={8}
                 onClick={() => setIsLimited((isLimited) => !isLimited)}
               >
-                {isLimited ? "Afficher tout l’historique" : "Réduire"}
+                {isLimited ? t("showAll") : t("reduce")}
               </Button>
             </Pane>
           )}

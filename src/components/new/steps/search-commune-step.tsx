@@ -1,6 +1,7 @@
 import { CommuneSearchField } from "@/components/commune-search";
 import { CommuneType } from "@/types/commune";
 import { Alert, Pane } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useContext, useEffect, useState } from "react";
 import CommunePublicationInfos from "../commune-publication-infos";
 import CountryContext from "@/contexts/country";
@@ -20,6 +21,7 @@ function SearchCommuneStep({
   outdatedHarvestSources,
   onCreateNewBAL,
 }: SearchCommuneStepProps) {
+  const t = useTranslations("searchCommuneStep");
   const [ref, setRef] = useState<HTMLInputElement>();
   const { countryProfile } = useContext(CountryContext);
 
@@ -31,10 +33,11 @@ function SearchCommuneStep({
 
   if (!countryProfile.geoApi) {
     return (
-      <Alert intent="none" title={`Aucune recherche de commune pour ${countryProfile.label}`}>
-        Les Bases Adresses Locales pour ce pays sont créées avec
-        l&apos;importeur Overture Maps, en ligne de commande — il n&apos;y a
-        pas encore de recherche de commune pour cette création guidée.
+      <Alert
+        intent="none"
+        title={t("noSearchTitle", { country: countryProfile.label })}
+      >
+        {t("noSearchContent")}
       </Alert>
     );
   }
@@ -46,7 +49,7 @@ function SearchCommuneStep({
         innerRef={setRef}
         id="commune"
         initialSelectedItem={commune}
-        label="Rechercher une commune"
+        label={t("label")}
         placeholder="Roche 42"
         appearance="default"
         maxWidth={500}

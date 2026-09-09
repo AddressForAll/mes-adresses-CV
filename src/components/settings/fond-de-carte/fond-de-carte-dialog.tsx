@@ -1,4 +1,5 @@
 import { Alert, Dialog, Pane } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import FondDeCarteForm from "./fond-de-carte-form";
 
 interface FondDeCarteDialogProps {
@@ -10,22 +11,17 @@ export function FondDeCarteDialog({
   isShown,
   onCloseComplete,
 }: FondDeCarteDialogProps) {
+  const t = useTranslations("fondDeCarte");
   return (
     <Dialog
       isShown={isShown}
-      title="Ajouter fond de carte"
+      title={t("addBasemapTitle")}
       hasFooter={false}
       onCloseComplete={onCloseComplete}
     >
       <Pane paddingBottom={16}>
-        <Alert
-          marginBottom={8}
-          intent="none"
-          title="Comment rajouter ses propres fonds de carte ?"
-        >
-          Seul les urls des flux WMTS ou WMS sont supportées. Les données
-          doivent être de type raster et les images de 256x256 pixels. Voir
-          l&apos;exemple ci-dessous.
+        <Alert marginBottom={8} intent="none" title={t("howToAddTitle")}>
+          {t("howToAddContent")}
         </Alert>
         <FondDeCarteForm />
       </Pane>

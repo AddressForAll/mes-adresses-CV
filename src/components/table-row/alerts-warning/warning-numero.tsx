@@ -1,4 +1,5 @@
 import { Pane, Text, Button, defaultTheme } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 interface WarningNumeroProps {
   title: string;
@@ -6,6 +7,7 @@ interface WarningNumeroProps {
 }
 
 function WarningNumero({ title, goToFormNumero }: WarningNumeroProps) {
+  const t = useTranslations("warnings");
   return (
     <>
       <Pane marginBottom={8}>
@@ -13,7 +15,7 @@ function WarningNumero({ title, goToFormNumero }: WarningNumeroProps) {
       </Pane>
       <Button
         onClick={goToFormNumero}
-        title="Éditer le numero"
+        title={t("editNumero")}
         size="small"
         appearance="primary"
         style={{ backgroundColor: defaultTheme.colors.purple600 }}

@@ -14,6 +14,7 @@ import {
   EditIcon,
   TrashIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { sortBy, uniq } from "lodash";
 
 import { normalizeSort } from "@/lib/normalize";
@@ -61,6 +62,8 @@ function GroupedActions({
   isAllSelectedCertifie,
   onSubmit,
 }: GroupedActionsProps) {
+  const t = useTranslations("groupedActions");
+  const tp = useTranslations("positionTypes");
   const selectedNumeros = numeros.filter(({ id }) =>
     selectedNumerosIds.includes(id)
   );
@@ -192,23 +195,21 @@ function GroupedActions({
   return (
     <Pane padding={16}>
       <Pane marginBottom={5}>
-        <Heading>Actions groupées</Heading>
+        <Heading>{t("title")}</Heading>
       </Pane>
       <Pane>
         <Dialog
           isShown={isShown}
           intent="success"
-          title="Modification multiple"
+          title={t("dialogTitle")}
           isConfirmLoading={isLoading}
           hasFooter={false}
           onCloseComplete={() => onFormCancel()}
         >
           <Pane marginX="-32px" marginBottom="-8px">
-            <Paragraph
-              marginBottom={8}
-              marginLeft={32}
-              color="muted"
-            >{`${selectedNumerosIds.length} numéros sélectionnés`}</Paragraph>
+            <Paragraph marginBottom={8} marginLeft={32} color="muted">
+              {t("selectedCount", { count: selectedNumerosIds.length })}
+            </Paragraph>
             <Pane
               is="form"
               background="gray300"
@@ -220,7 +221,7 @@ function GroupedActions({
               <FormInput>
                 <SelectField
                   value={selectedVoieId}
-                  label="Voie"
+                  label={t("voie")}
                   margin={0}
                   flex={1}
                   disabled={selectedNumerosUniqVoie.length > 1}
@@ -238,9 +239,7 @@ function GroupedActions({
 
               {selectedNumerosUniqVoie.length > 1 && (
                 <Alert intent="none" marginBottom={8}>
-                  Les numéros sélectionnés ne sont pas situés sur la même voie.
-                  La modification groupée de la voie n’est pas possible. Ils
-                  doivent être modifiés séparément.
+                  {t("mixedVoies")}
                 </Alert>
               )}
 
@@ -248,7 +247,7 @@ function GroupedActions({
                 <FormInput>
                   <SelectField
                     value={selectedToponymeId || ""}
-                    label="Toponyme"
+                    label={t("toponyme")}
                     margin={0}
                     flex={1}
                     disabled={selectedNumerosUniqToponyme.length > 1}
@@ -258,8 +257,8 @@ function GroupedActions({
                   >
                     <option value="">
                       {selectedToponymeId || selectedToponymeId === ""
-                        ? "Ne pas associer de toponyme"
-                        : "- Choisir un toponyme -"}
+                        ? t("noToponyme")
+                        : t("chooseToponyme")}
                     </option>
                     {sortBy(toponymes, (t) => normalizeSort(t.nom)).map(
                       ({ id, nom }) => (
@@ -274,9 +273,7 @@ function GroupedActions({
 
               {selectedNumerosUniqToponyme.length > 1 && (
                 <Alert intent="none" marginBottom={8}>
-                  Les numéros sélectionnés ne possèdent pas le même toponyme. La
-                  modification groupée du toponyme n’est pas possible. Ils
-                  doivent être modifiés séparément.
+                  {t("mixedToponymes")}
                 </Alert>
               )}
 
@@ -287,7 +284,7 @@ function GroupedActions({
                     selectedCodeCommune={communeDeleguee}
                     setSelectedCodeCommune={setCommuneDeleguee}
                     withOptionNull={true}
-                    label="Commune déléguée"
+                    label={t("communeDeleguee")}
                   />
                 </FormInput>
               )}
@@ -297,20 +294,18 @@ function GroupedActions({
                   value={positionType}
                   disabled={hasMultiposition}
                   flex={1}
-                  label="Type de position"
+                  label={t("positionType")}
                   margin={0}
                   display="block"
                   onChange={onPositionTypeChange}
                 >
                   {(selectedNumerosUniqType.length !== 1 ||
                     hasMultiposition) && (
-                    <option value="">
-                      -- Veuillez choisir un type de position --
-                    </option>
+                    <option value="">{t("choosePositionType")}</option>
                   )}
                   {positionsTypesList.map((positionType) => (
                     <option key={positionType.value} value={positionType.value}>
-                      {positionType.name}
+                      {tp(positionType.key)}
                     </option>
                   ))}
                 </SelectField>
@@ -318,9 +313,7 @@ function GroupedActions({
 
               {hasMultiposition && (
                 <Alert intent="none" marginBottom={8}>
-                  Certains numéros sélectionnés possèdent plusieurs positions.
-                  La modification groupée du type de position n’est pas
-                  possible. Ils doivent être modifiés séparément.
+                  {t("multiPosition")}
                 </Alert>
               )}
 
@@ -331,19 +324,22 @@ function GroupedActions({
               />
 
               {hasComment && (comment.length > 0 || removeAllComments) && (
-                <Alert intent="warning" title="Attention" marginBottom={8}>
+                <Alert
+                  intent="warning"
+                  title={t("warningTitle")}
+                  marginBottom={8}
+                >
                   <Text>
-                    certains numéros sélectionnés possèdent un commentaire. En
-                    cas de {removeAllComments ? "suppression" : "modification"},
-                    leurs commentaires seront{" "}
-                    {removeAllComments ? "supprimés" : "remplacés"}.
+                    {removeAllComments
+                      ? t("commentsWillBeRemoved")
+                      : t("commentsWillBeReplaced")}
                   </Text>
                 </Alert>
               )}
 
               {hasComment && (
                 <Checkbox
-                  label="Effacer tous les commentaires"
+                  label={t("clearAllComments")}
                   checked={removeAllComments}
                   onChange={onRemoveAllCommentsChange}
                 />
@@ -364,7 +360,7 @@ function GroupedActions({
           appearance="primary"
           onClick={() => handleClick()}
         >
-          Modifier les numéros
+          {t("editNumeros")}
         </Button>
         <Button
           marginLeft={16}
@@ -372,7 +368,7 @@ function GroupedActions({
           intent="danger"
           onClick={() => setIsRemoveWarningShown(true)}
         >
-          Supprimer les numéros
+          {t("deleteNumeros")}
         </Button>
       </Pane>
     </Pane>

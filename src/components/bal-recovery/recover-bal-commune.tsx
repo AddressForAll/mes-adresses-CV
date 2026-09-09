@@ -11,6 +11,7 @@ import {
   Spinner,
   Strong,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import LocalStorageContext from "@/contexts/local-storage";
 
@@ -39,6 +40,8 @@ function RecoverBALCommune({
   setIsLoading,
   onClose,
 }: RecoverBALCommuneProps) {
+  const t = useTranslations("balRecovery");
+  const tc = useTranslations("common");
   const { recoveryEmailCommuneSent, setRecoveryEmailCommuneSent } =
     useContext(LocalStorageContext);
   const { pushToast } = useContext(LayoutContext);
@@ -78,7 +81,7 @@ function RecoverBALCommune({
     });
     setRecoveryEmailCommuneSent(new Date());
     pushToast({
-      title: `Un email a été envoyé à la commune`,
+      title: t("emailSentToCommune"),
       intent: "success",
     });
     setError(null);
@@ -97,7 +100,7 @@ function RecoverBALCommune({
       setIsLoading(false);
       onClose();
       pushToast({
-        title: "Un email a déjà été envoyé, merci de patienter.",
+        title: t("emailAlreadySent"),
         intent: "warning",
       });
       return;
@@ -137,18 +140,15 @@ function RecoverBALCommune({
             width={66}
             height={66}
             src={"/static/images/mairie.svg"}
-            alt="logo mairie"
+            alt={t("mairieLogoAlt")}
             style={{ filter: "grayscale(100%)" }}
           />
         </Pane>
         <Heading is="h2" marginBottom={8}>
-          Avec le courrier électronique officiel de votre commune
+          {t("byCommuneTitle")}
         </Heading>
         {!baseLocale?.id && (
-          <Paragraph marginBottom={8}>
-            Renseigner la commune dont vous voulez récupérer les Bases Adresses
-            Locales.
-          </Paragraph>
+          <Paragraph marginBottom={8}>{t("chooseCommune")}</Paragraph>
         )}
         {!baseLocale && countryProfile.geoApi && (
           <CommuneSearchField
@@ -166,8 +166,9 @@ function RecoverBALCommune({
         {!baseLocale && !countryProfile.geoApi && (
           <Alert intent="none" hasIcon={false}>
             <Paragraph>
-              La récupération par commune n&apos;est pas disponible pour{" "}
-              {countryProfile.label}.
+              {t("communeRecoveryUnavailable", {
+                country: countryProfile.label,
+              })}
             </Paragraph>
           </Alert>
         )}
@@ -179,17 +180,16 @@ function RecoverBALCommune({
         {isLoadingEmails && (
           <Pane marginTop={16} display="flex" alignItems="center" gap={8}>
             <Spinner />
-            <Paragraph>
-              Chargement des adresses email de la commune...
-            </Paragraph>
+            <Paragraph>{t("loadingCommuneEmails")}</Paragraph>
           </Pane>
         )}
         {!isLoadingEmails && emailsCommune.length > 0 && (
           <Alert marginTop={16} intent="info" hasIcon={false}>
             <Paragraph color="blue600">
-              Un courrier électronique avec le lien de récupération va être
-              envoyé à l&apos;adresse de votre commune:{" "}
-              <Strong>{emailsCommune.join(", ")}</Strong>
+              {t.rich("emailWillBeSentTo", {
+                emails: emailsCommune.join(", "),
+                strong: (chunks) => <Strong>{chunks}</Strong>,
+              })}
             </Paragraph>
           </Alert>
         )}
@@ -202,7 +202,7 @@ function RecoverBALCommune({
           disabled={(!Boolean(baseLocale?.id) && !commune) || isLoading}
           alignSelf="flex-end"
         >
-          {isLoading ? "Chargement..." : "Recevoir le courriel"}
+          {isLoading ? tc("loading") : t("receiveEmail")}
         </Button>
       )}
     </Pane>

@@ -1,4 +1,5 @@
 import { Pane, Heading, Paragraph, VideoIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 const PEERTUBE_LINK =
@@ -10,6 +11,7 @@ interface VideoContainerProps {
 }
 
 function VideoContainer({ title, link }: VideoContainerProps) {
+  const t = useTranslations("help.video");
   // Extract code to use embed video
   const embedCode = link.replace(`${PEERTUBE_LINK}/w/`, "");
 
@@ -29,7 +31,7 @@ function VideoContainer({ title, link }: VideoContainerProps) {
         </Heading>
       )}
       <iframe
-        title="Création d’une Base Adresse Locale"
+        title={t("iframeTitle")}
         src={`${PEERTUBE_LINK}/videos/embed/${embedCode}?p2p=0`}
         height="315px"
         width="100%"
@@ -40,7 +42,7 @@ function VideoContainer({ title, link }: VideoContainerProps) {
       <Paragraph paddingTop={10}>
         <VideoIcon paddingRight={5} verticalAlign="middle" size={25} />
         <Link href={`${PEERTUBE_LINK}/c/base_adresse_locale/videos`}>
-          Retouvez tous les tutoriels vidéos
+          {t("allTutorials")}
         </Link>
       </Paragraph>
     </Pane>

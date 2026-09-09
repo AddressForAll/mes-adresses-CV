@@ -1,5 +1,6 @@
 import { useCallback, useContext, useMemo, useState } from "react";
 import { Paragraph, Pane, Text, Button, defaultTheme } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { normalize } from "@ban-team/adresses-util/lib/voies";
 
 import BalDataContext from "@/contexts/bal-data";
@@ -15,6 +16,7 @@ interface WarningVoieDoublonProps {
 }
 
 function WarningVoieDoublon({ voie }: WarningVoieDoublonProps) {
+  const t = useTranslations("warnings");
   const { baseLocale, voies } = useContext(BalDataContext);
   const [toFusion, setToFusion] = useState<ExtendedVoieDTO | null>(null);
   const [onFusionLoading, setOnFusionLoading] = useState<boolean>(false);
@@ -40,12 +42,14 @@ function WarningVoieDoublon({ voie }: WarningVoieDoublonProps) {
   return (
     <>
       <DialogWarningAction
-        confirmLabel="Fusionner les voies"
+        confirmLabel={t("mergeConfirm")}
         isShown={Boolean(toFusion)}
         content={
           <Paragraph>
-            Êtes vous bien sûr de vouloir fusionner les{" "}
-            {otherVoieIds.length + 1} voies avec le nom {voie.nom}
+            {t("mergeConfirmQuestion", {
+              count: otherVoieIds.length + 1,
+              voieName: voie.nom,
+            })}
           </Paragraph>
         }
         isLoading={onFusionLoading}
@@ -56,16 +60,16 @@ function WarningVoieDoublon({ voie }: WarningVoieDoublonProps) {
       />
       <>
         <Pane marginBottom={8}>
-          <Text>Plusieurs voies ont le même nom</Text>
+          <Text>{t("doublonText")}</Text>
         </Pane>
         <Button
           onClick={() => setToFusion(voie)}
           size="small"
-          title="Fusionner les voies avec le même nom"
+          title={t("mergeTitle")}
           appearance="primary"
           style={{ backgroundColor: defaultTheme.colors.purple600 }}
         >
-          Fusionner les voies
+          {t("mergeConfirm")}
         </Button>
       </>
     </>

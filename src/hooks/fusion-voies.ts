@@ -1,5 +1,6 @@
 "use client";
 import React, { useCallback, useContext } from "react";
+import { useTranslations } from "next-intl";
 import { normalize } from "@ban-team/adresses-util/lib/voies";
 
 import BalDataContext from "@/contexts/bal-data";
@@ -14,6 +15,7 @@ import MatomoTrackingContext, {
 export function useFusionVoies(
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) {
+  const t = useTranslations("fusionVoies");
   const {
     voies,
     reloadVoies,
@@ -51,8 +53,8 @@ export function useFusionVoies(
           // RELOAD ALERTS
           reloadVoieAlerts(newVoie as ExtendedVoieDTO, voies);
         },
-        "Les voies ont été fusionné",
-        "Les voies n’ont pas pu être fusionné"
+        t("mergeSuccess"),
+        t("mergeError")
       );
 
       await fusionVoies();

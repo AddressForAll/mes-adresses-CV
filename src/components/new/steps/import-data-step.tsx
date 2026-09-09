@@ -6,14 +6,8 @@ import {
   ValidateType,
   ValidateRowFullType,
 } from "@ban-team/validateur-bal";
-import {
-  Alert,
-  Pane,
-  Paragraph,
-  Radio,
-  Strong,
-  Text,
-} from "evergreen-ui";
+import { Alert, Pane, Paragraph, Radio, Strong, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { Fragment, JSX, useState } from "react";
 import { uniqBy } from "lodash";
 
@@ -48,21 +42,6 @@ function extractCommuneFromCSV(rows: ValidateRowFullType[]): CommuneRow[] {
   return uniqBy(communes, "code");
 }
 
-const IMPORT_OPTIONS = [
-  {
-    label: "Partir des données existantes dans la Base Adresse Nationale",
-    value: "ban",
-    description:
-      "Cette méthode est recommandée dans la plupart des cas. Elle vous permet de partir des adresses déjà présentes dans la Base Adresse Nationale (BAN) et de les enrichir avec vos propres données.",
-  },
-  {
-    label: "Utiliser un fichier CSV au format BAL",
-    value: "file",
-    description:
-      "Cette méthode est recommandée si vous avez déjà un fichier CSV au format BAL.",
-  },
-];
-
 const MAX_SIZE = 10 * 1024 * 1024;
 
 function ImportDataStep({
@@ -72,9 +51,22 @@ function ImportDataStep({
   setCsvImportFile,
   commune,
 }: ImportDataStepProps) {
+  const t = useTranslations("importDataStep");
   const [isLoading, setIsLoading] = useState(false);
   const [alert, setAlert] = useState<JSX.Element | null>(null);
-  const options = IMPORT_OPTIONS;
+  // Built inside the component so the labels go through the catalog.
+  const options = [
+    {
+      label: t("banOption.label"),
+      value: "ban",
+      description: t("banOption.description"),
+    },
+    {
+      label: t("fileOption.label"),
+      value: "file",
+      description: t("fileOption.description"),
+    },
+  ];
 
   const onAlert = (alert: JSX.Element, canCreateBAL?: boolean) => {
     if (!canCreateBAL) {
@@ -88,9 +80,8 @@ function ImportDataStep({
     if (file) {
       if (getFileExtension(file.name).toLowerCase() !== "csv") {
         return onAlert(
-          <Alert title="Une erreur est survenue" intent="danger" marginTop={16}>
-            Ce type de fichier n’est pas supporté. Vous devez déposer un fichier
-            CSV.
+          <Alert title={t("errorTitle")} intent="danger" marginTop={16}>
+            {t("notCsv")}
           </Alert>
         );
       }
@@ -113,34 +104,20 @@ function ImportDataStep({
           setCsvImportFile(file);
         } else if (communes.length === 1 && communes[0].code !== commune.code) {
           onAlert(
-            <Alert
-              title="Une erreur est survenue"
-              intent="danger"
-              marginTop={16}
-            >
-              Le fichier ne correspond pas à la commune sélectionnée à
-              l&apos;étape précédente.
+            <Alert title={t("errorTitle")} intent="danger" marginTop={16}>
+              {t("wrongCommune")}
             </Alert>
           );
         } else if (communes.length > 1) {
           onAlert(
-            <Alert
-              title="Une erreur est survenue"
-              intent="danger"
-              marginTop={16}
-            >
-              Le fichier ne doit contenir qu’une seule commune. Veuillez
-              vérifier votre fichier.
+            <Alert title={t("errorTitle")} intent="danger" marginTop={16}>
+              {t("multipleCommunes")}
             </Alert>
           );
         } else {
           onAlert(
-            <Alert
-              title="Une erreur est survenue"
-              intent="danger"
-              marginTop={16}
-            >
-              Aucune commune n&apos;a pu être trouvée.
+            <Alert title={t("errorTitle")} intent="danger" marginTop={16}>
+              {t("noCommuneFound")}
             </Alert>
           );
         }
@@ -148,31 +125,18 @@ function ImportDataStep({
         if (invalidRowsCount > 0) {
           onAlert(
             <Alert
-              title="Le fichier comporte des erreurs"
+              title={t("fileHasErrorsTitle")}
               intent="warning"
               marginTop={16}
             >
               <Paragraph marginTop={8}>
-                {invalidRowsCount > 1 ? (
-                  <>
-                    <Strong>
-                      {invalidRowsCount} lignes comportent au moins une erreur
-                    </Strong>{" "}
-                    et ne pourront pas être importées dans votre Base Adresse
-                    Locale.
-                  </>
-                ) : (
-                  <>
-                    <Strong>1 ligne comporte au moins une erreur</Strong> et ne
-                    pourra pas être importée dans votre Base Adresse Locale.
-                  </>
-                )}
+                {t.rich("invalidRows", {
+                  count: invalidRowsCount,
+                  strong: (chunks) => <Strong>{chunks}</Strong>,
+                })}
               </Paragraph>
 
-              <Paragraph>
-                En continuant, seules les adresses conformes seront utilisées
-                pour créer votre Base Adresse Locale.
-              </Paragraph>
+              <Paragraph>{t("onlyValidRows")}</Paragraph>
             </Alert>,
             true
           );
@@ -180,8 +144,8 @@ function ImportDataStep({
       } catch (err) {
         console.error(err);
         onAlert(
-          <Alert title="Une erreur est survenue" intent="danger" marginTop={16}>
-            Une erreur est survenue lors de l’analyse du fichier.
+          <Alert title={t("errorTitle")} intent="danger" marginTop={16}>
+            {t("parseError")}
           </Alert>
         );
       } finally {
@@ -195,21 +159,20 @@ function ImportDataStep({
 
     if (rejectedFiles.length > 1) {
       onAlert(
-        <Alert title="Une erreur est survenue" intent="danger" marginTop={16}>
-          Vous ne pouvez déposer qu’un seul fichier.
+        <Alert title={t("errorTitle")} intent="danger" marginTop={16}>
+          {t("singleFileOnly")}
         </Alert>
       );
     } else if (file.size > MAX_SIZE) {
       return onAlert(
-        <Alert title="Une erreur est survenue" intent="danger" marginTop={16}>
-          Ce fichier est trop volumineux. Vous devez déposer un fichier de moins
-          de 10 Mo.
+        <Alert title={t("errorTitle")} intent="danger" marginTop={16}>
+          {t("fileTooLarge")}
         </Alert>
       );
     } else {
       onAlert(
-        <Alert title="Une erreur est survenue" intent="danger" marginTop={16}>
-          Impossible de déposer ce fichier.
+        <Alert title={t("errorTitle")} intent="danger" marginTop={16}>
+          {t("cannotDropFile")}
         </Alert>
       );
     }
@@ -221,9 +184,9 @@ function ImportDataStep({
 
   return (
     <>
-      <Pane aria-label="Choisissez votre point de départ" role="group">
+      <Pane aria-label={t("chooseStartingPoint")} role="group">
         <Text fontWeight={500} fontSize="14px" color="gray700">
-          Choisissez votre point de départ
+          {t("chooseStartingPoint")}
         </Text>
         {options.map((option) => (
           <Fragment key={option.value}>
@@ -250,8 +213,8 @@ function ImportDataStep({
             maxSize={MAX_SIZE}
             height={150}
             marginBottom={24}
-            placeholder="Sélectionnez ou glissez ici votre fichier BAL au format CSV (maximum 10 Mo)"
-            loadingLabel="Analyse en cours"
+            placeholder={t("uploaderPlaceholder")}
+            loadingLabel={t("analysing")}
             disabled={isLoading}
             onDrop={onDrop}
             onDropRejected={onDropRejected}

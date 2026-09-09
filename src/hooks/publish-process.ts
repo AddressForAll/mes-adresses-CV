@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useContext, Dispatch, SetStateAction } from "react";
+import { useTranslations } from "next-intl";
 
 import { getBANCommune } from "@/lib/api-ban";
 import BalDataContext from "@/contexts/bal-data";
@@ -23,6 +24,8 @@ interface UsePublishProcess {
 export default function usePublishProcess(
   commune: CommuneType
 ): UsePublishProcess {
+  const t = useTranslations("common");
+  const tp = useTranslations("publishProcess");
   const [massDeletionConfirm, setMassDeletionConfirm] = useState<
     null | (() => void)
   >(null);
@@ -43,9 +46,8 @@ export default function usePublishProcess(
       return (baseLocale.nbNumeros / communeBAN.nbNumeros) * 100 <= 50;
     } catch {
       pushToast({
-        title: "Erreur",
-        message:
-          "Impossible de récupérer les données de la Base Adresse Nationale",
+        title: t("error"),
+        message: tp("fetchBanError"),
         intent: "danger",
       });
 
@@ -74,8 +76,8 @@ export default function usePublishProcess(
         }
       } catch {
         pushToast({
-          title: "Erreur",
-          message: "Impossible de créer un processus d'habilitation",
+          title: t("error"),
+          message: tp("createHabilitationError"),
           intent: "danger",
         });
       }

@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { Button, Dialog, Heading, Link, Pane, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { BaseLocale } from "@/lib/openapi-api-bal";
 
 interface RecoverPublishedBALAlertProps {
@@ -15,6 +16,7 @@ function RecoverPublishedBALAlert({
   otherBalIdPublished,
   onClose,
 }: RecoverPublishedBALAlertProps) {
+  const t = useTranslations("balRecovery");
   const router = useRouter();
   const handleComplete = () => {
     onClose();
@@ -42,17 +44,16 @@ function RecoverPublishedBALAlert({
       >
         <Pane background="white" borderRadius={8} padding={16}>
           <Heading is="h2" textAlign="center">
-            Une BAL est déjà publiée pour cette commune
+            {t("alreadyPublishedTitle")}
           </Heading>
         </Pane>
         <Pane background="white" borderRadius={8} padding={16} marginTop={16}>
-          <Text is="p">Vous devez repartir de la BAL publiée</Text>
+          <Text is="p">{t("mustStartFromPublished")}</Text>
           <Button height={30} onClick={handleGoToBAL} marginTop={8}>
-            Accéder à la BAL publiée
+            {t("goToPublished")}
           </Button>
           <Text is="p" marginTop={24}>
-            Si vous voulez quand même repartir de cette BAL, veuillez contacter
-            le support:{" "}
+            {t("contactSupport")}{" "}
             <Link href="mailto:adresse@data.gouv.fr">adresse@data.gouv.fr</Link>
           </Text>
         </Pane>

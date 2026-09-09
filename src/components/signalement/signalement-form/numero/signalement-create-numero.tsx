@@ -18,6 +18,7 @@ import { useSignalementMapDiffCreation } from "@/components/signalement/hooks/us
 import LayoutContext from "@/contexts/layout";
 import BalDataContext from "@/contexts/bal-data";
 import { Alert, Link, Paragraph, Text, Pane, Button } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import useFuse from "@/hooks/fuse";
 import NextLink from "next/link";
 import { computeCompletNumero } from "@/lib/utils/numero";
@@ -43,6 +44,7 @@ function SignalementCreateNumero({
   handleClose,
   isLoading,
 }: SignalementCreateNumeroProps) {
+  const t = useTranslations("signalementForm");
   const { numero, suffixe, parcelles, positions, nomVoie } =
     signalement.changesRequested as NumeroChangesRequestedDTO;
   const { pushToast } = useContext(LayoutContext);
@@ -116,7 +118,7 @@ function SignalementCreateNumero({
     } catch (error) {
       console.error("Error accepting signalement:", error);
       pushToast({
-        title: "Erreur lors de l'acceptation du signalement.",
+        title: t("acceptError"),
         intent: "danger",
       });
     }
@@ -127,7 +129,7 @@ function SignalementCreateNumero({
       <SignalementNumeroDiffCard
         isActive
         signalementType={Signalement.type.LOCATION_TO_CREATE}
-        title="Demande de création d'adresse"
+        title={t("createNumeroRequest")}
         numero={{
           to: `${numero}${suffixe ? ` ${suffixe}` : ""}`,
         }}
@@ -148,22 +150,18 @@ function SignalementCreateNumero({
       {!existingVoie && similarVoies.length === 0 && (
         <Alert flexShrink={0}>
           <Text>
-            La nouvelle voie <b>{nomVoie}</b> sera créée en acceptant ce
-            signalement.
+            {t.rich("newVoieWillBeCreated", {
+              voieName: nomVoie,
+              b: (chunks) => <b>{chunks}</b>,
+            })}
           </Text>
         </Alert>
       )}
 
       {!isLoading && !existingVoie && similarVoies.length > 0 && (
-        <Alert
-          title="Accepter ce signalement pourrait créer un doublon"
-          flexShrink={0}
-          intent="warning"
-        >
+        <Alert title={t("possibleDuplicate")} flexShrink={0} intent="warning">
           <Paragraph>
-            La Base Adresse Locale comporte{" "}
-            {similarVoies.length === 1 ? `une voie` : `plusieurs voies`} dont le
-            nom est similaire :
+            {t("similarVoies", { count: similarVoies.length })}
           </Paragraph>
 
           {similarVoies.map((voie) => (
@@ -179,7 +177,7 @@ function SignalementCreateNumero({
                 onClick={() => setExistingVoie(voie)}
                 marginLeft={20}
               >
-                Ajouter l&apos;adresse sur cette voie
+                {t("addAddressToThisVoie")}
               </Button>
             </Pane>
           ))}
@@ -187,14 +185,13 @@ function SignalementCreateNumero({
       )}
 
       {!isLoading && numeroAlreadyExists && (
-        <Alert
-          title="Accepter ce signalement pourrait créer un doublon"
-          flexShrink={0}
-          intent="warning"
-        >
+        <Alert title={t("possibleDuplicate")} flexShrink={0} intent="warning">
           <Paragraph>
-            La voie <b>{existingVoie.nom}</b> comporte déjà une adresse au
-            numéro <b>{computeCompletNumero(numero, suffixe)}</b>.
+            {t.rich("numeroAlreadyExists", {
+              voieName: existingVoie.nom,
+              numero: computeCompletNumero(numero, suffixe),
+              b: (chunks) => <b>{chunks}</b>,
+            })}
           </Paragraph>
         </Alert>
       )}

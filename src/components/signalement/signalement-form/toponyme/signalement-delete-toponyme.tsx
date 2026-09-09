@@ -7,6 +7,7 @@ import LayoutContext from "@/contexts/layout";
 import { SignalementToponymeDiffCard } from "../../signalement-diff/signalement-toponyme-diff-card";
 import BalDataContext from "@/contexts/bal-data";
 import { Alert, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 interface SignalementDeleteToponymeProps {
   author: Signalement["author"];
@@ -25,6 +26,7 @@ function SignalementDeleteToponyme({
   handleClose,
   isLoading,
 }: SignalementDeleteToponymeProps) {
+  const t = useTranslations("signalementForm");
   const { nom, positions, parcelles } = existingLocation;
   const { pushToast } = useContext(LayoutContext);
   const { reloadToponymes } = useContext(BalDataContext);
@@ -39,7 +41,7 @@ function SignalementDeleteToponyme({
     } catch (error) {
       console.error("Error accepting signalement:", error);
       pushToast({
-        title: "Erreur lors de l'acceptation du signalement.",
+        title: t("acceptError"),
         intent: "danger",
       });
     }
@@ -50,7 +52,7 @@ function SignalementDeleteToponyme({
       <SignalementToponymeDiffCard
         isActive
         signalementType={Signalement.type.LOCATION_TO_DELETE}
-        title="Demande de suppression d'un toponyme"
+        title={t("deleteToponymeRequest")}
         nom={{
           to: nom,
         }}

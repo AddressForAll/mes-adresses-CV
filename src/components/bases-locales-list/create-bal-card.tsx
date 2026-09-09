@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Card, Pane, PlusIcon, UndoIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import BALRecoveryContext from "@/contexts/bal-recovery";
 import ButtonCircleEffect from "../button-circle-effect";
 import { useRouter } from "next/navigation";
 
 function CreateBaseLocaleCard() {
+  const t = useTranslations("basesLocalesList");
   const { setIsRecoveryDisplayed } = useContext(BALRecoveryContext);
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
@@ -26,14 +28,14 @@ function CreateBaseLocaleCard() {
       flexDirection="column"
     >
       <ButtonCircleEffect
-        label="Créer une base adresse locale"
+        label={t("createBal")}
         onClick={handleCreateClick}
         icon={PlusIcon}
         isLoading={isNavigating}
       />
       <Pane borderTop="1px solid #E6E8F0" />
       <ButtonCircleEffect
-        label="Récupérer une base adresse locale"
+        label={t("recoverBal")}
         onClick={() => setIsRecoveryDisplayed(true)}
         icon={UndoIcon}
       />

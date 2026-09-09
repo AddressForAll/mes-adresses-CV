@@ -9,7 +9,12 @@ interface ButtonCircleEffectProps {
   isLoading?: boolean;
 }
 
-function ButtonCircleEffect({ label, onClick, icon, isLoading = false }: ButtonCircleEffectProps) {
+function ButtonCircleEffect({
+  label,
+  onClick,
+  icon,
+  isLoading = false,
+}: ButtonCircleEffectProps) {
   return (
     <button
       onClick={onClick}

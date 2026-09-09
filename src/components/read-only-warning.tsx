@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Pane, Text, WarningSignIcon, Button } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import LayoutContext from "@/contexts/layout";
 import BALRecoveryContext from "@/contexts/bal-recovery";
 
 function ReadonlyWarning() {
+  const t = useTranslations("readOnlyWarning");
   const { setIsRecoveryDisplayed } = useContext(BALRecoveryContext);
   const { isMobile } = useContext(LayoutContext);
 
@@ -25,10 +27,7 @@ function ReadonlyWarning() {
         marginX=".5em"
         style={{ verticalAlign: "sub" }}
       />
-      <Text fontSize={isMobile ? 10 : 14}>
-        Vous êtes en mode consultation, vous ne pouvez pas modifier cette Base
-        Adresse Locale
-      </Text>
+      <Text fontSize={isMobile ? 10 : 14}>{t("message")}</Text>
       <Button
         height={24}
         marginX=".5em"
@@ -37,7 +36,7 @@ function ReadonlyWarning() {
           setIsRecoveryDisplayed(true);
         }}
       >
-        Récupérer mes accès
+        {t("recoverAccess")}
       </Button>
     </Pane>
   );

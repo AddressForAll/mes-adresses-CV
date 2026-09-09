@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Button, EndorsedIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import styles from "./certification-button.module.css";
 
 export interface CertificationButtonProps {
@@ -17,20 +18,22 @@ function CertificationButton({
   isCertified,
   children,
 }: CertificationButtonProps) {
+  const t = useTranslations("certificationButton");
+  const tc = useTranslations("common");
   const submitCertificationLabel = useMemo(() => {
     if (isLoading) {
-      return "En cours…";
+      return tc("inProgress");
     }
 
-    return isCertified ? "Enregistrer" : "Certifier et enregistrer";
+    return isCertified ? tc("save") : t("certifyAndSave");
   }, [isLoading, isCertified]);
 
   const submitLabel = useMemo(() => {
     if (isLoading) {
-      return "En cours…";
+      return tc("inProgress");
     }
 
-    return isCertified ? "Ne plus certifier et enregistrer" : "Enregistrer";
+    return isCertified ? t("uncertifyAndSave") : tc("save");
   }, [isLoading, isCertified]);
 
   return (

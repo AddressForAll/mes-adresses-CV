@@ -12,14 +12,16 @@ import {
   Text,
   Textarea,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { Alert as AlertType } from "@/lib/openapi-signalement";
 import { BadgeSelect } from "@/components/badge-select";
 import NumeroEditor from "@/components/bal/numero-editor";
 import BalDataContext from "@/contexts/bal-data";
 import SignalementContext from "@/contexts/signalement";
 import {
-  rejectionReasonsOptions,
+  rejectionReasons,
   RejectionReasonOption,
+  OTHER_REJECTION_REASON,
 } from "@/components/signalement/rejection-reasons";
 import { SignalementHeader } from "../signalement-header";
 import Form from "@/components/form";
@@ -44,6 +46,13 @@ export function MissingAddressAlertForm({
   handleReject,
   handleClose,
 }: MissingAddressAlertFormProps) {
+  const t = useTranslations("signalementForm");
+  const tr = useTranslations("rejectionReasons");
+  const tc = useTranslations("common");
+  const rejectionReasonOptions = rejectionReasons.map(({ value, key }) => ({
+    value,
+    label: tr(key),
+  }));
   const [showNumeroEditor, setShowNumeroEditor] = useState(false);
   const [showRejectionForm, setShowRejectionForm] = useState(false);
   const [rejectionReasonSelected, setRejectionReasonSelected] =
@@ -93,7 +102,7 @@ export function MissingAddressAlertForm({
     >
       <SignalementHeader signalement={alert} author={author} />
       <Heading size={400} marginBottom={12}>
-        Que souhaitez-vous faire ?
+        {t("whatDoYouWantToDo")}
       </Heading>
 
       {showRejectionForm ? (
@@ -105,27 +114,26 @@ export function MissingAddressAlertForm({
             marginBottom={8}
           >
             <Label htmlFor="reject-reason" marginBottom={8} display="block">
-              <Text fontWeight="bold">Raison</Text>
+              <Text fontWeight="bold">{t("reason")}</Text>
               {author?.email && (
                 <Text marginLeft={4} size={300} color="muted">
-                  (L&apos;auteur du signalement recevra cette information par
-                  email)
+                  {t("authorWillBeEmailed")}
                 </Text>
               )}
             </Label>
             <BadgeSelect
-              options={rejectionReasonsOptions}
+              options={rejectionReasonOptions}
               onChange={(value: string) =>
                 setRejectionReasonSelected(value as RejectionReasonOption)
               }
               value={rejectionReasonSelected}
             />
-            {rejectionReasonSelected === "Autre" && (
+            {rejectionReasonSelected === OTHER_REJECTION_REASON && (
               <Textarea
                 id="reject-reason"
                 value={rejectionReason}
                 onChange={(e) => setRejectionReason(e.target.value)}
-                placeholder="Précisez la raison du refus, merci de ne pas indiquer de données personnelles"
+                placeholder={t("reasonPlaceholder")}
                 rows={4}
                 resize="none"
               />
@@ -139,7 +147,7 @@ export function MissingAddressAlertForm({
               iconAfter={BanCircleIcon}
               onClick={async () => {
                 await handleReject(
-                  rejectionReasonSelected === "Autre"
+                  rejectionReasonSelected === OTHER_REJECTION_REASON
                     ? rejectionReason
                     : rejectionReasonSelected
                 );
@@ -147,15 +155,14 @@ export function MissingAddressAlertForm({
                 setRejectionReason("");
               }}
             >
-              Refuser et{" "}
-              {pendingSignalementsCount > 1 ? "passer au suivant" : "terminer"}
+              {t("rejectAnd", { count: pendingSignalementsCount })}
             </Button>
             <Button
               disabled={isLoading}
               appearance="default"
               onClick={() => setShowRejectionForm(false)}
             >
-              Annuler
+              {tc("cancel")}
             </Button>
           </Pane>
         </Pane>
@@ -168,7 +175,7 @@ export function MissingAddressAlertForm({
             iconBefore={PlusIcon}
             onClick={() => setShowNumeroEditor(true)}
           >
-            Créer une nouvelle adresse
+            {t("createNewAddress")}
           </Button>
           <Button
             disabled={isLoading}
@@ -177,20 +184,19 @@ export function MissingAddressAlertForm({
             iconAfter={BanCircleIcon}
             onClick={() => setShowRejectionForm(true)}
           >
-            Refuser
+            {t("reject")}
           </Button>
           <Button
             disabled={isLoading}
             appearance="default"
             onClick={handleClose}
           >
-            Retour
+            {tc("back")}
           </Button>
         </Pane>
       )}
       <Paragraph textAlign="center" marginTop={12}>
-        Il reste {pendingSignalementsCount} signalement
-        {pendingSignalementsCount === 1 ? "" : "s"} à traiter
+        {t("remaining", { count: pendingSignalementsCount })}
       </Paragraph>
     </Form>
   );

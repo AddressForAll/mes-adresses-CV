@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useContext } from "react";
 import { Pane, Dialog, Paragraph, Alert } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { BaseLocale, BasesLocalesService } from "@/lib/openapi-api-bal";
 import LayoutContext from "@/contexts/layout";
 import LocalStorageContext from "@/contexts/local-storage";
@@ -20,6 +21,8 @@ function RenewTokenDialog({
   setIsShown,
   setError,
 }: RenewTokenDialogProps) {
+  const t = useTranslations("renewTokenDialog");
+  const tc = useTranslations("common");
   const [isLoading, setIsLoading] = useState(false);
   const { toaster } = useContext(LayoutContext);
   const { addBalAccess } = useContext(LocalStorageContext);
@@ -30,8 +33,8 @@ function RenewTokenDialog({
 
     const renewTokenBaseLocale = toaster(
       () => BasesLocalesService.renewTokenBaseLocale(baseLocaleId),
-      "Les autorisations ont été renouvellé avec succès",
-      "Impossible de renouveller les autorisations",
+      t("success"),
+      t("error"),
       (err) => {
         setError(err.message);
       }
@@ -49,21 +52,17 @@ function RenewTokenDialog({
     <Pane>
       <Dialog
         isShown={isShown}
-        title="Renouvellement des autorisations"
+        title={t("title")}
         intent="success"
-        cancelLabel="Annuler"
-        confirmLabel="Valider"
+        cancelLabel={tc("cancel")}
+        confirmLabel={tc("validate")}
         isConfirmLoading={isLoading}
         onConfirm={() => handleConfirm()}
         onCloseComplete={() => setIsShown(false)}
       >
-        <Paragraph>
-          Vous avez supprimé un ou plusieurs collaborateurs, souhaitez-vous
-          procéder au renouvellement des autorisations ?
-        </Paragraph>
-        <Alert title="Action irréversible" marginY={8} intent="warning">
-          Vous ne pourrez plus modifier la Base Adresse Locale avant de
-          récupérer la nouvelle autorisation que vous recevrez par courriel.
+        <Paragraph>{t("question")}</Paragraph>
+        <Alert title={t("irreversibleTitle")} marginY={8} intent="warning">
+          {t("irreversibleContent")}
         </Alert>
       </Dialog>
     </Pane>

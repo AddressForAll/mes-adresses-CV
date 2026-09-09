@@ -1,6 +1,7 @@
 import { useCallback, useContext, useState, useMemo } from "react";
 import { cloneDeep, differenceWith, isEqual } from "lodash";
 import { Button, AddIcon, Pane } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { validateSourceWithTempMap } from "@/lib/utils/map";
 import RefreshIconRotate from "@/components/sub-header/bal-status/refresh-icon-rotate/refresh-icon-rotate";
@@ -15,11 +16,16 @@ import MatomoTrackingContext, {
   MatomoEventCategory,
 } from "@/contexts/matomo-tracking";
 import LayoutContext from "@/contexts/layout";
-import { STYLE_LABELS } from "@/components/map/controls/style-control";
-
-const RESERVED_BASEMAP_NAMES = Object.values(STYLE_LABELS);
+import { STYLE_LABEL_KEYS } from "@/components/map/controls/style-control";
 
 function FondDeCarteForm() {
+  const t = useTranslations("fondDeCarte");
+  const tb = useTranslations("basemaps");
+  // The built-in basemap names as the reader currently sees them — a custom
+  // basemap must not collide with one of them in the list they share.
+  const reservedBasemapNames = Object.values(STYLE_LABEL_KEYS).map((key) =>
+    tb(key)
+  );
   const [isLoading, setIsLoading] = useState(false);
   const { baseLocale, reloadBaseLocale } = useContext(BalDataContext);
   const { toaster } = useContext(LayoutContext);
@@ -41,8 +47,8 @@ function FondDeCarteForm() {
               fondsDeCartes,
             },
           }),
-        "Les fonds de carte ont bien été mis à jour",
-        "Les fonds de carte n’ont pas pu être mis à jour"
+        t("updateSuccess"),
+        t("updateError")
       );
       await saveFondsDeCarte();
       await reloadBaseLocale();
@@ -70,7 +76,7 @@ function FondDeCarteForm() {
 
         const nameIsValid =
           Boolean(styleMap.name) &&
-          !RESERVED_BASEMAP_NAMES.includes(styleMap.name) &&
+          !reservedBasemapNames.includes(styleMap.name) &&
           fondsDeCartesForm
             .slice(0, index)
             .every((s) => s.name !== styleMap.name);
@@ -135,7 +141,7 @@ function FondDeCarteForm() {
         iconBefore={AddIcon}
         onClick={onAddForm}
       >
-        Ajouter un fond de carte
+        {t("addBasemap")}
       </Button>
       {(fondsDeCartesForm.length > 0 ||
         baseLocale.settings?.fondsDeCartes?.length > 0) && (

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import NextLink from "next/link";
 import { Pane, Text, Link, PaneProps } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { BaseLocale, Toponyme, Voie } from "@/lib/openapi-api-bal";
 import LayoutContext from "@/contexts/layout";
 
@@ -17,6 +18,7 @@ function Breadcrumbs({
   toponyme,
   ...props
 }: BreadcrumbsProps) {
+  const t = useTranslations("nav");
   const { breadcrumbs } = useContext(LayoutContext);
 
   return (
@@ -28,7 +30,7 @@ function Breadcrumbs({
       {...props}
     >
       <Link is={NextLink} href="/">
-        Accueil
+        {t("home")}
       </Link>
       <Text color="muted">{" > "}</Text>
 

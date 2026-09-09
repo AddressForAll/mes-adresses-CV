@@ -8,6 +8,7 @@ import {
   TrashIcon,
   IconButton,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useContext, useState } from "react";
 import languesRegionales from "@ban-team/shared-data/langues-regionales.json";
 
@@ -28,6 +29,7 @@ interface LangGoalProps {
 }
 
 function LangGoal({ baseLocale, onEditNomsAlt, onIgnoreGoal }: LangGoalProps) {
+  const t = useTranslations("langGoal");
   const [isActive, setIsActive] = useState(false);
   const { voies, toponymes } = useContext(BalDataContext);
   const { matomoTrackEvent } = useContext(MatomoTrackingContext);
@@ -70,17 +72,17 @@ function LangGoal({ baseLocale, onEditNomsAlt, onIgnoreGoal }: LangGoalProps) {
               <Pane display="flex" alignItems="center" gap={16}>
                 <AchievementBadge
                   icone="/static/images/achievements/regional-language.svg"
-                  title="Logo Langue Régionale"
+                  title={t("badgeTitle")}
                   completed={isCompleted}
                 />
                 <Heading color={isCompleted && defaultTheme.colors.green700}>
-                  Langue Régionale
+                  {t("title")}
                 </Heading>
               </Pane>
               {!hasLangRegional && (
                 <IconButton
                   icon={TrashIcon}
-                  title="Supprimer objectif"
+                  title={t("ignoreGoal")}
                   appearance="minimal"
                   intent="danger"
                   onClick={onIgnoreGoal}
@@ -90,30 +92,23 @@ function LangGoal({ baseLocale, onEditNomsAlt, onIgnoreGoal }: LangGoalProps) {
             {hasLangRegional ? (
               <Pane display="flex" justifyContent="center">
                 <Counter
-                  label={`voie${nbWithLang > 1 ? "s" : ""}, place${
-                    nbWithLang > 1 ? "s" : ""
-                  } ou lieux-dit${nbWithLang > 1 ? "s" : ""} multilingue${
-                    nbWithLang > 1 ? "s" : ""
-                  }`}
+                  label={t("counter", { count: nbWithLang })}
                   value={nbWithLang}
                   color={defaultTheme.colors.blue700}
                 />
               </Pane>
             ) : (
               <Pane marginTop={16}>
-                <Paragraph>
-                  Pour un adressage multilingue, commencez par renseigner le nom
-                  de la commune en langue régionale
-                </Paragraph>
+                <Paragraph>{t("emptyContent")}</Paragraph>
                 <Button
                   marginTop={16}
-                  title="Modifiez langue régionale a la commune"
+                  title={t("editTitle")}
                   appearance="primary"
                   intent="success"
                   width="100%"
                   onClick={onEditNomsAlt}
                 >
-                  Modifiez le nom de la commune <EditIcon marginLeft={8} />
+                  {t("editCommuneName")} <EditIcon marginLeft={8} />
                 </Button>
               </Pane>
             )}

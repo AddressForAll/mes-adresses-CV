@@ -1,11 +1,12 @@
 import { Dispatch, SetStateAction, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Autocomplete, Position, SearchInput } from "evergreen-ui";
 import { useDebouncedCallback } from "use-debounce";
 import { ApiGeoService } from "@/lib/geo-api";
 import { CommuneType } from "@/types/commune";
 
 export interface CommuneSearchProps {
-  placeholder: string;
+  placeholder?: string;
   innerRef: Dispatch<any>;
   initialSelectedItem?: CommuneType;
   onSelect: Dispatch<SetStateAction<CommuneType>>;
@@ -13,12 +14,13 @@ export interface CommuneSearchProps {
 }
 
 function CommuneSearch({
-  placeholder = "Chercher une commune…",
+  placeholder,
   innerRef = () => {},
   initialSelectedItem = null,
   onSelect = () => {},
   ...props
 }: CommuneSearchProps) {
+  const t = useTranslations("communeSearch");
   const [communes, setCommunes] = useState([]);
 
   const onSearch = useDebouncedCallback(async (value) => {
@@ -60,7 +62,7 @@ function CommuneSearch({
           <SearchInput
             ref={(ref) => initRef(ref, getRef)}
             autoComplete="chrome-off"
-            placeholder={placeholder}
+            placeholder={placeholder ?? t("searchCommune")}
             value={inputValue}
             {...getInputProps({
               onChange: (e) => onSearch(e.target.value),

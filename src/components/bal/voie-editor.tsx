@@ -1,5 +1,6 @@
 import { useState, useContext, useCallback, useEffect } from "react";
 import { Pane, Button, RadioGroup } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import BalDataContext from "@/contexts/bal-data";
 import DrawContext from "@/contexts/draw";
@@ -43,17 +44,14 @@ interface VoieEditorProps {
   onClose: () => void;
 }
 
-const options = [
-  { label: "Numérique", value: Voie.typeNumerotation.NUMERIQUE },
-  { label: "Métrique", value: Voie.typeNumerotation.METRIQUE },
-];
-
 function VoieEditor({
   initialValue,
   onClose,
   formInputRef,
   onSubmit,
 }: VoieEditorProps) {
+  const t = useTranslations("voieEditor");
+  const tc = useTranslations("common");
   const [isLoading, setIsLoading] = useState(false);
   const [typeNumerotation, setTypeNumerotation] = useState(
     initialValue?.typeNumerotation || Voie.typeNumerotation.NUMERIQUE
@@ -97,8 +95,8 @@ function VoieEditor({
           ? toaster(
               async () =>
                 VoiesService.updateVoie(initialValue.id, body as UpdateVoieDTO),
-              "La voie a bien été modifiée",
-              "La voie n’a pas pu être modifiée",
+              t("updateSuccess"),
+              t("updateError"),
               (err) => {
                 setValidationMessages(err.body.message);
               }
@@ -109,8 +107,8 @@ function VoieEditor({
                   baseLocale.id,
                   body as CreateVoieDTO
                 ),
-              "La voie a bien été ajoutée",
-              "La voie n’a pas pu être ajoutée",
+              t("createSuccess"),
+              t("createError"),
               (err) => {
                 setValidationMessages(err.body.message);
               }
@@ -201,8 +199,8 @@ function VoieEditor({
           <AssistedTextField
             forwadedRef={ref}
             exitFocus={() => setIsFocus(false)}
-            label="Nom de la voie"
-            placeholder="Nom de la voie"
+            label={t("nom")}
+            placeholder={t("nom")}
             value={nom}
             onChange={onNomChange}
             validationMessage={getValidationMessage("voie_nom")}
@@ -225,9 +223,18 @@ function VoieEditor({
             isRequired
             className={styles["custom-radio-group"]}
             marginTop="1em"
-            label="Type de numérotation *"
+            label={t("typeNumerotation")}
             value={typeNumerotation}
-            options={options}
+            options={[
+              {
+                label: t("numerique"),
+                value: Voie.typeNumerotation.NUMERIQUE,
+              },
+              {
+                label: t("metrique"),
+                value: Voie.typeNumerotation.METRIQUE,
+              },
+            ]}
             onChange={(event) =>
               setTypeNumerotation(event.target.value as Voie.typeNumerotation)
             }
@@ -258,7 +265,7 @@ function VoieEditor({
           appearance="primary"
           intent="success"
         >
-          {isLoading ? "En cours…" : "Enregistrer"}
+          {isLoading ? tc("inProgress") : tc("save")}
         </Button>
 
         {onClose && (
@@ -269,7 +276,7 @@ function VoieEditor({
             display="inline-flex"
             onClick={onFormCancel}
           >
-            Annuler
+            {tc("cancel")}
           </Button>
         )}
       </Pane>

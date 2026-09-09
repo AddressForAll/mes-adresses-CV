@@ -2,6 +2,7 @@
 
 import { useState, useContext } from "react";
 import { Pane, Heading, SelectField } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import BalDataContext from "@/contexts/bal-data";
 import NumeroEditor from "@/components/bal/numero-editor";
 import ToponymeEditor from "@/components/bal/toponyme-editor";
@@ -15,6 +16,7 @@ interface AddressEditorProps {
 }
 
 function AddressEditor({ commune, closeForm }: AddressEditorProps) {
+  const t = useTranslations("addressEditor");
   const router = useRouter();
   const [isToponyme, setIsToponyme] = useState(false);
   const { voie, baseLocale } = useContext(BalDataContext);
@@ -22,14 +24,14 @@ function AddressEditor({ commune, closeForm }: AddressEditorProps) {
   return (
     <Pane display="flex" flexDirection="column" height="100%">
       <Pane padding={12} zIndex={1} background="tint2">
-        <Heading is="h4">Nouvelle adresse</Heading>
+        <Heading is="h4">{t("title")}</Heading>
         <SelectField
-          label="Créer un nouveau"
+          label={t("createNew")}
           value={isToponyme ? "toponyme" : "numero"}
           onChange={(e) => setIsToponyme(e.target.value === "toponyme")}
         >
-          <option value="numero">Numéro</option>
-          <option value="toponyme">Toponyme</option>
+          <option value="numero">{t("numero")}</option>
+          <option value="toponyme">{t("toponyme")}</option>
         </SelectField>
       </Pane>
 

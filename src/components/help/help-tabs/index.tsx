@@ -4,12 +4,13 @@ import Toponymes from "@/components/help/help-tabs/toponymes";
 import Numeros from "@/components/help/help-tabs/numeros";
 import Publication from "@/components/help/help-tabs/publication";
 
+/** Tab keys; labels live in the `help.tabs` catalog namespace. */
 export const TABS = [
-  "Base locale",
-  "Voies",
-  "Toponymes",
-  "Numéros",
-  "Publication",
+  "baseLocale",
+  "voies",
+  "toponymes",
+  "numeros",
+  "publication",
 ];
 
 interface HelpTabsProps {

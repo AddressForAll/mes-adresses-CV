@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useTranslations } from "next-intl";
 import {
   Signalement,
   ToponymeChangesRequestedDTO,
@@ -29,6 +30,7 @@ function SignalementUpdateToponyme({
   handleClose,
   isLoading,
 }: SignalementUpdateToponymeProps) {
+  const t = useTranslations("signalementForm");
   const {
     nom: existingNom,
     positions: existingPositions,
@@ -53,7 +55,7 @@ function SignalementUpdateToponyme({
     } catch (error) {
       console.error("Error accepting signalement:", error);
       pushToast({
-        title: "Erreur lors de l'acceptation du signalement.",
+        title: t("acceptError"),
         intent: "danger",
       });
     }
@@ -62,7 +64,7 @@ function SignalementUpdateToponyme({
   return (
     <>
       <SignalementToponymeDiffCard
-        title="Toponyme actuel"
+        title={t("currentToponyme")}
         isActive={activeCard === ActiveCardEnum.INITIAL}
         nom={{
           to: existingNom,
@@ -78,7 +80,7 @@ function SignalementUpdateToponyme({
         }}
       />
       <SignalementToponymeDiffCard
-        title="Modification proposée"
+        title={t("proposedChange")}
         isActive={activeCard === ActiveCardEnum.CHANGES}
         signalementType={Signalement.type.LOCATION_TO_UPDATE}
         nom={{
@@ -98,7 +100,7 @@ function SignalementUpdateToponyme({
         }}
       />
       <SignalementToponymeDiffCard
-        title="Toponyme après modification"
+        title={t("toponymeAfterChange")}
         isActive={activeCard === ActiveCardEnum.FINAL}
         nom={{
           to: nom,

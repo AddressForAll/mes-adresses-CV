@@ -1,17 +1,24 @@
 import { Paragraph, IconButton, ChevronRightIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import Tuto from "@/components/help/tuto";
 
 function Sidebar() {
+  const t = useTranslations("help.sidebarTuto");
+
   return (
-    <Tuto title="Je ne vois pas le menu latéral">
+    <Tuto title={t("title")}>
+      <Paragraph marginTop="default">{t("hidden")}</Paragraph>
       <Paragraph marginTop="default">
-        Ce menu peut-être caché afin de laisser plus d’espace à la cartographie.
-      </Paragraph>
-      <Paragraph marginTop="default">
-        Pour le faire réapparaitre, cliquez sur le bouton{" "}
-        <IconButton display="inline-block" margin={8} icon={ChevronRightIcon} />
-        en haut à gauche de votre écran.
+        {t.rich("showAgain", {
+          button: () => (
+            <IconButton
+              display="inline-block"
+              margin={8}
+              icon={ChevronRightIcon}
+            />
+          ),
+        })}
       </Paragraph>
     </Tuto>
   );

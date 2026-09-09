@@ -1,4 +1,5 @@
 import { Dialog } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 interface DialogWarningActionProps {
   confirmLabel: string;
@@ -17,11 +18,13 @@ function DialogWarningAction({
   onCancel,
   onConfirm,
 }: DialogWarningActionProps) {
+  const t = useTranslations("common");
+
   return (
     <Dialog
       isShown={isShown}
-      title="Attention"
-      cancelLabel="Annuler"
+      title={t("warning")}
+      cancelLabel={t("cancel")}
       confirmLabel={confirmLabel}
       onCloseComplete={onCancel}
       onCancel={onCancel}

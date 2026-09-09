@@ -1,4 +1,5 @@
 import { Heading, Pane, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import styles from "./stepper.module.css";
 
 interface StepperProps {
@@ -14,6 +15,7 @@ function Stepper({
   onStepChange,
   children,
 }: StepperProps) {
+  const t = useTranslations("stepper");
   return (
     <Pane className={styles.stepper}>
       <Pane className={styles["stepper-header"]}>
@@ -36,14 +38,14 @@ function Stepper({
         {currentStepIndex !== steps.length - 1 ? (
           <Pane>
             <Text fontWeight="bold" color="muted">
-              Étape suivante :
+              {t("nextStep")}
             </Text>{" "}
             <Text color="muted">{steps[currentStepIndex + 1].label}</Text>
           </Pane>
         ) : (
           <Pane>
             <Text fontWeight="bold" color="muted">
-              Dernière étape
+              {t("lastStep")}
             </Text>
           </Pane>
         )}

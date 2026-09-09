@@ -11,6 +11,7 @@ import BalDataContext from "@/contexts/bal-data";
 import { useSignalementMapDiffCreation } from "../../hooks/useSignalementMapDiffCreation";
 import useFuse from "@/hooks/fuse";
 import { Alert, Link, Paragraph } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import NextLink from "next/link";
 
 interface SignalementCreateToponymeProps {
@@ -30,6 +31,7 @@ function SignalementCreateToponyme({
   handleClose,
   isLoading,
 }: SignalementCreateToponymeProps) {
+  const t = useTranslations("signalementForm");
   const { nom, parcelles, positions } =
     signalement.changesRequested as ToponymeChangesRequestedDTO;
   const { pushToast } = useContext(LayoutContext);
@@ -61,7 +63,7 @@ function SignalementCreateToponyme({
     } catch (error) {
       console.error("Error accepting signalement:", error);
       pushToast({
-        title: "Erreur lors de l'acceptation du signalement.",
+        title: t("acceptError"),
         intent: "danger",
       });
     }
@@ -70,7 +72,7 @@ function SignalementCreateToponyme({
   return (
     <>
       <SignalementToponymeDiffCard
-        title="Demande de création d'un toponyme"
+        title={t("createToponymeRequest")}
         signalementType={Signalement.type.LOCATION_TO_CREATE}
         isActive
         nom={{
@@ -84,17 +86,9 @@ function SignalementCreateToponyme({
         }}
       />
       {!isLoading && similarToponymes.length > 0 && (
-        <Alert
-          title="Accepter ce signalement pourrait créer un doublon"
-          flexShrink={0}
-          intent="warning"
-        >
+        <Alert title={t("possibleDuplicate")} flexShrink={0} intent="warning">
           <Paragraph>
-            La Base Adresse Locale comporte{" "}
-            {similarToponymes.length === 1
-              ? `un toponyme`
-              : `plusieurs toponymes`}{" "}
-            dont le nom est similaire :{" "}
+            {t("similarToponymes", { count: similarToponymes.length })}{" "}
             {similarToponymes.map(({ id, nom }) => (
               <Link
                 key={id}

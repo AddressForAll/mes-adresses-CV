@@ -1,4 +1,5 @@
 import { Tooltip, Button, ControlIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 interface CadastreControlProps {
   hasCadastre?: boolean;
@@ -11,18 +12,15 @@ function CadastreControl({
   isCadastreDisplayed,
   onClick,
 }: CadastreControlProps) {
+  const t = useTranslations("mapControls");
   return hasCadastre ? (
     <Tooltip
-      content={
-        isCadastreDisplayed ? "Masquer le cadastre" : "Afficher le cadastre"
-      }
+      content={isCadastreDisplayed ? t("hideCadastre") : t("showCadastre")}
     >
       <Button
         style={{ padding: ".8em" }}
         onClick={onClick}
-        title={
-          isCadastreDisplayed ? "Masquer le cadastre" : "Afficher le cadastre"
-        }
+        title={isCadastreDisplayed ? t("hideCadastre") : t("showCadastre")}
         {...(isCadastreDisplayed && {
           borderBottomRightRadius: 0,
           borderTopRightRadius: 0,
@@ -32,11 +30,11 @@ function CadastreControl({
       </Button>
     </Tooltip>
   ) : (
-    <Tooltip content="Le cadastre n’est pas disponible pour cette commune">
+    <Tooltip content={t("cadastreUnavailable")}>
       <Button
         style={{ padding: ".8em" }}
         cursor="not-allowed"
-        title="Le cadastre n’est pas disponible pour cette commune"
+        title={t("cadastreUnavailable")}
       >
         <ControlIcon color="muted" />
       </Button>

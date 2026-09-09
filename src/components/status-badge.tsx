@@ -1,4 +1,5 @@
 import { Pane, Badge, Position, Tooltip, Icon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { computeStatus } from "@/lib/statuses";
 import { BaseLocale, BaseLocaleSync } from "@/lib/openapi-api-bal";
@@ -11,11 +12,12 @@ interface StatusBadgeProps {
 }
 
 function StatusBadge({ status, sync, isHabilitationValid }: StatusBadgeProps) {
-  const { color, label, content, icon, textColor } =
+  const t = useTranslations("balStatus");
+  const { key, color, icon, textColor } =
     computeStatus(status, sync, isHabilitationValid) || {};
 
   return (
-    <Tooltip position={Position.BOTTOM_RIGHT} content={content}>
+    <Tooltip position={Position.BOTTOM_RIGHT} content={t(`${key}.content`)}>
       <Badge
         data-testid="status-badge"
         display="flex"
@@ -25,7 +27,7 @@ function StatusBadge({ status, sync, isHabilitationValid }: StatusBadgeProps) {
         width="100%"
       >
         <Pane display="flex" alignItems="center" color={textColor}>
-          {label} <Icon icon={icon} size={14} marginLeft={4} />
+          {t(`${key}.label`)} <Icon icon={icon} size={14} marginLeft={4} />
         </Pane>
       </Badge>
     </Tooltip>

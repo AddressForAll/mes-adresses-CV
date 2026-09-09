@@ -30,6 +30,7 @@ import { ApiDepotService, PRO_CONNECT_QUERY_PARAM } from "@/lib/api-depot";
 import { CommuneType } from "@/types/commune";
 import { getCommuneWithBBox } from "@/lib/commune";
 import { Pane, Paragraph, Spinner } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { AlertCodeEnum } from "@/lib/alerts/alerts.types";
 import AlertsContext from "./alerts";
@@ -88,6 +89,7 @@ export function BalDataContextProvider({
   initialBaseLocale,
   children,
 }: BalDataContextProviderProps) {
+  const t = useTranslations("balData");
   const searchParams = useSearchParams();
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editingId, _setEditingId] = useState<string>(null);
@@ -252,9 +254,8 @@ export function BalDataContextProvider({
         await reloadBaseLocale();
         setIsRefrehSyncStat(false);
         pushToast({
-          title: "De nouvelles modifications ont été détectées",
-          message:
-            "Elles seront automatiquement transmises dans la Base Adresses Nationale d’ici quelques heures.",
+          title: t("newChangesDetected"),
+          message: t("newChangesDetail"),
           intent: "info",
           duration: 5000,
         });
@@ -447,9 +448,7 @@ export function BalDataContextProvider({
           justifyContent="center"
         >
           <Spinner />
-          <Paragraph marginTop={10}>
-            Chargement de la base adresse locale...
-          </Paragraph>
+          <Paragraph marginTop={10}>{t("loading")}</Paragraph>
         </Pane>
       )}
     </BalDataContext.Provider>

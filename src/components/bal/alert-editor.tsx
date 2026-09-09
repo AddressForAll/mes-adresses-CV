@@ -15,6 +15,7 @@ import {
   ListItem,
   defaultTheme,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import {
   AlertModelEnum,
@@ -24,10 +25,7 @@ import {
   AlertFieldEnum,
   AlertCodeEnum,
 } from "@/lib/alerts/alerts.types";
-import {
-  AlertNumeroDefinitions,
-  AlertVoieDefinitions,
-} from "@/lib/alerts/alerts.definitions";
+import {} from "@/lib/alerts/alerts.definitions";
 
 interface VoieEditorProps {
   value?: any;
@@ -46,6 +44,7 @@ function AlertEditor({
   field,
   hasDefinition = true,
 }: VoieEditorProps) {
+  const ta = useTranslations("alertDefinitions");
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
   const [alert, setAlert] = useState<Alert | null>(null);
 
@@ -53,13 +52,13 @@ function AlertEditor({
     return (
       alert?.codes.map((code) => {
         if (isAlertCodeVoieEnum(code)) {
-          return AlertVoieDefinitions[code];
+          return ta(code);
         } else if (isAlertCodeNumeroEnum(code)) {
-          return AlertNumeroDefinitions[code];
+          return ta(code);
         }
       }) || []
     );
-  }, [alert]);
+  }, [alert, ta]);
 
   const handleCorrection = useCallback(
     (value: string) => {

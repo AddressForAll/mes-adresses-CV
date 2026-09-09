@@ -19,6 +19,7 @@ import {
   EndorsedIcon,
   PlusIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import Tuto from "@/components/help/tuto";
 import SubTuto from "@/components/help/tuto/sub-tuto";
@@ -30,379 +31,243 @@ import {
   PEERTUBE_LINK,
 } from "@/components/help/video-container";
 
-const before = (
-  <Paragraph marginTop="default">
-    Affichez la liste des numéros d’une voie en la sélectionnant depuis le menu
-    latéral ou en cliquant sur son nom ou un de ses numéros directement depuis
-    la carte.
-  </Paragraph>
-);
-
 function Numeros() {
+  const t = useTranslations("help.numeros");
+
+  // Inline markup for the help copy — see base-locale.tsx for the rationale.
+  const tags = {
+    b: (chunks: React.ReactNode) => <b>{chunks}</b>,
+    field: (chunks: React.ReactNode) => <Strong size={500}>{chunks}</Strong>,
+    marker: () => <MapMarkerIcon color="info" />,
+    commentIcon: () => <CommentIcon />,
+    addButton: (chunks: React.ReactNode) => (
+      <Button
+        iconBefore={AddIcon}
+        marginX={4}
+        appearance="primary"
+        intent="success"
+      >
+        {chunks}
+      </Button>
+    ),
+    addIconButton: () => (
+      <IconButton
+        marginLeft={8}
+        icon={AddIcon}
+        intent="success"
+        appearance="primary"
+      />
+    ),
+    createVoieButton: (chunks: React.ReactNode) => (
+      <Button marginX={4} iconBefore={PlusIcon}>
+        {chunks}
+      </Button>
+    ),
+    certifyButton: (chunks: React.ReactNode) => (
+      <Button
+        marginX={4}
+        appearance="primary"
+        intent="success"
+        iconAfter={EndorsedIcon}
+      >
+        {chunks}
+      </Button>
+    ),
+    saveButton: (chunks: React.ReactNode) => (
+      <Button marginX={4} intent="success">
+        {chunks}
+      </Button>
+    ),
+    dangerButton: (chunks: React.ReactNode) => (
+      <Button marginX={4} intent="danger">
+        {chunks}
+      </Button>
+    ),
+    moreButton: () => (
+      <Button background="tint1" iconBefore={MoreIcon} appearance="minimal" />
+    ),
+    editItem: (chunks: React.ReactNode) => (
+      <Menu.Item background="tint1" marginLeft={8} icon={EditIcon}>
+        {chunks}
+      </Menu.Item>
+    ),
+    deleteItem: (chunks: React.ReactNode) => (
+      <Menu.Item
+        background="tint1"
+        marginLeft={8}
+        icon={TrashIcon}
+        intent="danger"
+      >
+        {chunks}
+      </Menu.Item>
+    ),
+  };
+
+  // Most tutorials on this tab open with the same instruction.
+  const before = <Paragraph marginTop="default">{t("openList")}</Paragraph>;
+
+  // The "add a number" steps are identical whether started from the sidebar or
+  // from the map, apart from the very first click — so they share their keys.
+  const addCommonSteps = (
+    <>
+      <ListItem>{t.rich("add.dragMarker", tags)}</ListItem>
+      <ListItem>{t.rich("add.number", tags)}</ListItem>
+      <ListItem>{t.rich("add.suffix", tags)}</ListItem>
+      <ListItem>{t.rich("add.selectVoie", tags)}</ListItem>
+      <ListItem>{t.rich("add.positionType", tags)}</ListItem>
+      <ListItem>{t.rich("add.finish", tags)}</ListItem>
+    </>
+  );
+
   return (
     <Pane>
       <VideoContainer
-        title="Création / Modification d’un numéro :"
+        title={t("videoTitle")}
         link={`${PEERTUBE_LINK}/w/ts9chg7zehHXkTrotsjpqr`}
       />
-      <Tuto title="Bon à savoir">
+      <Tuto title={t("goodToKnow.title")}>
         <ListItem listStyleType="none">
-          Pour renforcer la qualité des adresses, nous vous recommandons de
-          certifier la totalité de vos adresses.{" "}
-          <b>Une adresse certifiée est déclarée authentique par la mairie</b>,
-          ce qui renforce la qualité de la Base Adresse Locale et facilite sa
-          réutilisation.
+          {t.rich("goodToKnow.content", tags)}
         </ListItem>
       </Tuto>
-      <Tuto title="Ajouter un numéro">
+
+      <Tuto title={t("add.title")}>
         {before}
 
-        <SubTuto title="Depuis le menu latéral" icon={ColumnLayoutIcon}>
+        <SubTuto title={t("fromSidebar")} icon={ColumnLayoutIcon}>
           <OrderedList margin={8}>
-            <ListItem>
-              Cliquez sur le bouton
-              <Button
-                iconBefore={AddIcon}
-                marginX={4}
-                appearance="primary"
-                intent="success"
-              >
-                Ajouter un numéro
-              </Button>
-            </ListItem>
-            <ListItem>
-              Un <MapMarkerIcon color="info" /> est apparu au centre de la
-              carte, déplacez le à l’endroit souhaité à l’aide de votre souris
-            </ListItem>
-            <ListItem>
-              Indiquez le numéro dans le champ{" "}
-              <Strong size={500}>Numéro</Strong>
-            </ListItem>
-            <ListItem>
-              Indiquez le suffixe (exemple: bis) dans le champ{" "}
-              <Strong size={500}>Suffixe</Strong>
-            </ListItem>
-            <ListItem>
-              Recherchez la voie à laquelle le numéro appartient et sélectionnez
-              la. À noter que si une voie est déjà sélectionnée alors elle vous
-              sera proposée par défaut. Vous pouvez également créer une nouvelle
-              voie directement en cliquant sur{" "}
-              <Button marginX={4} iconBefore={PlusIcon}>
-                Créer une voie
-              </Button>
-              . Vous serez automatiquement redirigé vers cette voie.
-            </ListItem>
-            <ListItem>
-              Sélectionnez la position grâce au menu déroulant{" "}
-              <Strong size={500}>Type</Strong>
-            </ListItem>
-            <ListItem>
-              Pour terminer, cliquez sur le bouton{" "}
-              <Button
-                marginX={4}
-                appearance="primary"
-                intent="success"
-                iconAfter={EndorsedIcon}
-              >
-                Certifier et enregister
-              </Button>{" "}
-              si vous validez cette adresse ou{" "}
-              <Button marginX={4} intent="success">
-                Enregister
-              </Button>{" "}
-              pour vous laisser le temps de vérifier avant de certifier.
-            </ListItem>
+            <ListItem>{t.rich("add.fromSidebarStep", tags)}</ListItem>
+            {addCommonSteps}
           </OrderedList>
         </SubTuto>
 
-        <SubTuto title="Depuis la carte" icon={MapIcon}>
+        <SubTuto title={t("fromMap")} icon={MapIcon}>
           <OrderedList margin={8}>
             <ListItem>
               <Pane display="flex" alignItems="center">
-                Cliquez sur le bouton{" "}
-                <IconButton
-                  marginLeft={8}
-                  icon={AddIcon}
-                  intent="success"
-                  appearance="primary"
-                />
+                {t.rich("add.fromMapStep", tags)}
               </Pane>
             </ListItem>
-            <ListItem>
-              Un <MapMarkerIcon color="info" /> est apparu au centre de la
-              carte, déplacez le à l’endroit souhaité à l’aide de votre souris
-            </ListItem>
-            <ListItem>
-              Dans le nouveau menu qui est apparu, indiquez le numéro dans le
-              champ <Strong size={500}>Numéro</Strong>
-            </ListItem>
-            <ListItem>
-              Indiquez le suffixe (exemple: bis) dans le champ{" "}
-              <Strong size={500}>Suffixe</Strong>
-            </ListItem>
-            <ListItem>
-              Recherchez la voie à laquelle le numéro appartient et sélectionnez
-              la. À noter que si une voie est déjà sélectionnée alors elle vous
-              sera proposée par défaut. Vous pouvez également créer une nouvelle
-              voie directement en cliquant sur{" "}
-              <Button marginX={4} iconBefore={PlusIcon}>
-                Créer une voie
-              </Button>
-              . Vous serez automatiquement redirigé vers cette voie.
-            </ListItem>
-            <ListItem>
-              Sélectionnez la position grâce au menu déroulant{" "}
-              <Strong size={500}>Type</Strong>
-            </ListItem>
-            <ListItem>
-              Pour terminer, cliquez sur le bouton{" "}
-              <Button
-                marginX={4}
-                appearance="primary"
-                intent="success"
-                iconAfter={EndorsedIcon}
-              >
-                Certifier et enregister
-              </Button>{" "}
-              si vous validez cette adresse ou{" "}
-              <Button marginX={4} intent="success">
-                Enregister
-              </Button>{" "}
-              pour vous laisser le temps de vérifier avant de certifier.
-            </ListItem>
+            {addCommonSteps}
           </OrderedList>
         </SubTuto>
       </Tuto>
 
-      <Tuto title="Éditer un numéro">
+      <Tuto title={t("edit.title")}>
         {before}
 
-        <SubTuto title="Depuis le menu latéral" icon={ColumnLayoutIcon}>
+        <SubTuto title={t("fromSidebar")} icon={ColumnLayoutIcon}>
           <OrderedList margin={8}>
-            <ListItem>
-              Cliquez sur le bouton{" "}
-              <Button
-                background="tint1"
-                iconBefore={MoreIcon}
-                appearance="minimal"
-              />{" "}
-              se situant à droite du numéro
-            </ListItem>
+            <ListItem>{t.rich("moreButtonStep", tags)}</ListItem>
             <ListItem>
               <Pane display="flex" alignItems="center">
-                Dans le menu qui vient d’apparaître, choisissez
-                <Menu.Item background="tint1" marginLeft={8} icon={EditIcon}>
-                  Modifier
-                </Menu.Item>
+                {t.rich("chooseEdit", tags)}
               </Pane>
             </ListItem>
-            <ListItem>
-              Il vous est désormais possible de modifier le numéro, le suffixe,
-              le type d’adresse ou encore sa position en déplaçant le{" "}
-              <MapMarkerIcon color="info" /> sur la carte et de certifier votre
-              adresse.
-            </ListItem>
+            <ListItem>{t.rich("edit.whatYouCanChange", tags)}</ListItem>
           </OrderedList>
         </SubTuto>
 
-        <SubTuto title="Depuis la carte" icon={MapIcon}>
+        <SubTuto title={t("fromMap")} icon={MapIcon}>
           <OrderedList margin={8}>
-            <ListItem>Cliquez sur le numéro</ListItem>
-            <ListItem>
-              Il vous est désormais possible de modifier le numéro, le suffixe,
-              le type d’adresse ou encore sa position en déplaçant le{" "}
-              <MapMarkerIcon color="info" /> sur la carte et de certifier votre
-              adresse.
-            </ListItem>
+            <ListItem>{t("edit.clickNumber")}</ListItem>
+            <ListItem>{t.rich("edit.whatYouCanChange", tags)}</ListItem>
           </OrderedList>
         </SubTuto>
       </Tuto>
 
-      <Tuto title="Supprimer un numéro">
+      <Tuto title={t("delete.title")}>
         {before}
 
-        <SubTuto title="Depuis le menu latéral" icon={ColumnLayoutIcon}>
+        <SubTuto title={t("fromSidebar")} icon={ColumnLayoutIcon}>
           <OrderedList margin={8}>
-            <ListItem>
-              Cliquez sur le bouton{" "}
-              <Button
-                background="tint1"
-                iconBefore={MoreIcon}
-                appearance="minimal"
-              />{" "}
-              se situant à droite du numéro
-            </ListItem>
+            <ListItem>{t.rich("moreButtonStep", tags)}</ListItem>
             <ListItem>
               <Pane display="flex" alignItems="center">
-                Dans le menu qui vient d’apparaître, choisissez
-                <Menu.Item
-                  background="tint1"
-                  marginLeft={8}
-                  icon={TrashIcon}
-                  intent="danger"
-                >
-                  Supprimer…
-                </Menu.Item>
+                {t.rich("chooseDelete", tags)}
               </Pane>
             </ListItem>
           </OrderedList>
         </SubTuto>
 
-        <SubTuto title="Depuis la carte" icon={MapIcon}>
+        <SubTuto title={t("fromMap")} icon={MapIcon}>
           <OrderedList margin={8}>
-            <ListItem>Faites un clique droit sur le numéro</ListItem>
+            <ListItem>{t("delete.rightClick")}</ListItem>
             <ListItem>
               <Pane display="flex" alignItems="center">
-                Dans le menu qui vient d’apparaître, choisissez
-                <Menu.Item
-                  background="tint1"
-                  marginLeft={8}
-                  icon={TrashIcon}
-                  intent="danger"
-                >
-                  Supprimer…
-                </Menu.Item>
+                {t.rich("chooseDelete", tags)}
               </Pane>
             </ListItem>
           </OrderedList>
         </SubTuto>
       </Tuto>
 
-      <Tuto title="Ne plus certifier une adresse">
+      <Tuto title={t("uncertify.title")}>
         <OrderedList margin={8}>
           <ListItem>
             <Pane display="flex" alignItems="center">
-              Affichez la liste des numéros d’une voie en la sélectionnant
-              depuis le menu latéral ou en cliquant sur son nom ou sur un de ses
-              numéros directement depuis la carte.
+              {t("openList")}
             </Pane>
           </ListItem>
-          <ListItem>
-            En bas de page, cliquez sur le bouton{" "}
-            <Button marginX={4} intent="danger">
-              Ne plus certifier et enregistrer
-            </Button>
-          </ListItem>
+          <ListItem>{t.rich("uncertify.step2", tags)}</ListItem>
         </OrderedList>
       </Tuto>
 
-      <Tuto title="Associer des parcelles">
+      <Tuto title={t("parcelles.title")}>
         {before}
 
         <OrderedList margin={8}>
-          <ListItem>
-            Cliquez sur le bouton{" "}
-            <Button
-              background="tint1"
-              iconBefore={MoreIcon}
-              appearance="minimal"
-            />{" "}
-            se situant à droite du numéro
-          </ListItem>
+          <ListItem>{t.rich("moreButtonStep", tags)}</ListItem>
           <ListItem>
             <Pane display="flex" alignItems="center">
-              Dans le menu qui vient d’apparaître, choisissez
-              <Menu.Item background="tint1" marginLeft={8} icon={EditIcon}>
-                Modifier
-              </Menu.Item>
+              {t.rich("chooseEdit", tags)}
             </Pane>
           </ListItem>
-          <ListItem>
-            Depuis la carte, cliquez sur la ou les parcelles que vous souhaitez
-            associer au numéro
-          </ListItem>
-          <ListItem>
-            Pour enregistrer les parcelles, cliquez sur le bouton{" "}
-            <Button
-              marginX={4}
-              appearance="primary"
-              intent="success"
-              iconAfter={EndorsedIcon}
-            >
-              Certifier et enregister
-            </Button>{" "}
-            ou{" "}
-            <Button marginX={4} intent="success">
-              Enregister
-            </Button>{" "}
-            si vous ne souhaitez pas certifier cette adresse pour le moment.
-          </ListItem>
+          <ListItem>{t("parcelles.step3")}</ListItem>
+          <ListItem>{t.rich("parcelles.step4", tags)}</ListItem>
         </OrderedList>
 
         <Pane>
-          <Strong>Code couleur des parcelles :</Strong>
+          <Strong>{t("parcelles.colorCode")}</Strong>
           <Paragraph display="flex">
             <Badge margin={4} height="100%" color="green">
-              parcelle associée
+              {t("parcelles.linked")}
             </Badge>
             <Badge margin={4} height="100%" color="yellow">
-              parcelle pouvant être associée
+              {t("parcelles.linkable")}
             </Badge>
             <Badge margin={4} height="100%" color="red">
-              parcelle pouvant être dissociée
+              {t("parcelles.unlinkable")}
             </Badge>
           </Paragraph>
         </Pane>
       </Tuto>
 
-      <Tuto title="Ajouter une note ou un commentaire">
+      <Tuto title={t("comment.title")}>
         {before}
 
         <OrderedList margin={8}>
-          <ListItem>
-            Cliquez sur le bouton{" "}
-            <Button
-              background="tint1"
-              iconBefore={MoreIcon}
-              appearance="minimal"
-            />{" "}
-            se situant à droite du numéro
-          </ListItem>
+          <ListItem>{t.rich("moreButtonStep", tags)}</ListItem>
           <ListItem>
             <Pane display="flex" alignItems="center">
-              Dans le menu qui vient d’apparaître, choisissez
-              <Menu.Item background="tint1" marginLeft={8} icon={EditIcon}>
-                Modifier
-              </Menu.Item>
+              {t.rich("chooseEdit", tags)}
             </Pane>
           </ListItem>
-          <ListItem>
-            Remplissez le champ de texte <Strong size={500}>Commentaire</Strong>{" "}
-            afin de laisser une note concernant le numéro
-          </ListItem>
-          <ListItem>
-            Pour enregistrer votre commentaire, cliquez sur le bouton{" "}
-            <Button
-              marginX={4}
-              appearance="primary"
-              intent="success"
-              iconAfter={EndorsedIcon}
-            >
-              Certifier et enregister
-            </Button>{" "}
-            ou{" "}
-            <Button marginX={4} intent="success">
-              Enregister
-            </Button>{" "}
-            si vous ne souhaitez pas certifier cette adresse pour le moment.
-          </ListItem>
+          <ListItem>{t.rich("comment.step3", tags)}</ListItem>
+          <ListItem>{t.rich("comment.step4", tags)}</ListItem>
         </OrderedList>
 
-        <Paragraph>
-          Vous remarquerez un <CommentIcon /> sur la ligne du numéro. Le
-          survoler vous permettra de faire apparaitre le commentaire.
-        </Paragraph>
+        <Paragraph>{t.rich("comment.icon", tags)}</Paragraph>
       </Tuto>
 
       <Problems>
-        <Tuto title="Je ne trouve pas de voie lorsque j’ajoute un numéro depuis la carte">
+        <Tuto title={t("problems.voieNotFound.title")}>
           <Paragraph marginTop="default">
-            Avant de créer un numéro depuis la carte, assurez vous que la voie à
-            laquelle il appartient a bien été créée.
+            {t("problems.voieNotFound.content")}
           </Paragraph>
         </Tuto>
 
-        <Unauthorized title="Je n’arrive pas à ajouter/supprimer un numéro" />
+        <Unauthorized title={t("problems.cannotAddOrDelete")} />
 
         <Sidebar />
       </Problems>

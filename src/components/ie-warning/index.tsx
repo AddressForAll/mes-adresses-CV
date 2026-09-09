@@ -1,14 +1,15 @@
+import { useTranslations } from "next-intl";
+
 import styles from "./ie-warning.module.css";
 
 function IEWarning() {
+  const t = useTranslations("ieWarning");
+
   return (
     <div className={styles["ie-warning"]}>
+      <p>{t.rich("unsupported", { b: (chunks) => <b>{chunks}</b> })}</p>
       <p>
-        Votre navigateur <b>Internet Explorer</b> n‘est plus supporté par notre
-        service.
-      </p>
-      <p>
-        <b>Nous vous recommandons d‘utiliser un autre navigateur</b>
+        <b>{t("recommendation")}</b>
       </p>
     </div>
   );

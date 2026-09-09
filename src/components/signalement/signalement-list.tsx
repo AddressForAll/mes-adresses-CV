@@ -12,6 +12,7 @@ import {
   RefreshIcon,
   IconButton,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import InfiniteScrollList from "../infinite-scroll-list";
 import { Report } from "@/lib/openapi-signalement";
@@ -48,6 +49,7 @@ function SignalementList({
   editionEnabled,
   onShowPurgeExpiredSignalementsDialog,
 }: SignalementListProps) {
+  const t = useTranslations("signalementList");
   const [showFilters, setShowFilters] = useState(false);
   const { updateMarker } = useContext(MarkersContext);
 
@@ -91,7 +93,11 @@ function SignalementList({
           </Table.Cell>
         )}
         <Table.SearchHeaderCell
-          placeholder="Rechercher un signalement"
+          // Stable hook for the product tour, which used to target this input
+          // by its placeholder text — that selector broke as soon as the
+          // placeholder became translatable.
+          className="signalement-search"
+          placeholder={t("search")}
           onChange={onSearch}
         />
         <Table.HeaderCell flex="unset">
@@ -123,7 +129,7 @@ function SignalementList({
               iconBefore={hasActiveFilters ? FilterRemoveIcon : FilterIcon}
               onClick={() => setShowFilters((prev) => !prev)}
             >
-              Filtres
+              {t("filters")}
             </Button>
           </Tooltip>
           {showFilters && (
@@ -138,11 +144,11 @@ function SignalementList({
             />
           )}
           {editionEnabled && (
-            <Tooltip content="Actualiser les signalements">
+            <Tooltip content={t("refresh")}>
               <IconButton
                 icon={RefreshIcon}
                 marginLeft={16}
-                title="Actualiser les signalements"
+                title={t("refresh")}
                 onClick={onShowPurgeExpiredSignalementsDialog}
               />
             </Tooltip>
@@ -153,7 +159,7 @@ function SignalementList({
       {signalements.length === 0 && (
         <Table.Row>
           <Table.TextCell marginLeft={40} color="muted" fontStyle="italic">
-            Vous n&apos;avez aucune proposition actuellement
+            {t("empty")}
           </Table.TextCell>
         </Table.Row>
       )}

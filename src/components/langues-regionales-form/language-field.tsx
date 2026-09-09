@@ -6,6 +6,7 @@ import {
   TrashIcon,
   PropertyIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { capitalize } from "lodash";
 
 import languesRegionales from "@ban-team/shared-data/langues-regionales.json";
@@ -30,6 +31,7 @@ function LanguageField({
   onChange,
   onDelete,
 }: LanguageFieldProps) {
+  const t = useTranslations("languesRegionales");
   const [codeISO, setCodeISO] = useState(initialValue?.code);
   const [input, setInput] = useState(initialValue?.value || "");
   const [ref, setIsFocus] = useFocus();
@@ -66,7 +68,7 @@ function LanguageField({
       marginTop="1em"
     >
       <SelectMenu
-        title="Choisir une langue régionale"
+        title={t("chooseLanguage")}
         options={availableLanguages
           .map(({ code, label }) => {
             return { value: code, label: capitalize(label) };
@@ -85,7 +87,7 @@ function LanguageField({
           fontStyle={codeISO ? "default" : "italic"}
         >
           <PropertyIcon marginRight={8} />{" "}
-          {languageLabel || "Sélectionner une langue régionale"}
+          {languageLabel || t("selectLanguage")}
         </Button>
       </SelectMenu>
 
@@ -100,7 +102,9 @@ function LanguageField({
           forwadedRef={ref}
           exitFocus={() => setIsFocus(false)}
           isRequired={false}
-          placeholder={`Nom en ${codeISO ? languageLabel : "langue régionale"}`}
+          placeholder={t("namePlaceholder", {
+            language: codeISO ? languageLabel : t("regionalLanguage"),
+          })}
           value={input}
           onChange={handleLanguageChange}
           isDisabled={!codeISO}
@@ -108,7 +112,7 @@ function LanguageField({
 
         <Button
           type="button"
-          aria-label="Supprimer la langue régionale"
+          aria-label={t("removeLanguage")}
           onClick={() => onDelete(codeISO)}
           intent="danger"
           width="fit-content"

@@ -3,6 +3,7 @@ import MatomoTrackingContext, {
   MatomoEventCategory,
 } from "@/contexts/matomo-tracking";
 import { Pane, Text, Button, defaultTheme } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import NextLink from "next/link";
 import { useCallback, useContext } from "react";
 
@@ -12,6 +13,7 @@ interface WarningLinkProps {
 }
 
 function WarningLink({ title, url }: WarningLinkProps) {
+  const t = useTranslations("warnings");
   const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
   const handleMatomoEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -30,7 +32,7 @@ function WarningLink({ title, url }: WarningLinkProps) {
       <Button
         is={NextLink}
         href={url}
-        title="Éditer la voie"
+        title={t("editVoie")}
         size="small"
         appearance="primary"
         style={{ backgroundColor: defaultTheme.colors.purple600 }}

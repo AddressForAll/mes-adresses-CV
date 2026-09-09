@@ -1,4 +1,5 @@
 import { Pane, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import TextDiff from "./text-diff";
 import { SignalementPositionDiff } from "./signalement-position-diff";
 import { SignalementParcelleDiff } from "./signalement-parcelle-diff";
@@ -47,6 +48,7 @@ export function SignalementNumeroDiffCard({
   isActive,
   signalementType,
 }: SignalementNumeroDiffCardProps) {
+  const t = useTranslations("signalementDiff");
   return (
     <AccordionCard
       title={title}
@@ -65,13 +67,13 @@ export function SignalementNumeroDiffCard({
       >
         <Pane padding={8} borderRadius={8} className="glass-pane">
           <Text is="div" fontWeight="bold" marginBottom={5}>
-            Numéro
+            {t("numero")}
           </Text>
           <TextDiff from={numero.from} to={numero.to} />
         </Pane>
         <Pane padding={8} borderRadius={8} className="glass-pane">
           <Text is="div" fontWeight="bold" marginBottom={5}>
-            Voie
+            {t("voie")}
           </Text>
           <TextChange from={voie.from} to={voie.to} />
         </Pane>
@@ -79,7 +81,7 @@ export function SignalementNumeroDiffCard({
       {complement.to && (
         <Pane marginTop={8} padding={8} borderRadius={8} className="glass-pane">
           <Text is="div" fontWeight="bold" marginBottom={5}>
-            Complément
+            {t("complement")}
           </Text>
           <TextChange from={complement.from} to={complement.to} />
         </Pane>
