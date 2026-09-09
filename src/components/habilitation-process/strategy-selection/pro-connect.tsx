@@ -1,4 +1,5 @@
 import { Pane, Strong, Link, Alert, Paragraph } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import styles from "./button-pro-connect.module.css";
 import { useEffect, useState } from "react";
 import { ApiAnnuaireService } from "@/lib/api_annuaire";
@@ -13,6 +14,7 @@ interface ProConnectProps {
 }
 
 function ProConnect({ codeCommune, handleStrategy }: ProConnectProps) {
+  const t = useTranslations("habilitation.proConnect");
   const [emails, setEmails] = useState<string[]>([]);
 
   useEffect(() => {
@@ -39,36 +41,39 @@ function ProConnect({ codeCommune, handleStrategy }: ProConnectProps) {
           style={{ cursor: "pointer" }}
           onClick={handleStrategy}
         >
-          <span className={styles["proconnect-sr-only"]}>
-            S&apos;identifier avec ProConnect
-          </span>
+          <span className={styles["proconnect-sr-only"]}>{t("signIn")}</span>
         </button>
       </Pane>
       <Alert intent="info" marginBottom={16}>
         <Paragraph marginBottom={16}>
-          <Strong>
-            ProConnect, équivalent de FranceConnect pour les professionnels
-          </Strong>
+          <Strong>{t("tagline")}</Strong>
         </Paragraph>
         <Paragraph>
-          <Strong>Connectez-vous avec</Strong> l’adresse électronique{" "}
-          {emails.length > 0 && <Strong>{emails.join(", ")} </Strong>}
-          indiquée par votre mairie dans{" "}
-          <Link href="https://service-public.gouv.fr" target="_blank">
-            l’annuaire du service public
-          </Link>{" "}
+          {t.rich("connectWith", {
+            strong: (chunks) => <Strong>{chunks}</Strong>,
+            emails: () =>
+              emails.length > 0 ? <Strong>{emails.join(", ")} </Strong> : null,
+            link: (chunks) => (
+              <Link href="https://service-public.gouv.fr" target="_blank">
+                {chunks}
+              </Link>
+            ),
+          })}
         </Paragraph>
-        <Paragraph>
-          Ou une adresse avec le même nom de domaine (exemple :
-          p.nom@commune.fr).
-        </Paragraph>
+        <Paragraph>{t("sameDomain")}</Paragraph>
         <Paragraph marginTop={16}>
-          Pour toute question, <Strong>contactez notre équipe :</Strong>{" "}
-          <Link href="mailto:adresse@data.gouv.fr">adresse@data.gouv.fr</Link>
+          {t.rich("questions", {
+            strong: (chunks) => <Strong>{chunks}</Strong>,
+            link: () => (
+              <Link href="mailto:adresse@data.gouv.fr">
+                adresse@data.gouv.fr
+              </Link>
+            ),
+          })}
         </Paragraph>
       </Alert>
       <iframe
-        title="Tuto connection ProConnect"
+        title={t("videoTitle")}
         src={`${PEERTUBE_LINK}/videos/embed/iojCiUnSuc29dq5a1bUPVy`}
         // https://tube.numerique.gouv.fr/videos/embed/iojCiUnSuc29dq5a1bUPVy
         height="315px"

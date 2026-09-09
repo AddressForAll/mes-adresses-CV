@@ -12,6 +12,7 @@ import {
   SendMessageIcon,
   EyeOpenIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import PinField, { usePinField } from "react-pin-field";
 
@@ -28,6 +29,7 @@ function CodeValidation({
   resendCode,
   flagURL,
 }: CodeValidationProps) {
+  const t = useTranslations("habilitation.codeValidation");
   const handler = usePinField();
 
   const handleCodeComplete = (code: string) => {
@@ -60,10 +62,10 @@ function CodeValidation({
           width={66}
           height={66}
           src={flagURL || "/static/images/mairie.svg"}
-          alt="logo mairie"
+          alt={t("logoAlt")}
         />
         <Heading is="h2" marginTop={16}>
-          Authentification de la mairie
+          {t("title")}
         </Heading>
       </Pane>
 
@@ -76,7 +78,7 @@ function CodeValidation({
         marginBottom={16}
       >
         <Heading is="h3" textAlign="center">
-          Entrez le code qui vous a été envoyé à l&apos;adresse : {email}
+          {t("enterCode", { email })}
         </Heading>
         <Pane display="flex" justifyContent="center" gap={8} marginY={32}>
           <PinField
@@ -94,7 +96,7 @@ function CodeValidation({
           />
         </Pane>
         <Alert
-          title="Le code ne sera plus valable si vous fermez la fenètre"
+          title={t("codeExpiresOnClose")}
           marginBottom={16}
           textAlign="left"
         />
@@ -107,23 +109,19 @@ function CodeValidation({
         borderRadius={8}
         marginBottom={16}
       >
-        <Heading>Vous n&apos;avez pas reçu votre code ?</Heading>
+        <Heading>{t("noCodeReceived")}</Heading>
         <UnorderedList>
           <ListItem icon={EyeOpenIcon}>
-            <Text size={400}>Consultez vos spams</Text>
+            <Text size={400}>{t("checkSpam")}</Text>
           </ListItem>
 
           <ListItem icon={EnvelopeIcon}>
-            <Text>
-              Autorisez l&apos;adresse
-              &quot;mes-adresses-no-reply@adresse.data.gouv.fr&quot; dans les
-              paramètres de votre anti-spams (Mailinblack par exemple)
-            </Text>
+            <Text>{t("allowlistSender")}</Text>
           </ListItem>
 
           <ListItem icon={SendMessageIcon}>
             <Pane cursor="pointer" onClick={resendCode}>
-              <Link>Renvoyez le code</Link>
+              <Link>{t("resendCode")}</Link>
             </Pane>
           </ListItem>
         </UnorderedList>

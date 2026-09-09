@@ -9,6 +9,7 @@ import {
   CogIcon,
   PlusIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import BALRecovery from "@/components/bal-recovery/bal-recovery";
 import Tuto from "@/components/help/tuto";
@@ -20,124 +21,97 @@ import {
 } from "@/components/help/video-container";
 
 function BaseLocale() {
+  const t = useTranslations("help.baseLocale");
+
+  // Inline markup used by the help copy. Keeping the components here (rather
+  // than in the catalog) is what lets a translator move a button or an
+  // emphasised term to wherever their language needs it in the sentence.
+  const tags = {
+    b: (chunks: React.ReactNode) => <b>{chunks}</b>,
+    em: (chunks: React.ReactNode) => (
+      <Strong size={500} fontStyle="italic">
+        {chunks}
+      </Strong>
+    ),
+    tab: (chunks: React.ReactNode) => <Tab isSelected>{chunks}</Tab>,
+    createButton: (chunks: React.ReactNode) => (
+      <Button
+        marginX={4}
+        appearance="primary"
+        intent="success"
+        iconAfter={PlusIcon}
+      >
+        {chunks}
+      </Button>
+    ),
+    saveButton: (chunks: React.ReactNode) => (
+      <Button marginX={4} appearance="primary">
+        {chunks}
+      </Button>
+    ),
+    cog: () => (
+      <span>
+        <CogIcon marginX={4} />
+      </span>
+    ),
+    mail: (chunks: React.ReactNode) => (
+      <a href="mailto:adresse@data.gouv.fr">{chunks}</a>
+    ),
+  };
+
   return (
     <Pane>
       <VideoContainer
-        title="Création d’une Base Adresse Locale :"
+        title={t("videoTitle")}
         link={`${PEERTUBE_LINK}/w/f2b6yiXosmfoKkmyF4YLtE`}
       />
-      <Tuto title="Créer une nouvelle Base Adresse Locale">
+      <Tuto title={t("create.title")}>
         <Paragraph marginTop="default">
-          Sur la page <b>Nouvelle Base Adresse Locale</b>, sélectionnez l’onglet{" "}
-          <Tab isSelected>Créer</Tab>
+          {t.rich("create.intro", tags)}
         </Paragraph>
         <OrderedList margin={8}>
-          <ListItem>
-            Indiquez le nom de votre Base Adresse Locale dans le champ{" "}
-            <Strong size={500} fontStyle="italic">
-              Nom
-            </Strong>
-            . Il vous permettra de pouvoir identifier votre Base Adresse Locale.
-          </ListItem>
-          <ListItem>
-            Indiquez l’adresse email de votre mairie ou de l’administrateur de
-            la Base Adresse Locale. C’est cette adresse qui recevra le lien
-            permettant d’accèder à l’édition de votre Base Adresse Locale.
-          </ListItem>
-          <ListItem>
-            Recherchez votre commune puis sélectionnez la dans la liste des
-            suggestions.
-          </ListItem>
-          <ListItem>
-            Si vous souhaitez partir de zéro, décochez la case{" "}
-            <Strong size={500} fontStyle="italic">
-              Importer les voies et numéros depuis la BAN
-            </Strong>
-            .
-          </ListItem>
-          <ListItem>
-            Pour terminer, cliquez sur le bouton{" "}
-            <Button
-              marginX={4}
-              appearance="primary"
-              intent="success"
-              iconAfter={PlusIcon}
-            >
-              Créer la Base Adresse Locale
-            </Button>
-          </ListItem>
+          <ListItem>{t.rich("create.step1", tags)}</ListItem>
+          <ListItem>{t("create.step2")}</ListItem>
+          <ListItem>{t("create.step3")}</ListItem>
+          <ListItem>{t.rich("create.step4", tags)}</ListItem>
+          <ListItem>{t.rich("create.step5", tags)}</ListItem>
         </OrderedList>
       </Tuto>
 
-      <Tuto title="Importer une Base Adresse Locale">
+      <Tuto title={t("import.title")}>
         <Paragraph marginTop="default">
-          Sur la page <b>Nouvelle Base Adresse Locale</b>, sélectionnez l’onglet{" "}
-          <Tab isSelected>Importer un fichier CSV</Tab>
+          {t.rich("import.intro", tags)}
         </Paragraph>
         <OrderedList margin={8}>
-          <ListItem>
-            Sélectionnez ou déposez votre fichier au format <b>csv</b>.
-            Attention ce fichier ne doit pas dépasser 10 Mo.
-          </ListItem>
-          <ListItem>
-            Indiquez le nom de votre Base Adresse Locale dans le champ{" "}
-            <Strong size={500} fontStyle="italic">
-              Nom
-            </Strong>
-            . Il vous permettra de pouvoir identifier votre Base Adresse Locale.
-          </ListItem>
-          <ListItem>
-            Indiquez l’adresse email de votre mairie ou de l’administrateur de
-            la Base Adresse Locale. C’est cette adresse qui recevra le lien
-            permettant d’accèder à l’édition de votre Base Adresse Locale.
-          </ListItem>
-          <ListItem>
-            Pour terminer, cliquez sur le bouton{" "}
-            <Button
-              marginX={4}
-              appearance="primary"
-              intent="success"
-              iconAfter={PlusIcon}
-            >
-              Créer la Base Adresse Locale
-            </Button>
-          </ListItem>
+          <ListItem>{t.rich("import.step1", tags)}</ListItem>
+          <ListItem>{t.rich("import.step2", tags)}</ListItem>
+          <ListItem>{t("import.step3")}</ListItem>
+          <ListItem>{t.rich("import.step4", tags)}</ListItem>
         </OrderedList>
       </Tuto>
 
-      <Tuto title="Administrer votre Base Adresse Locale">
+      <Tuto title={t("administer.title")}>
         <Paragraph marginTop="default">
-          Accédez aux paramètres de votre Base Adresse Locale en cliquant sur
-          l’icône{" "}
-          <span>
-            <CogIcon marginX={4} />
-          </span>{" "}
-          située en haut à droite de votre écran. Puis choissez «Paramètres».
+          {t.rich("administer.intro", tags)}
         </Paragraph>
-        <Paragraph marginTop="default">Il vous sera possible de :</Paragraph>
+        <Paragraph marginTop="default">{t("administer.youCan")}</Paragraph>
         <OrderedList margin={8}>
-          <ListItem>Changer le nom de votre Base Adresse Locale</ListItem>
-          <ListItem>Ajouter ou supprimer des collaborateurs</ListItem>
-          <ListItem>Télécharger vos adresses au format .csv</ListItem>
+          <ListItem>{t("administer.item1")}</ListItem>
+          <ListItem>{t("administer.item2")}</ListItem>
+          <ListItem>{t("administer.item3")}</ListItem>
         </OrderedList>
 
         <Paragraph marginTop="default">
-          Une fois vos réglages terminés, cliquez sur{" "}
-          <Button marginX={4} appearance="primary">
-            Enregistrer les changements
-          </Button>
+          {t.rich("administer.outro", tags)}
         </Paragraph>
       </Tuto>
 
       <Problems>
-        <Unauthorized title="Je n’arrive pas à éditer ma BAL" />
+        <Unauthorized title={t("problems.cannotEdit")} />
 
-        <Tuto title="Je ne trouve pas ma commune">
+        <Tuto title={t("problems.communeNotFound.title")}>
           <Paragraph marginTop="default">
-            Si votre commune est une nouvelle commune issue d’une fusion, alors
-            il est possible qu’elle n’apparaisse pas dans la liste des
-            propositions. Si c’est votre cas, vous pouvez nous contacter sur{" "}
-            <a href="mailto:adresse@data.gouv.fr">adresse@data.gouv.fr</a>
+            {t.rich("problems.communeNotFound.content", tags)}
           </Paragraph>
         </Tuto>
 

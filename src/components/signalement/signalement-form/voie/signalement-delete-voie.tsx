@@ -5,6 +5,7 @@ import { Signalement } from "@/lib/openapi-signalement";
 import LayoutContext from "@/contexts/layout";
 import BalDataContext from "@/contexts/bal-data";
 import { Alert, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { SignalementVoieDiffCard } from "../../signalement-diff/signalement-voie-diff-card";
 
 interface SignalementDeleteVoieProps {
@@ -24,6 +25,7 @@ function SignalementDeleteVoie({
   handleClose,
   isLoading,
 }: SignalementDeleteVoieProps) {
+  const t = useTranslations("signalementForm");
   const { nom, nbNumeros } = existingLocation;
   const { pushToast } = useContext(LayoutContext);
   const { reloadVoies } = useContext(BalDataContext);
@@ -36,7 +38,7 @@ function SignalementDeleteVoie({
     } catch (error) {
       console.error("Error accepting signalement:", error);
       pushToast({
-        title: "Erreur lors de l'acceptation du signalement.",
+        title: t("acceptError"),
         intent: "danger",
       });
     }
@@ -46,20 +48,22 @@ function SignalementDeleteVoie({
     <>
       <SignalementVoieDiffCard
         signalementType={Signalement.type.LOCATION_TO_DELETE}
-        title="Demande de suppression d'une voie"
+        title={t("deleteVoieRequest")}
         nom={{
           to: nom,
         }}
       />
       <Alert intent={nbNumeros > 0 ? "warning" : "info"} flexShrink={0}>
         <Text>
-          En acceptant ce signalement, la voie <b>{nom}</b> sera placée dans la
-          corbeille{" "}
-          {nbNumeros > 0 && (
-            <>
-              avec les <b>{nbNumeros} adresses</b> qui y sont rattachées
-            </>
-          )}
+          {t.rich("deleteVoieWarning", {
+            voieName: nom,
+            b: (chunks) => <b>{chunks}</b>,
+          })}{" "}
+          {nbNumeros > 0 &&
+            t.rich("deleteVoieWithNumeros", {
+              count: nbNumeros,
+              b: (chunks) => <b>{chunks}</b>,
+            })}
         </Text>
       </Alert>
       <SignalementFormButtons

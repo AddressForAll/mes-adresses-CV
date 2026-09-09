@@ -2,6 +2,7 @@
 
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Link, Pane, Text } from "evergreen-ui";
+import { useTranslations, useLocale } from "next-intl";
 import NextLink from "next/link";
 import { Alert } from "@/lib/openapi-signalement";
 import { Signalement } from "@/lib/openapi-signalement";
@@ -28,6 +29,9 @@ interface AlertPageProps {
 }
 
 export default function AlertPage({ alert }: AlertPageProps) {
+  const t = useTranslations("signalementsPage");
+  const tt = useTranslations("signalementTypes");
+  const locale = useLocale();
   const router = useRouter();
   const { fetchPendingSignalements, updateOneSignalement } =
     useContext(SignalementContext);
@@ -45,7 +49,12 @@ export default function AlertPage({ alert }: AlertPageProps) {
           Signalements
         </Link>
         <Text color="muted">{" > "}</Text>
-        <Text aria-current="page">{getSignalementLabel(alert)}</Text>
+        <Text aria-current="page">
+          {getSignalementLabel(alert, {
+            locale,
+            missingAddressLabel: tt("missingAddress"),
+          })}
+        </Text>
       </>
     );
 
@@ -91,9 +100,9 @@ export default function AlertPage({ alert }: AlertPageProps) {
           await refreshBALSync();
         },
         status === Signalement.status.PROCESSED
-          ? "Le signalement a bien été pris en compte"
-          : "Le signalement a bien été ignoré",
-        "Une erreur est survenue"
+          ? t("acceptedToast")
+          : t("ignoredToast"),
+        t("errorToast")
       );
 
       await _updateSignalement();

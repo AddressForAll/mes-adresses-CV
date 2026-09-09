@@ -1,4 +1,5 @@
 import { Pane, Dialog } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 interface DeleteWarningProps {
   isShown: boolean;
@@ -15,14 +16,16 @@ function DeleteWarning({
   onConfirm,
   isDisabled,
 }: DeleteWarningProps) {
+  const t = useTranslations("common");
+
   return (
     <Pane>
       <Dialog
         isShown={isShown}
-        title="Attention"
+        title={t("warning")}
         intent="danger"
-        cancelLabel="Annuler"
-        confirmLabel="Supprimer"
+        cancelLabel={t("cancel")}
+        confirmLabel={t("delete")}
         onCloseComplete={onCancel}
         onCancel={onCancel}
         onConfirm={onConfirm}

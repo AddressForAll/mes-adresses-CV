@@ -33,9 +33,8 @@ interface CountryContextType {
 const CountryContext = React.createContext<CountryContextType | null>(null);
 
 export function CountryContextProvider(props: ChildrenProps) {
-  const { selectedCountry, setSelectedCountry } = useContext(
-    LocalStorageContext
-  );
+  const { selectedCountry, setSelectedCountry } =
+    useContext(LocalStorageContext);
   const [override, setOverride] = useState<string | null>(null);
 
   const country = override || selectedCountry || DEFAULT_COUNTRY;

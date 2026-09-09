@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Pane, Heading, EditIcon, Text, IconButton } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import TokenContext from "@/contexts/token";
 import BalDataContext from "@/contexts/bal-data";
 import LanguagePreview from "../bal/language-preview";
@@ -13,6 +14,7 @@ interface ToponymeHeadingProps {
 }
 
 function ToponymeHeading({ toponyme, baseLocale }: ToponymeHeadingProps) {
+  const t = useTranslations("toponymePage");
   const { token } = useContext(TokenContext);
   const { numeros } = useContext(BalDataContext);
 
@@ -35,7 +37,7 @@ function ToponymeHeading({ toponyme, baseLocale }: ToponymeHeadingProps) {
               <IconButton
                 is={NextLink}
                 href={`/bal/${baseLocale.id}/${TabsEnum.TOPONYMES}/${toponyme.id}`}
-                title="Éditer le toponyme"
+                title={t("editToponyme")}
                 icon={EditIcon}
                 marginBottom={-2}
                 marginLeft={8}

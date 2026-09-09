@@ -14,6 +14,7 @@ import {
   TrashIcon,
   KeyTabIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import Tuto from "@/components/help/tuto";
 import SubTuto from "@/components/help/tuto/sub-tuto";
@@ -25,173 +26,142 @@ import {
   PEERTUBE_LINK,
 } from "@/components/help/video-container";
 
-const before = (
-  <Paragraph marginTop="default">
-    Affichez la liste des voies d’une commune en cliquant sur le nom de celle-ci
-    se trouvant en haut à gauche de votre écran.
-  </Paragraph>
-);
-
 function Voies() {
+  const t = useTranslations("help.voies");
+
+  // Inline markup for the help copy — see base-locale.tsx for the rationale.
+  const tags = {
+    em: (chunks: React.ReactNode) => (
+      <Strong size={500} fontStyle="italic">
+        {chunks}
+      </Strong>
+    ),
+    addButton: (chunks: React.ReactNode) => (
+      <Button
+        iconBefore={AddIcon}
+        marginX={4}
+        appearance="primary"
+        intent="success"
+      >
+        {chunks}
+      </Button>
+    ),
+    successButton: (chunks: React.ReactNode) => (
+      <Button marginX={4} appearance="primary" intent="success">
+        {chunks}
+      </Button>
+    ),
+    primaryButton: (chunks: React.ReactNode) => (
+      <Button marginX={4} appearance="primary">
+        {chunks}
+      </Button>
+    ),
+    dangerButton: (chunks: React.ReactNode) => (
+      <Button marginX={4} intent="danger" appearance="primary">
+        {chunks}
+      </Button>
+    ),
+    moreButton: () => (
+      <Button background="tint1" iconBefore={MoreIcon} appearance="minimal" />
+    ),
+    viewItem: (chunks: React.ReactNode) => (
+      <Menu.Item background="tint1" marginLeft={8} icon={SendToMapIcon}>
+        {chunks}
+      </Menu.Item>
+    ),
+    deleteItem: (chunks: React.ReactNode) => (
+      <Menu.Item
+        background="tint1"
+        marginLeft={8}
+        icon={TrashIcon}
+        intent="danger"
+      >
+        {chunks}
+      </Menu.Item>
+    ),
+    convertButton: (chunks: React.ReactNode) => (
+      <Button iconBefore={KeyTabIcon} marginX={4}>
+        {chunks}
+      </Button>
+    ),
+  };
+
+  // Every tutorial on this tab opens with the same instruction.
+  const before = <Paragraph marginTop="default">{t("openList")}</Paragraph>;
+
   return (
     <Pane>
       <VideoContainer
-        title="Création / Modification d’une voie :"
+        title={t("videoTitle")}
         link={`${PEERTUBE_LINK}/w/v2caTXtfYkvg6wUELBvLs2`}
       />
-      <Tuto title="Ajouter une voie">
+      <Tuto title={t("add.title")}>
         {before}
         <OrderedList margin={8}>
-          <ListItem>
-            Cliquez sur le bouton
-            <Button
-              iconBefore={AddIcon}
-              marginX={4}
-              appearance="primary"
-              intent="success"
-            >
-              Ajouter une voie
-            </Button>
-          </ListItem>
-          <ListItem>
-            Entrez le nom de la voie que vous souhaitez créer dans le champ{" "}
-            <Strong size={500} fontStyle="italic">
-              Nom de la voie…
-            </Strong>
-          </ListItem>
-          <ListItem>
-            Pour terminer, cliquez sur le bouton{" "}
-            <Button marginX={4} appearance="primary" intent="success">
-              Ajouter
-            </Button>
-          </ListItem>
+          <ListItem>{t.rich("add.step1", tags)}</ListItem>
+          <ListItem>{t.rich("add.step2", tags)}</ListItem>
+          <ListItem>{t.rich("add.step3", tags)}</ListItem>
         </OrderedList>
       </Tuto>
 
-      <Tuto title="Renommer une voie">
+      <Tuto title={t("rename.title")}>
         {before}
 
         <OrderedList margin={8}>
-          <ListItem>Cliquez sur le du nom de la voie</ListItem>
-          <ListItem>Éditez le nom de la voie</ListItem>
-          <ListItem>
-            Pour terminer, cliquez sur{" "}
-            <Button marginX={4} appearance="primary" intent="success">
-              Enregistrer
-            </Button>
-          </ListItem>
+          <ListItem>{t("rename.step1")}</ListItem>
+          <ListItem>{t("rename.step2")}</ListItem>
+          <ListItem>{t.rich("rename.step3", tags)}</ListItem>
         </OrderedList>
       </Tuto>
 
-      <Tuto title="Consulter une voie">
+      <Tuto title={t("view.title")}>
         {before}
 
-        <SubTuto title="Depuis le menu latéral" icon={ColumnLayoutIcon}>
+        <SubTuto title={t("view.fromSidebar")} icon={ColumnLayoutIcon}>
           <OrderedList margin={8}>
-            <ListItem>
-              Cliquez sur le bouton{" "}
-              <Button
-                background="tint1"
-                iconBefore={MoreIcon}
-                appearance="minimal"
-              />{" "}
-              se situant à droite du nom de la voie
-            </ListItem>
+            <ListItem>{t.rich("view.step1", tags)}</ListItem>
             <ListItem>
               <Pane display="flex" alignItems="center">
-                Dans le menu qui vient d’apparaître, choisissez
-                <Menu.Item
-                  background="tint1"
-                  marginLeft={8}
-                  icon={SendToMapIcon}
-                >
-                  Consulter
-                </Menu.Item>
+                {t.rich("view.step2", tags)}
               </Pane>
             </ListItem>
           </OrderedList>
         </SubTuto>
 
-        <SubTuto title="Depuis la carte" icon={MapIcon}>
+        <SubTuto title={t("view.fromMap")} icon={MapIcon}>
           <OrderedList margin={8}>
-            <ListItem>
-              Cliquez sur le nom de la voie ou sur l’un de ses numéros
-            </ListItem>
+            <ListItem>{t("view.fromMapStep")}</ListItem>
           </OrderedList>
         </SubTuto>
       </Tuto>
 
-      <Tuto title="Supprimer une voie">
+      <Tuto title={t("delete.title")}>
         {before}
 
         <OrderedList margin={8}>
-          <ListItem>
-            Cliquez sur le bouton{" "}
-            <Button
-              background="tint1"
-              iconBefore={MoreIcon}
-              appearance="minimal"
-            />{" "}
-            se situant à droite du nom de la voie
-          </ListItem>
+          <ListItem>{t.rich("delete.step1", tags)}</ListItem>
           <ListItem>
             <Pane display="flex" alignItems="center">
-              Dans le menu qui vient d’apparaître, choisissez
-              <Menu.Item
-                background="tint1"
-                marginLeft={8}
-                icon={TrashIcon}
-                intent="danger"
-              >
-                Supprimer…
-              </Menu.Item>
+              {t.rich("delete.step2", tags)}
             </Pane>
           </ListItem>
-          <ListItem>
-            Pour terminer, confirmez votre choix en cliquant sur{" "}
-            <Button marginX={4} intent="danger" appearance="primary">
-              Supprimer
-            </Button>
-          </ListItem>
+          <ListItem>{t.rich("delete.step3", tags)}</ListItem>
         </OrderedList>
       </Tuto>
 
-      <Tuto title="Convertir une voie en voie sans adresses">
+      <Tuto title={t("convert.title")}>
         {before}
-        <Paragraph marginTop="default">
-          Vous pouvez transformer une voie en toponyme si cette première ne
-          contient aucun numéro.
-        </Paragraph>
+        <Paragraph marginTop="default">{t("convert.intro")}</Paragraph>
         <OrderedList margin={8}>
-          <ListItem>
-            Cliquez sur le bouton
-            <Button
-              background="tint1"
-              iconBefore={MoreIcon}
-              appearance="minimal"
-            />
-            se situant à droite du nom de la voie
-          </ListItem>
-          <ListItem>
-            Dans le menu qui vient d’apparaître, choisissez
-            <Button iconBefore={KeyTabIcon} marginX={4}>
-              Convertir en voie sans adresses
-            </Button>
-          </ListItem>
-          <ListItem>
-            Pour terminer, confirmez votre choix en cliquant sur
-            <Button marginX={4} appearance="primary">
-              Confirmer
-            </Button>
-          </ListItem>
-          <ListItem>
-            Vous serez redirigé sur l’édition du nouveau toponyme
-          </ListItem>
+          <ListItem>{t.rich("convert.step1", tags)}</ListItem>
+          <ListItem>{t.rich("convert.step2", tags)}</ListItem>
+          <ListItem>{t.rich("convert.step3", tags)}</ListItem>
+          <ListItem>{t("convert.step4")}</ListItem>
         </OrderedList>
       </Tuto>
 
       <Problems>
-        <Unauthorized title="Je n’arrive pas à ajouter/supprimer une voie" />
+        <Unauthorized title={t("problems.cannotAddOrDelete")} />
         <Sidebar />
       </Problems>
     </Pane>

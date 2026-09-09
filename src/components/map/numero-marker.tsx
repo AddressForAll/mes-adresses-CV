@@ -9,6 +9,7 @@ import {
   TrashIcon,
   EndorsedIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { Tooltip } from "evergreen-ui";
 
 import { computeCompletNumero } from "@/lib/utils/numero";
@@ -31,6 +32,7 @@ function NumeroMarker({
   onEnableMenu,
   removeAddress,
 }: NumeroMarkerProps) {
+  const t = useTranslations("mapPopup");
   const position =
     numero.positions.find((position) => position.type === "entrée") ||
     numero.positions[0];
@@ -69,7 +71,7 @@ function NumeroMarker({
 
         {numero.certifie && (
           <Tooltip
-            content="Cette adresse est certifiée"
+            content={t("addressCertified")}
             position={Position.BOTTOM_RIGHT}
           >
             <EndorsedIcon

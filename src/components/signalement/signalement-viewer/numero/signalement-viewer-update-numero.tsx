@@ -8,6 +8,7 @@ import { SignalementNumeroDiffCard } from "../../signalement-diff/signalement-nu
 import { ActiveCardEnum } from "@/lib/utils/signalement";
 import { useSignalementMapDiffUpdate } from "@/components/signalement/hooks/useSignalementMapDiffUpdate";
 import { BanCircleIcon, TickCircleIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 interface SignalementViewerUpdateNumeroProps {
   signalement: Signalement;
@@ -16,6 +17,7 @@ interface SignalementViewerUpdateNumeroProps {
 function SignalementViewerUpdateNumero({
   signalement,
 }: SignalementViewerUpdateNumeroProps) {
+  const t = useTranslations("signalementForm");
   const { changesRequested, existingLocation, status } = signalement;
 
   const { numero, suffixe, positions, parcelles, nomVoie, nomComplement } =
@@ -43,7 +45,7 @@ function SignalementViewerUpdateNumero({
   return (
     <>
       <SignalementNumeroDiffCard
-        title="Adresse concernée"
+        title={t("addressConcerned")}
         isActive={activeCard === ActiveCardEnum.INITIAL}
         numero={{
           to: `${existingNumero}${

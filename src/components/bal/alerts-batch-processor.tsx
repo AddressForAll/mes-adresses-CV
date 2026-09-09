@@ -15,6 +15,7 @@ import {
   defaultTheme,
   Badge,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import {
   AlertVoie,
@@ -24,10 +25,7 @@ import {
   isAlertCodeVoieEnum,
   isAlertCodeNumeroEnum,
 } from "@/lib/alerts/alerts.types";
-import {
-  AlertVoieDefinitions,
-  AlertNumeroDefinitions,
-} from "@/lib/alerts/alerts.definitions";
+import {} from "@/lib/alerts/alerts.definitions";
 import { isAlertVoieNom } from "@/lib/alerts/utils/alerts-voies.utils";
 import {
   ExtendedVoieDTO,
@@ -65,6 +63,9 @@ function AlertsBatchProcessor({
   onClose,
   onFinish,
 }: AlertsBatchProcessorProps) {
+  const ta = useTranslations("alertDefinitions");
+  const t = useTranslations("alertsBatch");
+  const tc = useTranslations("common");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const {
@@ -110,14 +111,14 @@ function AlertsBatchProcessor({
     if (!currentItem) return [];
     return currentItem.alert.codes.map((code) => {
       if (isAlertCodeVoieEnum(code)) {
-        return AlertVoieDefinitions[code];
+        return ta(code);
       }
       if (isAlertCodeNumeroEnum(code)) {
-        return AlertNumeroDefinitions[code];
+        return ta(code);
       }
       return code;
     });
-  }, [currentItem]);
+  }, [currentItem, ta]);
 
   const goNext = useCallback(() => {
     if (isLastItem) {
@@ -142,8 +143,8 @@ function AlertsBatchProcessor({
             VoiesService.updateVoie(currentItem.voie.id, {
               nom: (currentItem.alert as AlertVoie).remediation,
             }),
-          "La correction a été appliquée",
-          "La correction n'a pas pu être appliquée"
+          t("applySuccess"),
+          t("applyError")
         );
         await applyCorrection();
 
@@ -163,8 +164,8 @@ function AlertsBatchProcessor({
             NumerosService.updateNumero(currentItem.numeroId, {
               suffixe: (currentItem.alert as AlertNumero).remediation,
             }),
-          "Le suffixe a été corrigé",
-          "Le suffixe n'a pas pu être corrigé"
+          t("suffixeSuccess"),
+          t("suffixeError")
         );
         await applyCorrection();
 
@@ -212,8 +213,8 @@ function AlertsBatchProcessor({
           // RELOAD ALERTS
           reloadVoieAlerts(currentItem.voie, voies);
         },
-        "La voie a bien été convertie en toponyme",
-        "La voie n'a pas pu être convertie en toponyme"
+        t("convertSuccess"),
+        t("convertError")
       );
       await convert();
 
@@ -258,8 +259,8 @@ function AlertsBatchProcessor({
           NumerosService.updateNumero(currentItem.numeroId, {
             parcelles: filteredParcelles,
           }),
-        "La parcelle a été supprimée",
-        "La parcelle n'a pas pu être supprimée"
+        t("parcelleSuccess"),
+        t("parcelleError")
       );
       await applyCorrection();
 
@@ -296,10 +297,10 @@ function AlertsBatchProcessor({
         alignItems="center"
       >
         <Heading size={500} marginBottom={16}>
-          Toutes les suggestions ont été traitées
+          {t("allProcessed")}
         </Heading>
         <Button onClick={onFinish} appearance="primary">
-          Retour à la liste
+          {t("backToList")}
         </Button>
       </Pane>
     );
@@ -322,7 +323,7 @@ function AlertsBatchProcessor({
           onClick={onClose}
           size="small"
         >
-          Retour
+          {tc("back")}
         </Button>
         <Badge color="purple">
           {currentIndex + 1} / {items.length}
@@ -333,15 +334,15 @@ function AlertsBatchProcessor({
       <Pane flex={1} overflowY="auto" padding={16}>
         <Heading marginBottom={8}>
           {isVoieNameAlert
-            ? "Suggestion sur le nom de voie"
+            ? t("suggestionVoieName")
             : isVoieEmpty
-              ? "Suggestion voie sans adresse"
+              ? t("suggestionVoieEmpty")
               : isNumeroSuffixeAlert
-                ? "Suggestion sur le suffixe du numero"
+                ? t("suggestionSuffixe")
                 : isNumeroParcelleAlert
-                  ? "Suggestion sur Parcelle inexistante dans le cadastre"
+                  ? t("suggestionParcelle")
                   : isVoieDoublon
-                    ? "Suggestion sur voies avec le même nom"
+                    ? t("suggestionDoublon")
                     : null}
         </Heading>
         <Text is="p">
@@ -386,7 +387,7 @@ function AlertsBatchProcessor({
         {/* Diff for voie name alerts with remediation */}
         {isVoieNameAlert && hasRemediation && (
           <AlertNameDiff
-            fieldLabel="Nom de la voie"
+            fieldLabel={t("voieNameLabel")}
             currentItem={currentItem}
           />
         )}
@@ -394,7 +395,7 @@ function AlertsBatchProcessor({
         {/* Diff for numero suffix alerts with remediation */}
         {isNumeroSuffixeAlert && currentItem.alert.remediation && (
           <AlertNameDiff
-            fieldLabel="Suffixe du numéro"
+            fieldLabel={t("suffixeLabel")}
             currentItem={currentItem}
             isNumeroSuffixeAlert
           />
@@ -409,8 +410,7 @@ function AlertsBatchProcessor({
             marginBottom={16}
           >
             <Text display="block" marginBottom={8}>
-              Cette voie ne contient aucun numéro. Vous pouvez la convertir en
-              toponyme.
+              {t("voieEmptyInfo")}
             </Text>
           </Pane>
         )}
@@ -424,8 +424,7 @@ function AlertsBatchProcessor({
             marginBottom={16}
           >
             <Text display="block" marginBottom={8}>
-              Le suffixe &quot;{currentItem.alert.value}&quot; contient des
-              caractères invalides.
+              {t("suffixeInvalidInfo", { suffixe: currentItem.alert.value })}
             </Text>
           </Pane>
         )}
@@ -453,7 +452,7 @@ function AlertsBatchProcessor({
             iconAfter={TickCircleIcon}
             style={{ backgroundColor: defaultTheme.colors.purple600 }}
           >
-            Appliquer
+            {t("apply")}
           </Button>
         )}
         {isVoieEmpty && (
@@ -463,7 +462,7 @@ function AlertsBatchProcessor({
             appearance="primary"
             style={{ backgroundColor: defaultTheme.colors.purple600 }}
           >
-            Convertir en toponyme
+            {t("convertToToponyme")}
           </Button>
         )}
         {isNumeroParcelleAlert && (
@@ -474,7 +473,7 @@ function AlertsBatchProcessor({
             iconAfter={TickCircleIcon}
             style={{ backgroundColor: defaultTheme.colors.purple600 }}
           >
-            Supprimer la parcelle
+            {t("removeParcelle")}
           </Button>
         )}
         {isVoieDoublon && (
@@ -485,7 +484,7 @@ function AlertsBatchProcessor({
             iconAfter={TickCircleIcon}
             style={{ backgroundColor: defaultTheme.colors.purple600 }}
           >
-            Fusionner les voies
+            {t("mergeVoies")}
           </Button>
         )}
         <Button
@@ -498,7 +497,7 @@ function AlertsBatchProcessor({
             borderColor: defaultTheme.colors.purple600,
           }}
         >
-          {isLastItem ? "Terminer" : "Passer"}
+          {isLastItem ? t("finish") : t("skip")}
         </Button>
         <Button
           disabled={isLoading}
@@ -506,7 +505,7 @@ function AlertsBatchProcessor({
           appearance="minimal"
           iconBefore={CrossIcon}
         >
-          Annuler
+          {tc("cancel")}
         </Button>
       </Pane>
     </Pane>

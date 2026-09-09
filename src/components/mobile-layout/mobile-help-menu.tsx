@@ -9,11 +9,13 @@ import {
   Menu,
   InfoSignIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { PEERTUBE_LINK } from "@/components/help/video-container";
 import HelpContext from "@/contexts/help";
 
 export function MobileHelpMenu() {
+  const t = useTranslations("header");
   const { showHelp, setShowHelp } = useContext(HelpContext);
 
   return (
@@ -23,7 +25,7 @@ export function MobileHelpMenu() {
         <Menu>
           <Menu.Group>
             <Menu.Item icon={HelpIcon} onClick={() => setShowHelp(!showHelp)}>
-              Besoin d’aide
+              {t("help")}
             </Menu.Item>
             <Menu.Item
               is="a"
@@ -31,7 +33,7 @@ export function MobileHelpMenu() {
               icon={VideoIcon}
               href={`${PEERTUBE_LINK}/c/base_adresse_locale/videos`}
             >
-              Tutoriels vidéos
+              {t("videoTutorials")}
             </Menu.Item>
             <Menu.Item
               is="a"
@@ -39,7 +41,7 @@ export function MobileHelpMenu() {
               href="https://doc.adresse.data.gouv.fr/"
               icon={BookIcon}
             >
-              Guides de l’adressage
+              {t("addressingGuides")}
             </Menu.Item>
           </Menu.Group>
         </Menu>

@@ -1,0 +1,1319 @@
+{
+  "accessibility": {
+    "action1": "Fournir un site web accessible.",
+    "action2": "Prêter attention aux informations d’accessibilité des données.",
+    "commitment": "<strong>La Base Adresse Nationale</strong> s’engage à rendre ses sites internet, intranet, extranet et ses progiciels accessibles (et ses applications mobiles et mobilier urbain numérique) conformément à l’article 47 de <strong>la loi n°2005-102 du 11 février 2005</strong>. À cette fin, elle met en œuvre la stratégie et les actions suivantes :",
+    "complianceContent": "<strong>mes-adresses.data.gouv</strong> est non-conforme avec le <strong>référentiel général d’amélioration de l’accessibilité</strong> (RGAA), un audit d’accessibilité n’ayant pas encore été réalisé. L’absence d’audit d’accessibilité ne remet pas en cause <strong>le caractère accessible</strong> du site web actuel.",
+    "complianceStatus": "État de conformité",
+    "contactUs": "Nous contacter",
+    "declarationDate": "Cette déclaration d’accessibilité a été établie le <strong>01/08/2022</strong> et s’applique à <strong>mes-adresses.data.gouv</strong>",
+    "infoAndContact": "Information et contact",
+    "infoAndContactContent": "Si vous n’arrivez pas à accéder à un contenu ou à un service, vous pouvez contacter notre équipe pour être orienté vers une alternative accessible ou obtenir le contenu sous une autre forme.",
+    "nonCompliant": "Non-conforme",
+    "remedies": "Voie de recours",
+    "remediesContent": "Si vous constatez un <strong>défaut d’accessibilité</strong> vous empêchant d’accéder à un contenu ou une fonctionnalité du site, que vous nous le signalez et que vous ne parvenez pas à obtenir une réponse de notre part, vous êtes en droit de faire parvenir vos doléances ou une demande de saisine au <strong>Défenseur des droits</strong>.<br></br>Plusieurs moyens sont à votre disposition :",
+    "remedyDelegate": "Contacter <strong>le délégué du Défenseur des droits</strong>",
+    "remedyDelegateSuffix": "dans votre région.",
+    "remedyPost": "Envoyer un courrier par la poste (gratuit, ne pas mettre de timbre).",
+    "remedyWrite": "Écrire un message au <strong>Défenseur des droits</strong>.",
+    "title": "Déclaration d’accessibilité"
+  },
+  "addNumeros": {
+    "allSelected": "Tous les numéros sont sélectionnés",
+    "chooseVoie": "- Sélectionnez une voie -",
+    "deselectAll": "Désélectionner tous les numéros",
+    "linkNumeros": "Associer des numéros",
+    "noneAvailable": "Aucun numéro n’est disponible pour cette voie",
+    "or": "ou",
+    "polygonEditHint": "Modifier le polygone directement depuis la carte pour changer les numeros sélectionés.",
+    "polygonHint": "Cliquez sur la carte pour dessiner un polygon. Une fois terminé, cliquez sur le dernier point afin de fermer le polygone. Les numeros dans le polygone seront selectionnés",
+    "selectAll": "Sélectionner tous les numéros",
+    "selectNumeros": "Sélectionner les numéros",
+    "selectedCount": "{count, plural, =0 {Aucun numéro n’est sélectionné} one {1 numéro est sélectionné} other {# numéros sont sélectionnés}}",
+    "selectionTitle": "Sélection des numéros",
+    "voie": "Voie",
+    "withPolygon": "En dessinant le contour",
+    "withVoie": "Avec une voie"
+  },
+  "addressEditor": {
+    "createNew": "Créer un nouveau",
+    "numero": "Numéro",
+    "title": "Nouvelle adresse",
+    "toponyme": "Toponyme"
+  },
+  "adminEmailsField": {
+    "addButton": "Ajouter un mail administrateur",
+    "addTitle": "Ajouter une adresse mail",
+    "label": "Adresses emails des administrateurs *",
+    "placeholder": "Ajouter une adresse email…"
+  },
+  "alertDefinitions": {
+    "abbreviation_invalid": "Le nom de la voie semble contenir une abréviation invalide",
+    "bad_multi_word_rue": "Le nom de la voie semble contenir plusieurs fois le mot rue",
+    "bad_word_lieudit": "Le nom de la voie semble contenir un mot de lieu-dit invalide",
+    "caractere_invalide": "Le nom de la voie semble contenir un caractère invalide",
+    "caractere_invalide_end": "Le nom de la voie semble finir par un caractère invalide",
+    "caractere_invalide_start_or_end": "Le nom de la voie semble commencer ou finir par un caractère invalide",
+    "casse_incorrecte": "Le nom de la voie semble contenir une casse incorrecte",
+    "doublon_voie_nom": "Plusieurs voies on l’air d’avoir le même nom",
+    "lake_of_accent": "Le nom de la voie semble manquer d’un ou plusieurs accents",
+    "multi_space_caractere": "Le nom de la voie semble contenir plusieurs espaces de suite",
+    "no_words_in_parentheses": "Le nom de la voie semble contenir un mot entre parenthèses",
+    "parcelle_not_exist": "La parcelle n’existe plus dans le cadastre de la commune",
+    "suffixe_caractere_invalide": "Le suffixe du numéro semble contenir un caractère invalide",
+    "voie_empty": "La voie n’a pas de numéro, est-ce une voie sans adresse ?"
+  },
+  "alertPublishedBal": {
+    "alreadyPublished": "Une Base Adresse Locale a déjà été publiée pour {communeName}",
+    "existingUnpublished": "Des Bases Adresses Locales non-publiées existent déjà pour {communeName}",
+    "publishedIconAlt": "Icone Base Adresse Locale publiée"
+  },
+  "alertsBatch": {
+    "allProcessed": "Toutes les suggestions ont été traitées",
+    "apply": "Appliquer",
+    "applyError": "La correction n’a pas pu être appliquée",
+    "applySuccess": "La correction a été appliquée",
+    "backToList": "Retour à la liste",
+    "convertError": "La voie n’a pas pu être convertie en toponyme",
+    "convertSuccess": "La voie a bien été convertie en toponyme",
+    "convertToToponyme": "Convertir en toponyme",
+    "finish": "Terminer",
+    "mergeVoies": "Fusionner les voies",
+    "parcelleError": "La parcelle n’a pas pu être supprimée",
+    "parcelleSuccess": "La parcelle a été supprimée",
+    "removeParcelle": "Supprimer la parcelle",
+    "skip": "Passer",
+    "suffixeError": "Le suffixe n’a pas pu être corrigé",
+    "suffixeInvalidInfo": "Le suffixe « {suffixe} » contient des caractères invalides.",
+    "suffixeLabel": "Suffixe du numéro",
+    "suffixeSuccess": "Le suffixe a été corrigé",
+    "suggestionDoublon": "Suggestion sur voies avec le même nom",
+    "suggestionParcelle": "Suggestion sur Parcelle inexistante dans le cadastre",
+    "suggestionSuffixe": "Suggestion sur le suffixe du numero",
+    "suggestionVoieEmpty": "Suggestion voie sans adresse",
+    "suggestionVoieName": "Suggestion sur le nom de voie",
+    "voieEmptyInfo": "Cette voie ne contient aucun numéro. Vous pouvez la convertir en toponyme.",
+    "voieNameLabel": "Nom de la voie"
+  },
+  "alertsSettings": {
+    "numeroAlerts": "Alertes sur les numéros",
+    "voieAlerts": "Alertes sur les voies"
+  },
+  "alreadyPublishedWarning": {
+    "goToPublished": "Accèder à la BAL publiée",
+    "message": "Une BAL est déjà publiée pour la commune de {communeName}",
+    "orContactSupport": "ou contacter le support:"
+  },
+  "balData": {
+    "loading": "Chargement de la base adresse locale...",
+    "newChangesDetail": "Elles seront automatiquement transmises dans la Base Adresses Nationale d’ici quelques heures.",
+    "newChangesDetected": "De nouvelles modifications ont été détectées"
+  },
+  "balInfosStep": {
+    "creatingContent": "Votre Base Adresse Locale est en cours de création. Cette opération peut prendre plusieurs minutes.",
+    "creatingTitle": "Base Adresse Locale en cours de création...",
+    "demoDescription": "Cette BAL ne pourra jamais être publiée et ne sera pas sauvegardée.",
+    "demoLabel": "Créer un Base locale de Demo ?",
+    "nom": "Nom de la Base Adresse Locale"
+  },
+  "balRecovery": {
+    "alreadyPublishedTitle": "Une BAL est déjà publiée pour cette commune",
+    "byCommuneTitle": "Avec le courrier électronique officiel de votre commune",
+    "byEmailIntro": "Un courrier électronique va être envoyé à l’adresse que vous avez renseignée.",
+    "byEmailTitle": "Avec votre adresse de courrier électronique",
+    "cannotFindBals": "Vous ne retrouvez pas vos Bases Adresse Locales ? Pour les récupérer par courriel",
+    "chooseCommune": "Renseigner la commune dont vous voulez récupérer les Bases Adresses Locales.",
+    "clickHere": "Cliquez ici",
+    "communeRecoveryUnavailable": "La récupération par commune n’est pas disponible pour {country}.",
+    "contactSupport": "Si vous voulez quand même repartir de cette BAL, veuillez contacter le support:",
+    "emailAlreadySent": "Un email a déjà été envoyé, merci de patienter.",
+    "emailHintMany": "Vous y retrouverez la liste de toutes les Bases Adresses Locales associées à celle-ci. Il vous suffira alors de cliquer sur les liens qui y sont associés afin de pouvoir les retrouver sur votre espace.",
+    "emailHintOne": "Vous y retrouverez un lien d’administration de votre Base Adresse Locale. Il vous suffira alors de cliquer sur le lien afin de pouvoir la retrouver sur votre espace.",
+    "emailPlaceholder": "adresse@courriel.fr",
+    "emailSentTo": "Un email a été envoyé à l’adresse {email}",
+    "emailSentToCommune": "Un email a été envoyé à la commune",
+    "emailWillBeSentTo": "Un courrier électronique avec le lien de récupération va être envoyé à l’adresse de votre commune : <strong>{emails}</strong>",
+    "goToPublished": "Accéder à la BAL publiée",
+    "loadingCommuneEmails": "Chargement des adresses email de la commune...",
+    "mairieLogoAlt": "logo mairie",
+    "mustStartFromPublished": "Vous devez repartir de la BAL publiée",
+    "receiveEmail": "Recevoir le courriel",
+    "recoverManyTitle": "Récupération de mes Bases Adresses Locales",
+    "recoverOneTitle": "Récupération de votre Base Adresse Locale"
+  },
+  "balStatus": {
+    "consultation": {
+      "content": "Vous consultez cette Base Adresse Locale, aucune modification ne sera répercutée dans la Base Adresse Nationale.",
+      "label": "Consultation",
+      "title": "Vous consultez cette Base Adresse Locale"
+    },
+    "demo": {
+      "content": "Base Adresse Locale de démonstration, aucune adresse ne sera transmise à la Base Adresse Nationale",
+      "label": "Démonstration",
+      "title": "Base Adresse Locale de démonstration"
+    },
+    "draft": {
+      "content": "Cette Base Adresses Locale est en cours de construction",
+      "label": "Brouillon",
+      "title": "Cette Base Adresses Locale est en cours de construction"
+    },
+    "noHabilitation": {
+      "content": "Les modifications ne seront pas répercutées dans la Base Adresse Nationale.",
+      "label": "Aucune habilitation",
+      "title": "Cette Base Adresse Locale a besoin d’une habilitation pour alimenter la Base Adresse Nationale"
+    },
+    "outdated": {
+      "content": "De nouvelles modifications ont été détectées, elles seront automatiquement répercutées dans la Base Adresse Nationale dans les prochaines heures.",
+      "label": "Mise à jour programmée",
+      "title": "Cette Base Adresse Locale va alimenter la Base Adresse Nationale"
+    },
+    "paused": {
+      "content": "Les mises à jour automatiques de cette Base Adresse Locale sont actuellement suspendues. Vous pouvez relancer la synchronisation à tout moment.",
+      "label": "Suspendue",
+      "title": "Les mises à jour automatiques de cette Base Adresse Locale sont actuellement suspendues, elle n’alimente plus la Base Adresse Nationale"
+    },
+    "replaced": {
+      "content": "Une autre Base Adresses Locale est aussi synchronisée avec la Base Adresse Nationale. Veuillez entrer en contact les administrateurs de l’autre Base Adresse Locale ou notre support: adresse@data.gouv.fr",
+      "label": "Remplacée",
+      "title": "Cette Base Adresse Locale n’alimente plus la Base Adresse Nationale"
+    },
+    "synced": {
+      "content": "Cette Base Adresse Locale est à jour avec la Base Adresse Nationale. Toute modification sera automatiquement répercutée dans la Base Adresse Nationale dans les prochaines heures.",
+      "label": "À jour",
+      "title": "Cette Base Adresse Locale alimente la Base Adresse Nationale"
+    }
+  },
+  "balStatusActions": {
+    "habiliteBal": "Habiliter la BAL",
+    "pauseError": "Impossible de suspendre la mise à jour de la Base Adresses Nationale",
+    "pauseSuccess": "Mise en pause des mises à jour automatiques de la Base Adresses Nationale",
+    "resumeError": "Impossible de reprendre la mise à jour automatique de la Base Adresses Nationale",
+    "resumeSuccess": "Reprise de la mise à jour automatique de la Base Adresses Nationale"
+  },
+  "balSummary": {
+    "editNomsAlt": "Modifier les noms alternatifs de la commune en langue régionale",
+    "numerosCount": "<b>{count}</b> {count, plural, one {numéro} other {numéros}}",
+    "toponymesCount": "<b>{count}</b> {count, plural, one {toponyme} other {toponymes}}",
+    "voiesCount": "<b>{count}</b> {count, plural, one {voie} other {voies}}"
+  },
+  "banHistory": {
+    "by": "Par",
+    "electedOfficial": "élu(e) de {communeName}",
+    "empty": "Aucune Base Adresses Locales trouvée",
+    "loading": "Chargement de l’historique",
+    "notProvided": "Non renseigné",
+    "reduce": "Réduire",
+    "showAll": "Afficher tout l’historique",
+    "title": "Historique de mise à jour"
+  },
+  "banSync": {
+    "automaticUpdate": "Mise à jour automatique",
+    "forceUpdate": "Forcer la mise à jour",
+    "pauseAutomaticUpdate": "Suspendre la mise à jour automatique",
+    "replaceConfirmation": "Je comprends que ma Base Adresse Locale remplacera celle actuellement synchronisée avec la Base Adresses Nationale",
+    "resumeAutomaticUpdate": "Relancer la mise à jour automatique",
+    "syncing": "Synchronisation en cours",
+    "updateNow": "Mettre à jour"
+  },
+  "baseLocaleCard": {
+    "certifiedAddresses": "Adresses certifiées :",
+    "deleteBal": "Supprimer la Base Adresse Locale",
+    "hideBal": "Masquer la Base Adresse Locale",
+    "lastUpdate": "Dernière mise à jour {relative}",
+    "manageAddresses": "Gérer les adresses",
+    "neverUpdated": "Jamais mise à jour",
+    "openBal": "Accéder à la Base Adresse Locale"
+  },
+  "basemaps": {
+    "ortho": "Photographie aérienne",
+    "planIgn": "Plan IGN",
+    "satellite": "Satellite (Esri)",
+    "street": "Plan (CARTO)",
+    "vector": "Plan OpenStreetMap"
+  },
+  "basesLocalesList": {
+    "createBal": "Créer une base adresse locale",
+    "deleteConfirm": "Êtes vous bien sûr de vouloir supprimer cette Base Adresse Locale ? Cette action est définitive.",
+    "deleteError": "La Base Adresse Locale n’a pas pu être supprimée",
+    "deleteSuccess": "La Base Adresse Locale a bien été supprimée",
+    "filterPlaceholder": "Filtrer les bases adresses locales par nom",
+    "hideConfirm": "Êtes vous bien sûr de vouloir masquer cette Base Adresse Locale ? Elle n’apparaitra plus sur votre page d’accueil, mais vous pourrez toujours la récupérer ultérieurement.",
+    "recoverBal": "Récupérer une base adresse locale",
+    "sortByDate": "Trier par date de mise à jour",
+    "sortByName": "Trier par ordre alphabétique"
+  },
+  "certificationButton": {
+    "certifyAndSave": "Certifier et enregistrer",
+    "uncertifyAndSave": "Ne plus certifier et enregistrer"
+  },
+  "certificationGoal": {
+    "allCertified": "Toutes les adresses sont certifiées par la commune",
+    "badgeTitle": "Publication",
+    "certified": "Adresses certifiées",
+    "explanation": "La <link>certification</link> vous permet de <strong>suivre l’avancée de la fiabilisation</strong> des adresses et de <strong>mettre en valeur votre travail</strong> auprès des réutilisateurs.",
+    "title": "Certification",
+    "uncertified": "Adresses non-certifiées"
+  },
+  "certificationInfos": {
+    "certified": "Adresses certifiées",
+    "explanation": "Les adresses certifiées par la commune sont marquées comme fiables et prêtes à être utilisées par les réutilisateurs.",
+    "title": "Certification",
+    "uncertified": "Adresses non-certifiées"
+  },
+  "comment": {
+    "label": "Commentaire",
+    "placeholder": "Cette note est confidentielle et ne sera pas diffusée."
+  },
+  "common": {
+    "add": "Ajouter",
+    "back": "Retour",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "continue": "Continuer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "error": "Erreur",
+    "inProgress": "En cours…",
+    "learnMore": "En savoir plus",
+    "loading": "Chargement…",
+    "next": "Suivant",
+    "no": "Non",
+    "noResults": "Aucun résultat trouvé",
+    "previous": "Précédent",
+    "save": "Enregistrer",
+    "search": "Rechercher",
+    "validate": "Valider",
+    "warning": "Attention",
+    "yes": "Oui"
+  },
+  "communeNomsAltEditor": {
+    "error": "Le nom de la commune en langue régional n’a pas pu être modifiée",
+    "label": "Nom en langue régionale de la commune",
+    "success": "Le nom de la commune en langue régional a bien été modifié"
+  },
+  "communePublicationInfos": {
+    "contactSupport": "Si vous rencontrer un problème vous pouvez contacter notre support:",
+    "createDemoBal": "Créer une Base Adresse Locale de démonstration",
+    "createNewBal": "Créer une nouvelle Base Adresse Locale",
+    "demoNotice": "Cette BAL ne pourra jamais être publiée et ne sera pas sauvegardée"
+  },
+  "communeSearch": {
+    "searchCommune": "Chercher une commune…"
+  },
+  "country": {
+    "title": "Choix du pays"
+  },
+  "demoWarning": {
+    "banner": "Cette Base Adresse Locale de démonstration sera supprimée d’ici 24 heures sans modifications"
+  },
+  "disabledFormInput": {
+    "notAvailable": "Cette fonctionnalité n’est pas disponible pour cette commune."
+  },
+  "documentGeneration": {
+    "arrete": "Arrêté de numérotation",
+    "arreteDialogTitle": "Télécharger un modèle d’arrêté de numérotation",
+    "arreteDisabled": "L’arrêté de numérotation ne peut être généré que pour un numéro certifié",
+    "certificat": "Certificat d’adressage",
+    "certificatDialogTitle": "Génération d’un certificat d’adressage",
+    "certificatDisabled": "Le certificat d’adressage ne peut être généré que pour un numéro certifié et lié à au moins une parcelle",
+    "destinataireDescription": "Renseigner le nom du destinataire pour un certificat nominatif",
+    "destinataireLabel": "Destinataire (optionnel)",
+    "destinatairePlaceholder": "Mr Rémi Dupont",
+    "download": "Télécharger",
+    "emetteurDescription": "L’émetteur sera mentionné dans le certificat d’adressage",
+    "emetteurLabel": "Émetteur (optionnel)",
+    "emetteurPlaceholder": "Sylvie Loiseau, Adjointe au Maire",
+    "format": "Format",
+    "generate": "Générer",
+    "generateTemplate": "Générer un modèle",
+    "orTakePhoto": "Ou cliquer sur <camera></camera> pour générer le plan de situation automatiquement",
+    "planDescription": "Le plan de situation fourni sera inséré dans l’arrêté de numérotation",
+    "planLabel": "Plan de situation (optionnel)",
+    "rememberEmetteur": "Se souvenir de l’émetteur",
+    "selectFile": "Sélectionner le fichier (Format PNG et JPEG, maximum 5 Mo)",
+    "takePhotoTitle": "Prendre une photo de la carte"
+  },
+  "downloads": {
+    "balCsv": "Base Adresse Locale (format CSV)",
+    "certificateHint": "Pour télécharger un certificat d’adressage, rendez-vous dans la liste des numéros d’une voie et ouvrez le menu d’actions du numéro concerné.",
+    "commentsWarning": "Attention, si vous avez renseigné des informations à caractère personnel dans vos commentaires, celles-ci seront présentes dans l’export de votre Base Adresse Locale.",
+    "filairesGeojson": "Liste des filaires de voie (format GeoJSON)",
+    "title": "Téléchargements",
+    "voiesCsv": "Liste des voies (format CSV)",
+    "withComments": "Avec commentaires"
+  },
+  "draw": {
+    "drawPolygon": "Cliquez sur la carte pour indiquer le début du polygone, puis ajoutez de nouveaux points afin de tracer votre polygone. Une fois terminé, cliquez sur le dernier point afin d’indiquer la fin du polygone.",
+    "drawVoie": "Cliquez sur la carte pour indiquer le début de la voie, puis ajoutez de nouveaux points afin de tracer votre voie. Une fois terminé, cliquez sur le dernier point afin d’indiquer la fin de la voie.",
+    "editPolygon": "Vous pouvez éditer le polygone en déplaçant les points ou en ajoutant de nouveaux points en cliquant sur le contour du polygone.",
+    "editVoie": "Vous pouvez éditer le tracé en déplaçant les points ou en ajoutant de nouveaux points en cliquant sur le tracé.",
+    "measureDistance": "Cliquez sur la carte pour mesurer une distance. Double-cliquez pour terminer."
+  },
+  "drawMetricVoieEditor": {
+    "clear": "Effacer le tracé",
+    "hint": "Utilisez la carte pour dessiner le tracé de la voie",
+    "title": "Tracé de la voie"
+  },
+  "drawer": {
+    "downloads": "Téléchargements",
+    "settings": "Paramètres",
+    "trash": "Corbeille"
+  },
+  "duration": {
+    "days": "{count, plural, one {# jour} other {# jours}}",
+    "hours": "{count, plural, one {# heure} other {# heures}}",
+    "minutes": "{count, plural, one {# minute} other {# minutes}}",
+    "seconds": "{count, plural, one {# seconde} other {# secondes}}"
+  },
+  "editor": {
+    "loadingBal": "Chargement de la Base Adresse Locale"
+  },
+  "fondDeCarte": {
+    "addBasemap": "Ajouter un fond de carte",
+    "addBasemapTitle": "Ajouter fond de carte",
+    "howToAddContent": "Seul les urls des flux WMTS ou WMS sont supportées. Les données doivent être de type raster et les images de 256x256 pixels. Voir l’exemple ci-dessous.",
+    "howToAddTitle": "Comment rajouter ses propres fonds de carte ?",
+    "nameInvalid": "Le nom est invalide",
+    "nameLabel": "Nom du fond de carte",
+    "namePlaceholder": "Mon fond de carte",
+    "nameRequired": "Le nom est obligatoire",
+    "remove": "Supprimer le fond de carte",
+    "updateError": "Les fonds de carte n’ont pas pu être mis à jour",
+    "updateSuccess": "Les fonds de carte ont bien été mis à jour",
+    "urlInvalid": "L’url du fond de carte est invalide",
+    "urlLabel": "URL du fond de carte"
+  },
+  "footer": {
+    "accessibility": "Accessibilité : non-conforme",
+    "legalNotice": "Mentions Légales"
+  },
+  "fusionVoies": {
+    "mergeError": "Les voies n’ont pas pu être fusionné",
+    "mergeSuccess": "Les voies ont été fusionné"
+  },
+  "groupedActions": {
+    "choosePositionType": "-- Veuillez choisir un type de position --",
+    "chooseToponyme": "- Choisir un toponyme -",
+    "clearAllComments": "Effacer tous les commentaires",
+    "commentsWillBeRemoved": "Certains numéros sélectionnés possèdent un commentaire. En cas de suppression, leurs commentaires seront supprimés.",
+    "commentsWillBeReplaced": "Certains numéros sélectionnés possèdent un commentaire. En cas de modification, leurs commentaires seront remplacés.",
+    "communeDeleguee": "Commune déléguée",
+    "deleteNumeros": "Supprimer les numéros",
+    "dialogTitle": "Modification multiple",
+    "editNumeros": "Modifier les numéros",
+    "mixedToponymes": "Les numéros sélectionnés ne possèdent pas le même toponyme. La modification groupée du toponyme n’est pas possible. Ils doivent être modifiés séparément.",
+    "mixedVoies": "Les numéros sélectionnés ne sont pas situés sur la même voie. La modification groupée de la voie n’est pas possible. Ils doivent être modifiés séparément.",
+    "multiPosition": "Certains numéros sélectionnés possèdent plusieurs positions. La modification groupée du type de position n’est pas possible. Ils doivent être modifiés séparément.",
+    "noToponyme": "Ne pas associer de toponyme",
+    "positionType": "Type de position",
+    "selectedCount": "{count, plural, one {# numéro sélectionné} other {# numéros sélectionnés}}",
+    "title": "Actions groupées",
+    "toponyme": "Toponyme",
+    "voie": "Voie",
+    "warningTitle": "Attention"
+  },
+  "habilitation": {
+    "authRejected": {
+      "notAnElectedOfficial": "Vous n’avez pas été identifié comme un élu de la commune de {communeName}.",
+      "title": "Votre demande d’habilitation a été rejetée",
+      "tooManyAttempts": "Vous avez dépassé le nombre maximum de tentatives autorisé."
+    },
+    "codeEmail": {
+      "annuaireStep1": "Rendez vous sur <link>lannuaire.service-public.fr</link>",
+      "annuaireStep2": "Consultez la fiche annuaire de votre commune",
+      "annuaireStep3": "Cliquez sur le lien «Demander une mise à jour de cette page», visible en bas de page",
+      "invalidEmailTitle": "Courriel invalide",
+      "outdatedEmailTitle": "Ce courriel est incorrect ou obsolète ?",
+      "receiveCode": "Recevoir un code d’habilitation",
+      "title": "Via le courriel officiel de la mairie",
+      "updateEmail": "Mettez à jour le courriel"
+    },
+    "codeValidation": {
+      "allowlistSender": "Autorisez l’adresse « mes-adresses-no-reply@adresse.data.gouv.fr » dans les paramètres de votre anti-spams (Mailinblack par exemple)",
+      "checkSpam": "Consultez vos spams",
+      "codeExpiresOnClose": "Le code ne sera plus valable si vous fermez la fenètre",
+      "enterCode": "Entrez le code qui vous a été envoyé à l’adresse : {email}",
+      "logoAlt": "logo mairie",
+      "noCodeReceived": "Vous n’avez pas reçu votre code ?",
+      "resendCode": "Renvoyez le code",
+      "title": "Authentification de la mairie"
+    },
+    "emailNotSent": "Le courriel n’a pas pu être envoyé",
+    "invalidCode": "Le code n’est pas valide",
+    "proConnect": {
+      "connectWith": "<strong>Connectez-vous avec</strong> l’adresse électronique <emails></emails>indiquée par votre mairie dans <link>l’annuaire du service public</link>",
+      "questions": "Pour toute question, <strong>contactez notre équipe :</strong> <link></link>",
+      "sameDomain": "Ou une adresse avec le même nom de domaine (exemple : p.nom@commune.fr).",
+      "signIn": "S’identifier avec ProConnect",
+      "tagline": "ProConnect, équivalent de FranceConnect pour les professionnels",
+      "videoTitle": "Tuto connection ProConnect"
+    },
+    "publishBal": {
+      "checking": "Vérification sur la Base Adresse Nationale...",
+      "conflictSchemaAlt": "Schema du conflit entre la Base Adresse Locale et la Base Adresse Nationale",
+      "conflictTitle": "Cette commune possède déjà une Base Adresse Locale publiée.",
+      "continueOnPublished": "Ou souhaitez vous poursuivre sur la BAL déjà publiée ?",
+      "forceExplanation": "En forcant la publication, cette Base Adresse Locale <strong>remplacera celle actuellement en place</strong>.",
+      "forcePublication": "Forcer la publication",
+      "publishedIconAlt": "Icone Base Adresse Locale publiée",
+      "publishing": "Publication en cours...",
+      "replaceQuestion": "Êtes-vous sûr de vouloir la remplacer ?"
+    },
+    "publishRejected": {
+      "recommendation": "Nous vous recommandons <strong>d’entrer en contact avec les administrateurs de l’autre Base Adresses Locale</strong> ou notre support: <link></link>",
+      "title": "Votre Base Adresse Locale n’a pas pu être publiée"
+    },
+    "publishedBal": {
+      "badgeTitle": "Publication",
+      "benefit1": "Toutes les <strong>modifications remonteront automatiquement</strong> dans la <link>Base Adresse Nationale.</link>",
+      "benefit2": "Votre commune s’est mise en conformité avec la <link>Loi 3DS</link>.",
+      "benefit3": "Les services de secours, administrations et particuliers peuvent désormais <strong>déposer des signalements</strong> pour vous aider à fiabiliser vos adresses.",
+      "benefit4": "Vous pouvez désormais <strong>télécharger des arrêtés de numérotation</strong> pour les voies et les numéros.",
+      "continue": "Continuer l’adressage",
+      "nextGoal": "Prochain objectif",
+      "nextGoalContent": "Fiabiliser vos adresses grâce à la <link>certification</link>. Celle-ci permet de mettre en valeur votre travail et de <strong>faciliter la réutilisation de la donnée</strong>.",
+      "thanksToPublication": "Grâce à la publication",
+      "title": "Votre Base Adresse Locale a bien été publiée"
+    },
+    "strategy": {
+      "title": "Habilitez votre <strong>Base Adresse Locale</strong> pour la publier dans la <strong>Base Adresse Nationale</strong>."
+    }
+  },
+  "header": {
+    "addressingGuides": "Guides de l’adressage",
+    "help": "Besoin d’aide",
+    "logoAlt": "Page d’accueil du site mes-adresses.data.gouv.fr",
+    "videoTutorials": "Tutoriels vidéos"
+  },
+  "help": {
+    "baseLocale": {
+      "administer": {
+        "intro": "Accédez aux paramètres de votre Base Adresse Locale en cliquant sur l’icône <cog></cog> située en haut à droite de votre écran. Puis choissez «Paramètres».",
+        "item1": "Changer le nom de votre Base Adresse Locale",
+        "item2": "Ajouter ou supprimer des collaborateurs",
+        "item3": "Télécharger vos adresses au format .csv",
+        "outro": "Une fois vos réglages terminés, cliquez sur <saveButton>Enregistrer les changements</saveButton>",
+        "title": "Administrer votre Base Adresse Locale",
+        "youCan": "Il vous sera possible de :"
+      },
+      "create": {
+        "intro": "Sur la page <b>Nouvelle Base Adresse Locale</b>, sélectionnez l’onglet <tab>Créer</tab>",
+        "step1": "Indiquez le nom de votre Base Adresse Locale dans le champ <em>Nom</em>. Il vous permettra de pouvoir identifier votre Base Adresse Locale.",
+        "step2": "Indiquez l’adresse email de votre mairie ou de l’administrateur de la Base Adresse Locale. C’est cette adresse qui recevra le lien permettant d’accèder à l’édition de votre Base Adresse Locale.",
+        "step3": "Recherchez votre commune puis sélectionnez la dans la liste des suggestions.",
+        "step4": "Si vous souhaitez partir de zéro, décochez la case <em>Importer les voies et numéros depuis la BAN</em>.",
+        "step5": "Pour terminer, cliquez sur le bouton <createButton>Créer la Base Adresse Locale</createButton>",
+        "title": "Créer une nouvelle Base Adresse Locale"
+      },
+      "import": {
+        "intro": "Sur la page <b>Nouvelle Base Adresse Locale</b>, sélectionnez l’onglet <tab>Importer un fichier CSV</tab>",
+        "step1": "Sélectionnez ou déposez votre fichier au format <b>csv</b>. Attention ce fichier ne doit pas dépasser 10 Mo.",
+        "step2": "Indiquez le nom de votre Base Adresse Locale dans le champ <em>Nom</em>. Il vous permettra de pouvoir identifier votre Base Adresse Locale.",
+        "step3": "Indiquez l’adresse email de votre mairie ou de l’administrateur de la Base Adresse Locale. C’est cette adresse qui recevra le lien permettant d’accèder à l’édition de votre Base Adresse Locale.",
+        "step4": "Pour terminer, cliquez sur le bouton <createButton>Créer la Base Adresse Locale</createButton>",
+        "title": "Importer une Base Adresse Locale"
+      },
+      "problems": {
+        "cannotEdit": "Je n’arrive pas à éditer ma BAL",
+        "communeNotFound": {
+          "content": "Si votre commune est une nouvelle commune issue d’une fusion, alors il est possible qu’elle n’apparaisse pas dans la liste des propositions. Si c’est votre cas, vous pouvez nous contacter sur <mail>adresse@data.gouv.fr</mail>",
+          "title": "Je ne trouve pas ma commune"
+        }
+      },
+      "videoTitle": "Création d’une Base Adresse Locale :"
+    },
+    "contactUs": "Contactez nous sur",
+    "havingAProblem": "Vous rencontrez un problème ?",
+    "noSolutionFound": "Vous n’avez pas trouvé la solution à votre problème ?",
+    "numeros": {
+      "add": {
+        "dragMarker": "Un <marker></marker> est apparu au centre de la carte, déplacez le à l’endroit souhaité à l’aide de votre souris",
+        "finish": "Pour terminer, cliquez sur le bouton <certifyButton>Certifier et enregister</certifyButton> si vous validez cette adresse ou <saveButton>Enregister</saveButton> pour vous laisser le temps de vérifier avant de certifier.",
+        "fromMapStep": "Cliquez sur le bouton <addIconButton></addIconButton>",
+        "fromSidebarStep": "Cliquez sur le bouton <addButton>Ajouter un numéro</addButton>",
+        "number": "Indiquez le numéro dans le champ <field>Numéro</field>",
+        "positionType": "Sélectionnez la position grâce au menu déroulant <field>Type</field>",
+        "selectVoie": "Recherchez la voie à laquelle le numéro appartient et sélectionnez la. À noter que si une voie est déjà sélectionnée alors elle vous sera proposée par défaut. Vous pouvez également créer une nouvelle voie directement en cliquant sur <createVoieButton>Créer une voie</createVoieButton>. Vous serez automatiquement redirigé vers cette voie.",
+        "suffix": "Indiquez le suffixe (exemple: bis) dans le champ <field>Suffixe</field>",
+        "title": "Ajouter un numéro"
+      },
+      "chooseDelete": "Dans le menu qui vient d’apparaître, choisissez <deleteItem>Supprimer…</deleteItem>",
+      "chooseEdit": "Dans le menu qui vient d’apparaître, choisissez <editItem>Modifier</editItem>",
+      "comment": {
+        "icon": "Vous remarquerez un <commentIcon></commentIcon> sur la ligne du numéro. Le survoler vous permettra de faire apparaitre le commentaire.",
+        "step3": "Remplissez le champ de texte <field>Commentaire</field> afin de laisser une note concernant le numéro",
+        "step4": "Pour enregistrer votre commentaire, cliquez sur le bouton <certifyButton>Certifier et enregister</certifyButton> ou <saveButton>Enregister</saveButton> si vous ne souhaitez pas certifier cette adresse pour le moment.",
+        "title": "Ajouter une note ou un commentaire"
+      },
+      "delete": {
+        "rightClick": "Faites un clique droit sur le numéro",
+        "title": "Supprimer un numéro"
+      },
+      "edit": {
+        "clickNumber": "Cliquez sur le numéro",
+        "title": "Éditer un numéro",
+        "whatYouCanChange": "Il vous est désormais possible de modifier le numéro, le suffixe, le type d’adresse ou encore sa position en déplaçant le <marker></marker> sur la carte et de certifier votre adresse."
+      },
+      "fromMap": "Depuis la carte",
+      "fromSidebar": "Depuis le menu latéral",
+      "goodToKnow": {
+        "content": "Pour renforcer la qualité des adresses, nous vous recommandons de certifier la totalité de vos adresses. <b>Une adresse certifiée est déclarée authentique par la mairie</b>, ce qui renforce la qualité de la Base Adresse Locale et facilite sa réutilisation.",
+        "title": "Bon à savoir"
+      },
+      "moreButtonStep": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du numéro",
+      "openList": "Affichez la liste des numéros d’une voie en la sélectionnant depuis le menu latéral ou en cliquant sur son nom ou un de ses numéros directement depuis la carte.",
+      "parcelles": {
+        "colorCode": "Code couleur des parcelles :",
+        "linkable": "parcelle pouvant être associée",
+        "linked": "parcelle associée",
+        "step3": "Depuis la carte, cliquez sur la ou les parcelles que vous souhaitez associer au numéro",
+        "step4": "Pour enregistrer les parcelles, cliquez sur le bouton <certifyButton>Certifier et enregister</certifyButton> ou <saveButton>Enregister</saveButton> si vous ne souhaitez pas certifier cette adresse pour le moment.",
+        "title": "Associer des parcelles",
+        "unlinkable": "parcelle pouvant être dissociée"
+      },
+      "problems": {
+        "cannotAddOrDelete": "Je n’arrive pas à ajouter/supprimer un numéro",
+        "voieNotFound": {
+          "content": "Avant de créer un numéro depuis la carte, assurez vous que la voie à laquelle il appartient a bien été créée.",
+          "title": "Je ne trouve pas de voie lorsque j’ajoute un numéro depuis la carte"
+        }
+      },
+      "uncertify": {
+        "step2": "En bas de page, cliquez sur le bouton <dangerButton>Ne plus certifier et enregistrer</dangerButton>",
+        "title": "Ne plus certifier une adresse"
+      },
+      "videoTitle": "Création / Modification d’un numéro :"
+    },
+    "or": "ou",
+    "publication": {
+      "conflict": {
+        "explanation": "Il peut arriver qu’une autre Base Adresse Locale soit déjà synchronisée avec la Base Adresse Nationale. Dans ce cas, votre Base Adresse Locale va entrer en conflit avec celle-ci.",
+        "force": "En cliquant sur <dangerButton>Forcer la publication</dangerButton> votre Base Adresse Locale sera publiée et remplacera celle actuellement en place.",
+        "title": "En cas de conflit"
+      },
+      "problems": {
+        "cannotEdit": "Je n’arrive pas à éditer ma BAL"
+      },
+      "publish": {
+        "step1": "Cliquez sur le bouton <publishButton>Publier</publishButton>",
+        "step2": "Authentifiez-vous via le courriel officiel de la mairie ou a votre compte Proconnect",
+        "step3": "Une fois l’habilitation obtenue, vous serez automatiquement invité à publier votre Base Adresse Locale en cliquant sur <successButton>Publier</successButton>",
+        "title": "Publier sa Base Adresse Locale"
+      },
+      "syncStatuses": {
+        "noHabilitation": "L’habilitation de la Base Adresse Locale n’est pas valide. Il vous faut renouveler celle-ci pour que les nouvelles modifications remontent dans la Base Adresse Nationale.",
+        "outdated": "Des modifications ont été détectées, elles seront automatiquement répercutées dans la Base Adresse Nationale dans les prochaines heures.",
+        "paused": "Vous avez suspendus les mises à jour de votre Base Adresse Locale. Aucune modification ne sera transmise à la Base Adresse Nationale. Vous pouvez relancer les mises à jours à tout moment.",
+        "replaced": "Une autre Base Adresse Locale a remplacé la votre, impossible de mettre à jour automatiquement vos adresses. Vous pouvez forcer la mise à jour afin de remplacer la Base Adresse Locale actuellement en place.",
+        "synced": "Votre Base Adresse Locale est à jour avec la Base Adresse Nationale. Toutes ses adresses sont prises en compte.",
+        "title": "Statuts de synchronisation"
+      },
+      "videoTitle": "Publication de votre Base Adresse Locale :"
+    },
+    "readGuides": "Consultez les guides de l’adressage",
+    "sidebarTuto": {
+      "hidden": "Ce menu peut-être caché afin de laisser plus d’espace à la cartographie.",
+      "showAgain": "Pour le faire réapparaitre, cliquez sur le bouton <button></button> en haut à gauche de votre écran.",
+      "title": "Je ne vois pas le menu latéral"
+    },
+    "tabs": {
+      "baseLocale": "Base locale",
+      "numeros": "Numéros",
+      "publication": "Publication",
+      "toponymes": "Toponymes",
+      "voies": "Voies"
+    },
+    "title": "Besoin d’aide ?",
+    "toponymes": {
+      "add": {
+        "step1": "Sélectionnez l‘onglet <tab>Liste des Toponymes</tab>, puis cliquez sur <addButton>Ajouter un toponyme</addButton>",
+        "step2": "Entrez le nom du toponyme dans le champs <muted>Nom du toponyme...</muted>",
+        "step3": "Un <marker></marker> est apparu sur la carte, vous pouvez le déplacer pour assigner une ou plusieurs positions à votre toponyme.<br></br>Vous pouvez préciser le type de position avec le menu déroulant <typeSelect>Segment</typeSelect> Si vous ne souhaitez pas définir de position pour le toponyme, cliquez simplement sur <trash></trash>",
+        "title": "Ajouter un toponyme"
+      },
+      "assign": {
+        "step1": "Cliquez sur le bouton <addButton>Ajouter un numéro</addButton>",
+        "step2": "Sélectionnez la voie du numéro que vous souhaitez assigner",
+        "step3": "Un menu déroulant va s’afficher. Vous pouvez sélectionner un ou plusieurs numéros de la liste. Tous les numéros de la liste seront assignés au toponyme si aucun numéro n’est sélectionné.",
+        "step4": "Pour terminer, cliquez sur le bouton <successButton>Enregistrer</successButton>",
+        "title": "Assigner un numéro à un toponyme"
+      },
+      "delete": {
+        "step1": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du nom du toponyme",
+        "step2": "Dans le menu qui vient d’apparaître, choisissez <deleteItem>Supprimer…</deleteItem>",
+        "step3": "Pour terminer, confirmez votre choix en cliquant sur <dangerButton>Supprimer</dangerButton>",
+        "title": "Supprimer un toponyme"
+      },
+      "edit": {
+        "step1": "Cliquez sur le nom du toponyme",
+        "step2": "Éditez le nom du toponyme",
+        "step3": "Vous pouvez également modifier la position du toponyme en déplaçant le <marker></marker> sur la carte",
+        "step4": "Vous pouvez ajouter des positions avec le bouton <addButton>Ajouter une position au toponyme</addButton> ou en supprimer avec le bouton <trash></trash>",
+        "step5": "Pour terminer, cliquez sur <successButton>Enregistrer</successButton>",
+        "title": "Éditer un toponyme"
+      },
+      "openList": "Affichez la liste des toponymes d’une commune en cliquant sur le nom de celle-ci en haut à gauche de votre écran",
+      "parcelles": {
+        "colorCode": "Code couleur des parcelles :",
+        "linkable": "parcelle pouvant être associée",
+        "linked": "parcelle associée",
+        "step1": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du toponyme",
+        "step2": "Dans le menu qui vient d’apparaître, choisissez <editItem>Modifier</editItem>",
+        "step3": "Depuis la carte, cliquez sur la ou les parcelles que vous souhaitez associer au toponyme",
+        "step4": "Pour enregistrer les parcelles, cliquez sur le bouton <successButton>Enregistrer</successButton>",
+        "title": "Associer des parcelles",
+        "unlinkable": "parcelle pouvant être dissociée"
+      },
+      "problems": {
+        "cannotAddOrDelete": "Je n’arrive pas à ajouter/supprimer un toponyme"
+      },
+      "videoTitle": "Création / Modification d’un toponyme :"
+    },
+    "unauthorized": {
+      "checkBadge": "Assurez vous que <badge>Édition impossible</badge> n’apparaisse pas en haut à droite de votre écran.",
+      "fix": "Cependant, si vous en êtes bien le propriétaire, il vous suffit de cliquer sur le lien qui vous a été envoyé par mail lors de la création de votre BAL.",
+      "meaning": "Il indique que vous n’êtes pas authentifié ou que vous n’avez pas les droits pour modifier cette BAL."
+    },
+    "video": {
+      "allTutorials": "Retouvez tous les tutoriels vidéos",
+      "iframeTitle": "Création d’une Base Adresse Locale"
+    },
+    "voies": {
+      "add": {
+        "step1": "Cliquez sur le bouton <addButton>Ajouter une voie</addButton>",
+        "step2": "Entrez le nom de la voie que vous souhaitez créer dans le champ <em>Nom de la voie…</em>",
+        "step3": "Pour terminer, cliquez sur le bouton <successButton>Ajouter</successButton>",
+        "title": "Ajouter une voie"
+      },
+      "convert": {
+        "intro": "Vous pouvez transformer une voie en toponyme si cette première ne contient aucun numéro.",
+        "step1": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du nom de la voie",
+        "step2": "Dans le menu qui vient d’apparaître, choisissez <convertButton>Convertir en voie sans adresses</convertButton>",
+        "step3": "Pour terminer, confirmez votre choix en cliquant sur <primaryButton>Confirmer</primaryButton>",
+        "step4": "Vous serez redirigé sur l’édition du nouveau toponyme",
+        "title": "Convertir une voie en voie sans adresses"
+      },
+      "delete": {
+        "step1": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du nom de la voie",
+        "step2": "Dans le menu qui vient d’apparaître, choisissez <deleteItem>Supprimer…</deleteItem>",
+        "step3": "Pour terminer, confirmez votre choix en cliquant sur <dangerButton>Supprimer</dangerButton>",
+        "title": "Supprimer une voie"
+      },
+      "openList": "Affichez la liste des voies d’une commune en cliquant sur le nom de celle-ci se trouvant en haut à gauche de votre écran.",
+      "problems": {
+        "cannotAddOrDelete": "Je n’arrive pas à ajouter/supprimer une voie"
+      },
+      "rename": {
+        "step1": "Cliquez sur le du nom de la voie",
+        "step2": "Éditez le nom de la voie",
+        "step3": "Pour terminer, cliquez sur <successButton>Enregistrer</successButton>",
+        "title": "Renommer une voie"
+      },
+      "videoTitle": "Création / Modification d’une voie :",
+      "view": {
+        "fromMap": "Depuis la carte",
+        "fromMapStep": "Cliquez sur le nom de la voie ou sur l’un de ses numéros",
+        "fromSidebar": "Depuis le menu latéral",
+        "step1": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du nom de la voie",
+        "step2": "Dans le menu qui vient d’apparaître, choisissez <viewItem>Consulter</viewItem>",
+        "title": "Consulter une voie"
+      }
+    }
+  },
+  "homeDrawer": {
+    "news": "Actualités",
+    "noNews": "Pas d’actualité",
+    "noTrainings": "Pas de formations à venir",
+    "upcomingTrainings": "Prochaines formations"
+  },
+  "ieWarning": {
+    "recommendation": "Nous vous recommandons d‘utiliser un autre navigateur",
+    "unsupported": "Votre navigateur <b>Internet Explorer</b> n‘est plus supporté par notre service."
+  },
+  "importDataStep": {
+    "analysing": "Analyse en cours",
+    "banOption": {
+      "description": "Cette méthode est recommandée dans la plupart des cas. Elle vous permet de partir des adresses déjà présentes dans la Base Adresse Nationale (BAN) et de les enrichir avec vos propres données.",
+      "label": "Partir des données existantes dans la Base Adresse Nationale"
+    },
+    "cannotDropFile": "Impossible de déposer ce fichier.",
+    "chooseStartingPoint": "Choisissez votre point de départ",
+    "errorTitle": "Une erreur est survenue",
+    "fileHasErrorsTitle": "Le fichier comporte des erreurs",
+    "fileOption": {
+      "description": "Cette méthode est recommandée si vous avez déjà un fichier CSV au format BAL.",
+      "label": "Utiliser un fichier CSV au format BAL"
+    },
+    "fileTooLarge": "Ce fichier est trop volumineux. Vous devez déposer un fichier de moins de 10 Mo.",
+    "invalidCsv": "Le fichier CSV est invalide.",
+    "invalidRows": "{count, plural, one {<strong>1 ligne comporte au moins une erreur</strong> et ne pourra pas être importée dans votre Base Adresse Locale.} other {<strong># lignes comportent au moins une erreur</strong> et ne pourront pas être importées dans votre Base Adresse Locale.}}",
+    "multipleCommunes": "Le fichier ne doit contenir qu’une seule commune. Veuillez vérifier votre fichier.",
+    "noCommuneFound": "Aucune commune n’a pu être trouvée.",
+    "notCsv": "Ce type de fichier n’est pas supporté. Vous devez déposer un fichier CSV.",
+    "onlyValidRows": "En continuant, seules les adresses conformes seront utilisées pour créer votre Base Adresse Locale.",
+    "parseError": "Une erreur est survenue lors de l’analyse du fichier.",
+    "singleFileOnly": "Vous ne pouvez déposer qu’un seul fichier.",
+    "uploaderPlaceholder": "Sélectionnez ou glissez ici votre fichier BAL au format CSV (maximum 10 Mo)",
+    "wrongCommune": "Le fichier ne correspond pas à la commune sélectionnée à l’étape précédente."
+  },
+  "langGoal": {
+    "badgeTitle": "Logo Langue Régionale",
+    "counter": "{count, plural, one {voie, place ou lieux-dit multilingue} other {voies, places ou lieux-dits multilingues}}",
+    "editCommuneName": "Modifiez le nom de la commune",
+    "editTitle": "Modifiez langue régionale a la commune",
+    "emptyContent": "Pour un adressage multilingue, commencez par renseigner le nom de la commune en langue régionale",
+    "ignoreGoal": "Supprimer objectif",
+    "title": "Langue Régionale"
+  },
+  "language": {
+    "title": "Choix de la langue"
+  },
+  "languagePreview": {
+    "regionalAlternatives": "Alternatives régionales",
+    "undetectedLanguage": "Le nom de la langue régionale n’a pas pu être détecté",
+    "unsupportedLanguage": "Nom de la langue régionale non supportée",
+    "voieNameIn": "Nom de la voie en {language}"
+  },
+  "languesRegionales": {
+    "addLanguage": "Ajouter une langue régionale",
+    "chooseLanguage": "Choisir une langue régionale",
+    "namePlaceholder": "Nom en {language}",
+    "regionalLanguage": "langue régionale",
+    "removeLanguage": "Supprimer la langue régionale",
+    "selectLanguage": "Sélectionner une langue régionale"
+  },
+  "legalNotice": {
+    "accessibility": "Accessibilité",
+    "accessibilityContent": "La conformité aux normes d’accessibilité numérique est un objectif ultérieur mais nous tâchons de rendre cette plateforme accessible à toutes et à tous.",
+    "hosting": "Hébergement de la plateforme",
+    "hostingContent": "La plateforme est hébergée par :",
+    "learnMore": "En savoir plus",
+    "learnMoreContent": "Pour en savoir plus sur la politique d’accessibilité numérique de l’État :",
+    "noResponseContent": "Si vous n’obtenez pas de réponse rapide de notre part, vous êtes en droit de faire parvenir vos doléances ou une demande de saisine au Défenseur des Droits.",
+    "phone": "Téléphone : {number}",
+    "publicationDirector": "Directeur de la publication",
+    "publicationDirectorContent": "Le directeur de publication est Monsieur Stanislas BOURRON, Directeur général de l’ANCT.",
+    "publisher": "Éditeur de la plateforme",
+    "publisherContent": "Bases Adresses Locales est édité au sein de l’Incubateur des Territoires de l’Agence nationale de la cohésion des territoires (ANCT) située :",
+    "reportIssue": "Signaler un dysfonctionnement",
+    "reportIssueContent": "Si vous rencontrez un défaut d’accessibilité vous empêchant d’accéder à un contenu ou une fonctionnalité de la plateforme, merci de nous en faire part :",
+    "security": "Sécurité",
+    "securityContent1": "La plateforme est protégée par un certificat électronique, matérialisé pour la grande majorité des navigateurs par un cadenas. Cette protection participe à la confidentialité des échanges.",
+    "securityContent2": "En aucun cas, les services associés à la plateforme ne seront à l’origine d’envoi d’e-mails pour vous demander la saisie d’informations personnelles.",
+    "title": "Bases Adresses Locales – Mentions légales"
+  },
+  "mainTabs": {
+    "communeTabIllustration": "Illustration de l’onglet commune"
+  },
+  "mapControls": {
+    "cadastreUnavailable": "Le cadastre n’est pas disponible pour cette commune",
+    "cancelAddressCreation": "Annuler la création d’une adresse",
+    "chooseBasemap": "Choix du fond de carte",
+    "closePanoramax": "Fermer Panoramax",
+    "closeRuler": "Fermer l’outil de mesure",
+    "contributeToPanoramax": "Participer à Panoramax",
+    "createAddress": "Créer une adresse",
+    "geolocate": "Me géolocaliser",
+    "geolocationError": "Nous n’arrivons pas à vous géolocaliser. Vérifiez les paramètres de votre navigateur.",
+    "hideCadastre": "Masquer le cadastre",
+    "measureDistance": "Mesurer une distance",
+    "noBasemap": "Aucun fond de carte",
+    "noPanoramaxImagery": "Aucune photographie du territoire n’est disponible.",
+    "noParcelleFound": "Aucune parcelle ne correspond à votre recherche",
+    "numeros": "Numéros",
+    "pointsOfInterest": "Points d’intérets",
+    "rulerIconAlt": "Icône de règle",
+    "searchParcelle": "Rechercher une parcelle",
+    "showCadastre": "Afficher le cadastre",
+    "takePhoto": "Prendre une photo de la carte",
+    "takePhotoShort": "Prendre une photo",
+    "toponymes": "Toponymes",
+    "voies": "Voies"
+  },
+  "mapPopup": {
+    "addressCertified": "Cette adresse est certifiée",
+    "allCertified": "Tous les numeros certifiés",
+    "certified": "Certifié",
+    "noNumero": "Aucun numero",
+    "parcelles": "Parcelle(s)",
+    "uncertified": "Non certifié"
+  },
+  "massDeletionDialog": {
+    "contactUs": "Si vous éprouvez des difficultés à utiliser notre outil et souhaitez être accompagné, <strong>vous pouvez nous contacter à l’adresse <mail>adresse@data.gouv.fr</mail></strong>",
+    "deletedHalf": "Vous avez <strong>supprimé au moins 50% des adresses</strong> connues actuellement dans la Base Adresse Nationale.",
+    "title": "⚠️ Un très grand nombre d’adresses a été supprimé",
+    "videoTutorials": "Des <link>tutoriels vidéo</link> sont également disponibles afin de vous accompagner lors de vos travaux d’adressage.",
+    "wholeCommune": "Nous vous rappelons que la publication de vos adresses doit se faire sur <strong>la totalité de la commune</strong>."
+  },
+  "metadata": {
+    "description": "Mes Adresses est un outil en ligne qui vous permet de gérer simplement vos adresses, de la constitution d'une Base Adresse Locale à sa mise à jour.",
+    "title": "mes-adresses.data.gouv.fr"
+  },
+  "nav": {
+    "home": "Accueil"
+  },
+  "newBal": {
+    "createBal": "Créer une Base Adresse Locale",
+    "createDemoBal": "Créer une Base Adresse Locale de demonstration",
+    "createError": "Une erreur est survenue lors de la création de la Base Adresse Locale",
+    "importError": "Une erreur est survenue lors de l’importation des données dans la Base Adresse Locale",
+    "steps": {
+      "commune": "Choix de la commune",
+      "import": "Import des données",
+      "infos": "Informations sur la BAL"
+    },
+    "suggestedName": "Adresses de {communeName}"
+  },
+  "notFound": {
+    "backHome": "Retour à la page d’accueil",
+    "title": "Erreur 404 - Page introuvable"
+  },
+  "numeroEditor": {
+    "chooseToponyme": "- Choisir un toponyme -",
+    "communeDeleguee": "Commune déléguée",
+    "createError": "Le numéro n’a pas pu être ajouté",
+    "createSuccess": "Le numéro a bien été ajouté",
+    "hintMultipleMarkers": "Déplacez les marqueurs sur la carte pour modifier les positions",
+    "hintSingleMarker": "Déplacez le marqueur sur la carte pour positionner le numéro",
+    "noToponyme": "Aucun toponyme",
+    "numero": "Numéro",
+    "numeroPlaceholderSuggested": "Numéro recommandé : {suggestedNumero}",
+    "parcelles": "Parcelles",
+    "reservedNumero": "Le numero 99999 est réservé au lieu-dit et complément",
+    "suffixe": "Suffixe",
+    "toponyme": "Toponyme",
+    "updateError": "Le numéro n’a pas pu être modifié",
+    "updateSuccess": "Le numéro a bien été modifié"
+  },
+  "numeroVoieSelector": {
+    "chooseVoie": "Choisir une voie",
+    "createVoie": "Créer une voie",
+    "newVoie": "Nouvelle voie",
+    "or": "OU",
+    "searchVoie": "Rechercher une voie",
+    "voie": "Voie*",
+    "voieNamePlaceholder": "Nom de la voie"
+  },
+  "numerosList": {
+    "addNumero": "Ajouter un numéro",
+    "archiveError": "Le numéro n’a pas pu être archivé",
+    "archiveManyError": "Les numéros n’ont pas pu être archivés",
+    "archiveManySuccess": "Les numéros ont bien été archivés",
+    "archiveSuccess": "Le numéro a bien été archivé",
+    "arreteError": "L’arrêté de numérotation n’a pas pu être téléchargé",
+    "arreteSuccess": "L’arrêté de numérotation a bien été téléchargé",
+    "certificatError": "Le certificat d’adressage n’a pas pu être téléchargé",
+    "certificatSuccess": "Le certificat d’adressage a bien été téléchargé",
+    "certified": "Cette adresse est certifiée par la commune",
+    "deleteSelectedConfirm": "Êtes vous bien sûr de vouloir supprimer tous les numéros sélectionnés ?",
+    "empty": "Aucun numéro",
+    "positionsCount": "{count, plural, one {# position} other {# positions}}",
+    "recoverAccess": "Récupérer les accès d’administration de la BAL",
+    "search": "Rechercher un numéro",
+    "title": "Liste des numéros",
+    "updateManyError": "Les numéros n’ont pas pu être modifiés",
+    "updateManySuccess": "Les numéros ont bien été modifiés"
+  },
+  "panelGoal": {
+    "secondaryGoals": "Objectifs secondaires"
+  },
+  "populate": {
+    "populate": "Récupérer les adresses de la BAN",
+    "populating": "Récupération des adresses…"
+  },
+  "positionEditor": {
+    "addToNumero": "Ajouter une position au numéro",
+    "addToToponyme": "Ajouter une position au toponyme",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "noPosition": "Ce toponyme n’a pas de position",
+    "positions": "Positions *",
+    "type": "Type"
+  },
+  "positionTypes": {
+    "batiment": "Bâtiment",
+    "cageEscalier": "Cage d’escalier",
+    "delivrancePostale": "Délivrance postale",
+    "entree": "Entrée",
+    "logement": "Logement",
+    "parcelle": "Parcelle",
+    "segment": "Segment",
+    "serviceTechnique": "Service technique"
+  },
+  "publicationGoal": {
+    "badgeTitle": "Publication",
+    "contactSupport": "Si vous voulez quand même repartir de cette BAL, veuillez contacter le support:",
+    "draftContent": "Afin d’être synchronisée avec la Base Adresse Nationale, cette Base Adresse Locale doit être publiée par la commune de {communeName}.<br></br>Notez qu’une fois publiée, <strong>toutes les modifications remonteront automatiquement</strong> dans la Base Adresse Nationale.",
+    "goToPublished": "Accéder à la BAL publiée",
+    "habilitationExpired": "Votre habilitation n’est plus valide, veuillez la renouveler",
+    "habiliteBal": "Habiliter la BAL",
+    "mustStartFromPublished": "Vous devez repartir de la BAL publiée",
+    "publish": "Publier",
+    "publishedContent": "Toutes les modifications remonteront automatiquement dans la Base Adresse Nationale",
+    "replacedContact": "Veuillez entrer en contact les administrateurs de l’autre Base Adresse Locale ou notre support: adresse@data.gouv.fr",
+    "replacedContent": "La Base Adresse Locale a été remplacée par une autre, une autre Base Adresses Locale est synchronisée avec la Base Adresse Nationale.",
+    "title": "Publication"
+  },
+  "publishProcess": {
+    "createHabilitationError": "Impossible de créer un processus d’habilitation",
+    "fetchBanError": "Impossible de récupérer les données de la Base Adresse Nationale"
+  },
+  "publishedBal": {
+    "alreadyPublishedBadge": "Base Adresse Locale déjà publiée",
+    "alreadyPublishedFor": "Une Base Adresse Locale est déjà publiée pour {communeName}.",
+    "communeCanTakeOver": "La commune étant compétente en matière d’adressage, vous pouvez prendre la main directement en continuant à l’étape suivante.",
+    "communeStaysCompetent": "La commune reste toutefois l’autorité compétente en matière d’adressage, et vous pouvez décider à tout moment de reprendre la main sur la publication de votre BAL.",
+    "contactChefDeFile": "Nous vous recommandons de prendre contact avec <strong>{email}</strong> avant de poursuivre la création de votre BAL.",
+    "contactOrganization": "Nous recommandons de prendre contact avec cet organisme :",
+    "continueFromPublished": "Si vous en êtes l’administrateur, nous vous recommandons de poursuivre l’adressage depuis cette dernière.",
+    "dataGouvPage": "Page data.gouv {organization}",
+    "existingDrafts": "Il y a déjà <b>{count, plural, one {# BAL non publiée} other {# BAL non publiées}}</b> pour {communeName}. S’il s’agit d’un brouillon de votre mairie, peut-être souhaitez-vous le récupérer ?",
+    "goToPublished": "Accéder à la Base Adresse Locale publiée",
+    "outdatedClient": "La Base Adresse Locale publiée est obsolète et n’est plus maintenue. Vous pouvez donc poursuivre la création de votre BAL.",
+    "outdatedSource": "La Base Adresse Locale publiée est obsolète. Vous pouvez continuer à l’étape suivante pour la remplacer par la vôtre.",
+    "publishedBy": "Une Base Adresse Locale a déjà été publiée par <strong>{publisher}</strong> pour {communeName}.",
+    "publishedByOrganization": "Une Base Adresse Locale est déjà publiée par {organization} pour {communeName}.",
+    "recoverWithEmail": "Récupérer une BAL avec un email"
+  },
+  "purgeSignalements": {
+    "explanation": "Si vous avez fait des modifications sur votre Base Adresse Locale telles que des suppressions ou des renommages de voie, certains signalements peuvent être devenus obsolètes.",
+    "outcome": "En les actualisant, les signalements obsolètes seront retirés de la liste.",
+    "pleaseWait": "Cette opération peut prendre un certain temps, merci de patienter.",
+    "purgeError": "Une erreur est survenue lors de l’actualisation des signalements. Veuillez réessayer ultérieurement.",
+    "purged": "{count, plural, one {# signalement expiré a été retiré de la liste.} other {# signalements expirés ont été retirés de la liste.}}",
+    "refresh": "Actualiser les signalements",
+    "successTitle": "Succès",
+    "title": "Actualisation des signalements"
+  },
+  "qualityGoal": {
+    "badgeTitle": "Publication",
+    "explanation": "Pour vous aider dans la fiabilisation des adresses, profitez de suggestions d’améliorations en un clic.<br></br><br></br>Ces suggestions sont tirées du <link>Guide des Bonnes Pratiques</link> et paramétrables depuis le <menuButton>Menu</menuButton>",
+    "seeAlertsTitle": "Voir les alertes",
+    "seeSuggestions": "Voir les suggestions",
+    "suggestionsLabel": "{count, plural, one {Suggestion proposée} other {Suggestions proposées}}",
+    "title": "Fiabilisation"
+  },
+  "readOnlyInfos": {
+    "cannotEdit": "Vous ne pouvez pas modifier cette Base Adresse Locale car vous n’êtes pas authentifié comme administrateur.",
+    "recoverAccess": "Récupérer mes accès",
+    "recoverHint": "Si vous êtes administrateur de cette Base Adresse Locale, vous pouvez récupérer vos accès en cliquant sur le bouton ci-dessous.",
+    "title": "Vous êtes en mode consultation"
+  },
+  "readOnlyWarning": {
+    "message": "Vous êtes en mode consultation, vous ne pouvez pas modifier cette Base Adresse Locale",
+    "recoverAccess": "Récupérer mes accès"
+  },
+  "rejectionReasons": {
+    "alreadyHandled": "Signalement déjà traité",
+    "duplicate": "Signalement en double",
+    "misplaced": "Signalement mal positionné",
+    "nonCompliant": "Signalement non conforme",
+    "notRelevant": "Signalement non pertinent",
+    "other": "Autre"
+  },
+  "renewTokenDialog": {
+    "error": "Impossible de renouveller les autorisations",
+    "irreversibleContent": "Vous ne pourrez plus modifier la Base Adresse Locale avant de récupérer la nouvelle autorisation que vous recevrez par courriel.",
+    "irreversibleTitle": "Action irréversible",
+    "question": "Vous avez supprimé un ou plusieurs collaborateurs, souhaitez-vous procéder au renouvellement des autorisations ?",
+    "success": "Les autorisations ont été renouvellé avec succès",
+    "title": "Renouvellement des autorisations"
+  },
+  "searchCommuneStep": {
+    "label": "Rechercher une commune",
+    "noSearchContent": "Les Bases Adresses Locales pour ce pays sont créées avec l’importeur Overture Maps, en ligne de commande — il n’y a pas encore de recherche de commune pour cette création guidée.",
+    "noSearchTitle": "Aucune recherche de commune pour {country}"
+  },
+  "selectParcelles": {
+    "emptyNumero": "Depuis la carte, cliquez sur les parcelles que vous souhaitez ajouter au numéro.",
+    "emptyToponyme": "Depuis la carte, cliquez sur les parcelles que vous souhaitez ajouter au toponyme.",
+    "helpNumero": "Depuis la carte, cliquez sur les parcelles que vous souhaitez ajouter au numéro. En précisant les parcelles associées à cette adresse, vous accélérez sa réutilisation par de nombreux services, DDFiP, opérateurs de courrier, de fibre et de GPS.",
+    "helpToponyme": "Depuis la carte, cliquez sur les parcelles que vous souhaitez ajouter au toponyme. En précisant les parcelles associées à cette adresse, vous accélérez sa réutilisation par de nombreux services, DDFiP, opérateurs de courrier, de fibre et de GPS.",
+    "hideCadastre": "Masquer le cadastre",
+    "invalidParcelles": "{count, plural, one {Une parcelle n’existe pas dans le cadastre} other {Plusieurs parcelles n’existent pas dans le cadastre}}",
+    "showCadastre": "Afficher le cadastre",
+    "title": "Parcelles cadastre"
+  },
+  "settings": {
+    "addBasemap": "Ajouter fond de carte",
+    "basemaps": "Fonds de cartes",
+    "copied": "Copié",
+    "copyUrl": "Copier l’url",
+    "qualityAlerts": "Alertes de qualités",
+    "saveChanges": "Enregistrer les changements",
+    "saveSuccess": "Les paramètres ont été enregistrés avec succès",
+    "shareAccess": "Partage d’accès",
+    "shareAccessContent": "Mes Adresses fonctionne aussi sur votre mobile. Scannez le code QR pour accéder à votre BAL.",
+    "shareAccessTitle": "Partagez l’accès avec d’autres appareils",
+    "title": "Paramètres"
+  },
+  "sidebar": {
+    "closeForm": "Fermer le formulaire",
+    "hideSidebar": "Masquer la barre latérale",
+    "openSidebar": "Ouvrir la barre latérale"
+  },
+  "signalement": {
+    "noChange": "Pas de modification",
+    "positionAdded": "Ajout de position",
+    "positionDeleted": "Suppression de position",
+    "positionTypeChanged": "Modification de type",
+    "positions": "{count, plural, one {Position} other {Positions}}",
+    "proposedChange": "Modification proposée"
+  },
+  "signalementDiff": {
+    "complement": "Complément",
+    "numero": "Numéro",
+    "voie": "Voie"
+  },
+  "signalementForm": {
+    "accept": "Accepter",
+    "acceptError": "Erreur lors de l’acceptation du signalement.",
+    "addAddressToThisVoie": "Ajouter l’adresse sur cette voie",
+    "addressAfterChange": "Adresse après modification",
+    "addressConcerned": "Adresse concernée",
+    "authorWillBeEmailed": "(L’auteur du signalement recevra cette information par email)",
+    "createNewAddress": "Créer une nouvelle adresse",
+    "createNumeroRequest": "Demande de création d’adresse",
+    "createToponymeRequest": "Demande de création d’un toponyme",
+    "createdAddress": "Adresse créée : <b>{label}</b>",
+    "currentAddress": "Adresse actuelle",
+    "currentToponyme": "Toponyme actuel",
+    "currentVoieName": "Nom actuel de la voie",
+    "deleteNumeroRequest": "Demande de suppression d’adresse",
+    "deleteToponymeRequest": "Demande de suppression d’un toponyme",
+    "deleteVoieRequest": "Demande de suppression d’une voie",
+    "deleteVoieWarning": "En acceptant ce signalement, la voie <b>{voieName}</b> sera placée dans la corbeille",
+    "deleteVoieWithNumeros": "avec {count, plural, one {l’<b>adresse</b>} other {les <b># adresses</b>}} qui y sont rattachées",
+    "newVoieWillBeCreated": "La nouvelle voie <b>{voieName}</b> sera créée en acceptant ce signalement.",
+    "numeroAlreadyExists": "La voie <b>{voieName}</b> comporte déjà une adresse au numéro <b>{numero}</b>.",
+    "possibleDuplicate": "Accepter ce signalement pourrait créer un doublon",
+    "proposedChange": "Modification proposée",
+    "reason": "Raison",
+    "reasonPlaceholder": "Précisez la raison du refus, merci de ne pas indiquer de données personnelles",
+    "reject": "Refuser",
+    "rejectAnd": "{count, plural, one {Refuser et terminer} other {Refuser et passer au suivant}}",
+    "remaining": "{count, plural, one {Il reste # signalement à traiter} other {Il reste # signalements à traiter}}",
+    "similarToponymes": "{count, plural, one {La Base Adresse Locale comporte un toponyme dont le nom est similaire :} other {La Base Adresse Locale comporte plusieurs toponymes dont le nom est similaire :}}",
+    "similarVoies": "{count, plural, one {La Base Adresse Locale comporte une voie dont le nom est similaire :} other {La Base Adresse Locale comporte plusieurs voies dont le nom est similaire :}}",
+    "toponymeAfterChange": "Toponyme après modification",
+    "toponymeConcerned": "Toponyme concerné",
+    "voieNameAfterChange": "Nom de la voie après modification",
+    "voieNameBefore": "Nom de la voie avant modification",
+    "whatDoYouWantToDo": "Que souhaitez-vous faire ?"
+  },
+  "signalementHeader": {
+    "acceptedOn": "Vous avez accepté cette proposition le <b>{date}</b>",
+    "by": "par",
+    "comment": "Commentaire :",
+    "generalPublicIconAlt": "Icône source grand public",
+    "publicServiceIconAlt": "Icône source service public",
+    "publicSource": "Ce signalement provient d’une source grand public",
+    "reason": "Raison :",
+    "rejectedOn": "Vous avez refusé cette proposition le <b>{date}</b>",
+    "submittedAgo": "Déposée il y a <b>{duration}</b>",
+    "submittedOn": "Déposée le <b>{date}</b>",
+    "trustedSource": "Ce signalement provient d’un acteur de confiance",
+    "via": "via"
+  },
+  "signalementList": {
+    "empty": "Vous n’avez aucune proposition actuellement",
+    "filters": "Filtres",
+    "refresh": "Actualiser les signalements",
+    "search": "Rechercher un signalement"
+  },
+  "signalementListItem": {
+    "acceptedOn": "Acceptée le {date}",
+    "rejectedOn": "Refusée le {date}",
+    "trustedActor": "Acteur de confiance"
+  },
+  "signalementTour": {
+    "archivedTab": "Celui-ci vous permet de consulter les signalements déjà traités",
+    "filterByType": "...ou par type (Création, Modification et Suppression) en cliquant sur ce bouton",
+    "goToTab": "Pour les visualiser, rendez-vous sur l’onglet signalements.",
+    "pendingTab": "Cet onglet vous permet de consulter les signalements en attente de traitement",
+    "searchByName": "Vous pouvez filtrer les signalements par nom en tapant dans cette barre de recherche...",
+    "selectFromList": "Enfin séléctionnez un signalement soit via la liste...",
+    "selectFromMap": "Soit via la carte",
+    "welcomeContent": "Des administrés ou des services publics ont proposé des améliorations sur les adresses de votre commune via le dispositif de signalement.",
+    "welcomeTitle": "Votre Base Adresse Locale a reçu des propositions d’amélioration"
+  },
+  "signalementTypes": {
+    "create": "Création",
+    "delete": "Suppression",
+    "missingAddress": "Adresse manquante",
+    "update": "Modification"
+  },
+  "signalementsPage": {
+    "acceptedToast": "Le signalement a bien été pris en compte",
+    "backToList": "Retour à la liste des signalements",
+    "breadcrumb": "Signalements",
+    "bulkActions": "Actions groupées",
+    "confirmBulkAction": "Confirmer l’action groupée",
+    "confirmIgnoreQuestion": "Êtes-vous sûr de vouloir ignorer ces signalements ?",
+    "errorToast": "Une erreur est survenue",
+    "ignoreSignalements": "Ignorer les signalements",
+    "ignoredManyToast": "{count, plural, one {Le signalement a bien été ignoré} other {Les signalements ont bien été ignorés}}",
+    "ignoredToast": "Le signalement a bien été ignoré",
+    "improvementRequests": "Demandes d’amélioration",
+    "locationNotFound": "Impossible de trouver la localisation du signalement.",
+    "markedExpired": "Il a été marqué comme expiré et n’apparaîtra plus dans la liste des signalements.",
+    "tabArchived": "{count, plural, one {Archivé} other {Archivés}}",
+    "tabPending": "En cours"
+  },
+  "stepper": {
+    "lastStep": "Dernière étape",
+    "nextStep": "Étape suivante :"
+  },
+  "toponymeEditor": {
+    "communeDeleguee": "Commune déléguée",
+    "createError": "Le toponyme n’a pas pu être ajouté",
+    "createSuccess": "Le toponyme a bien été ajouté",
+    "hintMultipleMarkers": "Déplacez les marqueurs sur la carte pour modifier les positions",
+    "hintSingleMarker": "Déplacez le marqueur sur la carte pour positionner le toponyme",
+    "nom": "Nom du toponyme",
+    "parcelles": "Parcelles",
+    "updateError": "Le toponyme n’a pas pu être modifié",
+    "updateSuccess": "Le toponyme a bien été modifié"
+  },
+  "toponymeGoal": {
+    "addToponyme": "Créez un lieu-dit complémentaire ou une voie sans adresse",
+    "addToponymeTitle": "Ajouter un toponyme",
+    "badgeTitle": "Publication",
+    "emptyContent": "Enrichissez l’adressage de votre commune en renseignant vos lieux-dits complémentaires et voies sans adresse.",
+    "explanation": "Conservez vos noms de hameaux et lieux-dits historiques. Associez-les aux numéros comme complément d’adresse.",
+    "ignoreGoal": "Supprimer objectif",
+    "numerosCounter": "{count, plural, one {numéro associé} other {numéros associés}}",
+    "title": "Lieux-dits / Compléments",
+    "toponymesCounter": "{count, plural, one {lieux-dit / complément} other {lieux-dits / compléments}}"
+  },
+  "toponymePage": {
+    "editToponyme": "Éditer le toponyme",
+    "linkNumeros": "Associer des numéros",
+    "numerosList": "Liste des numéros",
+    "searchNumero": "Rechercher un numéro",
+    "updateManySuccess": "Les numéros ont bien été modifiés"
+  },
+  "toponymesPage": {
+    "addToponyme": "Ajouter un toponyme",
+    "addressesCertified": "Les adresses sont certifiées",
+    "archiveError": "Le toponyme n’a pas pu être archivé",
+    "archiveSuccess": "Le toponyme a bien été archivé",
+    "breadcrumb": "Toponymes",
+    "deleteConfirm": "Êtes vous bien sûr de vouloir supprimer ce toponyme ?",
+    "linkNumeros": "Associer des numéros",
+    "newToponyme": "Nouveau toponyme",
+    "noNumero": "Aucun numéro",
+    "noPosition": "Ce toponyme n’a pas de position",
+    "noResults": "Aucun résultat",
+    "searchPlaceholder": "Rechercher un toponyme",
+    "subtitle": "Lieux-dits complémentaires et voies sans adresse"
+  },
+  "trainingTypes": {
+    "advanced": "Formation approfondie",
+    "initial": "Formation initiale",
+    "signalement": "Formation signalement"
+  },
+  "trash": {
+    "numerosDeleteError": "Les numéros n’ont pas pu être supprimés",
+    "numerosDeleted": "Les numéros ont bien été supprimés",
+    "toponymeDeleteError": "Le toponyme n’a pas pu être supprimé",
+    "toponymeDeleted": "Le toponyme a bien été supprimé",
+    "toponymeRestoreError": "Le toponyme n’a pas pu être restauré",
+    "toponymeRestored": "Le toponyme a bien été restauré",
+    "voieDeleteError": "La voie n’a pas pu être supprimée",
+    "voieDeleted": "La voie a bien été supprimée",
+    "voieRestoreError": "La voie n’a pas pu être restaurée",
+    "voieRestored": "La voie a bien été restaurée"
+  },
+  "trashList": {
+    "deletedNumeros": "{count, plural, one {# numéro supprimé} other {# numéros supprimés}}",
+    "deletedNumerosList": "Liste des numéros supprimés",
+    "noNumero": "Aucun numéro",
+    "noResults": "Aucun résultat",
+    "restoreNumeros": "{count, plural, one {Restaurer # numéro} other {Restaurer # numéros}}",
+    "restoreToponyme": "Restaurer toponyme",
+    "restoreVoie": "Restaurer voie",
+    "restoreVoieWithNumeros": "{count, plural, one {Restaurer voie avec # numéro} other {Restaurer voie avec # numéros}}",
+    "searchNumero": "Rechercher un numéro",
+    "searchToponyme": "Rechercher un toponyme",
+    "searchVoie": "Rechercher une voie",
+    "seeNumeros": "Voir numero(s)",
+    "voie": "voie",
+    "voieAndDeletedNumeros": "voie et {count, plural, one {# numéro supprimé} other {# numéros supprimés}}"
+  },
+  "voieEditor": {
+    "createError": "La voie n’a pas pu être ajoutée",
+    "createSuccess": "La voie a bien été ajoutée",
+    "metrique": "Métrique",
+    "nom": "Nom de la voie",
+    "numerique": "Numérique",
+    "typeNumerotation": "Type de numérotation *",
+    "updateError": "La voie n’a pas pu être modifiée",
+    "updateSuccess": "La voie a bien été modifiée"
+  },
+  "voiePage": {
+    "editVoie": "Éditer la voie",
+    "numerosList": "Liste des numéros"
+  },
+  "voiesPage": {
+    "addVoie": "Ajouter une voie",
+    "addressesCertified": "Les adresses sont certifiées",
+    "archiveError": "La voie n’a pas pu être archivée",
+    "archiveSuccess": "La voie a bien été archivée",
+    "arreteError": "L’arrêté de numérotation n’a pas pu être téléchargé",
+    "arreteSuccess": "L’arrêté de numérotation a bien été téléchargé",
+    "breadcrumb": "Voies",
+    "certifyConfirmLabel": "Certifier les numéros de la voie",
+    "certifyQuestion": "Êtes vous bien sûr de vouloir certifier toutes les adresses de cette voie ?",
+    "deleteConfirm": "Êtes vous bien sûr de vouloir supprimer cette voie ainsi que tous ses numéros ?",
+    "filterLabel": "Filtre",
+    "filterTitle": "filtres voies",
+    "filters": {
+      "all": "Tous",
+      "withSuggestions": "Avec suggestions",
+      "withoutCertification": "Sans certification"
+    },
+    "handleSuggestions": "{count, plural, one {Traiter la suggestion} other {Traiter les # suggestions}}",
+    "newVoie": "Nouvelle voie",
+    "noResults": "Aucun résultat",
+    "searchPlaceholder": "Rechercher une voie, une place, un lieu-dit...",
+    "subtitle": "Voies, places et lieux-dits numérotés"
+  },
+  "warnings": {
+    "convertConfirm": "Convertir en voie sans adresses",
+    "convertConfirmQuestion": "Êtes vous bien sûr de vouloir convertir cette voie en voie sans adresses ?",
+    "convertError": "La voie n’a pas pu être convertie en toponyme",
+    "convertSuccess": "La voie a bien été convertie en toponyme",
+    "convertTitle": "Convertir la voie en voie sans adresses",
+    "doublonText": "Plusieurs voies ont le même nom",
+    "editNumero": "Éditer le numero",
+    "editVoie": "Éditer la voie",
+    "mergeConfirm": "Fusionner les voies",
+    "mergeConfirmQuestion": "Êtes vous bien sûr de vouloir fusionner les {count} voies avec le nom {voieName}",
+    "mergeTitle": "Fusionner les voies avec le même nom",
+    "parcelleMissing": "La parcelle n’existe pas dans le cadastre",
+    "parcellesMissing": "Plusieurs parcelles n’existent pas dans le cadastre",
+    "suffixeIncorrect": "Le suffixe du numéro est incorrect",
+    "voieEmptyText": "Cette voie ne contient aucun numéro",
+    "voieNameSuggestion": "Suggestion sur le nom de la voie",
+    "voieNumerosSuggestion": "Suggestion sur les numéros de la voie"
+  },
+  "welcomeIllustration": {
+    "subtitle": "Commencez à gérer vos adresses en créant une Base Adresse Locale (BAL).",
+    "title": "Bienvenue sur mes-adresses!"
+  },
+  "welcomeMessage": {
+    "guides": "Consultez les guides",
+    "needHelp": "Besoin d’aide ?",
+    "officialSource": "La BAL deviendra alors l’unique source officielle des adresses de {communeName}",
+    "ownPaceContent": "Une fois publiées, les adresses sont syncronisées avec la Base Adresse Nationale.<br></br>Toutes vos modifications remonteront au fil de l’eau.",
+    "ownPaceTitle": "Adressez à votre rythme.",
+    "publicationBadge": "Publication",
+    "start": "Commencez l’adressage",
+    "startWithPublication": "Commencez par la <b>publication</b> !",
+    "title": "Bienvenue sur la nouvelle Base Adresse Locale de {communeName}",
+    "training": "Suivez une formation",
+    "tutorials": "Regardez les tutoriels"
+  }
+}

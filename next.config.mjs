@@ -1,37 +1,44 @@
 import { withSentryConfig } from "@sentry/nextjs";
 import _withBundleAnalyzer from "@next/bundle-analyzer";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const ADRESSE_URL =
   process.env.NEXT_PUBLIC_ADRESSE_URL || "https://adresse.data.gouv.fr";
+
+// No `[locale]` segment and no middleware: the active language comes from the
+// NEXT_LOCALE cookie. See src/i18n/config.ts for why.
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const withBundleAnalyzer = _withBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-const nextConfig = withBundleAnalyzer({
-  output: "standalone",
-  reactCompiler: true,
-  redirects: async () => {
-    return [
-      {
-        source: "/dashboard(.*)",
-        destination: `${ADRESSE_URL}/deploiement-bal`,
-        permanent: true,
-      },
-    ];
-  },
-  images: {
-    remotePatterns: [
-      new URL(
-        "https://base-adresse-locale-prod-blasons-communes.s3.fr-par.scw.cloud/**"
-      ),
-      new URL("https://api.panoramax.xyz/**"),
-      new URL(
-        "https://annuaire-des-collectivites-production-storage.s3.fr-par.scw.cloud/**"
-      ),
-    ],
-  },
-});
+const nextConfig = withNextIntl(
+  withBundleAnalyzer({
+    output: "standalone",
+    reactCompiler: true,
+    redirects: async () => {
+      return [
+        {
+          source: "/dashboard(.*)",
+          destination: `${ADRESSE_URL}/deploiement-bal`,
+          permanent: true,
+        },
+      ];
+    },
+    images: {
+      remotePatterns: [
+        new URL(
+          "https://base-adresse-locale-prod-blasons-communes.s3.fr-par.scw.cloud/**"
+        ),
+        new URL("https://api.panoramax.xyz/**"),
+        new URL(
+          "https://annuaire-des-collectivites-production-storage.s3.fr-par.scw.cloud/**"
+        ),
+      ],
+    },
+  })
+);
 
 export default withSentryConfig(nextConfig, {
   org: "sentry",

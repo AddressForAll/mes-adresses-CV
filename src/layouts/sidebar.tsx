@@ -7,6 +7,7 @@ import {
   ChevronLeftIcon,
   PaneProps,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import BalDataContext from "@/contexts/bal-data";
 import LayoutContext from "@/contexts/layout";
@@ -28,6 +29,7 @@ function Sidebar({
   bottom = 0,
   ...props
 }: SidebarProps) {
+  const t = useTranslations("sidebar");
   const { setEditingId, isEditing, setIsEditing, voie, toponyme } =
     useContext(BalDataContext);
   const router = useRouter();
@@ -78,10 +80,10 @@ function Sidebar({
             onClick={handleClick}
             title={
               isHidden
-                ? "Ouvrir la barre latérale"
+                ? t("openSidebar")
                 : isEditing || voie || toponyme
-                  ? "Fermer le formulaire"
-                  : "Masquer la barre latérale"
+                  ? t("closeForm")
+                  : t("hideSidebar")
             }
           >
             {isHidden ? (

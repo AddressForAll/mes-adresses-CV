@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Heading, Pane, Text, IconButton, EditIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import {
   ExtendedBaseLocaleDTO,
   ExtendedVoieDTO,
@@ -28,6 +29,7 @@ function BALSummary({
   communeFlag,
   onEditNomsAlt,
 }: BALSummaryProps) {
+  const t = useTranslations("balSummary");
   const { otherBalIdPublished } = useContext(BALRecoveryContext);
   const { token } = useContext(TokenContext);
   const { isEditing } = useContext(BalDataContext);
@@ -63,7 +65,7 @@ function BALSummary({
             icon={EditIcon}
             marginTop={-4}
             onClick={onEditNomsAlt}
-            title="Modifier les noms alternatifs de la commune en langue régionale"
+            title={t("editNomsAlt")}
           />
         )}
       </Heading>
@@ -75,16 +77,25 @@ function BALSummary({
       <Pane display="flex" alignItems="center" gap={8}>
         {voies && (
           <Text>
-            <b>{voies.length}</b> voie{voies.length > 1 && "s"}
+            {t.rich("voiesCount", {
+              count: voies.length,
+              b: (chunks) => <b>{chunks}</b>,
+            })}
           </Text>
         )}
         {toponymes && (
           <Text>
-            <b>{toponymes.length}</b> toponyme{toponymes.length > 1 && "s"}
+            {t.rich("toponymesCount", {
+              count: toponymes.length,
+              b: (chunks) => <b>{chunks}</b>,
+            })}
           </Text>
         )}
         <Text>
-          <b>{nbNumeros}</b> numéro{nbNumeros > 1 && "s"}
+          {t.rich("numerosCount", {
+            count: nbNumeros,
+            b: (chunks) => <b>{chunks}</b>,
+          })}
         </Text>
       </Pane>
     </Pane>

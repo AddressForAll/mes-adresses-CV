@@ -1,4 +1,5 @@
 import { useCallback, useContext, useState } from "react";
+import { useTranslations } from "next-intl";
 
 import {
   BasesLocalesService,
@@ -25,6 +26,7 @@ interface UseTrashType {
 }
 
 function useTrash(): UseTrashType {
+  const t = useTranslations("trash");
   const {
     baseLocale,
     reloadVoies,
@@ -50,8 +52,8 @@ function useTrash(): UseTrashType {
     async (voie: Voie) => {
       const deleteVoie = toaster(
         () => VoiesService.deleteVoie(voie.id),
-        "La voie a bien été supprimée",
-        "La voie n’a pas pu être supprimée"
+        t("voieDeleted"),
+        t("voieDeleteError")
       );
       await deleteVoie();
       await reloadAllDeleted();
@@ -66,8 +68,8 @@ function useTrash(): UseTrashType {
       };
       const restoreVoie = toaster(
         () => VoiesService.restoreVoie(voie.id, restoreVoieDTO),
-        "La voie a bien été restaurée",
-        "La voie n’a pas pu être restaurée"
+        t("voieRestored"),
+        t("voieRestoreError")
       );
       const res = await restoreVoie();
       if (res) {
@@ -101,8 +103,8 @@ function useTrash(): UseTrashType {
             baseLocale.id,
             deleteBatchNumeroDTO
           ),
-        "Les numéros ont bien été supprimés",
-        "Les numéros n’ont pas pu être supprimés"
+        t("numerosDeleted"),
+        t("numerosDeleteError")
       );
       await deleteNumeros();
       await reloadAllDeleted();
@@ -114,8 +116,8 @@ function useTrash(): UseTrashType {
     async (toponyme: Toponyme) => {
       const deleteToponyme = toaster(
         () => ToponymesService.deleteToponyme(toponyme.id),
-        "Le toponyme a bien été supprimé",
-        "Le toponyme n’a pas pu être supprimé"
+        t("toponymeDeleted"),
+        t("toponymeDeleteError")
       );
       await deleteToponyme();
       await reloadAllDeleted();
@@ -127,8 +129,8 @@ function useTrash(): UseTrashType {
     async (toponyme: Toponyme) => {
       const restoreToponyme = toaster(
         () => ToponymesService.restoreToponyme(toponyme.id),
-        "Le toponyme a bien été restauré",
-        "Le toponyme n’a pas pu être restauré"
+        t("toponymeRestored"),
+        t("toponymeRestoreError")
       );
       const res = await restoreToponyme();
       if (res) {

@@ -12,10 +12,12 @@ import {
   TickCircleIcon,
   Text,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useContext, useState } from "react";
 import {
-  rejectionReasonsOptions,
+  rejectionReasons,
   RejectionReasonOption,
+  OTHER_REJECTION_REASON,
 } from "@/components/signalement/rejection-reasons";
 
 interface SignalementFormButtonsProps {
@@ -33,6 +35,13 @@ export function SignalementFormButtons({
   onReject,
   onClose,
 }: SignalementFormButtonsProps) {
+  const t = useTranslations("signalementForm");
+  const tr = useTranslations("rejectionReasons");
+  const tc = useTranslations("common");
+  const rejectionReasonOptions = rejectionReasons.map(({ value, key }) => ({
+    value,
+    label: tr(key),
+  }));
   const { pendingSignalementsCount } = useContext(SignalementContext);
   const [rejectionReasonSelected, setRejectionReasonSelected] =
     useState<RejectionReasonOption | null>(null);
@@ -61,27 +70,26 @@ export function SignalementFormButtons({
             width="100%"
           >
             <Label htmlFor="reject-reason" marginBottom={8} display="block">
-              <Text fontWeight="bold">Raison</Text>
+              <Text fontWeight="bold">{t("reason")}</Text>
               {author?.email && (
                 <Text marginLeft={4} size={300} color="muted">
-                  (L&apos;auteur du signalement recevra cette information par
-                  email)
+                  {t("authorWillBeEmailed")}
                 </Text>
               )}
             </Label>
             <BadgeSelect
-              options={rejectionReasonsOptions}
+              options={rejectionReasonOptions}
               onChange={(value: string) =>
                 setRejectionReasonSelected(value as RejectionReasonOption)
               }
               value={rejectionReasonSelected}
             />
-            {rejectionReasonSelected === "Autre" && (
+            {rejectionReasonSelected === OTHER_REJECTION_REASON && (
               <Textarea
                 id="reject-reason"
                 value={rejectionReason}
                 onChange={(e) => setRejectionReason(e.target.value)}
-                placeholder="Précisez la raison du refus, merci de ne pas indiquer de données personnelles"
+                placeholder={t("reasonPlaceholder")}
                 rows={4}
                 resize="none"
               />
@@ -102,7 +110,7 @@ export function SignalementFormButtons({
                   isLoading={isLoading}
                   onClick={async () => {
                     await onReject(
-                      rejectionReasonSelected === "Autre"
+                      rejectionReasonSelected === OTHER_REJECTION_REASON
                         ? rejectionReason
                         : rejectionReasonSelected
                     );
@@ -113,10 +121,7 @@ export function SignalementFormButtons({
                   intent="danger"
                   iconAfter={BanCircleIcon}
                 >
-                  Refuser et{" "}
-                  {pendingSignalementsCount > 1
-                    ? "passer au suivant"
-                    : "terminer"}
+                  {t("rejectAnd", { count: pendingSignalementsCount })}
                 </Button>
               </Pane>
               <Pane
@@ -130,7 +135,7 @@ export function SignalementFormButtons({
                   display="inline-flex"
                   onClick={() => setShowRejectionForm(false)}
                 >
-                  Annuler
+                  {tc("cancel")}
                 </Button>
               </Pane>
             </Pane>
@@ -149,7 +154,7 @@ export function SignalementFormButtons({
               intent="success"
               iconAfter={TickCircleIcon}
             >
-              Accepter
+              {t("accept")}
             </Button>
           </Pane>
 
@@ -166,7 +171,7 @@ export function SignalementFormButtons({
               onClick={() => setShowRejectionForm(true)}
               iconAfter={BanCircleIcon}
             >
-              Refuser
+              {t("reject")}
             </Button>
           </Pane>
 
@@ -181,7 +186,7 @@ export function SignalementFormButtons({
               display="inline-flex"
               onClick={onClose}
             >
-              Retour
+              {tc("back")}
             </Button>
           </Pane>
         </>

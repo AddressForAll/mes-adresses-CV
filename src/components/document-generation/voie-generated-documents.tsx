@@ -1,5 +1,6 @@
 import { Voie } from "@/lib/openapi-api-bal";
 import { DownloadIcon, Menu } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import {
   DocumentGenerationData,
   GeneratedDocumentType,
@@ -14,10 +15,11 @@ export function VoieGeneratedDocuments<type extends GeneratedDocumentType>({
   setDocumentGenerationData,
   voie,
 }: VoieGeneratedDocumentsProps<type>) {
+  const t = useTranslations("documentGeneration");
   return (
     <>
       <Menu.Divider />
-      <Menu.Group title="Générer un modèle">
+      <Menu.Group title={t("generateTemplate")}>
         <Menu.Item
           icon={DownloadIcon}
           onSelect={() =>
@@ -28,7 +30,7 @@ export function VoieGeneratedDocuments<type extends GeneratedDocumentType>({
             } as Parameters<typeof setDocumentGenerationData>[0])
           }
         >
-          Arrêté de numérotation
+          {t("arrete")}
         </Menu.Item>
       </Menu.Group>
     </>

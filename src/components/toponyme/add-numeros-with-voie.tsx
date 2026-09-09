@@ -1,6 +1,7 @@
 import { useState, useContext, useMemo, Dispatch, SetStateAction } from "react";
 import { sortBy } from "lodash";
 import { SelectField, SelectMenu, Pane, Button, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { normalizeSort } from "@/lib/normalize";
 
@@ -18,6 +19,7 @@ function AddNumerosWithVoie({
   numerosIds,
   setNumerosIds,
 }: AddNumerosWithVoieProps) {
+  const t = useTranslations("addNumeros");
   const [selectedVoieId, setSelectedVoieId] = useState();
   const [voieNumeros, setVoieNumeros] = useState([]);
 
@@ -50,29 +52,18 @@ function AddNumerosWithVoie({
 
   const selectedVoiesCount = useMemo(() => {
     if (numerosIds.length === voieNumeros.length) {
-      return "Tous les numéros sont sélectionnés";
+      return t("allSelected");
     }
 
-    if (numerosIds.length === 0) {
-      return "Aucun numéro n’est sélectionné";
-    }
-
-    if (numerosIds.length === 1) {
-      return "1 numéro est sélectionné";
-    }
-
-    return `${numerosIds.length} numéros sont sélectionnés`;
-  }, [numerosIds.length, voieNumeros.length]);
+    return t("selectedCount", { count: numerosIds.length });
+  }, [numerosIds.length, voieNumeros.length, t]);
 
   const numeroOptions = useMemo(() => {
     let options = [];
 
     if (voieNumeros.length > 0) {
       const toggleFullSelect = {
-        label:
-          numerosIds.length > 0
-            ? "Désélectionner tous les numéros"
-            : "Sélectionner tous les numéros",
+        label: numerosIds.length > 0 ? t("deselectAll") : t("selectAll"),
         value: "toggle",
       };
       const numeros = voieNumeros.map(({ id, numero, suffixe }) => ({
@@ -84,7 +75,7 @@ function AddNumerosWithVoie({
     }
 
     return options;
-  }, [numerosIds, voieNumeros]);
+  }, [numerosIds, voieNumeros, t]);
 
   return (
     <Pane>
@@ -92,12 +83,12 @@ function AddNumerosWithVoie({
         <FormInput>
           <SelectField
             value={selectedVoieId}
-            label="Voie"
+            label={t("voie")}
             marginBottom={0}
             flex={1}
             onChange={(e) => handleSelectVoie(e.target.value)}
           >
-            {!selectedVoieId && <option>- Sélectionnez une voie -</option>}
+            {!selectedVoieId && <option>{t("chooseVoie")}</option>}
             {sortBy(voies, (v) => normalizeSort(v.nom)).map(({ id, nom }) => (
               <option key={id} value={id}>
                 {nom}
@@ -115,7 +106,7 @@ function AddNumerosWithVoie({
               <SelectMenu
                 isMultiSelect
                 hasFilter={false}
-                title="Sélection des numéros"
+                title={t("selectionTitle")}
                 options={numeroOptions}
                 selected={numerosIds}
                 emptyView={
@@ -127,16 +118,14 @@ function AddNumerosWithVoie({
                     justifyContent="center"
                     textAlign="center"
                   >
-                    <Text size={300}>
-                      Aucun numéro n’est disponible pour cette voie
-                    </Text>
+                    <Text size={300}>{t("noneAvailable")}</Text>
                   </Pane>
                 }
                 onSelect={handleSelectNumero}
                 onDeselect={handleSelectNumero}
               >
                 <Button marginTop={0} type="button">
-                  Sélectionner les numéros
+                  {t("selectNumeros")}
                 </Button>
               </SelectMenu>
 

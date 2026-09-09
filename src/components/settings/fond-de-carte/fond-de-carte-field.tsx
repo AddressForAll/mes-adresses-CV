@@ -6,6 +6,7 @@ import {
   CrossIcon,
   IconButton,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import styles from "@/components/bal/panel-goal/secondary-goal/accordion-simple.module.css";
 
@@ -22,6 +23,7 @@ function FondDeCarteField({
   onDelete,
   errors,
 }: FondDeCarteFieldProps) {
+  const t = useTranslations("fondDeCarte");
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
   useEffect(() => {
@@ -47,7 +49,7 @@ function FondDeCarteField({
       backgroundColor="white"
     >
       <IconButton
-        title="Supprimer le fond de carte"
+        title={t("remove")}
         onClick={() => onAnimationEnd()}
         intent="danger"
         icon={CrossIcon}
@@ -58,33 +60,29 @@ function FondDeCarteField({
       />
       <TextInputField
         label="Nom"
-        title="Nom du fond de carte"
+        title={t("nameLabel")}
         value={initialValue.name}
         onChange={(e) => onChange("name", e.target.value)}
         width="80%"
         marginBottom={0}
-        placeholder="Mon fond de carte"
+        placeholder={t("namePlaceholder")}
         required
         validationMessage={
           errors?.["name"] == false &&
-          (initialValue.name === ""
-            ? "Le nom est obligatoire"
-            : "Le nom est invalide")
+          (initialValue.name === "" ? t("nameRequired") : t("nameInvalid"))
         }
         isInvalid={errors?.["name"] == false}
       />
       <TextareaField
         label="Url"
         required
-        title="URL du fond de carte"
+        title={t("urlLabel")}
         value={initialValue.url}
         onChange={(e) => onChange("url", e.target.value)}
         marginBottom={8}
         marginTop={8}
         placeholder="https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&FORMAT=image/jpeg&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}"
-        validationMessage={
-          errors?.["url"] == false && "L'url du fond de carte est invalide"
-        }
+        validationMessage={errors?.["url"] == false && t("urlInvalid")}
         isInvalid={errors?.["url"] == false}
       />
     </Pane>

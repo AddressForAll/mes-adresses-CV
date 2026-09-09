@@ -2,6 +2,7 @@
 import NextLink from "next/link";
 import { useContext } from "react";
 import { Pane, Text, Button, WarningSignIcon, Link } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import LayoutContext from "@/contexts/layout";
 
@@ -16,6 +17,7 @@ function AlreadyBalPublishedWarning({
   communeName,
   isReadonly,
 }: AlreadyBalPublishedWarningProps) {
+  const t = useTranslations("alreadyPublishedWarning");
   const { isMobile } = useContext(LayoutContext);
 
   return (
@@ -36,7 +38,7 @@ function AlreadyBalPublishedWarning({
         style={{ verticalAlign: "sub" }}
       />
       <Text is="p" fontSize={isMobile ? 10 : 14}>
-        Une BAL est déjà publiée pour la commune de {communeName}
+        {t("message", { communeName })}
       </Text>
 
       <Button
@@ -45,10 +47,10 @@ function AlreadyBalPublishedWarning({
         is={NextLink}
         href={`/bal/${otherBalIdPublished}`}
       >
-        Accèder à la BAL publiée
+        {t("goToPublished")}
       </Button>
       <Text is="p" fontSize={isMobile ? 10 : 14}>
-        ou contacter le support:{" "}
+        {t("orContactSupport")}{" "}
         <Link href="mailto:adresse@data.gouv.fr">adresse@data.gouv.fr</Link>
       </Text>
     </Pane>

@@ -3,6 +3,7 @@
 import { useState, useCallback, useContext, useEffect, useRef } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Dialog, Pane, Text, Spinner } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 const EDITEUR_URL =
   process.env.NEXT_PUBLIC_EDITEUR_URL || "https://mes-adresses.data.gouv.fr";
@@ -74,6 +75,7 @@ function HabilitationProcess({
   resetHabilitationProcess,
   handleClose,
 }: HabilitationProcessProps) {
+  const t = useTranslations("habilitation");
   const [flagURL, setFlagURL] = useState<string | null>(null);
   const [step, setStep] = useState(getStep(habilitation));
   const [isLoading, setIsLoading] = useState(false);
@@ -98,7 +100,7 @@ function HabilitationProcess({
     } catch (error) {
       pushToast({
         intent: "danger",
-        title: "Le courriel n’a pas pu être envoyé",
+        title: t("emailNotSent"),
         message: error.body?.message,
       });
     }
@@ -153,7 +155,7 @@ function HabilitationProcess({
     } catch (error) {
       pushToast({
         intent: "danger",
-        title: "Le code n’est pas valide",
+        title: t("invalidCode"),
         message: error.body.message,
       });
     }

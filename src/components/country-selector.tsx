@@ -2,6 +2,7 @@
 
 import { useContext } from "react";
 import { SelectMenu, Button, Badge, Position } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import CountryContext from "@/contexts/country";
 
@@ -15,6 +16,7 @@ import CountryContext from "@/contexts/country";
 function CountrySelector() {
   const { country, countryProfile, countries, setCountry, isOverridden } =
     useContext(CountryContext);
+  const t = useTranslations("country");
 
   if (isOverridden) {
     return (
@@ -28,7 +30,7 @@ function CountrySelector() {
     <SelectMenu
       closeOnSelect
       position={Position.BOTTOM_RIGHT}
-      title="Choix du pays"
+      title={t("title")}
       hasFilter={false}
       options={countries.map(({ code, label }) => ({
         label,

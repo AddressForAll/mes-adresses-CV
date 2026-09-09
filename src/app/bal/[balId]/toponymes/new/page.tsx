@@ -7,12 +7,14 @@ import { useContext, useEffect } from "react";
 import LayoutContext from "@/contexts/layout";
 import NextLink from "next/link";
 import { Text, Link } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import ToponymeEditor from "@/components/bal/toponyme-editor";
 import BalDataContext from "@/contexts/bal-data";
 import MapContext from "@/contexts/map";
 import { TilesLayerMode } from "@/components/map/layers/tiles";
 
 export default function NewToponymePage() {
+  const t = useTranslations("toponymesPage");
   const router = useRouter();
   const { setBreadcrumbs } = useContext(LayoutContext);
   const { commune, baseLocale } = useContext(BalDataContext);
@@ -29,10 +31,10 @@ export default function NewToponymePage() {
           is={NextLink}
           href={`/bal/${baseLocale.id}/${TabsEnum.TOPONYMES}`}
         >
-          Toponymes
+          {t("breadcrumb")}
         </Link>
         <Text color="muted">{" > "}</Text>
-        <Text aria-current="page">Nouveau toponyme</Text>
+        <Text aria-current="page">{t("newToponyme")}</Text>
       </>
     );
 

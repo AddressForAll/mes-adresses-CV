@@ -8,6 +8,7 @@ import { SignalementToponymeDiffCard } from "../../signalement-diff/signalement-
 import { useSignalementMapDiffUpdate } from "@/components/signalement/hooks/useSignalementMapDiffUpdate";
 import { ActiveCardEnum } from "@/lib/utils/signalement";
 import { BanCircleIcon, TickCircleIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 interface SignalementViewerUpdateToponymeProps {
   signalement: Signalement;
@@ -16,6 +17,7 @@ interface SignalementViewerUpdateToponymeProps {
 function SignalementViewerUpdateToponyme({
   signalement,
 }: SignalementViewerUpdateToponymeProps) {
+  const t = useTranslations("signalementForm");
   const { existingLocation, changesRequested, status } = signalement;
 
   const {
@@ -40,7 +42,7 @@ function SignalementViewerUpdateToponyme({
   return (
     <>
       <SignalementToponymeDiffCard
-        title="Toponyme concerné"
+        title={t("toponymeConcerned")}
         isActive={activeCard === ActiveCardEnum.INITIAL}
         nom={{
           to: existingNom,

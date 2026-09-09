@@ -12,6 +12,7 @@ import {
   MapCreateIcon,
   defaultTheme,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import AdminEmailsField from "@/components/new/steps/admin-emails-field";
 import { validateEmail } from "@/lib/utils/email";
 import { useBALSettings } from "@/hooks/bal-settings";
@@ -31,6 +32,8 @@ interface SettingsProps {
 }
 
 function Settings({ baseLocale, token }: SettingsProps) {
+  const t = useTranslations("settings");
+  const tc = useTranslations("common");
   const [showBALAccessDialog, setShowBALAccessDialog] = useState(false);
   const [showFondDeCarteDialog, setShowFondDeCarteDialog] = useState(false);
   const [newEmailInput, setNewEmailInput] = useState("");
@@ -98,7 +101,7 @@ function Settings({ baseLocale, token }: SettingsProps) {
       >
         <Pane display="flex" alignItems="center">
           <CogIcon />
-          <Heading paddingLeft={5}>Paramètres</Heading>
+          <Heading paddingLeft={5}>{t("title")}</Heading>
         </Pane>
       </Pane>
       <Pane
@@ -143,17 +146,17 @@ function Settings({ baseLocale, token }: SettingsProps) {
             bottom={8}
           >
             <EyeOpenIcon marginRight={8} />
-            Partage d&apos;accès
+            {t("shareAccess")}
           </Button>
         </Pane>
         {error && (
-          <Alert marginBottom={16} intent="danger" title="Erreur">
+          <Alert marginBottom={16} intent="danger" title={tc("error")}>
             {error}
           </Alert>
         )}
         <Pane marginBottom={16}>
           <Label display="block" marginBottom={8}>
-            Fonds de cartes
+            {t("basemaps")}
           </Label>
           <Pane display="flex" gap={16}>
             {baseLocale.settings?.fondsDeCartes?.length > 0 && (
@@ -166,13 +169,13 @@ function Settings({ baseLocale, token }: SettingsProps) {
               alignSelf="flex-end"
             >
               <MapCreateIcon marginRight={8} />
-              Ajouter fond de carte
+              {t("addBasemap")}
             </Button>
           </Pane>
         </Pane>
         <Pane marginBottom={16}>
           <Label display="block" marginBottom={8}>
-            Alertes de qualités
+            {t("qualityAlerts")}
           </Label>
           <Pane display="flex" gap={16} marginBottom={16}>
             <AlertsAccordion
@@ -189,7 +192,7 @@ function Settings({ baseLocale, token }: SettingsProps) {
           isLoading={isLoading}
           width="fit-content"
         >
-          {isLoading ? "En cours…" : "Enregistrer les changements"}
+          {isLoading ? tc("inProgress") : t("saveChanges")}
         </Button>
       </Pane>
       <RenewTokenDialog

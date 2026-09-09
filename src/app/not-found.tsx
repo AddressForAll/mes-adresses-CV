@@ -9,8 +9,11 @@ import {
   Heading,
   ArrowLeftIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 export default function NotFound() {
+  const t = useTranslations("notFound");
+
   return (
     <>
       <Pane
@@ -29,10 +32,10 @@ export default function NotFound() {
           color="#101840"
         />
         <Heading size={800} marginBottom="2em">
-          Erreur 404 - Page introuvable
+          {t("title")}
         </Heading>
         <Button iconBefore={ArrowLeftIcon} is={Link} href="/">
-          Retour à la page d’accueil
+          {t("backHome")}
         </Button>
       </Pane>
     </>

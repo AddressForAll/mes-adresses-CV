@@ -66,18 +66,27 @@ const getRequestedLocationLabel = (
       }${changesRequested.nomVoie}`;
 };
 
+/**
+ * Human label for a report. Both the "missing address" wording and the date
+ * format depend on the reader's language, so the caller passes them in: a
+ * plain module cannot call `useTranslations`.
+ */
 export const getSignalementLabel = (
   signalement: Signalement | Report,
-  opts?: { withoutDate: boolean }
+  opts?: {
+    withoutDate?: boolean;
+    locale?: string;
+    missingAddressLabel?: string;
+  }
 ) => {
   let label = "";
   const dateSuffix = opts?.withoutDate
     ? ""
-    : ` - ${new Date(signalement.createdAt).toLocaleDateString()}`;
+    : ` - ${new Date(signalement.createdAt).toLocaleDateString(opts?.locale)}`;
 
   switch (signalement.type) {
     case Report.type.MISSING_ADDRESS:
-      label = `Adresse manquante${dateSuffix}`;
+      label = `${opts?.missingAddressLabel ?? "Adresse manquante"}${dateSuffix}`;
       break;
     case Signalement.type.LOCATION_TO_CREATE:
       label = `${getRequestedLocationLabel(

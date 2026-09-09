@@ -6,6 +6,7 @@ import {
 } from "@/lib/openapi-signalement";
 import { SignalementVoieDiffCard } from "../../signalement-diff/signalement-voie-diff-card";
 import { BanCircleIcon, TickCircleIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 interface SignalementViewerUpdateVoieProps {
   signalement: Signalement;
@@ -14,6 +15,7 @@ interface SignalementViewerUpdateVoieProps {
 function SignalementViewerUpdateVoie({
   signalement,
 }: SignalementViewerUpdateVoieProps) {
+  const t = useTranslations("signalementForm");
   const { existingLocation, changesRequested, status } = signalement;
   const { nom: existingNom } = existingLocation as ExistingVoie;
   const { nom } = changesRequested as VoieChangesRequestedDTO;
@@ -21,7 +23,7 @@ function SignalementViewerUpdateVoie({
   return (
     <>
       <SignalementVoieDiffCard
-        title="Nom de la voie avant modification"
+        title={t("voieNameBefore")}
         nom={{
           to: existingNom,
         }}

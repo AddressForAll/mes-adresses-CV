@@ -8,6 +8,7 @@ import React, {
   useState,
 } from "react";
 import { Button, Link, Pane, Paragraph, Text } from "evergreen-ui";
+import { useTranslations, useLocale } from "next-intl";
 import NextLink from "next/link";
 import { Numero, Toponyme, Voie } from "@/lib/openapi-api-bal";
 import { Signalement } from "@/lib/openapi-signalement";
@@ -40,6 +41,9 @@ export default function SignalementPage({
   existingLocation,
   requestedLocations,
 }: SignalementPageProps) {
+  const t = useTranslations("signalementsPage");
+  const tt = useTranslations("signalementTypes");
+  const locale = useLocale();
   const router = useRouter();
   const { fetchPendingSignalements, updateOneSignalement } =
     useContext(SignalementContext);
@@ -61,7 +65,12 @@ export default function SignalementPage({
           Signalements
         </Link>
         <Text color="muted">{" > "}</Text>
-        <Text aria-current="page">{getSignalementLabel(signalement)}</Text>
+        <Text aria-current="page">
+          {getSignalementLabel(signalement, {
+            locale,
+            missingAddressLabel: tt("missingAddress"),
+          })}
+        </Text>
       </>
     );
 
@@ -128,9 +137,9 @@ export default function SignalementPage({
           await refreshBALSync();
         },
         status === Signalement.status.PROCESSED
-          ? "Le signalement a bien été pris en compte"
-          : "Le signalement a bien été ignoré",
-        "Une erreur est survenue"
+          ? t("acceptedToast")
+          : t("ignoredToast"),
+        t("errorToast")
       );
 
       await _updateSignalement();
@@ -185,13 +194,8 @@ export default function SignalementPage({
         </Pane>
       ) : (
         <Pane padding={20}>
-          <Paragraph>
-            Impossible de trouver la localisation du signalement.
-          </Paragraph>
-          <Paragraph>
-            Il a été marqué comme expiré et n&apos;apparaîtra plus dans la liste
-            des signalements.
-          </Paragraph>
+          <Paragraph>{t("locationNotFound")}</Paragraph>
+          <Paragraph>{t("markedExpired")}</Paragraph>
           <Button
             is={NextLink}
             href={`/bal/${baseLocale.id}/signalements`}
@@ -201,7 +205,7 @@ export default function SignalementPage({
             alignSelf="center"
             appearance="primary"
           >
-            Retour à la liste des signalements
+            {t("backToList")}
           </Button>
         </Pane>
       )}

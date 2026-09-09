@@ -7,6 +7,7 @@ import {
   Paragraph,
   Text,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import StatusBadge from "@/components/status-badge";
 import Tuto from "@/components/help/tuto";
@@ -19,66 +20,56 @@ import {
 import { BaseLocale, BaseLocaleSync } from "@/lib/openapi-api-bal";
 
 function Publication() {
+  const t = useTranslations("help.publication");
+
+  // Inline markup for the help copy — see base-locale.tsx for the rationale.
+  const tags = {
+    publishButton: (chunks: React.ReactNode) => (
+      <Button marginX={4} height={24} appearance="primary">
+        {chunks}
+      </Button>
+    ),
+    successButton: (chunks: React.ReactNode) => (
+      <Button marginX={4} height={24} appearance="primary" intent="success">
+        {chunks}
+      </Button>
+    ),
+    dangerButton: (chunks: React.ReactNode) => (
+      <Button appearance="primary" intent="danger" height={24} marginX={4}>
+        {chunks}
+      </Button>
+    ),
+  };
+
   return (
     <Pane>
       <VideoContainer
-        title="Publication de votre Base Adresse Locale :"
+        title={t("videoTitle")}
         link={`${PEERTUBE_LINK}/w/oMKnhiVycDTjddCBXZuYMB`}
       />
-      <Tuto title="Publier sa Base Adresse Locale">
+      <Tuto title={t("publish.title")}>
         <OrderedList margin={8}>
           <ListItem>
-            <Paragraph>
-              Cliquez sur le bouton
-              <Button marginX={4} height={24} appearance="primary">
-                Publier
-              </Button>
-            </Paragraph>
+            <Paragraph>{t.rich("publish.step1", tags)}</Paragraph>
           </ListItem>
 
           <ListItem>
-            <Paragraph>
-              Authentifiez-vous via le courriel officiel de la mairie ou a votre
-              compte Proconnect
-            </Paragraph>
+            <Paragraph>{t("publish.step2")}</Paragraph>
           </ListItem>
 
-          <ListItem>
-            Une fois l’habilitation obtenue, vous serez automatiquement invité à
-            publier votre Base Adresse Locale en cliquant sur
-            <Button
-              marginX={4}
-              height={24}
-              appearance="primary"
-              intent="success"
-            >
-              Publier
-            </Button>
-          </ListItem>
+          <ListItem>{t.rich("publish.step3", tags)}</ListItem>
         </OrderedList>
-        <Alert title="En cas de conflit">
+        <Alert title={t("conflict.title")}>
           <Text display="block" color="muted">
-            Il peut arriver qu’une autre Base Adresse Locale soit déjà
-            synchronisée avec la Base Adresse Nationale. Dans ce cas, votre Base
-            Adresse Locale va entrer en conflit avec celle-ci.
+            {t("conflict.explanation")}
           </Text>
           <Text display="block" marginTop={8} color="muted">
-            En cliquant sur
-            <Button
-              appearance="primary"
-              intent="danger"
-              height={24}
-              marginX={4}
-            >
-              Forcer la publication
-            </Button>
-            votre Base Adresse Locale sera publiée et remplacera celle
-            actuellement en place.
+            {t.rich("conflict.force", tags)}
           </Text>
         </Alert>
       </Tuto>
 
-      <Tuto title="Statuts de synchronisation">
+      <Tuto title={t("syncStatuses.title")}>
         <Pane display="flex" flexDirection="column" gap={16} marginTop={8}>
           <Pane display="grid" gridTemplateColumns="160px 1fr" gap={8}>
             <Pane height={32} marginTop={4}>
@@ -88,10 +79,7 @@ function Publication() {
                 isHabilitationValid={true}
               />
             </Pane>
-            <Text>
-              Votre Base Adresse Locale est à jour avec la Base Adresse
-              Nationale. Toutes ses adresses sont prises en compte.
-            </Text>
+            <Text>{t("syncStatuses.synced")}</Text>
           </Pane>
 
           <Pane display="grid" gridTemplateColumns="160px 1fr" gap={8}>
@@ -105,11 +93,7 @@ function Publication() {
                 isHabilitationValid={true}
               />
             </Pane>
-            <Text>
-              Des modifications ont été détectées, elles seront automatiquement
-              répercutées dans la Base Adresse Nationale dans les prochaines
-              heures.
-            </Text>
+            <Text>{t("syncStatuses.outdated")}</Text>
           </Pane>
 
           <Pane display="grid" gridTemplateColumns="160px 1fr" gap={8}>
@@ -120,11 +104,7 @@ function Publication() {
                 isHabilitationValid={true}
               />
             </Pane>
-            <Text>
-              Vous avez suspendus les mises à jour de votre Base Adresse Locale.
-              Aucune modification ne sera transmise à la Base Adresse Nationale.
-              Vous pouvez relancer les mises à jours à tout moment.
-            </Text>
+            <Text>{t("syncStatuses.paused")}</Text>
           </Pane>
 
           <Pane display="grid" gridTemplateColumns="160px 1fr" gap={8}>
@@ -138,12 +118,7 @@ function Publication() {
                 isHabilitationValid={true}
               />
             </Pane>
-            <Text>
-              Une autre Base Adresse Locale a remplacé la votre, impossible de
-              mettre à jour automatiquement vos adresses. Vous pouvez forcer la
-              mise à jour afin de remplacer la Base Adresse Locale actuellement
-              en place.
-            </Text>
+            <Text>{t("syncStatuses.replaced")}</Text>
           </Pane>
 
           <Pane display="grid" gridTemplateColumns="160px 1fr" gap={8}>
@@ -157,17 +132,13 @@ function Publication() {
                 isHabilitationValid={false}
               />
             </Pane>
-            <Text>
-              L&apos;habilitation de la Base Adresse Locale n&apos;est pas
-              valide. Il vous faut renouveler celle-ci pour que les nouvelles
-              modifications remontent dans la Base Adresse Nationale.
-            </Text>
+            <Text>{t("syncStatuses.noHabilitation")}</Text>
           </Pane>
         </Pane>
       </Tuto>
 
       <Problems>
-        <Unauthorized title="Je n’arrive pas à éditer ma BAL" />
+        <Unauthorized title={t("problems.cannotEdit")} />
       </Problems>
     </Pane>
   );

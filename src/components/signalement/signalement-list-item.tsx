@@ -17,6 +17,7 @@ import {
   Strong,
   Pane,
 } from "evergreen-ui";
+import { useLocale, useTranslations } from "next-intl";
 import SignalementTypeBadge from "./signalement-type-badge";
 import Image from "next/image";
 
@@ -41,6 +42,10 @@ export function SignalementListItem({
   onSelect,
   onIgnore,
 }: SignalementListItemProps) {
+  const t = useTranslations("signalementListItem");
+  const th = useTranslations("signalementHeader");
+  const locale = useLocale();
+
   return (
     <Table.Row
       key={signalement.id}
@@ -56,17 +61,17 @@ export function SignalementListItem({
           />
         ) : signalement.status === Signalement.status.IGNORED ? (
           <Tooltip
-            content={`Refusée le ${new Date(
-              signalement.updatedAt
-            ).toLocaleDateString("fr-FR")}`}
+            content={t("rejectedOn", {
+              date: new Date(signalement.updatedAt).toLocaleDateString(locale),
+            })}
           >
             <Icon icon={BanCircleIcon} color="red500" />
           </Tooltip>
         ) : signalement.status === Signalement.status.PROCESSED ? (
           <Tooltip
-            content={`Acceptée le ${new Date(
-              signalement.updatedAt
-            ).toLocaleDateString("fr-FR")}`}
+            content={t("acceptedOn", {
+              date: new Date(signalement.updatedAt).toLocaleDateString(locale),
+            })}
           >
             <Icon icon={TickCircleIcon} color="green500" />
           </Tooltip>
@@ -81,13 +86,13 @@ export function SignalementListItem({
                   <Strong color="white" is="div">
                     {signalement.source.nom}
                   </Strong>
-                  <Text color="white">Acteur de confiance</Text>
+                  <Text color="white">{t("trustedActor")}</Text>
                 </>
               }
             >
               <Image
                 src="/static/images/signalement/source-service-public.svg"
-                alt="Icône source service public"
+                alt={th("publicServiceIconAlt")}
                 width={20}
                 height={20}
               />
@@ -105,7 +110,7 @@ export function SignalementListItem({
             >
               <Image
                 src="/static/images/signalement/source-grand-public.svg"
-                alt="Icône source grand public"
+                alt={th("generalPublicIconAlt")}
                 width={20}
                 height={20}
               />

@@ -1,6 +1,7 @@
 import BALRecoveryContext from "@/contexts/bal-recovery";
 import { CommuneType } from "@/types/commune";
 import { Alert, Button, Pane, Paragraph } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useContext } from "react";
 
 interface AlertExistingBALMesAdressesProps {
@@ -12,22 +13,25 @@ function AlertExistingBALMesAdresses({
   existingBALCount,
   commune,
 }: AlertExistingBALMesAdressesProps) {
+  const t = useTranslations("alertPublishedBal");
   const { setIsRecoveryDisplayed } = useContext(BALRecoveryContext);
 
   return (
     <Alert
-      title={`Des Bases Adresses Locales non-publiées existent déjà pour ${commune.nom}`}
+      title={t("existingUnpublished", { communeName: commune.nom })}
       intent="info"
       marginTop={16}
     >
       <Paragraph marginTop={8}>
-        Il y a déjà <b>{existingBALCount} BAL(s) non publiée(s)</b> pour{" "}
-        {commune.nom}. S&apos;il s&apos;agit d&apos;un brouillon de votre
-        mairie, peut-être souhaitez-vous le récupérer ?
+        {t.rich("existingDrafts", {
+          count: existingBALCount,
+          communeName: commune.nom,
+          b: (chunks) => <b>{chunks}</b>,
+        })}
       </Paragraph>
       <Pane marginTop={8} display="flex" gap={8}>
         <Button onClick={() => setIsRecoveryDisplayed(true)} type="button">
-          Récupérer une BAL avec un email
+          {t("recoverWithEmail")}
         </Button>
       </Pane>
     </Alert>

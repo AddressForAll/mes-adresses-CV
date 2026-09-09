@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useTranslations } from "next-intl";
 import {
   Signalement,
   VoieChangesRequestedDTO,
@@ -27,6 +28,7 @@ function SignalementUpdateVoie({
   handleClose,
   isLoading,
 }: SignalementUpdateVoieProps) {
+  const t = useTranslations("signalementForm");
   const { nom: existingNom } = existingLocation;
   const { nom } = signalement.changesRequested as VoieChangesRequestedDTO;
   const { pushToast } = useContext(LayoutContext);
@@ -40,7 +42,7 @@ function SignalementUpdateVoie({
     } catch (error) {
       console.error("Error accepting signalement:", error);
       pushToast({
-        title: "Erreur lors de l'acceptation du signalement.",
+        title: t("acceptError"),
         intent: "danger",
       });
     }
@@ -49,13 +51,13 @@ function SignalementUpdateVoie({
   return (
     <>
       <SignalementVoieDiffCard
-        title="Nom actuel de la voie"
+        title={t("currentVoieName")}
         nom={{
           to: existingNom,
         }}
       />
       <SignalementVoieDiffCard
-        title="Modification proposée"
+        title={t("proposedChange")}
         signalementType={Signalement.type.LOCATION_TO_UPDATE}
         nom={{
           from: existingNom,
@@ -63,7 +65,7 @@ function SignalementUpdateVoie({
         }}
       />
       <SignalementVoieDiffCard
-        title="Nom de la voie après modification"
+        title={t("voieNameAfterChange")}
         nom={{
           to: nom,
         }}

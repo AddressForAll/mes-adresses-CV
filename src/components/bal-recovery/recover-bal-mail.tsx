@@ -10,6 +10,7 @@ import {
   Paragraph,
   TextInput,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { validateEmail } from "@/lib/utils/email";
 
@@ -39,6 +40,8 @@ function RecoverBALMail({
   baseLocaleId,
   onClose,
 }: RecoverBALMailProps) {
+  const t = useTranslations("balRecovery");
+  const tc = useTranslations("common");
   const { recoveryEmailSent, setRecoveryEmailSent } =
     useContext(LocalStorageContext);
   const { pushToast } = useContext(LayoutContext);
@@ -51,7 +54,7 @@ function RecoverBALMail({
     });
     setRecoveryEmailSent(new Date());
     pushToast({
-      title: `Un email a été envoyé à l’adresse ${email}`,
+      title: t("emailSentTo", { email }),
       intent: "success",
     });
     setError(null);
@@ -64,10 +67,10 @@ function RecoverBALMail({
       setIsLoading(false);
       onClose();
       pushToast({
-        title: "Un email a déjà été envoyé, merci de patienter.",
+        title: t("emailAlreadySent"),
         intent: "warning",
       });
-      throw new Error("Un email a déjà été envoyé, merci de patienter.");
+      throw new Error(t("emailAlreadySent"));
     }
 
     try {
@@ -105,17 +108,14 @@ function RecoverBALMail({
           <EnvelopeIcon size={66} color="gray800" />
         </Pane>
         <Heading is="h2" marginBottom={8}>
-          Avec votre adresse de courrier électronique
+          {t("byEmailTitle")}
         </Heading>
-        <Paragraph marginBottom={20}>
-          Un courrier électronique va être envoyé à l’adresse que vous avez
-          renseignée.
-        </Paragraph>
+        <Paragraph marginBottom={20}>{t("byEmailIntro")}</Paragraph>
         <TextInput
           display="block"
           type="email"
           width="100%"
-          placeholder="adresse@courriel.fr"
+          placeholder={t("emailPlaceholder")}
           maxWidth={400}
           value={email}
           onChange={onEmailChange}
@@ -128,9 +128,7 @@ function RecoverBALMail({
 
         <Alert marginTop={24} marginBottom={8} intent="info" hasIcon={false}>
           <Paragraph color="blue600">
-            {baseLocaleId
-              ? "Vous y retrouverez un lien d’administration de votre Base Adresse Locale. Il vous suffira alors de cliquer sur le lien afin de pouvoir la retrouver sur votre espace."
-              : "Vous y retrouverez la liste de toutes les Bases Adresses Locales associées à celle-ci. Il vous suffira alors de cliquer sur les liens qui y sont associés afin de pouvoir les retrouver sur votre espace."}
+            {baseLocaleId ? t("emailHintOne") : t("emailHintMany")}
           </Paragraph>
         </Alert>
       </Pane>
@@ -141,7 +139,7 @@ function RecoverBALMail({
         disabled={!validateEmail(email) || isLoading}
         alignSelf="flex-end"
       >
-        {isLoading ? "Chargement..." : "Recevoir le courriel"}
+        {isLoading ? tc("loading") : t("receiveEmail")}
       </Button>
     </Pane>
   );

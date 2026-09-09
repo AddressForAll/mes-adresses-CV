@@ -15,6 +15,7 @@ import {
   TrashIcon,
   Menu,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import NextLink from "next/link";
 import { normalizeSort } from "@/lib/normalize";
@@ -45,6 +46,7 @@ import { TilesLayerMode } from "@/components/map/layers/tiles";
 import { ButtonIconExpandHover } from "@/components/expand-button-hover/button-expand-hover";
 
 export default function ToponymesPage() {
+  const t = useTranslations("toponymesPage");
   const { token } = useContext(TokenContext);
   const [toRemove, setToRemove] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -73,7 +75,7 @@ export default function ToponymesPage() {
   }, [setTileLayersMode]);
 
   useEffect(() => {
-    setBreadcrumbs(<Text aria-current="page">Toponymes</Text>);
+    setBreadcrumbs(<Text aria-current="page">{t("breadcrumb")}</Text>);
     scrollAndHighlightLastSelectedItem(TabsEnum.TOPONYMES);
 
     return () => {
@@ -85,8 +87,8 @@ export default function ToponymesPage() {
     setIsDisabled(true);
     const softDeleteToponyme = toaster(
       () => ToponymesService.softDeleteToponyme(toRemove),
-      "Le toponyme a bien été archivé",
-      "Le toponyme n’a pas pu être archivé"
+      t("archiveSuccess"),
+      t("archiveError")
     );
     await softDeleteToponyme();
     await reloadToponymes();
@@ -133,11 +135,7 @@ export default function ToponymesPage() {
     <>
       <DeleteWarning
         isShown={Boolean(toRemove)}
-        content={
-          <Paragraph>
-            Êtes vous bien sûr de vouloir supprimer ce toponyme ?
-          </Paragraph>
-        }
+        content={<Paragraph>{t("deleteConfirm")}</Paragraph>}
         isDisabled={isDisabled}
         onCancel={() => {
           setToRemove(null);
@@ -164,24 +162,24 @@ export default function ToponymesPage() {
           borderBottom="muted"
           textAlign="center"
         >
-          <Text>Lieux-dits complémentaires et voies sans adresse</Text>
+          <Text>{t("subtitle")}</Text>
         </Pane>
         <Table.Head background="white">
           <Table.SearchHeaderCell
-            placeholder="Rechercher un toponyme"
+            placeholder={t("searchPlaceholder")}
             onChange={changeFilter}
             value={search}
           />
           <Table.HeaderCell flex="unset">
             <ButtonIconExpandHover
               icon={AddIcon}
-              title="Ajouter un toponyme"
+              title={t("addToponyme")}
               is={NextLink}
               appearance="primary"
               intent="success"
               disabled={!token || (token && isEditing)}
               href={`/bal/${baseLocale.id}/${TabsEnum.TOPONYMES}/new`}
-              message="Ajouter un toponyme"
+              message={t("addToponyme")}
             />
           </Table.HeaderCell>
         </Table.Head>
@@ -189,7 +187,7 @@ export default function ToponymesPage() {
         {filtered.length === 0 && (
           <Table.Row>
             <Table.TextCell color="muted" fontStyle="italic">
-              Aucun résultat
+              {t("noResults")}
             </Table.TextCell>
           </Table.Row>
         )}
@@ -229,14 +227,12 @@ export default function ToponymesPage() {
                 warning={
                   toponyme.positions.length === 0 ? (
                     <Text is="p" marginTop={8} paddingX={16}>
-                      Ce toponyme n’a pas de position
+                      {t("noPosition")}
                     </Text>
                   ) : null
                 }
                 certification={
-                  toponyme.isAllCertified
-                    ? "Les adresses sont certifiées"
-                    : null
+                  toponyme.isAllCertified ? t("addressesCertified") : null
                 }
                 comment={
                   toponyme.commentedNumeros.length > 0 ? (

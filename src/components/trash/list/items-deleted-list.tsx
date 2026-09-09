@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { sortBy } from "lodash";
 import { Table, AddIcon, TrashIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { normalizeSort } from "@/lib/normalize";
 
@@ -26,6 +27,8 @@ function ItemsListDelete({
   onRemove,
   onRemoveNumeros,
 }: ItemsListDeleteProps) {
+  const t = useTranslations("trashList");
+  const tc = useTranslations("common");
   const [filtered, setFilter] = useFuse(itemsDeleted, 200, fuseOptions);
 
   const scrollableItems = useMemo(
@@ -39,15 +42,15 @@ function ItemsListDelete({
         label:
           model === "voie"
             ? item.deletedAt
-              ? "Restaurer voie"
-              : "Voir numero(s)"
-            : "Restaurer toponyme",
+              ? t("restoreVoie")
+              : t("seeNumeros")
+            : t("restoreToponyme"),
         callback: () => onRestore(item),
         icon: AddIcon,
         intent: "none",
       },
       {
-        label: "Supprimer",
+        label: tc("delete"),
         callback: () =>
           item.deletedAt ? onRemove(item) : onRemoveNumeros(item),
         icon: TrashIcon,
@@ -60,16 +63,13 @@ function ItemsListDelete({
   const complement = (item) => {
     if (model === "voie" && item.numeros) {
       if (item.deletedAt) {
-        return (
-          "voie" +
-          (item.numeros.length > 0
-            ? " et " + item.numeros.length + " numero(s) supprimée(s)"
-            : "")
-        );
+        return item.numeros.length > 0
+          ? t("voieAndDeletedNumeros", { count: item.numeros.length })
+          : t("voie");
       }
 
       return item.numeros.length > 0
-        ? item.numeros.length + " numero(s) supprimée(s)"
+        ? t("deletedNumeros", { count: item.numeros.length })
         : "";
     }
 
@@ -80,7 +80,7 @@ function ItemsListDelete({
     <Table display="flex" flex={1} flexDirection="column" overflowY="auto">
       <Table.Head>
         <Table.SearchHeaderCell
-          placeholder={`Rechercher une ${model}`}
+          placeholder={model === "voie" ? t("searchVoie") : t("searchToponyme")}
           onChange={setFilter}
         />
       </Table.Head>
@@ -88,7 +88,7 @@ function ItemsListDelete({
       {filtered.length === 0 && (
         <Table.Row>
           <Table.TextCell color="muted" fontStyle="italic">
-            Aucun résultat
+            {t("noResults")}
           </Table.TextCell>
         </Table.Row>
       )}

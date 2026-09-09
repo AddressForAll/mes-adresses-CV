@@ -7,6 +7,7 @@ import {
   Position,
   HelpIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import languesRegionales from "@ban-team/shared-data/langues-regionales.json";
 
@@ -17,6 +18,7 @@ interface LanguagePreviewProps {
 }
 
 function LanguagePreview({ nomsAlt }: LanguagePreviewProps) {
+  const t = useTranslations("languagePreview");
   const langFlag = availableFlags.find(
     ({ lang }) => lang === Object.keys(nomsAlt)[0]
   );
@@ -67,8 +69,10 @@ function LanguagePreview({ nomsAlt }: LanguagePreviewProps) {
                     width={22}
                     alt={
                       foundLangueRegionale
-                        ? `Nom de la voie en ${foundLangueRegionale.label}`
-                        : "Nom de la langue régionale non supportée"
+                        ? t("voieNameIn", {
+                            language: foundLangueRegionale.label,
+                          })
+                        : t("unsupportedLanguage")
                     }
                   />
                   {nomsAlt[language]}
@@ -81,7 +85,7 @@ function LanguagePreview({ nomsAlt }: LanguagePreviewProps) {
       >
         <HelpIcon size={16} />
       </Tooltip>
-      Alternatives régionales
+      {t("regionalAlternatives")}
     </Pane>
   ) : (
     <Pane
@@ -103,8 +107,8 @@ function LanguagePreview({ nomsAlt }: LanguagePreviewProps) {
         style={{ borderRadius: "50%" }}
         alt={
           foundLangueRegionale
-            ? `Nom de la voie en ${foundLangueRegionale.label}`
-            : "Le nom de la langue régionale n’a pas pu être détecté"
+            ? t("voieNameIn", { language: foundLangueRegionale.label })
+            : t("undetectedLanguage")
         }
       />
       <Pane fontWeight="lighter" fontSize={14}>

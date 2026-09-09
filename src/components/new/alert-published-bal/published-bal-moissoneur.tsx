@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button, Paragraph, Spinner } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { DataGouvService } from "@/lib/data-gouv/data-gouv";
 import {
   Dataset,
@@ -21,6 +22,7 @@ function PublishedBALMoissoneur({
   outdatedHarvestSources,
   commune,
 }: PublishedBALMoissoneurProps) {
+  const t = useTranslations("publishedBal");
   const [organizationMoissonneur, setOrganizationMoissonneur] =
     useState<OrganizationMoissonneur | null>(null);
   const [organizationDataGouv, setOrganizationDataGouv] =
@@ -63,12 +65,14 @@ function PublishedBALMoissoneur({
       {organizationDataGouv && (
         <>
           <Paragraph marginTop={16}>
-            Une Base Adresse Locale est déjà publiée par{" "}
-            {organizationDataGouv.name} pour {commune.nom}.
+            {t("publishedByOrganization", {
+              organization: organizationDataGouv.name,
+              communeName: commune.nom,
+            })}
           </Paragraph>
           {!isOutdatedSource && (
             <Paragraph marginTop={16}>
-              Nous recommandons de prendre contact avec cet organisme :{" "}
+              {t("contactOrganization")}{" "}
               {organizationMoissonneur?.email ? (
                 <b>{organizationMoissonneur.email}</b>
               ) : (
@@ -78,7 +82,9 @@ function PublishedBALMoissoneur({
                   href={organizationDataGouv.page}
                   target="_blank"
                 >
-                  Page data.gouv {organizationDataGouv.name}
+                  {t("dataGouvPage", {
+                    organization: organizationDataGouv.name,
+                  })}
                 </Button>
               )}
             </Paragraph>
@@ -87,16 +93,10 @@ function PublishedBALMoissoneur({
       )}
 
       {isOutdatedSource && (
-        <Paragraph marginTop={16}>
-          La Base Adresse Locale publiée est obsolète. Vous pouvez continuer à
-          l&apos;étape suivante pour la remplacer par la vôtre.
-        </Paragraph>
+        <Paragraph marginTop={16}>{t("outdatedSource")}</Paragraph>
       )}
 
-      <Paragraph marginTop={16}>
-        La commune étant compétente en matière d’adressage, vous pouvez prendre
-        la main directement en continuant à l&apos;étape suivante.
-      </Paragraph>
+      <Paragraph marginTop={16}>{t("communeCanTakeOver")}</Paragraph>
     </>
   );
 }

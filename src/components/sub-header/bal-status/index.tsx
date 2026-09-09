@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Pane, Button, toaster } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import usePublishProcess from "@/hooks/publish-process";
 
@@ -40,6 +41,7 @@ function BALStatus({
   handleHabilitation,
   reloadBaseLocale,
 }: BALStatusProps) {
+  const t = useTranslations("balStatusActions");
   const [isHabilitationValid, setIsHabilitationValid] = useState<
     boolean | null
   >(null);
@@ -72,16 +74,11 @@ function BALStatus({
   const handlePause = async () => {
     try {
       await BasesLocalesService.pauseBaseLocale(baseLocale.id);
-      toaster.success(
-        "Mise en pause des mises à jour automatiques de la Base Adresses Nationale"
-      );
+      toaster.success(t("pauseSuccess"));
     } catch (error: unknown) {
-      toaster.danger(
-        "Impossible de suspendre la mise à jour de la Base Adresses Nationale",
-        {
-          description: (error as any).body.message,
-        }
-      );
+      toaster.danger(t("pauseError"), {
+        description: (error as any).body.message,
+      });
     }
     await reloadBaseLocale();
   };
@@ -89,16 +86,11 @@ function BALStatus({
   const handleResumeSync = async () => {
     try {
       await BasesLocalesService.resumeBaseLocale(baseLocale.id);
-      toaster.success(
-        "Reprise de la mise à jour automatique de la Base Adresses Nationale"
-      );
+      toaster.success(t("resumeSuccess"));
     } catch (error: unknown) {
-      toaster.danger(
-        "Impossible de reprendre la mise à jour automatique de la Base Adresses Nationale",
-        {
-          description: (error as any).body.message,
-        }
-      );
+      toaster.danger(t("resumeError"), {
+        description: (error as any).body.message,
+      });
     }
     await reloadBaseLocale();
   };
@@ -140,7 +132,7 @@ function BALStatus({
                   appearance="primary"
                   onClick={handleShowHabilitation}
                 >
-                  Habiliter la BAL
+                  {t("habiliteBal")}
                 </Button>
               )}
             {baseLocale.status === ExtendedBaseLocaleDTO.status.DRAFT && (

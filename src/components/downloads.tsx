@@ -9,6 +9,7 @@ import {
   Alert,
   Text,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useContext, useState } from "react";
 import {
   BaseLocale,
@@ -26,6 +27,7 @@ interface DownloadsProps {
 }
 
 function Downloads({ baseLocale }: DownloadsProps) {
+  const t = useTranslations("downloads");
   const { token } = useContext(TokenContext);
   const [withComment, setWithComment] = useState(false);
   const { matomoTrackEvent } = useContext(MatomoTrackingContext);
@@ -86,7 +88,7 @@ function Downloads({ baseLocale }: DownloadsProps) {
       >
         <Pane display="flex" alignItems="center">
           <DownloadIcon />
-          <Heading paddingLeft={5}>Téléchargements</Heading>
+          <Heading paddingLeft={5}>{t("title")}</Heading>
         </Pane>
       </Pane>
       <Pane
@@ -104,7 +106,7 @@ function Downloads({ baseLocale }: DownloadsProps) {
               onClick={downloadBalCsv}
               marginRight={12}
             >
-              Base Adresse Locale (format CSV)
+              {t("balCsv")}
             </Link>
             {token && (
               <>
@@ -113,37 +115,31 @@ function Downloads({ baseLocale }: DownloadsProps) {
                   onChange={(e) => setWithComment(e.target.checked)}
                   margin={0}
                 />
-                <Text marginLeft={6}>Avec commentaires</Text>
+                <Text marginLeft={6}>{t("withComments")}</Text>
               </>
             )}
           </Pane>
           {withComment && (
             <Alert marginLeft={-30} marginRight={10} hasIcon={false}>
               <Text is="p" textAlign="center">
-                Attention, si vous avez renseigné des informations à caractère
-                personnel dans vos commentaires, celles-ci seront présentes dans
-                l’export de votre Base Adresse Locale.
+                {t("commentsWarning")}
               </Text>
             </Alert>
           )}
         </Pane>
         <Pane is="li" marginBottom={16}>
           <Link style={{ cursor: "pointer" }} onClick={downloadVoieCsv}>
-            Liste des voies (format CSV)
+            {t("voiesCsv")}
           </Link>
         </Pane>
         <Pane is="li" marginBottom={16}>
           <Link style={{ cursor: "pointer" }} onClick={downloadVoieGeoJSON}>
-            Liste des filaires de voie (format GeoJSON)
+            {t("filairesGeojson")}
           </Link>
         </Pane>
         {token && baseLocale.status === BaseLocale.status.PUBLISHED && (
           <Pane is="li" marginBottom={16}>
-            <Text>
-              Pour télécharger un certificat d&apos;adressage, rendez-vous dans
-              la liste des numéros d&apos;une voie et ouvrez le menu
-              d&apos;actions du numéro concerné.
-            </Text>
+            <Text>{t("certificateHint")}</Text>
           </Pane>
         )}
       </Pane>

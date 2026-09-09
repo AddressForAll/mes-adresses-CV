@@ -1,24 +1,21 @@
 import React from "react";
 import { Pane, Alert, Text, Button } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 interface BALReadOnlyProps {
   openRecoveryDialog: () => void;
 }
 
 function BALReadOnly({ openRecoveryDialog }: BALReadOnlyProps) {
+  const t = useTranslations("readOnlyInfos");
+
   return (
     <Pane backgroundColor="white" padding={8}>
-      <Alert intent="warning" title="Vous êtes en mode consultation">
-        <Text is="p">
-          Vous ne pouvez pas modifier cette Base Adresse Locale car vous n’êtes
-          pas authentifié comme administrateur.
-        </Text>
-        <Text is="p">
-          Si vous êtes administrateur de cette Base Adresse Locale, vous pouvez
-          récupérer vos accès en cliquant sur le bouton ci-dessous.
-        </Text>
+      <Alert intent="warning" title={t("title")}>
+        <Text is="p">{t("cannotEdit")}</Text>
+        <Text is="p">{t("recoverHint")}</Text>
         <Button appearance="primary" onClick={openRecoveryDialog}>
-          Récupérer mes accès
+          {t("recoverAccess")}
         </Button>
       </Alert>
     </Pane>

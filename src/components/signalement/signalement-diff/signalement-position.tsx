@@ -1,6 +1,6 @@
 import { Position } from "@/lib/openapi-api-bal";
 import { PositionDTO, Signalement } from "@/lib/openapi-signalement";
-import { getPositionName } from "@/lib/positions-types-list";
+import { getPositionTypeKey } from "@/lib/positions-types-list";
 import {
   Heading,
   Pane,
@@ -12,6 +12,7 @@ import {
   PlusIcon,
 } from "evergreen-ui";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 interface SignalementPositionProps {
   positions: PositionDTO[] | Position[];
@@ -22,9 +23,14 @@ export function SignalementPosition({
   positions,
   signalementType,
 }: SignalementPositionProps) {
+  const t = useTranslations("positionTypes");
+  const ts = useTranslations("signalement");
+
   return (
     <Pane marginTop={10} padding={8} borderRadius={8} className="glass-pane">
-      <Text fontWeight="bold">Position{positions.length > 1 ? "s" : ""}</Text>
+      <Text fontWeight="bold">
+        {ts("positions", { count: positions.length })}
+      </Text>
       <Pane display="grid" gridTemplateColumns="3fr 1fr 1fr" rowGap={6}>
         <Pane />
         <Strong fontWeight={200} fontSize="small">
@@ -45,7 +51,7 @@ export function SignalementPosition({
                 color="teal"
               >
                 <PlusIcon marginRight={4} />
-                {getPositionName(type)}
+                {t(getPositionTypeKey(type))}
               </Badge>
             ) : signalementType === Signalement.type.LOCATION_TO_DELETE ? (
               <Badge
@@ -57,11 +63,11 @@ export function SignalementPosition({
                 color="orange"
               >
                 <MinusIcon marginRight={4} />
-                {getPositionName(type)}
+                {t(getPositionTypeKey(type))}
               </Badge>
             ) : (
               <Badge width="fit-content" marginY={2} color="blue">
-                {getPositionName(type)}
+                {t(getPositionTypeKey(type))}
               </Badge>
             )}
             <Heading size={100} marginY="auto">

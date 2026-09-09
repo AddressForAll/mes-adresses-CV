@@ -12,6 +12,7 @@ import {
   Icon,
   ErrorIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import NextImage from "next/image";
 import { BaseLocale } from "@/lib/openapi-api-bal";
 import { CommuneType } from "@/types/commune";
@@ -38,6 +39,8 @@ function PublishBalStep({
   isLoadingPublish,
   handleClose,
 }: PublishBalStepProps) {
+  const t = useTranslations("habilitation.publishBal");
+  const tc = useTranslations("common");
   const [isConflicted, setIsConflicted] = useState(false);
   const [isLoadingConflicted, setIsLoadingConflicted] = useState(false);
   const [lastRevision, setLastRevision] = useState<Revision | null>(null);
@@ -114,7 +117,7 @@ function PublishBalStep({
           borderRadius={8}
         >
           <Spinner size={42} />
-          <Text>Vérification sur la Base Adresse Nationale...</Text>
+          <Text>{t("checking")}</Text>
         </Pane>
       )}
       {isLoadingPublish && (
@@ -127,7 +130,7 @@ function PublishBalStep({
           borderRadius={8}
         >
           <Spinner size={42} />
-          <Text>Publication en cours...</Text>
+          <Text>{t("publishing")}</Text>
         </Pane>
       )}
       {isConflicted && (
@@ -140,7 +143,7 @@ function PublishBalStep({
             padding={16}
           >
             <Heading size={600} textAlign="center">
-              Cette commune possède déjà une Base Adresse Locale publiée.
+              {t("conflictTitle")}
             </Heading>
           </Pane>
           <Pane
@@ -159,11 +162,12 @@ function PublishBalStep({
               gap={8}
             >
               <Icon icon={ErrorIcon} />
-              Êtes-vous sûr de vouloir la remplacer ?
+              {t("replaceQuestion")}
             </Heading>
             <Text is="p" marginTop={8}>
-              En forcant la publication, cette Base Adresse Locale{" "}
-              <Strong>remplacera celle actuellement en place</Strong>.
+              {t.rich("forceExplanation", {
+                strong: (chunks) => <Strong>{chunks}</Strong>,
+              })}
             </Text>
             <Pane
               width="100%"
@@ -175,7 +179,7 @@ function PublishBalStep({
                 src="/static/images/schema_bals_conflict.png"
                 maxHeight={200}
                 overflow="hidden"
-                alt="Schema du conflit entre la Base Adresse Locale et la Base Adresse Nationale"
+                alt={t("conflictSchemaAlt")}
               />
             </Pane>
 
@@ -185,7 +189,7 @@ function PublishBalStep({
                 appearance="primary"
                 onClick={forcePublication}
               >
-                Forcer la publication
+                {t("forcePublication")}
               </Button>
             </Pane>
           </Pane>
@@ -208,12 +212,12 @@ function PublishBalStep({
                 <Pane position="relative" width={24} height={24}>
                   <NextImage
                     src="/static/images/published-bal-icon.svg"
-                    alt="Icone Base Adresse Locale publiée"
+                    alt={t("publishedIconAlt")}
                     width={24}
                     height={24}
                   />
                 </Pane>
-                Ou souhaitez vous poursuivre sur la BAL déjà publiée ?
+                {t("continueOnPublished")}
               </Heading>
               {lastRevision.context.extras?.balId ? (
                 <PublishedBALMesAdresses
@@ -244,7 +248,7 @@ function PublishBalStep({
             gap={16}
           >
             <Button intent="primary" onClick={handleClose}>
-              Fermer
+              {tc("close")}
             </Button>
           </Pane>
         </Pane>

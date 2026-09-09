@@ -6,6 +6,7 @@ import {
   Position,
   CaretDownIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { computeStatus } from "@/lib/statuses";
 
@@ -34,7 +35,8 @@ function BANSync({
 }: BANSyncProps) {
   const { otherBalIdPublished } = useContext(BALRecoveryContext);
   const { isMobile } = useContext(LayoutContext);
-  const { intent, title, content } = computeStatus(
+  const t = useTranslations("balStatus");
+  const { key, intent } = computeStatus(
     baseLocale.status,
     baseLocale.sync,
     isHabilitationValid
@@ -51,8 +53,8 @@ function BANSync({
             gap={8}
             padding={8}
           >
-            <Alert intent={intent} title={title}>
-              {content}
+            <Alert intent={intent} title={t(`${key}.title`)}>
+              {t(`${key}.content`)}
             </Alert>
 
             <BANHistory

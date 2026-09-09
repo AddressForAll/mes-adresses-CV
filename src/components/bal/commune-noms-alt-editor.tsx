@@ -2,6 +2,7 @@
 
 import { useState, useContext, useCallback, useEffect } from "react";
 import { Pane, Button, Label } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import BalDataContext from "@/contexts/bal-data";
 
@@ -26,6 +27,8 @@ function CommuneNomsAltEditor({
   initialValue,
   closeForm,
 }: CommuneNomsAltEditorProps) {
+  const t = useTranslations("communeNomsAltEditor");
+  const tc = useTranslations("common");
   const [isLoading, setIsLoading] = useState(false);
   const [communeNomsAlt, setCommuneNomsAlt] = useState(
     initialValue?.communeNomsAlt
@@ -50,8 +53,8 @@ function CommuneNomsAltEditor({
         const submit = toaster(
           async () =>
             BasesLocalesService.updateBaseLocale(initialValue.id, body),
-          "Le nom de la commune en langue régional a bien été modifié",
-          "Le nom de la commune en langue régional n’a pas pu être modifiée",
+          t("success"),
+          t("error"),
           (err) => {
             setValidationMessages(err.body.message);
           }
@@ -97,7 +100,7 @@ function CommuneNomsAltEditor({
     >
       <Pane>
         <FormInput>
-          <Label>Nom en langue régionale de la commune</Label>
+          <Label>{t("label")}</Label>
           <LanguesRegionalesForm
             initialValue={initialValue?.communeNomsAlt}
             validationMessage={getValidationMessage("lang_alt")}
@@ -114,7 +117,7 @@ function CommuneNomsAltEditor({
           appearance="primary"
           intent="success"
         >
-          {isLoading ? "En cours…" : "Enregistrer"}
+          {isLoading ? tc("inProgress") : tc("save")}
         </Button>
 
         {closeForm && (
@@ -125,7 +128,7 @@ function CommuneNomsAltEditor({
             display="inline-flex"
             onClick={onFormCancel}
           >
-            Annuler
+            {tc("cancel")}
           </Button>
         )}
       </Pane>

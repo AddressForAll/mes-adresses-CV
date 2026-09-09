@@ -8,6 +8,7 @@ import {
   Switch,
   FormField,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import AdminEmailsField from "@/components/new/steps/admin-emails-field";
 
 interface BALInfosStepProps {
@@ -35,6 +36,8 @@ function BALInfosStep({
   setIsDemoMode,
   forceDemoMode,
 }: BALInfosStepProps) {
+  const t = useTranslations("balInfosStep");
+
   return (
     <Pane>
       <Pane maxWidth={600} display="flex" flexDirection="column">
@@ -44,7 +47,7 @@ function BALInfosStep({
           name="nom"
           id="nom"
           value={balName}
-          label="Nom de la Base Adresse Locale"
+          label={t("nom")}
           onChange={(e) => setBalName(e.target.value)}
           disabled={isLoading}
         />
@@ -52,8 +55,8 @@ function BALInfosStep({
           <FormField
             display="flex"
             marginBottom={24}
-            label="Créer un Base locale de Demo ?"
-            description="Cette BAL ne pourra jamais être publiée et ne sera pas sauvegardée."
+            label={t("demoLabel")}
+            description={t("demoDescription")}
           >
             <Switch
               marginLeft={8}
@@ -75,15 +78,8 @@ function BALInfosStep({
       </Pane>
       {isLoading && (
         <>
-          <Alert
-            title={`Base Adresse Locale en cours de création...`}
-            intent="info"
-            marginTop={16}
-          >
-            <Text marginTop={8}>
-              Votre Base Adresse Locale est en cours de création. Cette
-              opération peut prendre plusieurs minutes.
-            </Text>
+          <Alert title={t("creatingTitle")} intent="info" marginTop={16}>
+            <Text marginTop={8}>{t("creatingContent")}</Text>
           </Alert>
           <Pane
             display="flex"

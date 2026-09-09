@@ -5,6 +5,7 @@ import {
   SearchInputOwnProps,
   Text,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useCallback, useRef, useState } from "react";
 import style from "./autocomplete.module.css";
 import {
@@ -42,11 +43,12 @@ function AutocompleteInput<T>({
   onError,
   itemToString = (item) => (item ? item.label : ""),
   label,
-  noResultsMessage = "Aucun résultat trouvé",
+  noResultsMessage,
   resultsListPosition = "bottom",
   inputProps = {},
   initialValue,
 }: SearchInputProps<T>) {
+  const t = useTranslations("common");
   const controller = useRef<AbortController | null>(null);
   const [items, setItems] = useState<SearchItemType<T>[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -156,7 +158,7 @@ function AutocompleteInput<T>({
         {items.length === 0 ? (
           <Pane is="li" padding={8}>
             <Text fontSize={12} color="muted">
-              {noResultsMessage}
+              {noResultsMessage ?? t("noResults")}
             </Text>
           </Pane>
         ) : (

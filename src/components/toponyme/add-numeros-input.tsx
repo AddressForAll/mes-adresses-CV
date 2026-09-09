@@ -6,6 +6,7 @@ import {
   useEffect,
 } from "react";
 import { Pane, Button, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import AddNumerosWithVoie from "./add-numeros-with-voie";
 import AddNumerosWithPolygon from "./add-numeros-with-polygon";
@@ -18,6 +19,7 @@ interface AddNumerosProps {
 }
 
 function AddNumerosInput({ numerosIds, setNumerosIds }: AddNumerosProps) {
+  const t = useTranslations("addNumeros");
   const [typeSelection, setTypeSelection] = useState<"voie" | "polygon">(null);
   const { drawMode, setDrawMode } = useContext(DrawContext);
 
@@ -31,7 +33,7 @@ function AddNumerosInput({ numerosIds, setNumerosIds }: AddNumerosProps) {
     <Pane>
       <Pane marginBottom="8px">
         <Pane marginBottom="8px">
-          <Text marginBottom="8px">Associer des numéros</Text>
+          <Text marginBottom="8px">{t("linkNumeros")}</Text>
         </Pane>
         <Pane display="flex" alignItems="center" justifyContent="space-between">
           <Button
@@ -39,15 +41,15 @@ function AddNumerosInput({ numerosIds, setNumerosIds }: AddNumerosProps) {
             type="button"
             onClick={() => setTypeSelection("voie")}
           >
-            Avec une voie
+            {t("withVoie")}
           </Button>
-          <Text>ou</Text>
+          <Text>{t("or")}</Text>
           <Button
             marginTop={0}
             type="button"
             onClick={() => setTypeSelection("polygon")}
           >
-            En dessinant le contour
+            {t("withPolygon")}
           </Button>
         </Pane>
       </Pane>{" "}

@@ -23,6 +23,7 @@ import {
   LightbulbIcon,
   defaultTheme,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import NextLink from "next/link";
 import { normalizeSort } from "@/lib/normalize";
@@ -68,12 +69,13 @@ import AlertsContext from "@/contexts/alerts";
 import TableVoieWarning from "@/components/table-row/table-voie-warning";
 
 const options = [
-  { label: "Tous", value: "" },
-  { label: "Avec suggestions", value: "with-suggestions" },
-  { label: "Sans certification", value: "without-certification" },
+  { key: "all", value: "" },
+  { key: "withSuggestions", value: "with-suggestions" },
+  { key: "withoutCertification", value: "without-certification" },
 ];
 
 export default function VoiesPage() {
+  const t = useTranslations("voiesPage");
   const { token } = useContext(TokenContext);
   const [toRemove, setToRemove] = useState<string | null>(null);
   const {
@@ -118,7 +120,7 @@ export default function VoiesPage() {
   }, [setTileLayersMode]);
 
   useEffect(() => {
-    setBreadcrumbs(<Text aria-current="page">Voies</Text>);
+    setBreadcrumbs(<Text aria-current="page">{t("breadcrumb")}</Text>);
     scrollAndHighlightLastSelectedItem(TabsEnum.VOIES);
 
     return () => {
@@ -146,8 +148,8 @@ export default function VoiesPage() {
     setIsDisabled(true);
     const softDeleteVoie = toaster(
       () => VoiesService.softDeleteVoie(toRemove),
-      "La voie a bien été archivée",
-      "La voie n’a pas pu être archivée"
+      t("archiveSuccess"),
+      t("archiveError")
     );
     await softDeleteVoie();
     await reloadVoies();
@@ -181,8 +183,8 @@ export default function VoiesPage() {
           );
           window.open(url, "_blank");
         },
-        "L'arrêté de numérotation a bien été téléchargé",
-        "L'arrêté de numérotation n'a pas pu être téléchargé"
+        t("arreteSuccess"),
+        t("arreteError")
       );
       await downloadArreteDeNumerotation();
       matomoTrackEvent(
@@ -249,14 +251,9 @@ export default function VoiesPage() {
   return (
     <>
       <DialogWarningAction
-        confirmLabel="Certifier les numéros de la voie"
+        confirmLabel={t("certifyConfirmLabel")}
         isShown={Boolean(toCertify)}
-        content={
-          <Paragraph>
-            Êtes vous bien sûr de vouloir certifier toutes les adresses de cette
-            voie ?
-          </Paragraph>
-        }
+        content={<Paragraph>{t("certifyQuestion")}</Paragraph>}
         isLoading={onCertifyLoading}
         onCancel={() => {
           setToCertify(null);
@@ -265,12 +262,7 @@ export default function VoiesPage() {
       />
       <DeleteWarning
         isShown={Boolean(toRemove)}
-        content={
-          <Paragraph>
-            Êtes vous bien sûr de vouloir supprimer cette voie ainsi que tous
-            ses numéros ?
-          </Paragraph>
-        }
+        content={<Paragraph>{t("deleteConfirm")}</Paragraph>}
         onCancel={() => {
           setToRemove(null);
         }}
@@ -307,11 +299,11 @@ export default function VoiesPage() {
           borderBottom="muted"
           textAlign="center"
         >
-          <Text>Voies, places et lieux-dits numérotés</Text>
+          <Text>{t("subtitle")}</Text>
         </Pane>
         <Table.Head background="white">
           <Table.SearchHeaderCell
-            placeholder="Rechercher une voie, une place, un lieu-dit..."
+            placeholder={t("searchPlaceholder")}
             onChange={changeFilter}
             value={search}
           />
@@ -320,23 +312,26 @@ export default function VoiesPage() {
               content={
                 <RadioGroup
                   padding={16}
-                  label="Filtre"
+                  label={t("filterLabel")}
                   value={filter}
-                  options={options}
+                  options={options.map(({ key, value }) => ({
+                    label: t(`filters.${key}`),
+                    value,
+                  }))}
                   onChange={(event) => handleFilter(event.target.value)}
                 />
               }
             >
               <IconButton
                 icon={filter ? FilterRemoveIcon : FilterIcon}
-                title="filtres voies"
+                title={t("filterTitle")}
                 size="small"
                 marginRight={16}
               />
             </Popover>
             <ButtonIconExpandHover
               icon={AddIcon}
-              title="Ajouter une voie"
+              title={t("addVoie")}
               is={NextLink}
               size="medium"
               appearance="primary"
@@ -345,7 +340,7 @@ export default function VoiesPage() {
                 !token || (token && isEditing) || Boolean(otherBalIdPublished)
               }
               href={`/bal/${baseLocale.id}/${TabsEnum.VOIES}/new`}
-              message="Ajouter une voie"
+              message={t("addVoie")}
             />
           </Table.HeaderCell>
         </Table.Head>
@@ -368,9 +363,7 @@ export default function VoiesPage() {
                 onClick={browseQualityBatch}
                 style={{ backgroundColor: defaultTheme.colors.purple600 }}
               >
-                Traiter {nbAlerts > 1 ? "les" : "la"}{" "}
-                {nbAlerts > 1 ? nbAlerts : ""} suggestion
-                {nbAlerts > 1 ? "s" : ""}
+                {t("handleSuggestions", { count: nbAlerts })}
               </Button>
             </Pane>
           )}
@@ -378,7 +371,7 @@ export default function VoiesPage() {
         {filtered.length === 0 && (
           <Table.Row>
             <Table.TextCell color="muted" fontStyle="italic">
-              Aucun résultat
+              {t("noResults")}
             </Table.TextCell>
           </Table.Row>
         )}
@@ -416,7 +409,7 @@ export default function VoiesPage() {
 
               <TableRowNotifications
                 certification={
-                  voie.isAllCertified ? "Les adresses sont certifiées" : null
+                  voie.isAllCertified ? t("addressesCertified") : null
                 }
                 comment={
                   voie.comment?.length || voie.commentedNumeros?.length > 0 ? (

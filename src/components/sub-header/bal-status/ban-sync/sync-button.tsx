@@ -10,13 +10,15 @@ import {
   PauseIcon,
   AutomaticUpdatesIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import RefreshIconRotate from "../refresh-icon-rotate/refresh-icon-rotate";
 
 function SyncButtonIsLoading() {
+  const t = useTranslations("banSync");
   return (
     <Pane display="flex" alignItems="center">
-      Synchronisation en cours <RefreshIconRotate />
+      {t("syncing")} <RefreshIconRotate />
     </Pane>
   );
 }
@@ -36,6 +38,7 @@ function SyncButton({
   handleSync,
   togglePause,
 }: SyncButtonProps) {
+  const t = useTranslations("banSync");
   const [isActionHovered, setIsActionHovered] = useState(false);
   const [isManualActionConfirmed, setIsManuelActionConfirmed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -56,11 +59,11 @@ function SyncButton({
           onClick={onSync}
           disabled={!isManualActionConfirmed || isLoading}
         >
-          Forcer la mise à jour
+          {t("forceUpdate")}
         </Button>
         <Checkbox
           checked={isManualActionConfirmed}
-          label="Je comprends que ma Base Adresse Locale remplacera celle actuellement synchronisée avec la Base Adresses Nationale"
+          label={t("replaceConfirmation")}
           onChange={() => setIsManuelActionConfirmed(!isManualActionConfirmed)}
         />
       </Pane>
@@ -76,7 +79,7 @@ function SyncButton({
         iconAfter={PlayIcon}
         onClick={togglePause}
       >
-        Relancer la mise à jour automatique
+        {t("resumeAutomaticUpdate")}
       </Button>
     );
   }
@@ -101,13 +104,13 @@ function SyncButton({
         {isLoading ? (
           <SyncButtonIsLoading />
         ) : isActionHovered ? (
-          "Mettre à jour"
+          t("updateNow")
         ) : (
-          "Mise à jour automatique"
+          t("automaticUpdate")
         )}
       </Button>
       <Button appearance="minimal" iconAfter={PauseIcon} onClick={togglePause}>
-        Suspendre la mise à jour automatique
+        {t("pauseAutomaticUpdate")}
       </Button>
     </Pane>
   );

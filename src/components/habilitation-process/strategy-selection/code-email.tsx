@@ -13,6 +13,7 @@ import {
   SelectField,
   Spinner,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import TextWrapper from "@/components/text-wrapper";
 import { ApiDepotService } from "@/lib/api-depot";
@@ -24,16 +25,18 @@ function isEmail(email) {
 }
 
 function TextValidEmail() {
+  const t = useTranslations("habilitation.codeEmail");
+
   return (
     <>
       <Alert
-        title="Ce courriel est incorrect ou obsolète ?"
+        title={t("outdatedEmailTitle")}
         width="100%"
         marginTop={16}
         textAlign="left"
         overflow="auto"
       >
-        <TextWrapper placeholder="Mettez à jour le courriel">
+        <TextWrapper placeholder={t("updateEmail")}>
           <AnnuaireServicePublic />
         </TextWrapper>
       </Alert>
@@ -42,14 +45,16 @@ function TextValidEmail() {
 }
 
 function TextInvalidEmail() {
+  const t = useTranslations("habilitation.codeEmail");
+
   return (
     <Alert
       intent="danger"
-      title="Courriel invalide"
+      title={t("invalidEmailTitle")}
       marginTop={16}
       textAlign="left"
     >
-      <TextWrapper placeholder="Mettez à jour le courriel">
+      <TextWrapper placeholder={t("updateEmail")}>
         <AnnuaireServicePublic />
       </TextWrapper>
     </Alert>
@@ -57,19 +62,19 @@ function TextInvalidEmail() {
 }
 
 function AnnuaireServicePublic() {
+  const t = useTranslations("habilitation.codeEmail");
+
   return (
     <OrderedList>
       <ListItem>
-        Rendez vous sur{" "}
-        <Link href="https://lannuaire.service-public.fr/">
-          lannuaire.service-public.fr
-        </Link>
+        {t.rich("annuaireStep1", {
+          link: (chunks) => (
+            <Link href="https://lannuaire.service-public.fr/">{chunks}</Link>
+          ),
+        })}
       </ListItem>
-      <ListItem>Consultez la fiche annuaire de votre commune</ListItem>
-      <ListItem>
-        Cliquez sur le lien «Demander une mise à jour de cette page», visible en
-        bas de page
-      </ListItem>
+      <ListItem>{t("annuaireStep2")}</ListItem>
+      <ListItem>{t("annuaireStep3")}</ListItem>
     </OrderedList>
   );
 }
@@ -87,6 +92,7 @@ function CodeEmail({
   setEmailSelected,
   handleStrategy,
 }: CodeEmailProps) {
+  const t = useTranslations("habilitation.codeEmail");
   const [emailsCommune, setEmailsCommune] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -119,7 +125,7 @@ function CodeEmail({
   return (
     <>
       <Pane display="flex" flexDirection="column" alignItems="center">
-        <Heading is="h5">Via le courriel officiel de la mairie</Heading>
+        <Heading is="h5">{t("title")}</Heading>
 
         {emailsCommune.length === 1 && (
           <Text height={40} verticalAlign="middle" paddingTop={8}>
@@ -167,7 +173,7 @@ function CodeEmail({
             fontSize={16}
             textAlign="left"
           >
-            Recevoir un code d&apos;habilitation
+            {t("receiveCode")}
           </Text>
         </Button>
       </Pane>

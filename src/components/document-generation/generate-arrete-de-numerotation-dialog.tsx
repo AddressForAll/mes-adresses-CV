@@ -9,6 +9,7 @@ import {
   Text,
   RadioGroup,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import {
   Dispatch,
   SetStateAction,
@@ -57,6 +58,8 @@ export function GenerateArreteDeNumerotationDialog<
   setData,
   onDownload,
 }: GenerateArreteDeNumerotationDialogProps<type>) {
+  const t = useTranslations("documentGeneration");
+  const tc = useTranslations("common");
   const { map, setViewport } = useContext(MapContext);
   const [files, setFiles] = useState<File[]>([]);
   const [fileRejections, setFileRejections] = useState([]);
@@ -184,9 +187,9 @@ export function GenerateArreteDeNumerotationDialog<
   return (
     <Dialog
       isShown={data?.type === GeneratedDocumentType.ARRETE_DE_NUMEROTATION}
-      title="Télécharger un modèle d'arrêté de numérotation"
-      cancelLabel="Annuler"
-      confirmLabel="Générer"
+      title={t("arreteDialogTitle")}
+      cancelLabel={tc("cancel")}
+      confirmLabel={t("generate")}
       onCloseComplete={() => setData(null)}
       onCancel={() => setData(null)}
       isConfirmLoading={isLoading}
@@ -201,8 +204,8 @@ export function GenerateArreteDeNumerotationDialog<
     >
       <Pane is="form" onSubmit={(e) => e.preventDefault()}>
         <FileUploader
-          label="Plan de situation (optionnel)"
-          description="Le plan de situation fourni sera inséré dans l'arrêté de numérotation"
+          label={t("planLabel")}
+          description={t("planDescription")}
           browseOrDragText={() => (
             <Pane
               display="flex"
@@ -210,9 +213,7 @@ export function GenerateArreteDeNumerotationDialog<
               alignItems="center"
               gap={10}
             >
-              <Text>
-                Sélectionner le fichier (Format PNG et JPEG, maximum 5 Mo)
-              </Text>
+              <Text>{t("selectFile")}</Text>
             </Pane>
           )}
           maxSizeInBytes={5 * 1024 ** 2}
@@ -243,21 +244,23 @@ export function GenerateArreteDeNumerotationDialog<
         />
         <Pane>
           <Text>
-            Ou cliquer sur
-            <IconButton
-              marginLeft={8}
-              marginRight={8}
-              height={29}
-              width={29}
-              icon={CameraIcon}
-              title="Prendre une photo de la carte"
-              onClick={handleTakeScreenshot}
-            />
-            pour générer le plan de situation automatiquement
+            {t.rich("orTakePhoto", {
+              camera: () => (
+                <IconButton
+                  marginLeft={8}
+                  marginRight={8}
+                  height={29}
+                  width={29}
+                  icon={CameraIcon}
+                  title={t("takePhotoTitle")}
+                  onClick={handleTakeScreenshot}
+                />
+              ),
+            })}
           </Text>
         </Pane>
         <RadioGroup
-          label="Format"
+          label={t("format")}
           value={format}
           options={[
             { label: ".pdf", value: "pdf" },

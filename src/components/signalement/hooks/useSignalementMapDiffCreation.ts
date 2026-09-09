@@ -8,7 +8,8 @@ import {
   Position as PositionSignalement,
   ToponymeChangesRequestedDTO,
 } from "@/lib/openapi-signalement";
-import { getPositionName } from "@/lib/positions-types-list";
+import { getPositionTypeKey } from "@/lib/positions-types-list";
+import { useTranslations } from "next-intl";
 import { useMapStyleLoaded } from "./useMapStyleLoaded";
 import { SignalementDiff } from "@/lib/utils/signalement";
 import { useSignalementCadastre } from "./useSignalementCadastre";
@@ -16,6 +17,7 @@ import { useSignalementCadastre } from "./useSignalementCadastre";
 export function useSignalementMapDiffCreation(
   changesRequested: NumeroChangesRequestedDTO | ToponymeChangesRequestedDTO
 ) {
+  const tp = useTranslations("positionTypes");
   const { parcelles, positions } = changesRequested;
   const [initialized, setInitialized] = useState(false);
   const { addMarker, disableMarkers } = useContext(MarkersContext);
@@ -56,7 +58,7 @@ export function useSignalementMapDiffCreation(
             color: "teal",
             longitude: position.point.coordinates[0],
             latitude: position.point.coordinates[1],
-            label: getPositionName(position.type),
+            label: tp(getPositionTypeKey(position.type)),
           });
         }
       );

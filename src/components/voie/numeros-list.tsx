@@ -21,6 +21,7 @@ import {
   TrashIcon,
   EditIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { normalizeSort } from "@/lib/normalize";
 
@@ -85,6 +86,7 @@ function NumerosList({
   numeros,
   handleEditing,
 }: NumerosListProps) {
+  const t = useTranslations("numerosList");
   const [isRemoveWarningShown, setIsRemoveWarningShown] = useState(false);
   const [documentGenerationData, setDocumentGenerationData] =
     useState<DocumentGenerationData<GeneratedDocumentType> | null>(null);
@@ -216,8 +218,8 @@ function NumerosList({
           reloadTiles();
           refreshBALSync();
         },
-        "Le numéro a bien été archivé",
-        "Le numéro n’a pas pu être archivé"
+        t("archiveSuccess"),
+        t("archiveError")
       );
       await softDeleteNumero();
       await reloadVoie([idNumero]);
@@ -244,8 +246,8 @@ function NumerosList({
           );
           window.open(url, "_blank");
         },
-        "Le certificat d'adressage a bien été téléchargé",
-        "Le certificat d'adressage n'a pas pu être téléchargé"
+        t("certificatSuccess"),
+        t("certificatError")
       );
       await downloadCertificat();
       matomoTrackEvent(
@@ -272,8 +274,8 @@ function NumerosList({
           );
           window.open(url, "_blank");
         },
-        "L'arrêté de numérotation a bien été téléchargé",
-        "L'arrêté de numérotation n'a pas pu être téléchargé"
+        t("arreteSuccess"),
+        t("arreteError")
       );
       await downloadArreteDeNumerotation();
       matomoTrackEvent(
@@ -301,8 +303,8 @@ function NumerosList({
         setSelectedNumerosIds([]);
         setIsRemoveWarningShown(false);
       },
-      "Les numéros ont bien été archivés",
-      "Les numéros n’ont pas pu être archivés"
+      t("archiveManySuccess"),
+      t("archiveManyError")
     );
     await softDeleteNumeros();
     await reloadVoie(selectedNumerosIds);
@@ -316,8 +318,8 @@ function NumerosList({
         await reloadNumeros();
         refreshBALSync();
       },
-      "Les numéros ont bien été modifiés",
-      "Les numéros n’ont pas pu être modifiés"
+      t("updateManySuccess"),
+      t("updateManyError")
     );
     await updateNumeros();
   };
@@ -336,7 +338,7 @@ function NumerosList({
         minHeight={64}
       >
         <Pane>
-          <Heading>Liste des numéros</Heading>
+          <Heading>{t("title")}</Heading>
         </Pane>
 
         <Pane marginLeft="auto">
@@ -347,7 +349,7 @@ function NumerosList({
             intent="success"
             onClick={() => handleEditing()}
           >
-            Ajouter un numéro
+            {t("addNumero")}
           </Button>
         </Pane>
       </Pane>
@@ -369,12 +371,7 @@ function NumerosList({
 
       <DeleteWarning
         isShown={isRemoveWarningShown}
-        content={
-          <Paragraph>
-            Êtes vous bien sûr de vouloir supprimer tous les numéros
-            sélectionnés ?
-          </Paragraph>
-        }
+        content={<Paragraph>{t("deleteSelectedConfirm")}</Paragraph>}
         onCancel={() => {
           setIsRemoveWarningShown(false);
         }}
@@ -402,7 +399,7 @@ function NumerosList({
             </Table.Cell>
           )}
           <Table.SearchHeaderCell
-            placeholder="Rechercher un numéro"
+            placeholder={t("search")}
             onChange={setFilter}
           />
         </Table.Head>
@@ -410,7 +407,7 @@ function NumerosList({
         {filtered.length === 0 && (
           <Table.Row>
             <Table.TextCell color="muted" fontStyle="italic">
-              Aucun numéro
+              {t("empty")}
             </Table.TextCell>
           </Table.Row>
         )}
@@ -453,17 +450,13 @@ function NumerosList({
 
               {numero.positions.length > 1 && (
                 <Table.TextCell flex="0 1 1">
-                  {numero.positions.length} positions
+                  {t("positionsCount", { count: numero.positions.length })}
                 </Table.TextCell>
               )}
 
               <TableRowNotifications
                 communeDeleguee={getCommuneDeleguee(numero.communeDeleguee)}
-                certification={
-                  numero.certifie
-                    ? "Cette adresse est certifiée par la commune"
-                    : null
-                }
+                certification={numero.certifie ? t("certified") : null}
                 comment={numero.comment}
                 warning={
                   Boolean(token) && numerosAlerts[numero.id]?.length > 0 ? (
@@ -512,7 +505,7 @@ function NumerosList({
                     onClick={() => {
                       setIsRecoveryDisplayed(true);
                     }}
-                    title="Récupérer les accès d'administration de la BAL"
+                    title={t("recoverAccess")}
                     type="button"
                     height={24}
                     icon={LockIcon}

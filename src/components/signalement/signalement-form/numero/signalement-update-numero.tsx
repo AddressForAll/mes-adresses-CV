@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useTranslations } from "next-intl";
 import { Numero, NumerosService, Toponyme, Voie } from "@/lib/openapi-api-bal";
 import {
   Signalement,
@@ -33,6 +34,7 @@ function SignalementUpdateNumero({
   handleClose,
   isLoading,
 }: SignalementUpdateNumeroProps) {
+  const t = useTranslations("signalementForm");
   const { pushToast } = useContext(LayoutContext);
 
   const { numero, suffixe, positions, parcelles, nomVoie } =
@@ -65,7 +67,7 @@ function SignalementUpdateNumero({
     } catch (error) {
       console.error("Error accepting signalement update:", error);
       pushToast({
-        title: "Erreur lors de l'acceptation du signalement.",
+        title: t("acceptError"),
         intent: "danger",
       });
     }
@@ -74,7 +76,7 @@ function SignalementUpdateNumero({
   return (
     <>
       <SignalementNumeroDiffCard
-        title="Adresse actuelle"
+        title={t("currentAddress")}
         isActive={activeCard === ActiveCardEnum.INITIAL}
         numero={{
           to: `${existingNumero}${
@@ -98,7 +100,7 @@ function SignalementUpdateNumero({
         }}
       />
       <SignalementNumeroDiffCard
-        title="Modification proposée"
+        title={t("proposedChange")}
         isActive={activeCard === ActiveCardEnum.CHANGES}
         signalementType={Signalement.type.LOCATION_TO_UPDATE}
         numero={{
@@ -128,7 +130,7 @@ function SignalementUpdateNumero({
         }}
       />
       <SignalementNumeroDiffCard
-        title="Adresse après modification"
+        title={t("addressAfterChange")}
         isActive={activeCard === ActiveCardEnum.FINAL}
         numero={{
           to: `${numero}${suffixe ? ` ${suffixe}` : ""}`,

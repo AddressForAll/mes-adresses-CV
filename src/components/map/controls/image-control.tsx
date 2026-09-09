@@ -10,6 +10,7 @@ import {
   CameraIcon,
   Button,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import {
   NUMEROS_POINT,
   NUMEROS_LABEL,
@@ -34,6 +35,7 @@ interface ImageControlProps {
 }
 
 function ImageControl({ map, communeNom }: ImageControlProps) {
+  const t = useTranslations("mapControls");
   const { tileLayersMode } = useContext(MapContext);
   const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
@@ -150,7 +152,7 @@ function ImageControl({ map, communeNom }: ImageControlProps) {
         >
           {tileLayerEnabled && (
             <LayerShowHideControl
-              title="Numéros"
+              title={t("numeros")}
               isDiplayed={adresseLayerIsDisplayed}
               setIsDiplayed={setAdresseLayerIsDisplayed}
             />
@@ -158,7 +160,7 @@ function ImageControl({ map, communeNom }: ImageControlProps) {
 
           {tileLayerEnabled && tileLayersMode !== TilesLayerMode.TOPONYME && (
             <LayerShowHideControl
-              title="Voies"
+              title={t("voies")}
               isDiplayed={voieLayerIsDisplayed}
               setIsDiplayed={setVoieLayerIsDisplayed}
             />
@@ -166,21 +168,21 @@ function ImageControl({ map, communeNom }: ImageControlProps) {
 
           {tileLayerEnabled && tileLayersMode !== TilesLayerMode.VOIE && (
             <LayerShowHideControl
-              title="Toponymes"
+              title={t("toponymes")}
               isDiplayed={toponymeLayerIsDisplayed}
               setIsDiplayed={setToponymeLayerIsDisplayed}
             />
           )}
 
           <LayerShowHideControl
-            title="Points d'intérets"
+            title={t("pointsOfInterest")}
             isDiplayed={poiLayerIsDisplayed}
             setIsDiplayed={setPoiLayerIsDisplayed}
           />
 
           <Button onClick={takeScreenshot}>
             <CameraIcon marginRight={4} />
-            Prendre une photo
+            {t("takePhotoShort")}
           </Button>
         </Pane>
       }
@@ -189,7 +191,7 @@ function ImageControl({ map, communeNom }: ImageControlProps) {
         height={29}
         width={29}
         icon={CameraIcon}
-        title="Prendre une photo de la carte"
+        title={t("takePhoto")}
       />
     </Popover>
   );

@@ -9,6 +9,7 @@ import {
   UnorderedList,
   ListItem,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import CodeEmail from "@/components/habilitation-process/strategy-selection/code-email";
 import { StrategyDTO } from "@/lib/openapi-api-bal";
@@ -27,6 +28,7 @@ export function StrategySelectionStep({
   setEmailSelected,
   handleStrategy,
 }: StrategySelectionStepProps) {
+  const t = useTranslations("habilitation.strategy");
   const [hovered, setHovered] = useState<StrategyDTO.type | null>(null);
 
   return (
@@ -41,8 +43,9 @@ export function StrategySelectionStep({
         borderRadius={8}
       >
         <Heading is="h2" textAlign="center">
-          Habilitez votre <Strong size={400}>Base Adresse Locale</Strong> pour
-          la publier dans la <Strong size={400}>Base Adresse Nationale</Strong>.
+          {t.rich("title", {
+            strong: (chunks) => <Strong size={400}>{chunks}</Strong>,
+          })}
         </Heading>
       </Pane>
 

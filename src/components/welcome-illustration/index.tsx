@@ -1,7 +1,9 @@
 import { Heading, Pane, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import styles from "./welcome-illustration.module.css";
 
 function WelcomeIllustration() {
+  const t = useTranslations("welcomeIllustration");
   return (
     <div className={styles["welcome-illustration"]}>
       <Pane
@@ -18,12 +20,9 @@ function WelcomeIllustration() {
         </div>
 
         <Heading is="h1" marginBottom={8}>
-          Bienvenue sur mes-adresses!
+          {t("title")}
         </Heading>
-        <Text>
-          Commencez à gérer vos adresses en créant une Base Adresse Locale
-          (BAL).
-        </Text>
+        <Text>{t("subtitle")}</Text>
       </Pane>
     </div>
   );

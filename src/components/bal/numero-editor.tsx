@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useContext, useEffect } from "react";
 import { xor, sortBy } from "lodash";
 import { Pane, SelectField, TextInputField } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { normalizeSort } from "@/lib/normalize";
 import { computeCompletNumero } from "@/lib/utils/numero";
@@ -43,7 +44,12 @@ import {
 import { computeNumeroSuffixeAlerts } from "@/lib/alerts/utils/fields/numero-suffixe.utils";
 import AlertEditor from "./alert-editor";
 
-const REMOVE_TOPONYME_LABEL = "Aucun toponyme";
+// Sentinel for the "no toponyme" option. It must be an explicit `value`: the
+// option previously carried `value={null}`, which makes the browser fall back
+// to the option's *text* as its value — so the change handler was comparing
+// against the visible label, and translating that label would have silently
+// broken clearing the toponyme.
+const NO_TOPONYME_VALUE = "";
 
 interface NumeroEditorProps {
   initialVoieId?: string;
@@ -66,6 +72,7 @@ function NumeroEditor({
   certificationBtnProps,
   onVoieChanged,
 }: NumeroEditorProps) {
+  const t = useTranslations("numeroEditor");
   const [voieId, setVoieId] = useState(initialVoieId || initialValue?.voieId);
   const [selectedNomToponyme, setSelectedNomToponyme] = useState("");
   const [toponymeId, setToponymeId] = useState(initialValue?.toponymeId);
@@ -168,9 +175,7 @@ function NumeroEditor({
       setIsLoading(true);
 
       if (parseInt(numero) === 99999) {
-        setValidationMessages([
-          "numero:Le numero 99999 est réservé au lieu-dit et complément",
-        ]);
+        setValidationMessages([`numero:${t("reservedNumero")}`]);
         setIsLoading(false);
         return;
       }
@@ -188,8 +193,8 @@ function NumeroEditor({
                 voieId: voie.id,
                 ...body,
               }),
-            "Le numéro a bien été modifié",
-            "Le numéro n’a pas pu être modifié",
+            t("updateSuccess"),
+            t("updateError"),
             (err) => {
               setValidationMessages(err.body.message);
             }
@@ -198,8 +203,8 @@ function NumeroEditor({
         } else {
           const createNumero = toaster(
             () => VoiesService.createNumero(voie.id, body),
-            "Le numéro a bien été ajouté",
-            "Le numéro n’a pas pu être ajouté",
+            t("createSuccess"),
+            t("createError"),
             (err) => {
               setValidationMessages(err.body.message);
             }
@@ -328,17 +333,15 @@ function NumeroEditor({
 
   useEffect(() => {
     if (markers.length > 1) {
-      setHint(
-        "Déplacez les marqueurs sur la carte pour modifier les positions"
-      );
+      setHint(t("hintMultipleMarkers"));
     } else {
-      setHint("Déplacez le marqueur sur la carte pour positionner le numéro");
+      setHint(t("hintSingleMarker"));
     }
 
     return () => {
       setHint(null);
     };
-  }, [markers, setHint]);
+  }, [markers, setHint, t]);
 
   return (
     <Form
@@ -370,23 +373,20 @@ function NumeroEditor({
         <Pane display="flex">
           <FormInput>
             <SelectField
-              label="Toponyme"
+              label={t("toponyme")}
               flex={1}
               marginBottom={0}
               value={toponymeId || ""}
               onChange={({ target }) => {
                 setToponymeId(
-                  target.value === REMOVE_TOPONYME_LABEL ||
-                    target.value === "- Choisir un toponyme -"
-                    ? null
-                    : target.value
+                  target.value === NO_TOPONYME_VALUE ? null : target.value
                 );
               }}
             >
-              <option value={null}>
+              <option value={NO_TOPONYME_VALUE}>
                 {initialValue?.toponymeId
-                  ? REMOVE_TOPONYME_LABEL
-                  : "- Choisir un toponyme -"}
+                  ? t("noToponyme")
+                  : t("chooseToponyme")}
               </option>
               {sortBy(toponymes, (t) => normalizeSort(t.nom)).map(
                 ({ id, nom }) => (
@@ -406,7 +406,7 @@ function NumeroEditor({
               selectedCodeCommune={communeDeleguee}
               setSelectedCodeCommune={setCommuneDeleguee}
               withOptionNull={true}
-              label="Commune déléguée"
+              label={t("communeDeleguee")}
             />
           </FormInput>
         )}
@@ -416,7 +416,7 @@ function NumeroEditor({
             <TextInputField
               ref={ref}
               required
-              label="Numéro"
+              label={t("numero")}
               display="block"
               type="number"
               disabled={isLoading}
@@ -426,9 +426,11 @@ function NumeroEditor({
               value={numero}
               marginBottom={0}
               onWheel={(e) => e.target.blur()}
-              placeholder={`Numéro${
-                suggestedNumero ? ` recommandé : ${suggestedNumero}` : ""
-              }`}
+              placeholder={
+                suggestedNumero
+                  ? t("numeroPlaceholderSuggested", { suggestedNumero })
+                  : t("numero")
+              }
               onChange={handleChangeNumero}
               validationMessage={getValidationMessage("numero")}
             />
@@ -443,7 +445,7 @@ function NumeroEditor({
                 flex={1}
                 value={suffixe}
                 marginBottom={0}
-                placeholder="Suffixe"
+                placeholder={t("suffixe")}
                 onChange={handleChangeSuffixe}
                 validationMessage={getValidationMessage("suffixe")}
               />
@@ -471,7 +473,7 @@ function NumeroEditor({
             <SelectParcelles initialParcelles={initialValue?.parcelles || []} />
           </FormInput>
         ) : (
-          <DisabledFormInput label="Parcelles" />
+          <DisabledFormInput label={t("parcelles")} />
         )}
 
         <Comment

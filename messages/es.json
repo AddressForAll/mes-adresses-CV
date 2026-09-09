@@ -1,0 +1,1319 @@
+{
+  "accessibility": {
+    "action1": "Ofrecer un sitio web accesible.",
+    "action2": "Prestar atención a la información de accesibilidad de los datos.",
+    "commitment": "<strong>La Base de Direcciones Nacional</strong> se compromete a hacer accesibles sus sitios web, intranet, extranet y programas (así como sus aplicaciones móviles y mobiliario urbano digital), conforme al artículo 47 de <strong>la ley n.º 2005-102 de 11 de febrero de 2005</strong>. Para ello, aplica la siguiente estrategia y acciones:",
+    "complianceContent": "<strong>mes-adresses.data.gouv</strong> no es conforme con el <strong>marco general de mejora de la accesibilidad</strong> (RGAA), ya que aún no se ha realizado una auditoría de accesibilidad. La ausencia de auditoría no cuestiona <strong>el carácter accesible</strong> del sitio web actual.",
+    "complianceStatus": "Estado de conformidad",
+    "contactUs": "Contáctenos",
+    "declarationDate": "Esta declaración de accesibilidad se elaboró el <strong>01/08/2022</strong> y se aplica a <strong>mes-adresses.data.gouv</strong>",
+    "infoAndContact": "Información y contacto",
+    "infoAndContactContent": "Si no consigue acceder a un contenido o servicio, puede contactar con nuestro equipo para que le orienten hacia una alternativa accesible u obtener el contenido en otro formato.",
+    "nonCompliant": "No conforme",
+    "remedies": "Vías de recurso",
+    "remediesContent": "Si detecta un <strong>fallo de accesibilidad</strong> que le impida acceder a un contenido o función del sitio, nos lo comunica y no obtiene respuesta, tiene derecho a dirigir su reclamación o una solicitud al <strong>Défenseur des droits</strong>.<br></br>Dispone de varias vías:",
+    "remedyDelegate": "Contactar con <strong>el delegado del Défenseur des droits</strong>",
+    "remedyDelegateSuffix": "de su región.",
+    "remedyPost": "Enviar una carta por correo postal (gratuito, sin sello).",
+    "remedyWrite": "Escribir un mensaje al <strong>Défenseur des droits</strong>.",
+    "title": "Declaración de accesibilidad"
+  },
+  "addNumeros": {
+    "allSelected": "Todos los números están seleccionados",
+    "chooseVoie": "- Seleccione una vía -",
+    "deselectAll": "Deseleccionar todos los números",
+    "linkNumeros": "Asociar números",
+    "noneAvailable": "No hay ningún número disponible para esta vía",
+    "or": "o",
+    "polygonEditHint": "Modifique el polígono directamente en el mapa para cambiar los números seleccionados.",
+    "polygonHint": "Haga clic en el mapa para dibujar un polígono. Cuando termine, haga clic en el último punto para cerrarlo. Se seleccionarán los números dentro del polígono",
+    "selectAll": "Seleccionar todos los números",
+    "selectNumeros": "Seleccionar números",
+    "selectedCount": "{count, plural, =0 {Ningún número está seleccionado} one {1 número está seleccionado} other {# números están seleccionados}}",
+    "selectionTitle": "Selección de números",
+    "voie": "Vía",
+    "withPolygon": "Dibujando el contorno",
+    "withVoie": "Con una vía"
+  },
+  "addressEditor": {
+    "createNew": "Crear un nuevo",
+    "numero": "Número",
+    "title": "Nueva dirección",
+    "toponyme": "Topónimo"
+  },
+  "adminEmailsField": {
+    "addButton": "Añadir un correo de administrador",
+    "addTitle": "Añadir una dirección de correo",
+    "label": "Correos electrónicos de los administradores *",
+    "placeholder": "Añadir una dirección de correo…"
+  },
+  "alertDefinitions": {
+    "abbreviation_invalid": "El nombre de la vía parece contener una abreviatura no válida",
+    "bad_multi_word_rue": "El nombre de la vía parece contener varias veces la palabra «rue»",
+    "bad_word_lieudit": "El nombre de la vía parece contener una palabra de lugar no válida",
+    "caractere_invalide": "El nombre de la vía parece contener un carácter no válido",
+    "caractere_invalide_end": "El nombre de la vía parece terminar con un carácter no válido",
+    "caractere_invalide_start_or_end": "El nombre de la vía parece empezar o terminar con un carácter no válido",
+    "casse_incorrecte": "El nombre de la vía parece usar mayúsculas incorrectas",
+    "doublon_voie_nom": "Varias vías parecen tener el mismo nombre",
+    "lake_of_accent": "El nombre de la vía parece que le faltan uno o varios acentos",
+    "multi_space_caractere": "El nombre de la vía parece contener varios espacios seguidos",
+    "no_words_in_parentheses": "El nombre de la vía parece contener una palabra entre paréntesis",
+    "parcelle_not_exist": "La parcela ya no existe en el catastro del municipio",
+    "suffixe_caractere_invalide": "El sufijo del número parece contener un carácter no válido",
+    "voie_empty": "La vía no tiene números, ¿es una vía sin direcciones?"
+  },
+  "alertPublishedBal": {
+    "alreadyPublished": "Ya se ha publicado una Base de Direcciones Local para {communeName}",
+    "existingUnpublished": "Ya existen Bases de Direcciones Locales no publicadas para {communeName}",
+    "publishedIconAlt": "Icono de Base de Direcciones Local publicada"
+  },
+  "alertsBatch": {
+    "allProcessed": "Todas las sugerencias se han tratado",
+    "apply": "Aplicar",
+    "applyError": "No se ha podido aplicar la corrección",
+    "applySuccess": "La corrección se ha aplicado",
+    "backToList": "Volver a la lista",
+    "convertError": "No se ha podido convertir la vía en topónimo",
+    "convertSuccess": "La vía se ha convertido en topónimo",
+    "convertToToponyme": "Convertir en topónimo",
+    "finish": "Terminar",
+    "mergeVoies": "Fusionar las vías",
+    "parcelleError": "No se ha podido eliminar la parcela",
+    "parcelleSuccess": "La parcela se ha eliminado",
+    "removeParcelle": "Eliminar la parcela",
+    "skip": "Omitir",
+    "suffixeError": "No se ha podido corregir el sufijo",
+    "suffixeInvalidInfo": "El sufijo «{suffixe}» contiene caracteres no válidos.",
+    "suffixeLabel": "Sufijo del número",
+    "suffixeSuccess": "El sufijo se ha corregido",
+    "suggestionDoublon": "Sugerencia sobre vías con el mismo nombre",
+    "suggestionParcelle": "Sugerencia sobre una parcela inexistente en el catastro",
+    "suggestionSuffixe": "Sugerencia sobre el sufijo del número",
+    "suggestionVoieEmpty": "Sugerencia sobre una vía sin direcciones",
+    "suggestionVoieName": "Sugerencia sobre el nombre de la vía",
+    "voieEmptyInfo": "Esta vía no contiene ningún número. Puede convertirla en topónimo.",
+    "voieNameLabel": "Nombre de la vía"
+  },
+  "alertsSettings": {
+    "numeroAlerts": "Alertas sobre los números",
+    "voieAlerts": "Alertas sobre las vías"
+  },
+  "alreadyPublishedWarning": {
+    "goToPublished": "Ir a la Base de Direcciones Local publicada",
+    "message": "Ya hay una Base de Direcciones Local publicada para {communeName}",
+    "orContactSupport": "o contacte con el soporte:"
+  },
+  "balData": {
+    "loading": "Cargando la Base de Direcciones Local...",
+    "newChangesDetail": "Se enviarán automáticamente a la Base de Direcciones Nacional en unas horas.",
+    "newChangesDetected": "Se han detectado nuevos cambios"
+  },
+  "balInfosStep": {
+    "creatingContent": "Su Base de Direcciones Local se está creando. Esta operación puede tardar varios minutos.",
+    "creatingTitle": "Creando la Base de Direcciones Local...",
+    "demoDescription": "Esta Base de Direcciones Local nunca podrá publicarse y no se guardará.",
+    "demoLabel": "¿Crear una Base local de demostración?",
+    "nom": "Nombre de la Base de Direcciones Local"
+  },
+  "balRecovery": {
+    "alreadyPublishedTitle": "Ya hay una Base de Direcciones Local publicada para este municipio",
+    "byCommuneTitle": "Con el correo electrónico oficial de su municipio",
+    "byEmailIntro": "Se enviará un correo electrónico a la dirección que ha indicado.",
+    "byEmailTitle": "Con su dirección de correo electrónico",
+    "cannotFindBals": "¿No encuentra sus Bases de Direcciones Locales? Para recuperarlas por correo",
+    "chooseCommune": "Indique el municipio cuyas Bases de Direcciones Locales desea recuperar.",
+    "clickHere": "Haga clic aquí",
+    "communeRecoveryUnavailable": "La recuperación por municipio no está disponible para {country}.",
+    "contactSupport": "Si aun así desea partir de esta Base de Direcciones Local, contacte con el soporte:",
+    "emailAlreadySent": "Ya se ha enviado un correo, espere por favor.",
+    "emailHintMany": "Contendrá la lista de todas las Bases de Direcciones Locales asociadas a esa dirección. Bastará con hacer clic en los enlaces para recuperarlas en su espacio.",
+    "emailHintOne": "Contendrá un enlace de administración de su Base de Direcciones Local. Bastará con hacer clic en el enlace para recuperarla en su espacio.",
+    "emailPlaceholder": "direccion@correo.com",
+    "emailSentTo": "Se ha enviado un correo a {email}",
+    "emailSentToCommune": "Se ha enviado un correo al municipio",
+    "emailWillBeSentTo": "Se enviará un correo con el enlace de recuperación a la dirección de su municipio: <strong>{emails}</strong>",
+    "goToPublished": "Ir a la Base de Direcciones Local publicada",
+    "loadingCommuneEmails": "Cargando las direcciones de correo del municipio...",
+    "mairieLogoAlt": "logotipo del ayuntamiento",
+    "mustStartFromPublished": "Debe partir de la Base de Direcciones Local publicada",
+    "receiveEmail": "Recibir el correo",
+    "recoverManyTitle": "Recuperación de mis Bases de Direcciones Locales",
+    "recoverOneTitle": "Recuperación de su Base de Direcciones Local"
+  },
+  "balStatus": {
+    "consultation": {
+      "content": "Está consultando esta Base de Direcciones Local; ningún cambio se propagará a la Base de Direcciones Nacional.",
+      "label": "Solo lectura",
+      "title": "Está consultando esta Base de Direcciones Local"
+    },
+    "demo": {
+      "content": "Base de Direcciones Local de demostración: ninguna dirección se enviará a la Base de Direcciones Nacional",
+      "label": "Demostración",
+      "title": "Base de Direcciones Local de demostración"
+    },
+    "draft": {
+      "content": "Esta Base de Direcciones Local está en construcción",
+      "label": "Borrador",
+      "title": "Esta Base de Direcciones Local está en construcción"
+    },
+    "noHabilitation": {
+      "content": "Los cambios no se propagarán a la Base de Direcciones Nacional.",
+      "label": "Sin habilitación",
+      "title": "Esta Base de Direcciones Local necesita una habilitación para alimentar la Base de Direcciones Nacional"
+    },
+    "outdated": {
+      "content": "Se han detectado nuevos cambios; se propagarán automáticamente a la Base de Direcciones Nacional en las próximas horas.",
+      "label": "Actualización programada",
+      "title": "Esta Base de Direcciones Local va a alimentar la Base de Direcciones Nacional"
+    },
+    "paused": {
+      "content": "Las actualizaciones automáticas de esta Base de Direcciones Local están suspendidas. Puede reanudar la sincronización en cualquier momento.",
+      "label": "Suspendida",
+      "title": "Las actualizaciones automáticas de esta Base de Direcciones Local están suspendidas; ya no alimenta la Base de Direcciones Nacional"
+    },
+    "replaced": {
+      "content": "Otra Base de Direcciones Local también está sincronizada con la Base de Direcciones Nacional. Póngase en contacto con los administradores de la otra Base de Direcciones Local o con nuestro soporte: adresse@data.gouv.fr",
+      "label": "Reemplazada",
+      "title": "Esta Base de Direcciones Local ya no alimenta la Base de Direcciones Nacional"
+    },
+    "synced": {
+      "content": "Esta Base de Direcciones Local está sincronizada con la Base de Direcciones Nacional. Cualquier cambio se propagará automáticamente en las próximas horas.",
+      "label": "Actualizada",
+      "title": "Esta Base de Direcciones Local alimenta la Base de Direcciones Nacional"
+    }
+  },
+  "balStatusActions": {
+    "habiliteBal": "Habilitar la Base de Direcciones Local",
+    "pauseError": "No se han podido pausar las actualizaciones de la Base de Direcciones Nacional",
+    "pauseSuccess": "Se han pausado las actualizaciones automáticas de la Base de Direcciones Nacional",
+    "resumeError": "No se han podido reanudar las actualizaciones automáticas de la Base de Direcciones Nacional",
+    "resumeSuccess": "Se han reanudado las actualizaciones automáticas de la Base de Direcciones Nacional"
+  },
+  "balSummary": {
+    "editNomsAlt": "Modificar los nombres alternativos del municipio en lengua regional",
+    "numerosCount": "<b>{count}</b> {count, plural, one {número} other {números}}",
+    "toponymesCount": "<b>{count}</b> {count, plural, one {topónimo} other {topónimos}}",
+    "voiesCount": "<b>{count}</b> {count, plural, one {vía} other {vías}}"
+  },
+  "banHistory": {
+    "by": "Por",
+    "electedOfficial": "cargo electo de {communeName}",
+    "empty": "No se ha encontrado ninguna Base de Direcciones Local",
+    "loading": "Cargando el historial",
+    "notProvided": "No indicado",
+    "reduce": "Reducir",
+    "showAll": "Mostrar todo el historial",
+    "title": "Historial de actualizaciones"
+  },
+  "banSync": {
+    "automaticUpdate": "Actualización automática",
+    "forceUpdate": "Forzar la actualización",
+    "pauseAutomaticUpdate": "Suspender la actualización automática",
+    "replaceConfirmation": "Entiendo que mi Base de Direcciones Local reemplazará a la que está sincronizada actualmente con la Base de Direcciones Nacional",
+    "resumeAutomaticUpdate": "Reanudar la actualización automática",
+    "syncing": "Sincronizando",
+    "updateNow": "Actualizar"
+  },
+  "baseLocaleCard": {
+    "certifiedAddresses": "Direcciones certificadas:",
+    "deleteBal": "Eliminar la Base de Direcciones Local",
+    "hideBal": "Ocultar la Base de Direcciones Local",
+    "lastUpdate": "Última actualización {relative}",
+    "manageAddresses": "Gestionar las direcciones",
+    "neverUpdated": "Nunca actualizada",
+    "openBal": "Acceder a la Base de Direcciones Local"
+  },
+  "basemaps": {
+    "ortho": "Fotografía aérea",
+    "planIgn": "Mapa IGN",
+    "satellite": "Satélite (Esri)",
+    "street": "Mapa de calles (CARTO)",
+    "vector": "Mapa de OpenStreetMap"
+  },
+  "basesLocalesList": {
+    "createBal": "Crear una Base de Direcciones Local",
+    "deleteConfirm": "¿Seguro que desea eliminar esta Base de Direcciones Local? Esta acción es definitiva.",
+    "deleteError": "No se ha podido eliminar la Base de Direcciones Local",
+    "deleteSuccess": "La Base de Direcciones Local se ha eliminado",
+    "filterPlaceholder": "Filtrar las Bases de Direcciones Locales por nombre",
+    "hideConfirm": "¿Seguro que desea ocultar esta Base de Direcciones Local? Ya no aparecerá en su página de inicio, pero podrá recuperarla más adelante.",
+    "recoverBal": "Recuperar una Base de Direcciones Local",
+    "sortByDate": "Ordenar por fecha de actualización",
+    "sortByName": "Ordenar alfabéticamente"
+  },
+  "certificationButton": {
+    "certifyAndSave": "Certificar y guardar",
+    "uncertifyAndSave": "Dejar de certificar y guardar"
+  },
+  "certificationGoal": {
+    "allCertified": "Todas las direcciones están certificadas por el municipio",
+    "badgeTitle": "Publicación",
+    "certified": "Direcciones certificadas",
+    "explanation": "La <link>certificación</link> le permite <strong>seguir el avance de la fiabilización</strong> de las direcciones y <strong>poner en valor su trabajo</strong> ante los reutilizadores.",
+    "title": "Certificación",
+    "uncertified": "Direcciones no certificadas"
+  },
+  "certificationInfos": {
+    "certified": "Direcciones certificadas",
+    "explanation": "Las direcciones certificadas por el municipio se marcan como fiables y listas para ser utilizadas por los reutilizadores.",
+    "title": "Certificación",
+    "uncertified": "Direcciones no certificadas"
+  },
+  "comment": {
+    "label": "Comentario",
+    "placeholder": "Esta nota es confidencial y no se publicará."
+  },
+  "common": {
+    "add": "Añadir",
+    "back": "Volver",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "confirm": "Confirmar",
+    "continue": "Continuar",
+    "delete": "Eliminar",
+    "edit": "Modificar",
+    "error": "Error",
+    "inProgress": "En curso…",
+    "learnMore": "Más información",
+    "loading": "Cargando…",
+    "next": "Siguiente",
+    "no": "No",
+    "noResults": "No se han encontrado resultados",
+    "previous": "Anterior",
+    "save": "Guardar",
+    "search": "Buscar",
+    "validate": "Validar",
+    "warning": "Atención",
+    "yes": "Sí"
+  },
+  "communeNomsAltEditor": {
+    "error": "No se ha podido modificar el nombre del municipio en lengua regional",
+    "label": "Nombre del municipio en lengua regional",
+    "success": "El nombre del municipio en lengua regional se ha modificado correctamente"
+  },
+  "communePublicationInfos": {
+    "contactSupport": "Si tiene algún problema, puede contactar con nuestro soporte:",
+    "createDemoBal": "Crear una Base de Direcciones Local de demostración",
+    "createNewBal": "Crear una nueva Base de Direcciones Local",
+    "demoNotice": "Esta Base de Direcciones Local nunca podrá publicarse y no se guardará"
+  },
+  "communeSearch": {
+    "searchCommune": "Buscar un municipio…"
+  },
+  "country": {
+    "title": "Elegir país"
+  },
+  "demoWarning": {
+    "banner": "Esta Base de Direcciones Local de demostración se eliminará en 24 horas si no se modifica"
+  },
+  "disabledFormInput": {
+    "notAvailable": "Esta función no está disponible para este municipio."
+  },
+  "documentGeneration": {
+    "arrete": "Orden de numeración",
+    "arreteDialogTitle": "Descargar una plantilla de orden de numeración",
+    "arreteDisabled": "La orden de numeración solo puede generarse para un número certificado",
+    "certificat": "Certificado de direccionamiento",
+    "certificatDialogTitle": "Generación de un certificado de direccionamiento",
+    "certificatDisabled": "El certificado de direccionamiento solo puede generarse para un número certificado y vinculado al menos a una parcela",
+    "destinataireDescription": "Introduzca el nombre del destinatario para un certificado nominativo",
+    "destinataireLabel": "Destinatario (opcional)",
+    "destinatairePlaceholder": "Sr. Rémi Dupont",
+    "download": "Descargar",
+    "emetteurDescription": "El emisor se mencionará en el certificado de direccionamiento",
+    "emetteurLabel": "Emisor (opcional)",
+    "emetteurPlaceholder": "Sylvie Loiseau, Teniente de Alcalde",
+    "format": "Formato",
+    "generate": "Generar",
+    "generateTemplate": "Generar una plantilla",
+    "orTakePhoto": "O haga clic en <camera></camera> para generar el plano de situación automáticamente",
+    "planDescription": "El plano de situación facilitado se insertará en la orden de numeración",
+    "planLabel": "Plano de situación (opcional)",
+    "rememberEmetteur": "Recordar el emisor",
+    "selectFile": "Seleccionar el archivo (formato PNG y JPEG, máximo 5 MB)",
+    "takePhotoTitle": "Tomar una foto del mapa"
+  },
+  "downloads": {
+    "balCsv": "Base de Direcciones Local (formato CSV)",
+    "certificateHint": "Para descargar un certificado de direccionamiento, vaya a la lista de números de una vía y abra el menú de acciones del número correspondiente.",
+    "commentsWarning": "Atención: cualquier información personal que haya introducido en sus comentarios aparecerá en la exportación de su Base de Direcciones Local.",
+    "filairesGeojson": "Lista de ejes de vía (formato GeoJSON)",
+    "title": "Descargas",
+    "voiesCsv": "Lista de vías (formato CSV)",
+    "withComments": "Con comentarios"
+  },
+  "draw": {
+    "drawPolygon": "Haga clic en el mapa para indicar el inicio del polígono y añada puntos para trazarlo. Cuando termine, haga clic en el último punto para cerrarlo.",
+    "drawVoie": "Haga clic en el mapa para indicar el inicio de la vía y añada puntos para trazarla. Cuando termine, haga clic en el último punto para marcar el final.",
+    "editPolygon": "Puede editar el polígono moviendo sus puntos o añadir nuevos puntos haciendo clic en su contorno.",
+    "editVoie": "Puede editar el trazado moviendo sus puntos o añadir nuevos puntos haciendo clic en él.",
+    "measureDistance": "Haga clic en el mapa para medir una distancia. Haga doble clic para terminar."
+  },
+  "drawMetricVoieEditor": {
+    "clear": "Borrar el trazado",
+    "hint": "Utilice el mapa para dibujar el trazado de la vía",
+    "title": "Trazado de la vía"
+  },
+  "drawer": {
+    "downloads": "Descargas",
+    "settings": "Ajustes",
+    "trash": "Papelera"
+  },
+  "duration": {
+    "days": "{count, plural, one {# día} other {# días}}",
+    "hours": "{count, plural, one {# hora} other {# horas}}",
+    "minutes": "{count, plural, one {# minuto} other {# minutos}}",
+    "seconds": "{count, plural, one {# segundo} other {# segundos}}"
+  },
+  "editor": {
+    "loadingBal": "Cargando la Base de Direcciones Local"
+  },
+  "fondDeCarte": {
+    "addBasemap": "Añadir un mapa base",
+    "addBasemapTitle": "Añadir mapa base",
+    "howToAddContent": "Solo se admiten URL de flujos WMTS o WMS. Los datos deben ser de tipo ráster y las imágenes de 256×256 píxeles. Vea el ejemplo a continuación.",
+    "howToAddTitle": "¿Cómo añadir sus propios mapas base?",
+    "nameInvalid": "El nombre no es válido",
+    "nameLabel": "Nombre del mapa base",
+    "namePlaceholder": "Mi mapa base",
+    "nameRequired": "El nombre es obligatorio",
+    "remove": "Eliminar el mapa base",
+    "updateError": "No se han podido actualizar los mapas base",
+    "updateSuccess": "Los mapas base se han actualizado",
+    "urlInvalid": "La URL del mapa base no es válida",
+    "urlLabel": "URL del mapa base"
+  },
+  "footer": {
+    "accessibility": "Accesibilidad: no conforme",
+    "legalNotice": "Aviso legal"
+  },
+  "fusionVoies": {
+    "mergeError": "No se han podido fusionar las vías",
+    "mergeSuccess": "Las vías se han fusionado"
+  },
+  "groupedActions": {
+    "choosePositionType": "-- Elija un tipo de posición --",
+    "chooseToponyme": "- Elegir un topónimo -",
+    "clearAllComments": "Borrar todos los comentarios",
+    "commentsWillBeRemoved": "Algunos números seleccionados tienen un comentario. Si elimina, sus comentarios se borrarán.",
+    "commentsWillBeReplaced": "Algunos números seleccionados tienen un comentario. Si modifica, sus comentarios se reemplazarán.",
+    "communeDeleguee": "Municipio delegado",
+    "deleteNumeros": "Eliminar números",
+    "dialogTitle": "Edición múltiple",
+    "editNumeros": "Modificar números",
+    "mixedToponymes": "Los números seleccionados no tienen el mismo topónimo. No es posible la edición en lote del topónimo; deben modificarse por separado.",
+    "mixedVoies": "Los números seleccionados no están en la misma vía. No es posible la edición en lote de la vía; deben modificarse por separado.",
+    "multiPosition": "Algunos números seleccionados tienen varias posiciones. No es posible la edición en lote del tipo de posición; deben modificarse por separado.",
+    "noToponyme": "No asociar ningún topónimo",
+    "positionType": "Tipo de posición",
+    "selectedCount": "{count, plural, one {# número seleccionado} other {# números seleccionados}}",
+    "title": "Acciones en lote",
+    "toponyme": "Topónimo",
+    "voie": "Vía",
+    "warningTitle": "Atención"
+  },
+  "habilitation": {
+    "authRejected": {
+      "notAnElectedOfficial": "No se le ha identificado como cargo electo del municipio de {communeName}.",
+      "title": "Su solicitud de habilitación ha sido rechazada",
+      "tooManyAttempts": "Ha superado el número máximo de intentos permitidos."
+    },
+    "codeEmail": {
+      "annuaireStep1": "Vaya a <link>lannuaire.service-public.fr</link>",
+      "annuaireStep2": "Consulte la ficha del directorio de su municipio",
+      "annuaireStep3": "Haga clic en el enlace «Solicitar una actualización de esta página», visible al final de la página",
+      "invalidEmailTitle": "Correo no válido",
+      "outdatedEmailTitle": "¿Este correo es incorrecto u obsoleto?",
+      "receiveCode": "Recibir un código de habilitación",
+      "title": "Mediante el correo oficial del ayuntamiento",
+      "updateEmail": "Actualice el correo"
+    },
+    "codeValidation": {
+      "allowlistSender": "Autorice la dirección «mes-adresses-no-reply@adresse.data.gouv.fr» en la configuración de su antispam (Mailinblack, por ejemplo)",
+      "checkSpam": "Revise su carpeta de spam",
+      "codeExpiresOnClose": "El código dejará de ser válido si cierra la ventana",
+      "enterCode": "Introduzca el código que se ha enviado a: {email}",
+      "logoAlt": "logotipo del ayuntamiento",
+      "noCodeReceived": "¿No ha recibido su código?",
+      "resendCode": "Reenviar el código",
+      "title": "Autenticación del ayuntamiento"
+    },
+    "emailNotSent": "No se ha podido enviar el correo",
+    "invalidCode": "El código no es válido",
+    "proConnect": {
+      "connectWith": "<strong>Conéctese con</strong> la dirección de correo <emails></emails>indicada por su ayuntamiento en el <link>directorio del servicio público</link>",
+      "questions": "Para cualquier pregunta, <strong>contacte con nuestro equipo:</strong> <link></link>",
+      "sameDomain": "O una dirección con el mismo nombre de dominio (por ejemplo: p.nombre@commune.fr).",
+      "signIn": "Identificarse con ProConnect",
+      "tagline": "ProConnect, el equivalente de FranceConnect para profesionales",
+      "videoTitle": "Tutorial de conexión con ProConnect"
+    },
+    "publishBal": {
+      "checking": "Comprobando en la Base de Direcciones Nacional...",
+      "conflictSchemaAlt": "Esquema del conflicto entre la Base de Direcciones Local y la Base de Direcciones Nacional",
+      "conflictTitle": "Este municipio ya tiene una Base de Direcciones Local publicada.",
+      "continueOnPublished": "¿O prefiere continuar en la Base de Direcciones Local ya publicada?",
+      "forceExplanation": "Al forzar la publicación, esta Base de Direcciones Local <strong>reemplazará a la actual</strong>.",
+      "forcePublication": "Forzar la publicación",
+      "publishedIconAlt": "Icono de Base de Direcciones Local publicada",
+      "publishing": "Publicando...",
+      "replaceQuestion": "¿Seguro que desea reemplazarla?"
+    },
+    "publishRejected": {
+      "recommendation": "Le recomendamos <strong>ponerse en contacto con los administradores de la otra Base de Direcciones Local</strong> o con nuestro soporte: <link></link>",
+      "title": "No se ha podido publicar su Base de Direcciones Local"
+    },
+    "publishedBal": {
+      "badgeTitle": "Publicación",
+      "benefit1": "Todos los <strong>cambios se propagarán automáticamente</strong> a la <link>Base de Direcciones Nacional.</link>",
+      "benefit2": "Su municipio cumple ahora con la <link>Ley 3DS</link>.",
+      "benefit3": "Los servicios de emergencia, las administraciones y los particulares pueden ahora <strong>enviar notificaciones</strong> para ayudarle a fiabilizar sus direcciones.",
+      "benefit4": "Ahora puede <strong>descargar órdenes de numeración</strong> para vías y números.",
+      "continue": "Continuar el direccionamiento",
+      "nextGoal": "Próximo objetivo",
+      "nextGoalContent": "Fiabilice sus direcciones mediante la <link>certificación</link>. Esta permite poner en valor su trabajo y <strong>facilitar la reutilización de los datos</strong>.",
+      "thanksToPublication": "Gracias a la publicación",
+      "title": "Su Base de Direcciones Local se ha publicado correctamente"
+    },
+    "strategy": {
+      "title": "Habilite su <strong>Base de Direcciones Local</strong> para publicarla en la <strong>Base de Direcciones Nacional</strong>."
+    }
+  },
+  "header": {
+    "addressingGuides": "Guías de direccionamiento",
+    "help": "¿Necesita ayuda?",
+    "logoAlt": "Página de inicio de mes-adresses.data.gouv.fr",
+    "videoTutorials": "Tutoriales en vídeo"
+  },
+  "help": {
+    "baseLocale": {
+      "administer": {
+        "intro": "Acceda a los ajustes de su Base de Direcciones Local haciendo clic en el icono <cog></cog> situado arriba a la derecha de la pantalla. Después elija «Ajustes».",
+        "item1": "Cambiar el nombre de su Base de Direcciones Local",
+        "item2": "Añadir o eliminar colaboradores",
+        "item3": "Descargar sus direcciones en formato .csv",
+        "outro": "Una vez terminados los ajustes, haga clic en <saveButton>Guardar los cambios</saveButton>",
+        "title": "Administrar su Base de Direcciones Local",
+        "youCan": "Podrá:"
+      },
+      "create": {
+        "intro": "En la página <b>Nueva Base de Direcciones Local</b>, seleccione la pestaña <tab>Crear</tab>",
+        "step1": "Introduzca el nombre de su Base de Direcciones Local en el campo <em>Nombre</em>. Le permitirá identificar su Base de Direcciones Local.",
+        "step2": "Introduzca la dirección de correo electrónico de su ayuntamiento o del administrador de la Base de Direcciones Local. Esta dirección recibirá el enlace de acceso a la edición de su Base de Direcciones Local.",
+        "step3": "Busque su municipio y selecciónelo en la lista de sugerencias.",
+        "step4": "Si desea empezar desde cero, desmarque la casilla <em>Importar vías y números desde la Base de Direcciones Nacional</em>.",
+        "step5": "Para terminar, haga clic en el botón <createButton>Crear la Base de Direcciones Local</createButton>",
+        "title": "Crear una nueva Base de Direcciones Local"
+      },
+      "import": {
+        "intro": "En la página <b>Nueva Base de Direcciones Local</b>, seleccione la pestaña <tab>Importar un archivo CSV</tab>",
+        "step1": "Seleccione o suelte su archivo en formato <b>csv</b>. Tenga en cuenta que este archivo no debe superar los 10 MB.",
+        "step2": "Introduzca el nombre de su Base de Direcciones Local en el campo <em>Nombre</em>. Le permitirá identificar su Base de Direcciones Local.",
+        "step3": "Introduzca la dirección de correo electrónico de su ayuntamiento o del administrador de la Base de Direcciones Local. Esta dirección recibirá el enlace de acceso a la edición de su Base de Direcciones Local.",
+        "step4": "Para terminar, haga clic en el botón <createButton>Crear la Base de Direcciones Local</createButton>",
+        "title": "Importar una Base de Direcciones Local"
+      },
+      "problems": {
+        "cannotEdit": "No consigo editar mi Base de Direcciones Local",
+        "communeNotFound": {
+          "content": "Si su municipio es nuevo y procede de una fusión, es posible que no aparezca en la lista de sugerencias. Si es su caso, puede contactarnos en <mail>adresse@data.gouv.fr</mail>",
+          "title": "No encuentro mi municipio"
+        }
+      },
+      "videoTitle": "Creación de una Base de Direcciones Local:"
+    },
+    "contactUs": "Contáctenos en",
+    "havingAProblem": "¿Tiene algún problema?",
+    "noSolutionFound": "¿No ha encontrado la solución a su problema?",
+    "numeros": {
+      "add": {
+        "dragMarker": "Ha aparecido un <marker></marker> en el centro del mapa; arrástrelo al lugar deseado con el ratón",
+        "finish": "Para terminar, haga clic en <certifyButton>Certificar y guardar</certifyButton> si valida esta dirección, o en <saveButton>Guardar</saveButton> para darse tiempo a comprobarla antes de certificar.",
+        "fromMapStep": "Haga clic en el botón <addIconButton></addIconButton>",
+        "fromSidebarStep": "Haga clic en el botón <addButton>Añadir un número</addButton>",
+        "number": "Introduzca el número en el campo <field>Número</field>",
+        "positionType": "Seleccione la posición mediante el desplegable <field>Tipo</field>",
+        "selectVoie": "Busque la vía a la que pertenece el número y selecciónela. Tenga en cuenta que si ya hay una vía seleccionada, se le propondrá por defecto. También puede crear una nueva vía directamente haciendo clic en <createVoieButton>Crear una vía</createVoieButton>. Se le redirigirá automáticamente a esa vía.",
+        "suffix": "Introduzca el sufijo (por ejemplo: bis) en el campo <field>Sufijo</field>",
+        "title": "Añadir un número"
+      },
+      "chooseDelete": "En el menú que aparece, elija <deleteItem>Eliminar…</deleteItem>",
+      "chooseEdit": "En el menú que aparece, elija <editItem>Modificar</editItem>",
+      "comment": {
+        "icon": "Verá un <commentIcon></commentIcon> en la fila del número. Al pasar el cursor por encima aparecerá el comentario.",
+        "step3": "Rellene el campo de texto <field>Comentario</field> para dejar una nota sobre el número",
+        "step4": "Para guardar su comentario, haga clic en <certifyButton>Certificar y guardar</certifyButton>, o en <saveButton>Guardar</saveButton> si no desea certificar esta dirección por ahora.",
+        "title": "Añadir una nota o un comentario"
+      },
+      "delete": {
+        "rightClick": "Haga clic derecho en el número",
+        "title": "Eliminar un número"
+      },
+      "edit": {
+        "clickNumber": "Haga clic en el número",
+        "title": "Editar un número",
+        "whatYouCanChange": "Ahora puede modificar el número, el sufijo, el tipo de dirección o su posición moviendo el <marker></marker> en el mapa, y certificar su dirección."
+      },
+      "fromMap": "Desde el mapa",
+      "fromSidebar": "Desde el menú lateral",
+      "goodToKnow": {
+        "content": "Para reforzar la calidad de las direcciones, le recomendamos certificar todas sus direcciones. <b>Una dirección certificada es declarada auténtica por el ayuntamiento</b>, lo que refuerza la calidad de la Base de Direcciones Local y facilita su reutilización.",
+        "title": "Conviene saber"
+      },
+      "moreButtonStep": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del número",
+      "openList": "Muestre la lista de números de una vía seleccionándola en el menú lateral o haciendo clic en su nombre o en uno de sus números directamente en el mapa.",
+      "parcelles": {
+        "colorCode": "Código de colores de las parcelas:",
+        "linkable": "parcela que puede asociarse",
+        "linked": "parcela asociada",
+        "step3": "En el mapa, haga clic en la parcela o parcelas que desea asociar al número",
+        "step4": "Para guardar las parcelas, haga clic en <certifyButton>Certificar y guardar</certifyButton>, o en <saveButton>Guardar</saveButton> si no desea certificar esta dirección por ahora.",
+        "title": "Asociar parcelas",
+        "unlinkable": "parcela que puede desasociarse"
+      },
+      "problems": {
+        "cannotAddOrDelete": "No consigo añadir o eliminar un número",
+        "voieNotFound": {
+          "content": "Antes de crear un número desde el mapa, asegúrese de que la vía a la que pertenece ya haya sido creada.",
+          "title": "No encuentro ninguna vía al añadir un número desde el mapa"
+        }
+      },
+      "uncertify": {
+        "step2": "Al final de la página, haga clic en el botón <dangerButton>Dejar de certificar y guardar</dangerButton>",
+        "title": "Dejar de certificar una dirección"
+      },
+      "videoTitle": "Creación / modificación de un número:"
+    },
+    "or": "o",
+    "publication": {
+      "conflict": {
+        "explanation": "Puede ocurrir que otra Base de Direcciones Local ya esté sincronizada con la Base de Direcciones Nacional. En ese caso, su Base de Direcciones Local entrará en conflicto con ella.",
+        "force": "Al hacer clic en <dangerButton>Forzar la publicación</dangerButton> su Base de Direcciones Local se publicará y reemplazará a la actual.",
+        "title": "En caso de conflicto"
+      },
+      "problems": {
+        "cannotEdit": "No consigo editar mi Base de Direcciones Local"
+      },
+      "publish": {
+        "step1": "Haga clic en el botón <publishButton>Publicar</publishButton>",
+        "step2": "Autentíquese mediante el correo oficial del ayuntamiento o con su cuenta ProConnect",
+        "step3": "Una vez obtenida la habilitación, se le invitará automáticamente a publicar su Base de Direcciones Local haciendo clic en <successButton>Publicar</successButton>",
+        "title": "Publicar su Base de Direcciones Local"
+      },
+      "syncStatuses": {
+        "noHabilitation": "La habilitación de la Base de Direcciones Local no es válida. Debe renovarla para que los nuevos cambios lleguen a la Base de Direcciones Nacional.",
+        "outdated": "Se han detectado cambios; se propagarán automáticamente a la Base de Direcciones Nacional en las próximas horas.",
+        "paused": "Ha suspendido las actualizaciones de su Base de Direcciones Local. No se enviará ningún cambio a la Base de Direcciones Nacional. Puede reanudar las actualizaciones en cualquier momento.",
+        "replaced": "Otra Base de Direcciones Local ha reemplazado la suya, por lo que sus direcciones no pueden actualizarse automáticamente. Puede forzar la actualización para reemplazar la Base de Direcciones Local actual.",
+        "synced": "Su Base de Direcciones Local está sincronizada con la Base de Direcciones Nacional. Todas sus direcciones se tienen en cuenta.",
+        "title": "Estados de sincronización"
+      },
+      "videoTitle": "Publicación de su Base de Direcciones Local:"
+    },
+    "readGuides": "Consulte las guías de direccionamiento",
+    "sidebarTuto": {
+      "hidden": "Este menú puede ocultarse para dejar más espacio al mapa.",
+      "showAgain": "Para que reaparezca, haga clic en el botón <button></button> situado arriba a la izquierda de la pantalla.",
+      "title": "No veo el menú lateral"
+    },
+    "tabs": {
+      "baseLocale": "Base local",
+      "numeros": "Números",
+      "publication": "Publicación",
+      "toponymes": "Topónimos",
+      "voies": "Vías"
+    },
+    "title": "¿Necesita ayuda?",
+    "toponymes": {
+      "add": {
+        "step1": "Seleccione la pestaña <tab>Lista de topónimos</tab> y haga clic en <addButton>Añadir un topónimo</addButton>",
+        "step2": "Introduzca el nombre del topónimo en el campo <muted>Nombre del topónimo...</muted>",
+        "step3": "Ha aparecido un <marker></marker> en el mapa; puede moverlo para asignar una o varias posiciones a su topónimo.<br></br>Puede indicar el tipo de posición con el desplegable <typeSelect>Segmento</typeSelect> Si no desea definir una posición para el topónimo, simplemente haga clic en <trash></trash>",
+        "title": "Añadir un topónimo"
+      },
+      "assign": {
+        "step1": "Haga clic en el botón <addButton>Añadir un número</addButton>",
+        "step2": "Seleccione la vía del número que desea asignar",
+        "step3": "Aparecerá un desplegable. Puede seleccionar uno o varios números de la lista. Si no se selecciona ninguno, todos los números de la lista se asignarán al topónimo.",
+        "step4": "Para terminar, haga clic en el botón <successButton>Guardar</successButton>",
+        "title": "Asignar un número a un topónimo"
+      },
+      "delete": {
+        "step1": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del nombre del topónimo",
+        "step2": "En el menú que aparece, elija <deleteItem>Eliminar…</deleteItem>",
+        "step3": "Para terminar, confirme su elección haciendo clic en <dangerButton>Eliminar</dangerButton>",
+        "title": "Eliminar un topónimo"
+      },
+      "edit": {
+        "step1": "Haga clic en el nombre del topónimo",
+        "step2": "Edite el nombre del topónimo",
+        "step3": "También puede cambiar la posición del topónimo moviendo el <marker></marker> en el mapa",
+        "step4": "Puede añadir posiciones con el botón <addButton>Añadir una posición al topónimo</addButton> o eliminarlas con el botón <trash></trash>",
+        "step5": "Para terminar, haga clic en <successButton>Guardar</successButton>",
+        "title": "Editar un topónimo"
+      },
+      "openList": "Muestre la lista de topónimos de un municipio haciendo clic en su nombre, arriba a la izquierda de la pantalla",
+      "parcelles": {
+        "colorCode": "Código de colores de las parcelas:",
+        "linkable": "parcela que puede asociarse",
+        "linked": "parcela asociada",
+        "step1": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del topónimo",
+        "step2": "En el menú que aparece, elija <editItem>Modificar</editItem>",
+        "step3": "En el mapa, haga clic en la parcela o parcelas que desea asociar al topónimo",
+        "step4": "Para guardar las parcelas, haga clic en el botón <successButton>Guardar</successButton>",
+        "title": "Asociar parcelas",
+        "unlinkable": "parcela que puede desasociarse"
+      },
+      "problems": {
+        "cannotAddOrDelete": "No consigo añadir o eliminar un topónimo"
+      },
+      "videoTitle": "Creación / modificación de un topónimo:"
+    },
+    "unauthorized": {
+      "checkBadge": "Asegúrese de que <badge>Edición imposible</badge> no aparezca arriba a la derecha de la pantalla.",
+      "fix": "Sin embargo, si usted es el propietario, basta con hacer clic en el enlace que recibió por correo al crear su Base de Direcciones Local.",
+      "meaning": "Indica que no ha iniciado sesión o que no tiene permisos para modificar esta Base de Direcciones Local."
+    },
+    "video": {
+      "allTutorials": "Vea todos los tutoriales en vídeo",
+      "iframeTitle": "Creación de una Base de Direcciones Local"
+    },
+    "voies": {
+      "add": {
+        "step1": "Haga clic en el botón <addButton>Añadir una vía</addButton>",
+        "step2": "Introduzca el nombre de la vía que desea crear en el campo <em>Nombre de la vía…</em>",
+        "step3": "Para terminar, haga clic en el botón <successButton>Añadir</successButton>",
+        "title": "Añadir una vía"
+      },
+      "convert": {
+        "intro": "Puede transformar una vía en topónimo si esta no contiene ningún número.",
+        "step1": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del nombre de la vía",
+        "step2": "En el menú que aparece, elija <convertButton>Convertir en vía sin direcciones</convertButton>",
+        "step3": "Para terminar, confirme su elección haciendo clic en <primaryButton>Confirmar</primaryButton>",
+        "step4": "Se le redirigirá a la edición del nuevo topónimo",
+        "title": "Convertir una vía en vía sin direcciones"
+      },
+      "delete": {
+        "step1": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del nombre de la vía",
+        "step2": "En el menú que aparece, elija <deleteItem>Eliminar…</deleteItem>",
+        "step3": "Para terminar, confirme su elección haciendo clic en <dangerButton>Eliminar</dangerButton>",
+        "title": "Eliminar una vía"
+      },
+      "openList": "Muestre la lista de vías de un municipio haciendo clic en su nombre, arriba a la izquierda de la pantalla.",
+      "problems": {
+        "cannotAddOrDelete": "No consigo añadir o eliminar una vía"
+      },
+      "rename": {
+        "step1": "Haga clic en el nombre de la vía",
+        "step2": "Edite el nombre de la vía",
+        "step3": "Para terminar, haga clic en <successButton>Guardar</successButton>",
+        "title": "Renombrar una vía"
+      },
+      "videoTitle": "Creación / modificación de una vía:",
+      "view": {
+        "fromMap": "Desde el mapa",
+        "fromMapStep": "Haga clic en el nombre de la vía o en uno de sus números",
+        "fromSidebar": "Desde el menú lateral",
+        "step1": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del nombre de la vía",
+        "step2": "En el menú que aparece, elija <viewItem>Consultar</viewItem>",
+        "title": "Consultar una vía"
+      }
+    }
+  },
+  "homeDrawer": {
+    "news": "Novedades",
+    "noNews": "Sin novedades",
+    "noTrainings": "No hay formaciones próximas",
+    "upcomingTrainings": "Próximas formaciones"
+  },
+  "ieWarning": {
+    "recommendation": "Le recomendamos utilizar otro navegador",
+    "unsupported": "Su navegador <b>Internet Explorer</b> ya no es compatible con nuestro servicio."
+  },
+  "importDataStep": {
+    "analysing": "Analizando",
+    "banOption": {
+      "description": "Este método se recomienda en la mayoría de los casos. Le permite partir de las direcciones ya presentes en la Base de Direcciones Nacional y enriquecerlas con sus propios datos.",
+      "label": "Partir de los datos existentes en la Base de Direcciones Nacional"
+    },
+    "cannotDropFile": "No se puede soltar este archivo.",
+    "chooseStartingPoint": "Elija su punto de partida",
+    "errorTitle": "Se ha producido un error",
+    "fileHasErrorsTitle": "El archivo contiene errores",
+    "fileOption": {
+      "description": "Este método se recomienda si ya dispone de un archivo CSV en formato BAL.",
+      "label": "Usar un archivo CSV en formato BAL"
+    },
+    "fileTooLarge": "Este archivo es demasiado grande. Debe soltar un archivo de menos de 10 MB.",
+    "invalidCsv": "El archivo CSV no es válido.",
+    "invalidRows": "{count, plural, one {<strong>1 fila contiene al menos un error</strong> y no podrá importarse en su Base de Direcciones Local.} other {<strong># filas contienen al menos un error</strong> y no podrán importarse en su Base de Direcciones Local.}}",
+    "multipleCommunes": "El archivo solo debe contener un municipio. Compruebe su archivo.",
+    "noCommuneFound": "No se ha encontrado ningún municipio.",
+    "notCsv": "Este tipo de archivo no es compatible. Debe soltar un archivo CSV.",
+    "onlyValidRows": "Si continúa, solo se utilizarán las direcciones válidas para crear su Base de Direcciones Local.",
+    "parseError": "Se ha producido un error al analizar el archivo.",
+    "singleFileOnly": "Solo puede soltar un archivo.",
+    "uploaderPlaceholder": "Seleccione o arrastre aquí su archivo BAL en formato CSV (máximo 10 MB)",
+    "wrongCommune": "El archivo no corresponde al municipio seleccionado en el paso anterior."
+  },
+  "langGoal": {
+    "badgeTitle": "Logotipo de lengua regional",
+    "counter": "{count, plural, one {vía, plaza o lugar multilingüe} other {vías, plazas o lugares multilingües}}",
+    "editCommuneName": "Modificar el nombre del municipio",
+    "editTitle": "Modificar la lengua regional del municipio",
+    "emptyContent": "Para un direccionamiento multilingüe, empiece por indicar el nombre del municipio en lengua regional",
+    "ignoreGoal": "Descartar objetivo",
+    "title": "Lengua regional"
+  },
+  "language": {
+    "title": "Elegir idioma"
+  },
+  "languagePreview": {
+    "regionalAlternatives": "Alternativas regionales",
+    "undetectedLanguage": "No se ha podido detectar el nombre de la lengua regional",
+    "unsupportedLanguage": "Nombre de lengua regional no admitida",
+    "voieNameIn": "Nombre de la vía en {language}"
+  },
+  "languesRegionales": {
+    "addLanguage": "Añadir una lengua regional",
+    "chooseLanguage": "Elegir una lengua regional",
+    "namePlaceholder": "Nombre en {language}",
+    "regionalLanguage": "lengua regional",
+    "removeLanguage": "Eliminar la lengua regional",
+    "selectLanguage": "Seleccionar una lengua regional"
+  },
+  "legalNotice": {
+    "accessibility": "Accesibilidad",
+    "accessibilityContent": "El cumplimiento de las normas de accesibilidad digital es un objetivo posterior, pero procuramos que esta plataforma sea accesible para todos.",
+    "hosting": "Alojamiento de la plataforma",
+    "hostingContent": "La plataforma está alojada por:",
+    "learnMore": "Más información",
+    "learnMoreContent": "Para saber más sobre la política de accesibilidad digital del Estado francés:",
+    "noResponseContent": "Si no recibe una respuesta rápida por nuestra parte, tiene derecho a dirigir su reclamación o una solicitud al Défenseur des Droits.",
+    "phone": "Teléfono: {number}",
+    "publicationDirector": "Director de la publicación",
+    "publicationDirectorContent": "El director de la publicación es el Sr. Stanislas BOURRON, Director General de la ANCT.",
+    "publisher": "Editor de la plataforma",
+    "publisherContent": "Bases Adresses Locales está editada por el Incubateur des Territoires de la Agence nationale de la cohésion des territoires (ANCT), situada en:",
+    "reportIssue": "Informar de un fallo",
+    "reportIssueContent": "Si encuentra un problema de accesibilidad que le impida acceder a un contenido o función de la plataforma, comuníquenoslo:",
+    "security": "Seguridad",
+    "securityContent1": "La plataforma está protegida por un certificado electrónico, representado en la mayoría de los navegadores por un candado. Esta protección contribuye a la confidencialidad de los intercambios.",
+    "securityContent2": "En ningún caso los servicios asociados a la plataforma le enviarán correos solicitándole que introduzca información personal.",
+    "title": "Bases de Direcciones Locales – Aviso legal"
+  },
+  "mainTabs": {
+    "communeTabIllustration": "Ilustración de la pestaña del municipio"
+  },
+  "mapControls": {
+    "cadastreUnavailable": "El catastro no está disponible para este municipio",
+    "cancelAddressCreation": "Cancelar la creación de una dirección",
+    "chooseBasemap": "Elegir el mapa base",
+    "closePanoramax": "Cerrar Panoramax",
+    "closeRuler": "Cerrar la herramienta de medición",
+    "contributeToPanoramax": "Participar en Panoramax",
+    "createAddress": "Crear una dirección",
+    "geolocate": "Localizarme",
+    "geolocationError": "No podemos localizarle. Compruebe la configuración de su navegador.",
+    "hideCadastre": "Ocultar el catastro",
+    "measureDistance": "Medir una distancia",
+    "noBasemap": "Ningún mapa base",
+    "noPanoramaxImagery": "No hay fotografías disponibles de este territorio.",
+    "noParcelleFound": "Ninguna parcela coincide con su búsqueda",
+    "numeros": "Números",
+    "pointsOfInterest": "Puntos de interés",
+    "rulerIconAlt": "Icono de regla",
+    "searchParcelle": "Buscar una parcela",
+    "showCadastre": "Mostrar el catastro",
+    "takePhoto": "Tomar una foto del mapa",
+    "takePhotoShort": "Tomar una foto",
+    "toponymes": "Topónimos",
+    "voies": "Vías"
+  },
+  "mapPopup": {
+    "addressCertified": "Esta dirección está certificada",
+    "allCertified": "Todos los números certificados",
+    "certified": "Certificado",
+    "noNumero": "Ningún número",
+    "parcelles": "Parcela(s)",
+    "uncertified": "No certificado"
+  },
+  "massDeletionDialog": {
+    "contactUs": "Si tiene dificultades para usar nuestra herramienta y desea ayuda, <strong>puede contactarnos en <mail>adresse@data.gouv.fr</mail></strong>",
+    "deletedHalf": "Ha <strong>eliminado al menos el 50 % de las direcciones</strong> conocidas actualmente en la Base de Direcciones Nacional.",
+    "title": "⚠️ Se ha eliminado un número muy elevado de direcciones",
+    "videoTutorials": "También hay <link>tutoriales en vídeo</link> disponibles para acompañarle en sus trabajos de direccionamiento.",
+    "wholeCommune": "Le recordamos que la publicación de sus direcciones debe abarcar <strong>la totalidad del municipio</strong>."
+  },
+  "metadata": {
+    "description": "Mes Adresses es una herramienta en línea que le permite gestionar sus direcciones de forma sencilla, desde la creación de una Base de Direcciones Local hasta su actualización.",
+    "title": "mes-adresses.data.gouv.fr"
+  },
+  "nav": {
+    "home": "Inicio"
+  },
+  "newBal": {
+    "createBal": "Crear una Base de Direcciones Local",
+    "createDemoBal": "Crear una Base de Direcciones Local de demostración",
+    "createError": "Se ha producido un error al crear la Base de Direcciones Local",
+    "importError": "Se ha producido un error al importar los datos en la Base de Direcciones Local",
+    "steps": {
+      "commune": "Elección del municipio",
+      "import": "Importación de datos",
+      "infos": "Información de la Base de Direcciones Local"
+    },
+    "suggestedName": "Direcciones de {communeName}"
+  },
+  "notFound": {
+    "backHome": "Volver a la página de inicio",
+    "title": "Error 404 - Página no encontrada"
+  },
+  "numeroEditor": {
+    "chooseToponyme": "- Elegir un topónimo -",
+    "communeDeleguee": "Municipio delegado",
+    "createError": "No se ha podido añadir el número",
+    "createSuccess": "El número se ha añadido correctamente",
+    "hintMultipleMarkers": "Mueva los marcadores en el mapa para modificar las posiciones",
+    "hintSingleMarker": "Mueva el marcador en el mapa para posicionar el número",
+    "noToponyme": "Ningún topónimo",
+    "numero": "Número",
+    "numeroPlaceholderSuggested": "Número recomendado: {suggestedNumero}",
+    "parcelles": "Parcelas",
+    "reservedNumero": "El número 99999 está reservado para lugares y complementos",
+    "suffixe": "Sufijo",
+    "toponyme": "Topónimo",
+    "updateError": "No se ha podido modificar el número",
+    "updateSuccess": "El número se ha modificado correctamente"
+  },
+  "numeroVoieSelector": {
+    "chooseVoie": "Elegir una vía",
+    "createVoie": "Crear una vía",
+    "newVoie": "Nueva vía",
+    "or": "O",
+    "searchVoie": "Buscar una vía",
+    "voie": "Vía*",
+    "voieNamePlaceholder": "Nombre de la vía"
+  },
+  "numerosList": {
+    "addNumero": "Añadir un número",
+    "archiveError": "No se ha podido archivar el número",
+    "archiveManyError": "No se han podido archivar los números",
+    "archiveManySuccess": "Los números se han archivado correctamente",
+    "archiveSuccess": "El número se ha archivado correctamente",
+    "arreteError": "No se ha podido descargar la orden de numeración",
+    "arreteSuccess": "La orden de numeración se ha descargado",
+    "certificatError": "No se ha podido descargar el certificado de direccionamiento",
+    "certificatSuccess": "El certificado de direccionamiento se ha descargado",
+    "certified": "Esta dirección está certificada por el municipio",
+    "deleteSelectedConfirm": "¿Seguro que desea eliminar todos los números seleccionados?",
+    "empty": "Ningún número",
+    "positionsCount": "{count, plural, one {# posición} other {# posiciones}}",
+    "recoverAccess": "Recuperar el acceso de administración de la Base de Direcciones Local",
+    "search": "Buscar un número",
+    "title": "Lista de números",
+    "updateManyError": "No se han podido modificar los números",
+    "updateManySuccess": "Los números se han modificado correctamente"
+  },
+  "panelGoal": {
+    "secondaryGoals": "Objetivos secundarios"
+  },
+  "populate": {
+    "populate": "Recuperar las direcciones de la Base Nacional",
+    "populating": "Recuperando direcciones…"
+  },
+  "positionEditor": {
+    "addToNumero": "Añadir una posición al número",
+    "addToToponyme": "Añadir una posición al topónimo",
+    "latitude": "Latitud",
+    "longitude": "Longitud",
+    "noPosition": "Este topónimo no tiene posición",
+    "positions": "Posiciones *",
+    "type": "Tipo"
+  },
+  "positionTypes": {
+    "batiment": "Edificio",
+    "cageEscalier": "Caja de escalera",
+    "delivrancePostale": "Entrega postal",
+    "entree": "Entrada",
+    "logement": "Vivienda",
+    "parcelle": "Parcela",
+    "segment": "Segmento",
+    "serviceTechnique": "Servicio técnico"
+  },
+  "publicationGoal": {
+    "badgeTitle": "Publicación",
+    "contactSupport": "Si aun así desea partir de esta Base de Direcciones Local, contacte con el soporte:",
+    "draftContent": "Para sincronizarse con la Base de Direcciones Nacional, esta Base de Direcciones Local debe ser publicada por el municipio de {communeName}.<br></br>Tenga en cuenta que, una vez publicada, <strong>todos los cambios se propagarán automáticamente</strong> a la Base de Direcciones Nacional.",
+    "goToPublished": "Ir a la Base de Direcciones Local publicada",
+    "habilitationExpired": "Su habilitación ya no es válida, renuévela",
+    "habiliteBal": "Habilitar la Base de Direcciones Local",
+    "mustStartFromPublished": "Debe partir de la Base de Direcciones Local publicada",
+    "publish": "Publicar",
+    "publishedContent": "Todos los cambios se propagarán automáticamente a la Base de Direcciones Nacional",
+    "replacedContact": "Póngase en contacto con los administradores de la otra Base de Direcciones Local o con nuestro soporte: adresse@data.gouv.fr",
+    "replacedContent": "Esta Base de Direcciones Local ha sido reemplazada: otra Base de Direcciones Local está sincronizada con la Base de Direcciones Nacional.",
+    "title": "Publicación"
+  },
+  "publishProcess": {
+    "createHabilitationError": "No se ha podido crear un proceso de habilitación",
+    "fetchBanError": "No se han podido recuperar los datos de la Base de Direcciones Nacional"
+  },
+  "publishedBal": {
+    "alreadyPublishedBadge": "Base de Direcciones Local ya publicada",
+    "alreadyPublishedFor": "Ya hay una Base de Direcciones Local publicada para {communeName}.",
+    "communeCanTakeOver": "Dado que el municipio es competente en materia de direccionamiento, puede tomar el control directamente continuando al siguiente paso.",
+    "communeStaysCompetent": "El municipio sigue siendo la autoridad competente en materia de direccionamiento, y puede decidir en cualquier momento retomar el control de la publicación de su Base de Direcciones Local.",
+    "contactChefDeFile": "Le recomendamos ponerse en contacto con <strong>{email}</strong> antes de crear su Base de Direcciones Local.",
+    "contactOrganization": "Recomendamos ponerse en contacto con este organismo:",
+    "continueFromPublished": "Si es su administrador, le recomendamos continuar el direccionamiento desde ella.",
+    "dataGouvPage": "Página data.gouv de {organization}",
+    "existingDrafts": "Ya {count, plural, one {hay <b># Base de Direcciones Local no publicada</b>} other {hay <b># Bases de Direcciones Locales no publicadas</b>}} para {communeName}. Si se trata de un borrador de su ayuntamiento, quizá desee recuperarlo.",
+    "goToPublished": "Acceder a la Base de Direcciones Local publicada",
+    "outdatedClient": "La Base de Direcciones Local publicada está obsoleta y ya no se mantiene, así que puede continuar creando la suya.",
+    "outdatedSource": "La Base de Direcciones Local publicada está obsoleta. Puede continuar al siguiente paso para reemplazarla por la suya.",
+    "publishedBy": "Ya se ha publicado una Base de Direcciones Local por <strong>{publisher}</strong> para {communeName}.",
+    "publishedByOrganization": "Ya hay una Base de Direcciones Local publicada por {organization} para {communeName}.",
+    "recoverWithEmail": "Recuperar una Base de Direcciones Local por correo"
+  },
+  "purgeSignalements": {
+    "explanation": "Si ha realizado cambios en su Base de Direcciones Local, como eliminar o renombrar vías, algunas notificaciones pueden haber quedado obsoletas.",
+    "outcome": "Al actualizarlas, las notificaciones obsoletas se retirarán de la lista.",
+    "pleaseWait": "Esta operación puede tardar un poco, espere por favor.",
+    "purgeError": "Se ha producido un error al actualizar las notificaciones. Inténtelo de nuevo más tarde.",
+    "purged": "{count, plural, one {# notificación caducada se ha retirado de la lista.} other {# notificaciones caducadas se han retirado de la lista.}}",
+    "refresh": "Actualizar las notificaciones",
+    "successTitle": "Éxito",
+    "title": "Actualización de notificaciones"
+  },
+  "qualityGoal": {
+    "badgeTitle": "Publicación",
+    "explanation": "Para ayudarle a fiabilizar las direcciones, aproveche las sugerencias de mejora con un solo clic.<br></br><br></br>Estas sugerencias proceden de la <link>Guía de Buenas Prácticas</link> y se pueden configurar desde el <menuButton>Menú</menuButton>",
+    "seeAlertsTitle": "Ver las alertas",
+    "seeSuggestions": "Ver las sugerencias",
+    "suggestionsLabel": "{count, plural, one {Sugerencia propuesta} other {Sugerencias propuestas}}",
+    "title": "Fiabilización"
+  },
+  "readOnlyInfos": {
+    "cannotEdit": "No puede modificar esta Base de Direcciones Local porque no ha iniciado sesión como administrador.",
+    "recoverAccess": "Recuperar mi acceso",
+    "recoverHint": "Si es administrador de esta Base de Direcciones Local, puede recuperar su acceso haciendo clic en el botón de abajo.",
+    "title": "Está en modo de solo lectura"
+  },
+  "readOnlyWarning": {
+    "message": "Está en modo de solo lectura: no puede modificar esta Base de Direcciones Local",
+    "recoverAccess": "Recuperar mi acceso"
+  },
+  "rejectionReasons": {
+    "alreadyHandled": "Notificación ya tratada",
+    "duplicate": "Notificación duplicada",
+    "misplaced": "Notificación mal posicionada",
+    "nonCompliant": "Notificación no conforme",
+    "notRelevant": "Notificación no pertinente",
+    "other": "Otro"
+  },
+  "renewTokenDialog": {
+    "error": "No se han podido renovar las autorizaciones",
+    "irreversibleContent": "No podrá modificar la Base de Direcciones Local hasta que recupere la nueva autorización que recibirá por correo electrónico.",
+    "irreversibleTitle": "Acción irreversible",
+    "question": "Ha eliminado uno o varios colaboradores. ¿Desea renovar las autorizaciones?",
+    "success": "Las autorizaciones se han renovado correctamente",
+    "title": "Renovar autorizaciones"
+  },
+  "searchCommuneStep": {
+    "label": "Buscar un municipio",
+    "noSearchContent": "Las Bases de Direcciones Locales de este país se crean con el importador de Overture Maps desde la línea de comandos: todavía no hay búsqueda de municipios para esta creación guiada.",
+    "noSearchTitle": "No hay búsqueda de municipios para {country}"
+  },
+  "selectParcelles": {
+    "emptyNumero": "En el mapa, haga clic en las parcelas que desea añadir al número.",
+    "emptyToponyme": "En el mapa, haga clic en las parcelas que desea añadir al topónimo.",
+    "helpNumero": "En el mapa, haga clic en las parcelas que desea añadir al número. Al indicar las parcelas asociadas a esta dirección, acelera su reutilización por numerosos servicios: hacienda, operadores postales, de fibra y de GPS.",
+    "helpToponyme": "En el mapa, haga clic en las parcelas que desea añadir al topónimo. Al indicar las parcelas asociadas a esta dirección, acelera su reutilización por numerosos servicios: hacienda, operadores postales, de fibra y de GPS.",
+    "hideCadastre": "Ocultar el catastro",
+    "invalidParcelles": "{count, plural, one {Una parcela no existe en el catastro} other {Varias parcelas no existen en el catastro}}",
+    "showCadastre": "Mostrar el catastro",
+    "title": "Parcelas catastrales"
+  },
+  "settings": {
+    "addBasemap": "Añadir mapa base",
+    "basemaps": "Mapas base",
+    "copied": "Copiado",
+    "copyUrl": "Copiar la URL",
+    "qualityAlerts": "Alertas de calidad",
+    "saveChanges": "Guardar los cambios",
+    "saveSuccess": "Los ajustes se han guardado correctamente",
+    "shareAccess": "Compartir acceso",
+    "shareAccessContent": "Mes Adresses también funciona en el móvil. Escanee el código QR para acceder a su Base de Direcciones Local.",
+    "shareAccessTitle": "Comparta el acceso con otros dispositivos",
+    "title": "Ajustes"
+  },
+  "sidebar": {
+    "closeForm": "Cerrar el formulario",
+    "hideSidebar": "Ocultar la barra lateral",
+    "openSidebar": "Abrir la barra lateral"
+  },
+  "signalement": {
+    "noChange": "Sin cambios",
+    "positionAdded": "Posición añadida",
+    "positionDeleted": "Posición eliminada",
+    "positionTypeChanged": "Tipo modificado",
+    "positions": "{count, plural, one {Posición} other {Posiciones}}",
+    "proposedChange": "Cambio propuesto"
+  },
+  "signalementDiff": {
+    "complement": "Complemento",
+    "numero": "Número",
+    "voie": "Vía"
+  },
+  "signalementForm": {
+    "accept": "Aceptar",
+    "acceptError": "Error al aceptar la notificación.",
+    "addAddressToThisVoie": "Añadir la dirección a esta vía",
+    "addressAfterChange": "Dirección tras la modificación",
+    "addressConcerned": "Dirección afectada",
+    "authorWillBeEmailed": "(El autor de la notificación recibirá esta información por correo)",
+    "createNewAddress": "Crear una nueva dirección",
+    "createNumeroRequest": "Solicitud de creación de dirección",
+    "createToponymeRequest": "Solicitud de creación de un topónimo",
+    "createdAddress": "Dirección creada: <b>{label}</b>",
+    "currentAddress": "Dirección actual",
+    "currentToponyme": "Topónimo actual",
+    "currentVoieName": "Nombre actual de la vía",
+    "deleteNumeroRequest": "Solicitud de eliminación de dirección",
+    "deleteToponymeRequest": "Solicitud de eliminación de un topónimo",
+    "deleteVoieRequest": "Solicitud de eliminación de una vía",
+    "deleteVoieWarning": "Al aceptar esta notificación, la vía <b>{voieName}</b> se moverá a la papelera",
+    "deleteVoieWithNumeros": "junto con {count, plural, one {la <b>dirección</b>} other {las <b># direcciones</b>}} asociadas",
+    "newVoieWillBeCreated": "La nueva vía <b>{voieName}</b> se creará al aceptar esta notificación.",
+    "numeroAlreadyExists": "La vía <b>{voieName}</b> ya tiene una dirección en el número <b>{numero}</b>.",
+    "possibleDuplicate": "Aceptar esta notificación podría crear un duplicado",
+    "proposedChange": "Cambio propuesto",
+    "reason": "Motivo",
+    "reasonPlaceholder": "Indique el motivo del rechazo; no incluya datos personales",
+    "reject": "Rechazar",
+    "rejectAnd": "{count, plural, one {Rechazar y terminar} other {Rechazar y pasar al siguiente}}",
+    "remaining": "{count, plural, one {Queda # notificación por tratar} other {Quedan # notificaciones por tratar}}",
+    "similarToponymes": "{count, plural, one {La Base de Direcciones Local contiene un topónimo con un nombre similar:} other {La Base de Direcciones Local contiene varios topónimos con nombres similares:}}",
+    "similarVoies": "{count, plural, one {La Base de Direcciones Local contiene una vía con un nombre similar:} other {La Base de Direcciones Local contiene varias vías con nombres similares:}}",
+    "toponymeAfterChange": "Topónimo tras la modificación",
+    "toponymeConcerned": "Topónimo afectado",
+    "voieNameAfterChange": "Nombre de la vía tras la modificación",
+    "voieNameBefore": "Nombre de la vía antes de la modificación",
+    "whatDoYouWantToDo": "¿Qué desea hacer?"
+  },
+  "signalementHeader": {
+    "acceptedOn": "Aceptó esta propuesta el <b>{date}</b>",
+    "by": "por",
+    "comment": "Comentario:",
+    "generalPublicIconAlt": "Icono de fuente del público general",
+    "publicServiceIconAlt": "Icono de fuente de servicio público",
+    "publicSource": "Esta notificación procede de una fuente del público general",
+    "reason": "Motivo:",
+    "rejectedOn": "Rechazó esta propuesta el <b>{date}</b>",
+    "submittedAgo": "Enviada hace <b>{duration}</b>",
+    "submittedOn": "Enviada el <b>{date}</b>",
+    "trustedSource": "Esta notificación procede de un actor de confianza",
+    "via": "vía"
+  },
+  "signalementList": {
+    "empty": "No tiene ninguna propuesta actualmente",
+    "filters": "Filtros",
+    "refresh": "Actualizar las notificaciones",
+    "search": "Buscar una notificación"
+  },
+  "signalementListItem": {
+    "acceptedOn": "Aceptada el {date}",
+    "rejectedOn": "Rechazada el {date}",
+    "trustedActor": "Actor de confianza"
+  },
+  "signalementTour": {
+    "archivedTab": "Esta muestra las notificaciones ya tratadas",
+    "filterByType": "...o por tipo (Creación, Modificación y Eliminación) haciendo clic en este botón",
+    "goToTab": "Para verlas, vaya a la pestaña de notificaciones.",
+    "pendingTab": "Esta pestaña muestra las notificaciones pendientes de tratar",
+    "searchByName": "Puede filtrar las notificaciones por nombre con esta barra de búsqueda...",
+    "selectFromList": "Por último, seleccione una notificación desde la lista...",
+    "selectFromMap": "...o desde el mapa",
+    "welcomeContent": "Vecinos o servicios públicos han propuesto mejoras en las direcciones de su municipio mediante el sistema de notificaciones.",
+    "welcomeTitle": "Su Base de Direcciones Local ha recibido propuestas de mejora"
+  },
+  "signalementTypes": {
+    "create": "Creación",
+    "delete": "Eliminación",
+    "missingAddress": "Dirección faltante",
+    "update": "Modificación"
+  },
+  "signalementsPage": {
+    "acceptedToast": "La notificación se ha tenido en cuenta",
+    "backToList": "Volver a la lista de notificaciones",
+    "breadcrumb": "Notificaciones",
+    "bulkActions": "Acciones en lote",
+    "confirmBulkAction": "Confirmar la acción en lote",
+    "confirmIgnoreQuestion": "¿Seguro que desea ignorar estas notificaciones?",
+    "errorToast": "Se ha producido un error",
+    "ignoreSignalements": "Ignorar las notificaciones",
+    "ignoredManyToast": "{count, plural, one {La notificación se ha ignorado} other {Las notificaciones se han ignorado}}",
+    "ignoredToast": "La notificación se ha ignorado",
+    "improvementRequests": "Solicitudes de mejora",
+    "locationNotFound": "No se ha podido encontrar la ubicación de la notificación.",
+    "markedExpired": "Se ha marcado como caducada y ya no aparecerá en la lista de notificaciones.",
+    "tabArchived": "{count, plural, one {Archivada} other {Archivadas}}",
+    "tabPending": "En curso"
+  },
+  "stepper": {
+    "lastStep": "Último paso",
+    "nextStep": "Paso siguiente:"
+  },
+  "toponymeEditor": {
+    "communeDeleguee": "Municipio delegado",
+    "createError": "No se ha podido añadir el topónimo",
+    "createSuccess": "El topónimo se ha añadido correctamente",
+    "hintMultipleMarkers": "Mueva los marcadores en el mapa para modificar las posiciones",
+    "hintSingleMarker": "Mueva el marcador en el mapa para posicionar el topónimo",
+    "nom": "Nombre del topónimo",
+    "parcelles": "Parcelas",
+    "updateError": "No se ha podido modificar el topónimo",
+    "updateSuccess": "El topónimo se ha modificado correctamente"
+  },
+  "toponymeGoal": {
+    "addToponyme": "Cree un lugar complementario o una vía sin direcciones",
+    "addToponymeTitle": "Añadir un topónimo",
+    "badgeTitle": "Publicación",
+    "emptyContent": "Enriquezca el direccionamiento de su municipio registrando sus lugares complementarios y vías sin direcciones.",
+    "explanation": "Conserve los nombres históricos de aldeas y lugares. Asócielos a los números como complemento de dirección.",
+    "ignoreGoal": "Descartar objetivo",
+    "numerosCounter": "{count, plural, one {número asociado} other {números asociados}}",
+    "title": "Lugares / Complementos",
+    "toponymesCounter": "{count, plural, one {lugar / complemento} other {lugares / complementos}}"
+  },
+  "toponymePage": {
+    "editToponyme": "Editar el topónimo",
+    "linkNumeros": "Asociar números",
+    "numerosList": "Lista de números",
+    "searchNumero": "Buscar un número",
+    "updateManySuccess": "Los números se han modificado correctamente"
+  },
+  "toponymesPage": {
+    "addToponyme": "Añadir un topónimo",
+    "addressesCertified": "Las direcciones están certificadas",
+    "archiveError": "No se ha podido archivar el topónimo",
+    "archiveSuccess": "El topónimo se ha archivado",
+    "breadcrumb": "Topónimos",
+    "deleteConfirm": "¿Seguro que desea eliminar este topónimo?",
+    "linkNumeros": "Asociar números",
+    "newToponyme": "Nuevo topónimo",
+    "noNumero": "Ningún número",
+    "noPosition": "Este topónimo no tiene posición",
+    "noResults": "Sin resultados",
+    "searchPlaceholder": "Buscar un topónimo",
+    "subtitle": "Lugares complementarios y vías sin direcciones"
+  },
+  "trainingTypes": {
+    "advanced": "Formación avanzada",
+    "initial": "Formación inicial",
+    "signalement": "Formación sobre notificaciones"
+  },
+  "trash": {
+    "numerosDeleteError": "No se han podido eliminar los números",
+    "numerosDeleted": "Los números se han eliminado",
+    "toponymeDeleteError": "No se ha podido eliminar el topónimo",
+    "toponymeDeleted": "El topónimo se ha eliminado",
+    "toponymeRestoreError": "No se ha podido restaurar el topónimo",
+    "toponymeRestored": "El topónimo se ha restaurado",
+    "voieDeleteError": "No se ha podido eliminar la vía",
+    "voieDeleted": "La vía se ha eliminado",
+    "voieRestoreError": "No se ha podido restaurar la vía",
+    "voieRestored": "La vía se ha restaurado"
+  },
+  "trashList": {
+    "deletedNumeros": "{count, plural, one {# número eliminado} other {# números eliminados}}",
+    "deletedNumerosList": "Lista de números eliminados",
+    "noNumero": "Ningún número",
+    "noResults": "Sin resultados",
+    "restoreNumeros": "{count, plural, one {Restaurar # número} other {Restaurar # números}}",
+    "restoreToponyme": "Restaurar topónimo",
+    "restoreVoie": "Restaurar vía",
+    "restoreVoieWithNumeros": "{count, plural, one {Restaurar vía con # número} other {Restaurar vía con # números}}",
+    "searchNumero": "Buscar un número",
+    "searchToponyme": "Buscar un topónimo",
+    "searchVoie": "Buscar una vía",
+    "seeNumeros": "Ver número(s)",
+    "voie": "vía",
+    "voieAndDeletedNumeros": "vía y {count, plural, one {# número eliminado} other {# números eliminados}}"
+  },
+  "voieEditor": {
+    "createError": "No se ha podido añadir la vía",
+    "createSuccess": "La vía se ha añadido correctamente",
+    "metrique": "Métrica",
+    "nom": "Nombre de la vía",
+    "numerique": "Numérica",
+    "typeNumerotation": "Tipo de numeración *",
+    "updateError": "No se ha podido modificar la vía",
+    "updateSuccess": "La vía se ha modificado correctamente"
+  },
+  "voiePage": {
+    "editVoie": "Editar la vía",
+    "numerosList": "Lista de números"
+  },
+  "voiesPage": {
+    "addVoie": "Añadir una vía",
+    "addressesCertified": "Las direcciones están certificadas",
+    "archiveError": "No se ha podido archivar la vía",
+    "archiveSuccess": "La vía se ha archivado",
+    "arreteError": "No se ha podido descargar la orden de numeración",
+    "arreteSuccess": "La orden de numeración se ha descargado",
+    "breadcrumb": "Vías",
+    "certifyConfirmLabel": "Certificar los números de la vía",
+    "certifyQuestion": "¿Seguro que desea certificar todas las direcciones de esta vía?",
+    "deleteConfirm": "¿Seguro que desea eliminar esta vía y todos sus números?",
+    "filterLabel": "Filtro",
+    "filterTitle": "filtros de vías",
+    "filters": {
+      "all": "Todas",
+      "withSuggestions": "Con sugerencias",
+      "withoutCertification": "Sin certificación"
+    },
+    "handleSuggestions": "{count, plural, one {Tratar la sugerencia} other {Tratar las # sugerencias}}",
+    "newVoie": "Nueva vía",
+    "noResults": "Sin resultados",
+    "searchPlaceholder": "Buscar una vía, una plaza, un lugar...",
+    "subtitle": "Vías, plazas y lugares numerados"
+  },
+  "warnings": {
+    "convertConfirm": "Convertir en vía sin direcciones",
+    "convertConfirmQuestion": "¿Seguro que desea convertir esta vía en una vía sin direcciones?",
+    "convertError": "No se ha podido convertir la vía en topónimo",
+    "convertSuccess": "La vía se ha convertido en topónimo",
+    "convertTitle": "Convertir la vía en vía sin direcciones",
+    "doublonText": "Varias vías tienen el mismo nombre",
+    "editNumero": "Editar el número",
+    "editVoie": "Editar la vía",
+    "mergeConfirm": "Fusionar las vías",
+    "mergeConfirmQuestion": "¿Seguro que desea fusionar las {count} vías con el nombre {voieName}?",
+    "mergeTitle": "Fusionar las vías con el mismo nombre",
+    "parcelleMissing": "La parcela no existe en el catastro",
+    "parcellesMissing": "Varias parcelas no existen en el catastro",
+    "suffixeIncorrect": "El sufijo del número es incorrecto",
+    "voieEmptyText": "Esta vía no contiene ningún número",
+    "voieNameSuggestion": "Sugerencia sobre el nombre de la vía",
+    "voieNumerosSuggestion": "Sugerencia sobre los números de la vía"
+  },
+  "welcomeIllustration": {
+    "subtitle": "Empiece a gestionar sus direcciones creando una Base de Direcciones Local.",
+    "title": "¡Bienvenido a mes-adresses!"
+  },
+  "welcomeMessage": {
+    "guides": "Consulte las guías",
+    "needHelp": "¿Necesita ayuda?",
+    "officialSource": "La Base de Direcciones Local se convertirá entonces en la única fuente oficial de direcciones de {communeName}",
+    "ownPaceContent": "Una vez publicadas, las direcciones se sincronizan con la Base de Direcciones Nacional.<br></br>Todos sus cambios se propagan sobre la marcha.",
+    "ownPaceTitle": "Trabaje a su propio ritmo.",
+    "publicationBadge": "Publicación",
+    "start": "Comenzar el direccionamiento",
+    "startWithPublication": "¡Empiece por la <b>publicación</b>!",
+    "title": "Bienvenido a la nueva Base de Direcciones Local de {communeName}",
+    "training": "Realice una formación",
+    "tutorials": "Vea los tutoriales"
+  }
+}

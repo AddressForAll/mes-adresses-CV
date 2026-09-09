@@ -1,6 +1,7 @@
 /* eslint react/boolean-prop-naming: off */
 import { Dispatch, SetStateAction, useMemo } from "react";
 import { FormField } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import CommuneSearch from "@/components/commune-search/commune-search";
 import { CommuneType } from "@/types/commune";
@@ -21,7 +22,7 @@ interface CommuneSearchFieldProps {
   appearance: string;
   spellCheck?: boolean;
 
-  placeholder: string;
+  placeholder?: string;
   innerRef: Dispatch<SetStateAction<HTMLInputElement>>;
   initialSelectedItem?: CommuneType;
   onSelect: Dispatch<SetStateAction<CommuneType>>;
@@ -45,11 +46,12 @@ export function CommuneSearchField({
   appearance,
   spellCheck = true, // Rest props are spread on the FormField
 
-  placeholder = "Chercher une commune…",
+  placeholder,
   innerRef,
   initialSelectedItem = null,
   onSelect,
 }: CommuneSearchFieldProps) {
+  const t = useTranslations("communeSearch");
   const id = useMemo(
     () => `CommuneSearchField-${unusedId || idCounter++}`,
     [unusedId]
@@ -67,7 +69,7 @@ export function CommuneSearchField({
       <CommuneSearch
         id={id}
         innerRef={innerRef}
-        placeholder={placeholder}
+        placeholder={placeholder ?? t("searchCommune")}
         initialSelectedItem={initialSelectedItem}
         onSelect={onSelect}
         width={inputWidth}

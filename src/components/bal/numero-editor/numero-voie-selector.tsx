@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { sortBy } from "lodash";
 import { Button, Pane, Text, PlusIcon, PropertyIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { normalizeSort } from "@/lib/normalize";
 
@@ -29,6 +30,7 @@ function NumeroVoieSelector({
   handleVoie,
   handleNomVoie,
 }: NumeroVoieSelectorProps) {
+  const t = useTranslations("numeroVoieSelector");
   const [isCreateMode, setIsCreateMode] = useState(
     mode === "creation" || !voieId
   );
@@ -76,15 +78,15 @@ function NumeroVoieSelector({
           <AssistedTextField
             forwadedRef={ref}
             exitFocus={() => setIsFocus(false)}
-            label="Nouvelle voie"
-            placeholder="Nom de la voie"
+            label={t("newVoie")}
+            placeholder={t("voieNamePlaceholder")}
             value={nomVoie}
             validationMessage={validationMessage}
             onChange={handleNomVoieChange}
           />
         ) : (
           <AutocompleteInput
-            label="Voie*"
+            label={t("voie")}
             onSearch={handleSearchVoie}
             onSelect={handleVoieChange}
             resultsListPosition="bottom"
@@ -92,20 +94,20 @@ function NumeroVoieSelector({
               voieId ? voies.find((v) => v.id === voieId)?.nom : undefined
             }
             inputProps={{
-              placeholder: "Rechercher une voie",
+              placeholder: t("searchVoie"),
             }}
           />
         )}
       </Pane>
 
-      <Text marginX={16}>OU</Text>
+      <Text marginX={16}>{t("or")}</Text>
 
       <Button
         type="button"
         iconBefore={isCreateMode ? PropertyIcon : PlusIcon}
         onClick={toggleMode}
       >
-        {isCreateMode ? "Choisir" : "Créer"} une voie
+        {isCreateMode ? t("chooseVoie") : t("createVoie")}
       </Button>
     </Pane>
   );

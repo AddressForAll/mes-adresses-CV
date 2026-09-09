@@ -1,4 +1,5 @@
 import { getFullDate } from "@/lib/utils/date";
+import { useLocale, useTranslations } from "next-intl";
 import { Heading, Pane, Text } from "evergreen-ui";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -16,6 +17,8 @@ interface NewsTabProps {
 }
 
 function NewsTab({ news, updateLastNewsSeen }: NewsTabProps) {
+  const locale = useLocale();
+  const t = useTranslations("homeDrawer");
   const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
   useEffect(() => {
@@ -43,7 +46,7 @@ function NewsTab({ news, updateLastNewsSeen }: NewsTabProps) {
           flex={1}
           padding={10}
         >
-          <Text>Pas de d&apos;actualité</Text>
+          <Text>{t("noNews")}</Text>
         </Pane>
       )}
       {news.length > 0 &&
@@ -59,7 +62,7 @@ function NewsTab({ news, updateLastNewsSeen }: NewsTabProps) {
             borderBottom={index === news.length - 1 ? "none" : "1px solid #ccc"}
           >
             <Heading display="flex" alignItems="center" size={400}>
-              {getFullDate(new Date(date))}
+              {getFullDate(new Date(date), locale)}
             </Heading>
             <Text>
               <Markdown remarkPlugins={[remarkGfm, remarkGemoji]}>

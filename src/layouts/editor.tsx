@@ -22,6 +22,7 @@ import { BaseLocale } from "@/lib/openapi-api-bal";
 import { MobileControls } from "@/components/mobile-layout/mobile-controls";
 import LayoutContext from "@/contexts/layout";
 import { Pane } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import MainTabs from "@/components/sidebar/main-tabs/main-tabs";
 import ProductTours from "@/components/sidebar/product-tours";
 import ReadonlyWarning from "@/components/read-only-warning";
@@ -33,6 +34,7 @@ interface EditorProps {
 }
 
 function Editor({ children }: EditorProps) {
+  const t = useTranslations("editor");
   const { isMobile, isMapFullscreen, setIsMapFullscreen } =
     useContext(LayoutContext);
   const { otherBalIdPublished } = useContext(BALRecoveryContext);
@@ -57,7 +59,7 @@ function Editor({ children }: EditorProps) {
               <BalDataContext.Consumer>
                 {({ habilitationIsLoading }) =>
                   (tokenIsChecking || habilitationIsLoading) && (
-                    <Overlay text="Chargement de la Base Adresse Locale" />
+                    <Overlay text={t("loadingBal")} />
                   )
                 }
               </BalDataContext.Consumer>

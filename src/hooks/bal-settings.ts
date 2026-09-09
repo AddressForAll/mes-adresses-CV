@@ -1,4 +1,5 @@
 import BalDataContext from "@/contexts/bal-data";
+import { useTranslations } from "next-intl";
 import LayoutContext from "@/contexts/layout";
 import TokenContext from "@/contexts/token";
 import { useCallback, useContext, useMemo, useState } from "react";
@@ -28,6 +29,7 @@ const ignoredAlertCodesHasChanged = (
 };
 
 export function useBALSettings(baseLocale: BaseLocale) {
+  const t = useTranslations("settings");
   const { emails, reloadEmails } = useContext(TokenContext);
 
   const { reloadBaseLocale, reloadVoiesAlerts, reloadNumerosAlerts } =
@@ -124,7 +126,7 @@ export function useBALSettings(baseLocale: BaseLocale) {
           );
         }
         pushToast({
-          title: "Les paramètres ont été enregistrés avec succès",
+          title: t("saveSuccess"),
           intent: "success",
         });
       } catch (error) {

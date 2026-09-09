@@ -1,4 +1,5 @@
 import { Paragraph, Button, EditIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import Tuto from "@/components/help/tuto";
 
@@ -7,30 +8,27 @@ interface UnauthorizedProps {
 }
 
 function Unauthorized({ title }: UnauthorizedProps) {
+  const t = useTranslations("help.unauthorized");
+
   return (
     <Tuto title={title}>
       <Paragraph marginTop="default">
-        Assurez vous que
-        <Button
-          height={24}
-          margin={8}
-          appearance="primary"
-          intent="danger"
-          iconBefore={EditIcon}
-        >
-          Édition impossible
-        </Button>
-        n’apparaisse pas en haut à droite de votre écran.
+        {t.rich("checkBadge", {
+          badge: (chunks) => (
+            <Button
+              height={24}
+              margin={8}
+              appearance="primary"
+              intent="danger"
+              iconBefore={EditIcon}
+            >
+              {chunks}
+            </Button>
+          ),
+        })}
       </Paragraph>
-      <Paragraph marginTop="default">
-        Il indique que vous n’êtes pas authentifié ou que vous n’avez pas les
-        droits pour modifier cette BAL.
-      </Paragraph>
-      <Paragraph marginTop="default">
-        Cependant, si vous en êtes bien le propriétaire, il vous suffit de
-        cliquer sur le lien qui vous a été envoyé par mail lors de la création
-        de votre BAL.
-      </Paragraph>
+      <Paragraph marginTop="default">{t("meaning")}</Paragraph>
+      <Paragraph marginTop="default">{t("fix")}</Paragraph>
     </Tuto>
   );
 }

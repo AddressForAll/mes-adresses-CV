@@ -1,4 +1,5 @@
 import { Alert, Button, Pane, Text } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { StrategyDTO } from "@/lib/openapi-api-bal";
 
 interface AuthenticationRejectedStepProps {
@@ -12,21 +13,23 @@ function AuthenticationRejectedStep({
   strategyType,
   handleClose,
 }: AuthenticationRejectedStepProps) {
+  const t = useTranslations("habilitation.authRejected");
+  const tc = useTranslations("common");
+
   return (
     <Pane display="flex" flexDirection="column" gap={16}>
-      <Alert intent="danger" title="Votre demande d’habilitation a été rejetée">
+      <Alert intent="danger" title={t("title")}>
         <Text>
-          {strategyType === StrategyDTO.type.EMAIL &&
-            "Vous avez dépassé le nombre maximum de tentatives autorisé."}
+          {strategyType === StrategyDTO.type.EMAIL && t("tooManyAttempts")}
 
           {strategyType === StrategyDTO.type.FRANCECONNECT &&
-            `Vous n’avez pas été identifié comme un élu de la commune de ${communeName}.`}
+            t("notAnElectedOfficial", { communeName })}
         </Text>
       </Alert>
 
       <Pane display="flex" flexDirection="row" justifyContent="end" gap={16}>
         <Button intent="primary" onClick={handleClose}>
-          Fermer
+          {tc("close")}
         </Button>
       </Pane>
     </Pane>

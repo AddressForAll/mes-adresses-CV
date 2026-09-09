@@ -17,6 +17,7 @@ import {
   TrashIcon,
   Select,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import Tuto from "@/components/help/tuto";
 import Unauthorized from "@/components/help/tuto/unauthorized";
@@ -27,207 +28,155 @@ import {
   PEERTUBE_LINK,
 } from "@/components/help/video-container";
 
-const before = (
-  <Paragraph marginTop="default">
-    Affichez la liste des toponymes d’une commune en cliquant sur le nom de
-    celle-ci en haut à gauche de votre écran
-  </Paragraph>
-);
-
 function Toponymes() {
+  const t = useTranslations("help.toponymes");
+
+  // Inline markup for the help copy — see base-locale.tsx for the rationale.
+  const tags = {
+    br: () => <br />,
+    muted: (chunks: React.ReactNode) => (
+      <Text color="muted">
+        <i>{chunks}</i>
+      </Text>
+    ),
+    tab: (chunks: React.ReactNode) => (
+      <Tab>
+        <Heading size={300}>{chunks}</Heading>
+      </Tab>
+    ),
+    addButton: (chunks: React.ReactNode) => (
+      <Button
+        iconBefore={AddIcon}
+        marginX={4}
+        appearance="primary"
+        intent="success"
+      >
+        {chunks}
+      </Button>
+    ),
+    successButton: (chunks: React.ReactNode) => (
+      <Button marginX={4} appearance="primary" intent="success">
+        {chunks}
+      </Button>
+    ),
+    dangerButton: (chunks: React.ReactNode) => (
+      <Button marginX={4} intent="danger" appearance="primary">
+        {chunks}
+      </Button>
+    ),
+    moreButton: () => (
+      <Button background="tint1" iconBefore={MoreIcon} appearance="minimal" />
+    ),
+    editItem: (chunks: React.ReactNode) => (
+      <Menu.Item background="tint1" marginLeft={8} icon={EditIcon}>
+        {chunks}
+      </Menu.Item>
+    ),
+    deleteItem: (chunks: React.ReactNode) => (
+      <Menu.Item
+        background="tint1"
+        marginLeft={8}
+        icon={TrashIcon}
+        intent="danger"
+      >
+        {chunks}
+      </Menu.Item>
+    ),
+    marker: () => <MapMarkerIcon color="info" />,
+    trash: () => (
+      <TrashIcon marginX={6} color="danger" verticalAlign="middle" />
+    ),
+    typeSelect: (chunks: React.ReactNode) => (
+      <Select>
+        <option>{chunks}</option>
+      </Select>
+    ),
+  };
+
+  // Every tutorial on this tab opens with the same instruction.
+  const before = <Paragraph marginTop="default">{t("openList")}</Paragraph>;
+
   return (
     <Pane>
       <VideoContainer
-        title="Création / Modification d’un toponyme :"
+        title={t("videoTitle")}
         link={`${PEERTUBE_LINK}/w/7AeS1b84kmwjbL3A19Wphw`}
       />
-      <Tuto title="Ajouter un toponyme">
+      <Tuto title={t("add.title")}>
         {before}
         <OrderedList margin={8}>
-          <ListItem>
-            Sélectionnez l‘onglet{" "}
-            <Tab>
-              <Heading size={300}>Liste des Toponymes</Heading>
-            </Tab>
-            , puis cliquez sur{" "}
-            <Button
-              iconBefore={AddIcon}
-              marginX={4}
-              appearance="primary"
-              intent="success"
-            >
-              Ajouter un toponyme
-            </Button>
-          </ListItem>
-          <ListItem>
-            Entrez le nom du toponyme dans le champs{" "}
-            <Text color="muted">
-              <i>Nom du toponyme...</i>
-            </Text>
-          </ListItem>
-          <ListItem>
-            Un <MapMarkerIcon color="info" /> est apparu sur la carte, vous
-            pouvez le déplacer pour assigner une ou plusieurs positions à votre
-            toponyme.
-            <br />
-            Vous pouvez préciser le type de position avec le menu déroulant{" "}
-            <Select>
-              <option>Segment</option>
-            </Select>
-            Si vous ne souhaitez pas définir de position pour le toponyme,
-            cliquez simplement sur{" "}
-            <TrashIcon marginX={6} color="danger" verticalAlign="middle" />
-          </ListItem>
+          <ListItem>{t.rich("add.step1", tags)}</ListItem>
+          <ListItem>{t.rich("add.step2", tags)}</ListItem>
+          <ListItem>{t.rich("add.step3", tags)}</ListItem>
         </OrderedList>
       </Tuto>
 
-      <Tuto title="Assigner un numéro à un toponyme">
+      <Tuto title={t("assign.title")}>
         {before}
         <OrderedList margin={8}>
-          <ListItem>
-            Cliquez sur le bouton
-            <Button
-              iconBefore={AddIcon}
-              marginX={4}
-              appearance="primary"
-              intent="success"
-            >
-              Ajouter un numéro
-            </Button>
-          </ListItem>
-          <ListItem>
-            Sélectionnez la voie du numéro que vous souhaitez assigner
-          </ListItem>
-          <ListItem>
-            Un menu déroulant va s’afficher. Vous pouvez sélectionner un ou
-            plusieurs numéros de la liste. Tous les numéros de la liste seront
-            assignés au toponyme si aucun numéro n’est sélectionné.
-          </ListItem>
-          <ListItem>
-            Pour terminer, cliquez sur le bouton{" "}
-            <Button marginX={4} appearance="primary" intent="success">
-              Enregistrer
-            </Button>
-          </ListItem>
+          <ListItem>{t.rich("assign.step1", tags)}</ListItem>
+          <ListItem>{t("assign.step2")}</ListItem>
+          <ListItem>{t("assign.step3")}</ListItem>
+          <ListItem>{t.rich("assign.step4", tags)}</ListItem>
         </OrderedList>
       </Tuto>
 
-      <Tuto title="Éditer un toponyme">
+      <Tuto title={t("edit.title")}>
         {before}
         <OrderedList margin={8}>
-          <ListItem>Cliquez sur le nom du toponyme</ListItem>
-          <ListItem>Éditez le nom du toponyme</ListItem>
-          <ListItem>
-            Vous pouvez également modifier la position du toponyme en déplaçant
-            le <MapMarkerIcon color="info" /> sur la carte
-          </ListItem>
-          <ListItem>
-            Vous pouvez ajouter des positions avec le bouton{" "}
-            <Button
-              iconBefore={AddIcon}
-              marginX={4}
-              appearance="primary"
-              intent="success"
-            >
-              Ajouter une position au toponyme
-            </Button>
-            ou en supprimer avec le bouton{" "}
-            <TrashIcon marginX={6} color="danger" verticalAlign="middle" />
-          </ListItem>
-          <ListItem>
-            Pour terminer, cliquez sur{" "}
-            <Button marginX={4} appearance="primary" intent="success">
-              Enregistrer
-            </Button>
-          </ListItem>
+          <ListItem>{t("edit.step1")}</ListItem>
+          <ListItem>{t("edit.step2")}</ListItem>
+          <ListItem>{t.rich("edit.step3", tags)}</ListItem>
+          <ListItem>{t.rich("edit.step4", tags)}</ListItem>
+          <ListItem>{t.rich("edit.step5", tags)}</ListItem>
         </OrderedList>
       </Tuto>
 
-      <Tuto title="Supprimer un toponyme">
+      <Tuto title={t("delete.title")}>
         {before}
         <OrderedList margin={8}>
-          <ListItem>
-            Cliquez sur le bouton{" "}
-            <Button
-              background="tint1"
-              iconBefore={MoreIcon}
-              appearance="minimal"
-            />{" "}
-            se situant à droite du nom du toponyme
-          </ListItem>
+          <ListItem>{t.rich("delete.step1", tags)}</ListItem>
           <ListItem>
             <Pane display="flex" alignItems="center">
-              Dans le menu qui vient d’apparaître, choisissez
-              <Menu.Item
-                background="tint1"
-                marginLeft={8}
-                icon={TrashIcon}
-                intent="danger"
-              >
-                Supprimer…
-              </Menu.Item>
+              {t.rich("delete.step2", tags)}
             </Pane>
           </ListItem>
-          <ListItem>
-            Pour terminer, confirmez votre choix en cliquant sur{" "}
-            <Button marginX={4} intent="danger" appearance="primary">
-              Supprimer
-            </Button>
-          </ListItem>
+          <ListItem>{t.rich("delete.step3", tags)}</ListItem>
         </OrderedList>
       </Tuto>
 
-      <Tuto title="Associer des parcelles">
+      <Tuto title={t("parcelles.title")}>
         {before}
 
         <OrderedList margin={8}>
-          <ListItem>
-            Cliquez sur le bouton{" "}
-            <Button
-              background="tint1"
-              iconBefore={MoreIcon}
-              appearance="minimal"
-            />{" "}
-            se situant à droite du toponyme
-          </ListItem>
+          <ListItem>{t.rich("parcelles.step1", tags)}</ListItem>
           <ListItem>
             <Pane display="flex" alignItems="center">
-              Dans le menu qui vient d’apparaître, choisissez
-              <Menu.Item background="tint1" marginLeft={8} icon={EditIcon}>
-                Modifier
-              </Menu.Item>
+              {t.rich("parcelles.step2", tags)}
             </Pane>
           </ListItem>
-          <ListItem>
-            Depuis la carte, cliquez sur la ou les parcelles que vous souhaitez
-            associer au toponyme
-          </ListItem>
-          <ListItem>
-            Pour enregistrer les parcelles, cliquez sur le bouton{" "}
-            <Button marginX={4} appearance="primary" intent="success">
-              Enregistrer
-            </Button>
-          </ListItem>
+          <ListItem>{t("parcelles.step3")}</ListItem>
+          <ListItem>{t.rich("parcelles.step4", tags)}</ListItem>
         </OrderedList>
 
         <Pane>
-          <Strong>Code couleur des parcelles :</Strong>
+          <Strong>{t("parcelles.colorCode")}</Strong>
           <Paragraph display="flex">
             <Badge margin={4} height="100%" color="green">
-              parcelle associée
+              {t("parcelles.linked")}
             </Badge>
             <Badge margin={4} height="100%" color="yellow">
-              parcelle pouvant être associée
+              {t("parcelles.linkable")}
             </Badge>
             <Badge margin={4} height="100%" color="red">
-              parcelle pouvant être dissociée
+              {t("parcelles.unlinkable")}
             </Badge>
           </Paragraph>
         </Pane>
       </Tuto>
 
       <Problems>
-        <Unauthorized title="Je n’arrive pas à ajouter/supprimer un toponyme" />
+        <Unauthorized title={t("problems.cannotAddOrDelete")} />
         <Sidebar />
       </Problems>
     </Pane>

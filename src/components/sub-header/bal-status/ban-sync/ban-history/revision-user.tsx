@@ -1,5 +1,6 @@
 import React from "react";
 import { Pane, Text, Strong } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { HabilitationDTO, StrategyDTO } from "@/lib/openapi-api-bal";
 
 interface RevisionUserProps {
@@ -16,6 +17,7 @@ function RevisionUser({
   habilitation,
   communeName,
 }: RevisionUserProps) {
+  const t = useTranslations("banHistory");
   let userName = context.nomComplet || context.organisation;
   if (!userName) {
     if (
@@ -27,17 +29,17 @@ function RevisionUser({
     }
 
     if (habilitation?.strategy?.type === StrategyDTO.type.FRANCECONNECT) {
-      userName = `élu(e) de ${communeName}`;
+      userName = t("electedOfficial", { communeName });
     }
   }
 
   return (
     <Pane display="flex" gap={4}>
-      <Text>Par</Text>
+      <Text>{t("by")}</Text>
       {userName ? (
         <Strong>{userName}</Strong>
       ) : (
-        <Text fontStyle="italic">Non renseigné</Text>
+        <Text fontStyle="italic">{t("notProvided")}</Text>
       )}
     </Pane>
   );

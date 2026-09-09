@@ -9,6 +9,7 @@ import {
   Link,
   MenuIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { AccordionCard } from "@/components/accordion-card";
 import { useState } from "react";
@@ -29,6 +30,7 @@ interface QualityGoalProps {
 }
 
 function QualityGoal({ baseLocale }: QualityGoalProps) {
+  const t = useTranslations("qualityGoal");
   const { isMobile } = useContext(LayoutContext);
   const { setDrawerDisplayed } = useContext(DrawerContext);
   const [isActive, setIsActive] = useState(false);
@@ -78,11 +80,11 @@ function QualityGoal({ baseLocale }: QualityGoalProps) {
             <Pane display="flex" alignItems="center" gap={16}>
               <AchievementBadge
                 icone="/static/images/achievements/fiabilite.svg"
-                title="Publication"
+                title={t("badgeTitle")}
                 completed={isAllCorrected}
               />
               <Heading color={isAllCorrected && "#317159"}>
-                Fiabilisation
+                {t("title")}
               </Heading>
             </Pane>
 
@@ -93,7 +95,7 @@ function QualityGoal({ baseLocale }: QualityGoalProps) {
                 alignItems="center"
               >
                 <Counter
-                  label={`Suggestion${nbAlerts ? "s" : null} proposé${nbAlerts ? "es" : null}`}
+                  label={t("suggestionsLabel", { count: nbAlerts })}
                   value={nbAlerts}
                   color={defaultTheme.colors.purple600}
                 />
@@ -105,10 +107,10 @@ function QualityGoal({ baseLocale }: QualityGoalProps) {
                     color: "white",
                   }}
                   iconAfter={EyeOpenIcon}
-                  title="Voir les alertes"
+                  title={t("seeAlertsTitle")}
                   onClick={(e) => goToAlerts(e)}
                 >
-                  Voir les suggestions
+                  {t("seeSuggestions")}
                 </Button>
               </Pane>
             ) : null}
@@ -121,28 +123,29 @@ function QualityGoal({ baseLocale }: QualityGoalProps) {
       >
         <Pane padding={8} marginBottom={16}>
           <Text>
-            Pour vous aider dans la fiabilisation des adresses, profitez de
-            suggestions d&apos;améliorations en un clic.
-            <br />
-            <br />
-            Ces suggestions sont tirées du{" "}
-            <Link
-              target="_blank"
-              href={`https://doc.adresse.data.gouv.fr/docs/bonnes-pratiques/a-propos-du-guide-des-bonnes-pratiques`}
-            >
-              Guide des Bonnes Pratiques
-            </Link>{" "}
-            et paramétrables depuis le{" "}
-            <Button
-              onClick={() => setDrawerDisplayed(true)}
-              {...(!isMobile && {
-                iconAfter: MenuIcon,
-                marginRight: 16,
-                height: 24,
-              })}
-            >
-              {isMobile ? <MenuIcon /> : "Menu"}
-            </Button>
+            {t.rich("explanation", {
+              br: () => <br />,
+              link: (chunks) => (
+                <Link
+                  target="_blank"
+                  href="https://doc.adresse.data.gouv.fr/docs/bonnes-pratiques/a-propos-du-guide-des-bonnes-pratiques"
+                >
+                  {chunks}
+                </Link>
+              ),
+              menuButton: (chunks) => (
+                <Button
+                  onClick={() => setDrawerDisplayed(true)}
+                  {...(!isMobile && {
+                    iconAfter: MenuIcon,
+                    marginRight: 16,
+                    height: 24,
+                  })}
+                >
+                  {isMobile ? <MenuIcon /> : chunks}
+                </Button>
+              ),
+            })}
           </Text>
         </Pane>
       </AccordionCard>

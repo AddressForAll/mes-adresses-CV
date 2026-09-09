@@ -1,4 +1,5 @@
 import { Heading, Pane, Pulsar, Spinner, Tab, Tablist } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import TrainingTab from "./training-tab";
 import NewsTab from "./news-tab";
@@ -10,6 +11,7 @@ import styles from "./home-drawer.module.css";
 const WIDE_BREAKPOINT = 1500;
 
 function HomeDrawer() {
+  const t = useTranslations("homeDrawer");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [news, setNews] = useState<NewsType[]>([]);
   const [nextTrainings, setNextTrainings] = useState<EventType[]>([]);
@@ -52,10 +54,10 @@ function HomeDrawer() {
 
   const tabs = useMemo(() => {
     return [
-      { label: "Prochaines formations" },
-      { label: "Actualités", showPulsar: showPulsar },
+      { label: t("upcomingTrainings") },
+      { label: t("news"), showPulsar: showPulsar },
     ];
-  }, [showPulsar]);
+  }, [showPulsar, t]);
 
   const updateLastNewsSeen = useCallback(
     (newsId: string) => {

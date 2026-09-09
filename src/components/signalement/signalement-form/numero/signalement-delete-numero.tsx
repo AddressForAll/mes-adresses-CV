@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useTranslations } from "next-intl";
 import { Numero, NumerosService } from "@/lib/openapi-api-bal";
 import { SignalementFormButtons } from "../signalement-form-buttons";
 import { SignalementNumeroDiffCard } from "../../signalement-diff/signalement-numero-diff-card";
@@ -23,6 +24,7 @@ function SignalementDeleteNumero({
   handleClose,
   isLoading,
 }: SignalementDeleteNumeroProps) {
+  const t = useTranslations("signalementForm");
   const { numero, suffixe, voie, parcelles, positions } = existingLocation;
   const { pushToast } = useContext(LayoutContext);
   useSignalementMapDiffDeletion(existingLocation);
@@ -34,7 +36,7 @@ function SignalementDeleteNumero({
     } catch (error) {
       console.error("Error accepting signalement:", error);
       pushToast({
-        title: "Erreur lors de l'acceptation du signalement.",
+        title: t("acceptError"),
         intent: "danger",
       });
     }
@@ -45,7 +47,7 @@ function SignalementDeleteNumero({
       <SignalementNumeroDiffCard
         isActive
         signalementType={Signalement.type.LOCATION_TO_DELETE}
-        title="Demande de suppression d'adresse"
+        title={t("deleteNumeroRequest")}
         numero={{
           to: `${numero}${suffixe ? ` ${suffixe}` : ""}`,
         }}

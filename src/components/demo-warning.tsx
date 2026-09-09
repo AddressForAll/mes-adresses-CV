@@ -9,6 +9,7 @@ import {
   TextInputField,
   WarningSignIcon,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import { BasesLocalesService } from "@/lib/openapi-api-bal";
 
@@ -24,6 +25,7 @@ interface DemoWarningProps {
 }
 
 function DemoWarning({ isReadonly }: DemoWarningProps) {
+  const t = useTranslations("demoWarning");
   const { isMobile } = useContext(LayoutContext);
 
   return (
@@ -43,10 +45,7 @@ function DemoWarning({ isReadonly }: DemoWarningProps) {
         marginX=".5em"
         style={{ verticalAlign: "sub" }}
       />
-      <Text fontSize={isMobile ? 10 : 14}>
-        Cette Base Adresse Locale de démonstration sera supprimée d’ici 24
-        heures sans modifications
-      </Text>
+      <Text fontSize={isMobile ? 10 : 14}>{t("banner")}</Text>
     </Pane>
   );
 }

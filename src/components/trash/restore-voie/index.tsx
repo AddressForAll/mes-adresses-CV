@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { Pane, Heading, Button, AddIcon, CrossIcon } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import ListNumerosDeleted from "@/components/trash/restore-voie/list-numeros-deleted";
 import LanguagePreview from "@/components/bal/language-preview";
@@ -12,18 +13,17 @@ interface RestoreVoieProps {
 }
 
 function RestoreVoie({ voie, onRestoreVoie, onClose }: RestoreVoieProps) {
+  const t = useTranslations("trashList");
   const [selectedNumerosIds, setSelectedNumerosIds] = useState([]);
 
   const restaurerText = () => {
-    return (
-      "Restaurer " +
-      (voie.deletedAt
-        ? "voie" +
-          (selectedNumerosIds.length > 0
-            ? " avec " + selectedNumerosIds.length + " numero(s)"
-            : "")
-        : selectedNumerosIds.length + " numéro(s)")
-    );
+    if (!voie.deletedAt) {
+      return t("restoreNumeros", { count: selectedNumerosIds.length });
+    }
+
+    return selectedNumerosIds.length > 0
+      ? t("restoreVoieWithNumeros", { count: selectedNumerosIds.length })
+      : t("restoreVoie");
   };
 
   const handleRestoreVoie = useCallback(async () => {

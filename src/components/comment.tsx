@@ -1,4 +1,5 @@
 import { Label, TextareaField } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import FormInput from "@/components/form-input";
 
@@ -17,13 +18,15 @@ function Comment({
   limit = 5000,
   isDisabled = false,
 }: CommentProps) {
+  const t = useTranslations("comment");
+
   return (
     <FormInput>
       <Label marginBottom={4} display="block">
-        Commentaire
+        {t("label")}
       </Label>
       <TextareaField
-        placeholder="Cette note est confidentielle et ne sera pas diffusée."
+        placeholder={t("placeholder")}
         value={input}
         disabled={isDisabled}
         onChange={input.length < limit ? onChange : () => {}}

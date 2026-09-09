@@ -1,6 +1,7 @@
 import LocalStorageContext from "@/contexts/local-storage";
 import { Numero } from "@/lib/openapi-api-bal";
 import { DownloadIcon, Menu, Tooltip } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useContext } from "react";
 import {
   DocumentGenerationData,
@@ -16,6 +17,7 @@ export function NumeroGeneratedDocuments<type extends GeneratedDocumentType>({
   setDocumentGenerationData,
   numero,
 }: NumeroGeneratedDocumentsProps<type>) {
+  const t = useTranslations("documentGeneration");
   const { certificatEmetteur } = useContext(LocalStorageContext);
 
   let generateCertificatAdressageItem = (
@@ -34,7 +36,7 @@ export function NumeroGeneratedDocuments<type extends GeneratedDocumentType>({
         } as Parameters<typeof setDocumentGenerationData>[0])
       }
     >
-      Certificat d&apos;adressage
+      {t("certificat")}
     </Menu.Item>
   );
 
@@ -50,26 +52,20 @@ export function NumeroGeneratedDocuments<type extends GeneratedDocumentType>({
         } as Parameters<typeof setDocumentGenerationData>[0])
       }
     >
-      Arrêté de numérotation
+      {t("arrete")}
     </Menu.Item>
   );
 
   if (!numero.certifie || numero.parcelles.length === 0) {
     generateCertificatAdressageItem = (
-      <Tooltip
-        content="Le certificat d'adressage ne peut être généré que pour un numéro certifié et lié à au moins une parcelle"
-        position="left"
-      >
+      <Tooltip content={t("certificatDisabled")} position="left">
         {generateCertificatAdressageItem}
       </Tooltip>
     );
   }
   if (!numero.certifie) {
     generateArreteDeNumerotationItem = (
-      <Tooltip
-        content="L'arrêté de numérotation ne peut être généré que pour un numéro certifié"
-        position="left"
-      >
+      <Tooltip content={t("arreteDisabled")} position="left">
         {generateArreteDeNumerotationItem}
       </Tooltip>
     );
@@ -78,7 +74,7 @@ export function NumeroGeneratedDocuments<type extends GeneratedDocumentType>({
   return (
     <>
       <Menu.Divider />
-      <Menu.Group title="Générer un modèle">
+      <Menu.Group title={t("generateTemplate")}>
         {generateCertificatAdressageItem}
         {generateArreteDeNumerotationItem}
       </Menu.Group>

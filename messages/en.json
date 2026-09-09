@@ -1,0 +1,1319 @@
+{
+  "accessibility": {
+    "action1": "Provide an accessible website.",
+    "action2": "Pay attention to the accessibility information of the data.",
+    "commitment": "<strong>The National Address Base</strong> is committed to making its websites, intranet, extranet and software (as well as its mobile applications and digital street furniture) accessible, in accordance with article 47 of <strong>French law no. 2005-102 of 11 February 2005</strong>. To that end, it is pursuing the following strategy and actions:",
+    "complianceContent": "<strong>mes-adresses.data.gouv</strong> is non-compliant with the <strong>French general accessibility improvement framework</strong> (RGAA), as an accessibility audit has not yet been carried out. The absence of an audit does not call into question <strong>how accessible</strong> the current website is.",
+    "complianceStatus": "Compliance status",
+    "contactUs": "Contact us",
+    "declarationDate": "This accessibility statement was drawn up on <strong>01/08/2022</strong> and applies to <strong>mes-adresses.data.gouv</strong>",
+    "infoAndContact": "Information and contact",
+    "infoAndContactContent": "If you cannot access a piece of content or a service, you can contact our team to be directed to an accessible alternative or to obtain the content in another form.",
+    "nonCompliant": "Non-compliant",
+    "remedies": "Means of redress",
+    "remediesContent": "If you notice an <strong>accessibility problem</strong> that prevents you from reaching content or a feature of the site, report it to us, and receive no reply, you are entitled to send your complaint or a referral request to the <strong>Défenseur des droits</strong>.<br></br>Several options are available to you:",
+    "remedyDelegate": "Contact <strong>the local representative of the Défenseur des droits</strong>",
+    "remedyDelegateSuffix": "in your region.",
+    "remedyPost": "Send a letter by post (free of charge, no stamp needed).",
+    "remedyWrite": "Write a message to the <strong>Défenseur des droits</strong>.",
+    "title": "Accessibility statement"
+  },
+  "addNumeros": {
+    "allSelected": "All house numbers are selected",
+    "chooseVoie": "- Select a street -",
+    "deselectAll": "Deselect all house numbers",
+    "linkNumeros": "Link house numbers",
+    "noneAvailable": "No house number is available for this street",
+    "or": "or",
+    "polygonEditHint": "Edit the polygon directly on the map to change which house numbers are selected.",
+    "polygonHint": "Click on the map to draw a polygon. When you are done, click the last point to close it. The house numbers inside the polygon will be selected",
+    "selectAll": "Select all house numbers",
+    "selectNumeros": "Select house numbers",
+    "selectedCount": "{count, plural, =0 {No house number is selected} one {1 house number is selected} other {# house numbers are selected}}",
+    "selectionTitle": "House number selection",
+    "voie": "Street",
+    "withPolygon": "By drawing an outline",
+    "withVoie": "By street"
+  },
+  "addressEditor": {
+    "createNew": "Create a new",
+    "numero": "House number",
+    "title": "New address",
+    "toponyme": "Place name"
+  },
+  "adminEmailsField": {
+    "addButton": "Add an administrator email",
+    "addTitle": "Add an email address",
+    "label": "Administrator email addresses *",
+    "placeholder": "Add an email address…"
+  },
+  "alertDefinitions": {
+    "abbreviation_invalid": "The street name appears to contain an invalid abbreviation",
+    "bad_multi_word_rue": "The street name appears to contain the word “rue” more than once",
+    "bad_word_lieudit": "The street name appears to contain an invalid locality word",
+    "caractere_invalide": "The street name appears to contain an invalid character",
+    "caractere_invalide_end": "The street name appears to end with an invalid character",
+    "caractere_invalide_start_or_end": "The street name appears to start or end with an invalid character",
+    "casse_incorrecte": "The street name appears to use incorrect capitalisation",
+    "doublon_voie_nom": "Several streets appear to have the same name",
+    "lake_of_accent": "The street name appears to be missing one or more accents",
+    "multi_space_caractere": "The street name appears to contain several consecutive spaces",
+    "no_words_in_parentheses": "The street name appears to contain a word in parentheses",
+    "parcelle_not_exist": "The parcel no longer exists in the municipality’s cadastre",
+    "suffixe_caractere_invalide": "The house number suffix appears to contain an invalid character",
+    "voie_empty": "The street has no house numbers — is it a street without addresses?"
+  },
+  "alertPublishedBal": {
+    "alreadyPublished": "A Local Address Base has already been published for {communeName}",
+    "existingUnpublished": "Unpublished Local Address Bases already exist for {communeName}",
+    "publishedIconAlt": "Published Local Address Base icon"
+  },
+  "alertsBatch": {
+    "allProcessed": "All suggestions have been handled",
+    "apply": "Apply",
+    "applyError": "The correction could not be applied",
+    "applySuccess": "The correction was applied",
+    "backToList": "Back to the list",
+    "convertError": "The street could not be converted into a place name",
+    "convertSuccess": "The street was converted into a place name",
+    "convertToToponyme": "Convert into a place name",
+    "finish": "Finish",
+    "mergeVoies": "Merge the streets",
+    "parcelleError": "The parcel could not be removed",
+    "parcelleSuccess": "The parcel was removed",
+    "removeParcelle": "Remove the parcel",
+    "skip": "Skip",
+    "suffixeError": "The suffix could not be corrected",
+    "suffixeInvalidInfo": "The suffix “{suffixe}” contains invalid characters.",
+    "suffixeLabel": "House number suffix",
+    "suffixeSuccess": "The suffix was corrected",
+    "suggestionDoublon": "Suggestion about streets sharing a name",
+    "suggestionParcelle": "Suggestion about a parcel missing from the cadastre",
+    "suggestionSuffixe": "Suggestion about the house number suffix",
+    "suggestionVoieEmpty": "Suggestion about a street without addresses",
+    "suggestionVoieName": "Suggestion about the street name",
+    "voieEmptyInfo": "This street contains no house numbers. You can convert it into a place name.",
+    "voieNameLabel": "Street name"
+  },
+  "alertsSettings": {
+    "numeroAlerts": "House number alerts",
+    "voieAlerts": "Street alerts"
+  },
+  "alreadyPublishedWarning": {
+    "goToPublished": "Go to the published Local Address Base",
+    "message": "A Local Address Base is already published for {communeName}",
+    "orContactSupport": "or contact support:"
+  },
+  "balData": {
+    "loading": "Loading the Local Address Base...",
+    "newChangesDetail": "They will be sent automatically to the National Address Base within a few hours.",
+    "newChangesDetected": "New changes have been detected"
+  },
+  "balInfosStep": {
+    "creatingContent": "Your Local Address Base is being created. This operation may take several minutes.",
+    "creatingTitle": "Creating the Local Address Base...",
+    "demoDescription": "This Local Address Base can never be published and will not be saved.",
+    "demoLabel": "Create a demo Local Address Base?",
+    "nom": "Local Address Base name"
+  },
+  "balRecovery": {
+    "alreadyPublishedTitle": "A Local Address Base is already published for this municipality",
+    "byCommuneTitle": "With your municipality’s official email address",
+    "byEmailIntro": "An email will be sent to the address you entered.",
+    "byEmailTitle": "With your email address",
+    "cannotFindBals": "Can’t find your Local Address Bases? To recover them by email",
+    "chooseCommune": "Enter the municipality whose Local Address Bases you want to recover.",
+    "clickHere": "Click here",
+    "communeRecoveryUnavailable": "Recovery by municipality is not available for {country}.",
+    "contactSupport": "If you still want to start from this Local Address Base, please contact support:",
+    "emailAlreadySent": "An email has already been sent, please wait.",
+    "emailHintMany": "It will contain the list of all Local Address Bases linked to that address. Just click the links to find them again in your workspace.",
+    "emailHintOne": "It will contain an administration link for your Local Address Base. Just click the link to find it again in your workspace.",
+    "emailPlaceholder": "address@email.com",
+    "emailSentTo": "An email was sent to {email}",
+    "emailSentToCommune": "An email was sent to the municipality",
+    "emailWillBeSentTo": "An email with the recovery link will be sent to your municipality’s address: <strong>{emails}</strong>",
+    "goToPublished": "Go to the published Local Address Base",
+    "loadingCommuneEmails": "Loading the municipality’s email addresses...",
+    "mairieLogoAlt": "town hall logo",
+    "mustStartFromPublished": "You must start from the published Local Address Base",
+    "receiveEmail": "Receive the email",
+    "recoverManyTitle": "Recover my Local Address Bases",
+    "recoverOneTitle": "Recover your Local Address Base"
+  },
+  "balStatus": {
+    "consultation": {
+      "content": "You are viewing this Local Address Base; no change will be propagated to the National Address Base.",
+      "label": "Read-only",
+      "title": "You are viewing this Local Address Base"
+    },
+    "demo": {
+      "content": "Demo Local Address Base: no address will be sent to the National Address Base",
+      "label": "Demo",
+      "title": "Demo Local Address Base"
+    },
+    "draft": {
+      "content": "This Local Address Base is being built",
+      "label": "Draft",
+      "title": "This Local Address Base is being built"
+    },
+    "noHabilitation": {
+      "content": "Changes will not be propagated to the National Address Base.",
+      "label": "No authorization",
+      "title": "This Local Address Base needs an authorization before it can feed the National Address Base"
+    },
+    "outdated": {
+      "content": "New changes have been detected; they will be propagated automatically to the National Address Base within the next few hours.",
+      "label": "Update scheduled",
+      "title": "This Local Address Base is about to feed the National Address Base"
+    },
+    "paused": {
+      "content": "Automatic updates for this Local Address Base are currently paused. You can resume synchronisation at any time.",
+      "label": "Paused",
+      "title": "Automatic updates for this Local Address Base are currently paused; it no longer feeds the National Address Base"
+    },
+    "replaced": {
+      "content": "Another Local Address Base is also synchronised with the National Address Base. Please contact the administrators of the other Local Address Base, or our support: adresse@data.gouv.fr",
+      "label": "Replaced",
+      "title": "This Local Address Base no longer feeds the National Address Base"
+    },
+    "synced": {
+      "content": "This Local Address Base is in sync with the National Address Base. Any change will be propagated automatically within the next few hours.",
+      "label": "Up to date",
+      "title": "This Local Address Base feeds the National Address Base"
+    }
+  },
+  "balStatusActions": {
+    "habiliteBal": "Authorize the Local Address Base",
+    "pauseError": "Unable to pause updates to the National Address Base",
+    "pauseSuccess": "Automatic updates to the National Address Base have been paused",
+    "resumeError": "Unable to resume automatic updates to the National Address Base",
+    "resumeSuccess": "Automatic updates to the National Address Base have resumed"
+  },
+  "balSummary": {
+    "editNomsAlt": "Edit the municipality’s alternative names in regional languages",
+    "numerosCount": "<b>{count}</b> {count, plural, one {number} other {numbers}}",
+    "toponymesCount": "<b>{count}</b> {count, plural, one {place name} other {place names}}",
+    "voiesCount": "<b>{count}</b> {count, plural, one {street} other {streets}}"
+  },
+  "banHistory": {
+    "by": "By",
+    "electedOfficial": "elected official of {communeName}",
+    "empty": "No Local Address Base found",
+    "loading": "Loading the history",
+    "notProvided": "Not provided",
+    "reduce": "Collapse",
+    "showAll": "Show the full history",
+    "title": "Update history"
+  },
+  "banSync": {
+    "automaticUpdate": "Automatic update",
+    "forceUpdate": "Force the update",
+    "pauseAutomaticUpdate": "Pause automatic updates",
+    "replaceConfirmation": "I understand that my Local Address Base will replace the one currently synchronised with the National Address Base",
+    "resumeAutomaticUpdate": "Resume automatic updates",
+    "syncing": "Synchronising",
+    "updateNow": "Update now"
+  },
+  "baseLocaleCard": {
+    "certifiedAddresses": "Certified addresses:",
+    "deleteBal": "Delete the Local Address Base",
+    "hideBal": "Hide the Local Address Base",
+    "lastUpdate": "Last updated {relative}",
+    "manageAddresses": "Manage addresses",
+    "neverUpdated": "Never updated",
+    "openBal": "Open the Local Address Base"
+  },
+  "basemaps": {
+    "ortho": "Aerial imagery",
+    "planIgn": "IGN map",
+    "satellite": "Satellite (Esri)",
+    "street": "Street map (CARTO)",
+    "vector": "OpenStreetMap map"
+  },
+  "basesLocalesList": {
+    "createBal": "Create a Local Address Base",
+    "deleteConfirm": "Are you sure you want to delete this Local Address Base? This action is permanent.",
+    "deleteError": "The Local Address Base could not be deleted",
+    "deleteSuccess": "The Local Address Base was deleted",
+    "filterPlaceholder": "Filter Local Address Bases by name",
+    "hideConfirm": "Are you sure you want to hide this Local Address Base? It will no longer appear on your home page, but you can still recover it later.",
+    "recoverBal": "Recover a Local Address Base",
+    "sortByDate": "Sort by last update",
+    "sortByName": "Sort alphabetically"
+  },
+  "certificationButton": {
+    "certifyAndSave": "Certify and save",
+    "uncertifyAndSave": "Stop certifying and save"
+  },
+  "certificationGoal": {
+    "allCertified": "All addresses are certified by the municipality",
+    "badgeTitle": "Publication",
+    "certified": "Certified addresses",
+    "explanation": "<link>Certification</link> lets you <strong>track how far address quality work has progressed</strong> and <strong>showcase your work</strong> to downstream users.",
+    "title": "Certification",
+    "uncertified": "Uncertified addresses"
+  },
+  "certificationInfos": {
+    "certified": "Certified addresses",
+    "explanation": "Addresses certified by the municipality are marked as reliable and ready to be used by downstream consumers.",
+    "title": "Certification",
+    "uncertified": "Uncertified addresses"
+  },
+  "comment": {
+    "label": "Comment",
+    "placeholder": "This note is confidential and will not be published."
+  },
+  "common": {
+    "add": "Add",
+    "back": "Back",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "continue": "Continue",
+    "delete": "Delete",
+    "edit": "Edit",
+    "error": "Error",
+    "inProgress": "In progress…",
+    "learnMore": "Learn more",
+    "loading": "Loading…",
+    "next": "Next",
+    "no": "No",
+    "noResults": "No results found",
+    "previous": "Previous",
+    "save": "Save",
+    "search": "Search",
+    "validate": "Confirm",
+    "warning": "Warning",
+    "yes": "Yes"
+  },
+  "communeNomsAltEditor": {
+    "error": "The municipality’s regional-language name could not be updated",
+    "label": "Municipality name in a regional language",
+    "success": "The municipality’s regional-language name was successfully updated"
+  },
+  "communePublicationInfos": {
+    "contactSupport": "If you run into a problem you can contact our support:",
+    "createDemoBal": "Create a demo Local Address Base",
+    "createNewBal": "Create a new Local Address Base",
+    "demoNotice": "This Local Address Base can never be published and will not be saved"
+  },
+  "communeSearch": {
+    "searchCommune": "Search for a municipality…"
+  },
+  "country": {
+    "title": "Choose a country"
+  },
+  "demoWarning": {
+    "banner": "This demo Local Address Base will be deleted within 24 hours if left unchanged"
+  },
+  "disabledFormInput": {
+    "notAvailable": "This feature is not available for this municipality."
+  },
+  "documentGeneration": {
+    "arrete": "Numbering order",
+    "arreteDialogTitle": "Download a numbering order template",
+    "arreteDisabled": "The numbering order can only be generated for a certified house number",
+    "certificat": "Addressing certificate",
+    "certificatDialogTitle": "Generate an addressing certificate",
+    "certificatDisabled": "The addressing certificate can only be generated for a certified house number linked to at least one parcel",
+    "destinataireDescription": "Enter the recipient’s name for a personalised certificate",
+    "destinataireLabel": "Recipient (optional)",
+    "destinatairePlaceholder": "Mr Rémi Dupont",
+    "download": "Download",
+    "emetteurDescription": "The issuer will be named in the addressing certificate",
+    "emetteurLabel": "Issuer (optional)",
+    "emetteurPlaceholder": "Sylvie Loiseau, Deputy Mayor",
+    "format": "Format",
+    "generate": "Generate",
+    "generateTemplate": "Generate a template",
+    "orTakePhoto": "Or click <camera></camera> to generate the location plan automatically",
+    "planDescription": "The location plan you provide will be inserted into the numbering order",
+    "planLabel": "Location plan (optional)",
+    "rememberEmetteur": "Remember the issuer",
+    "selectFile": "Select the file (PNG and JPEG format, 5 MB maximum)",
+    "takePhotoTitle": "Take a photo of the map"
+  },
+  "downloads": {
+    "balCsv": "Local Address Base (CSV format)",
+    "certificateHint": "To download an addressing certificate, go to the list of house numbers for a street and open the actions menu for the number concerned.",
+    "commentsWarning": "Warning: any personal information you entered in your comments will appear in the export of your Local Address Base.",
+    "filairesGeojson": "List of street centerlines (GeoJSON format)",
+    "title": "Downloads",
+    "voiesCsv": "List of streets (CSV format)",
+    "withComments": "With comments"
+  },
+  "draw": {
+    "drawPolygon": "Click on the map to mark the start of the polygon, then add points to draw it. When you are done, click the last point to close the polygon.",
+    "drawVoie": "Click on the map to mark the start of the street, then add points to draw it. When you are done, click the last point to mark the end of the street.",
+    "editPolygon": "You can edit the polygon by moving its points, or add new points by clicking on its outline.",
+    "editVoie": "You can edit the line by moving its points, or add new points by clicking on it.",
+    "measureDistance": "Click on the map to measure a distance. Double-click to finish."
+  },
+  "drawMetricVoieEditor": {
+    "clear": "Clear the centerline",
+    "hint": "Use the map to draw the street centerline",
+    "title": "Street centerline"
+  },
+  "drawer": {
+    "downloads": "Downloads",
+    "settings": "Settings",
+    "trash": "Bin"
+  },
+  "duration": {
+    "days": "{count, plural, one {# day} other {# days}}",
+    "hours": "{count, plural, one {# hour} other {# hours}}",
+    "minutes": "{count, plural, one {# minute} other {# minutes}}",
+    "seconds": "{count, plural, one {# second} other {# seconds}}"
+  },
+  "editor": {
+    "loadingBal": "Loading the Local Address Base"
+  },
+  "fondDeCarte": {
+    "addBasemap": "Add a basemap",
+    "addBasemapTitle": "Add a basemap",
+    "howToAddContent": "Only WMTS or WMS feed URLs are supported. The data must be raster and the tiles 256×256 pixels. See the example below.",
+    "howToAddTitle": "How do I add my own basemaps?",
+    "nameInvalid": "The name is invalid",
+    "nameLabel": "Basemap name",
+    "namePlaceholder": "My basemap",
+    "nameRequired": "The name is required",
+    "remove": "Remove the basemap",
+    "updateError": "The basemaps could not be updated",
+    "updateSuccess": "The basemaps were updated",
+    "urlInvalid": "The basemap URL is invalid",
+    "urlLabel": "Basemap URL"
+  },
+  "footer": {
+    "accessibility": "Accessibility: non-compliant",
+    "legalNotice": "Legal notice"
+  },
+  "fusionVoies": {
+    "mergeError": "The streets could not be merged",
+    "mergeSuccess": "The streets were merged"
+  },
+  "groupedActions": {
+    "choosePositionType": "-- Please choose a position type --",
+    "chooseToponyme": "- Choose a place name -",
+    "clearAllComments": "Clear all comments",
+    "commentsWillBeRemoved": "Some selected numbers have a comment. If you delete, their comments will be removed.",
+    "commentsWillBeReplaced": "Some selected numbers have a comment. If you edit, their comments will be replaced.",
+    "communeDeleguee": "Delegated municipality",
+    "deleteNumeros": "Delete numbers",
+    "dialogTitle": "Bulk edit",
+    "editNumeros": "Edit numbers",
+    "mixedToponymes": "The selected numbers do not share the same place name. Bulk editing the place name is not possible; they must be edited separately.",
+    "mixedVoies": "The selected numbers are not on the same street. Bulk editing the street is not possible; they must be edited separately.",
+    "multiPosition": "Some selected numbers have several positions. Bulk editing the position type is not possible; they must be edited separately.",
+    "noToponyme": "Do not link a place name",
+    "positionType": "Position type",
+    "selectedCount": "{count, plural, one {# number selected} other {# numbers selected}}",
+    "title": "Bulk actions",
+    "toponyme": "Place name",
+    "voie": "Street",
+    "warningTitle": "Warning"
+  },
+  "habilitation": {
+    "authRejected": {
+      "notAnElectedOfficial": "You were not identified as an elected official of {communeName}.",
+      "title": "Your authorization request was rejected",
+      "tooManyAttempts": "You have exceeded the maximum number of attempts allowed."
+    },
+    "codeEmail": {
+      "annuaireStep1": "Go to <link>lannuaire.service-public.fr</link>",
+      "annuaireStep2": "Open your municipality’s directory entry",
+      "annuaireStep3": "Click the “Request an update to this page” link at the bottom of the page",
+      "invalidEmailTitle": "Invalid email address",
+      "outdatedEmailTitle": "Is this email address wrong or out of date?",
+      "receiveCode": "Receive an authorization code",
+      "title": "Via the town hall’s official email address",
+      "updateEmail": "Update the email address"
+    },
+    "codeValidation": {
+      "allowlistSender": "Allow the address “mes-adresses-no-reply@adresse.data.gouv.fr” in your anti-spam settings (Mailinblack, for example)",
+      "checkSpam": "Check your spam folder",
+      "codeExpiresOnClose": "The code will no longer be valid if you close this window",
+      "enterCode": "Enter the code that was sent to: {email}",
+      "logoAlt": "town hall logo",
+      "noCodeReceived": "Didn’t receive your code?",
+      "resendCode": "Resend the code",
+      "title": "Town hall authentication"
+    },
+    "emailNotSent": "The email could not be sent",
+    "invalidCode": "The code is not valid",
+    "proConnect": {
+      "connectWith": "<strong>Sign in with</strong> the email address <emails></emails>listed by your town hall in the <link>public service directory</link>",
+      "questions": "For any question, <strong>contact our team:</strong> <link></link>",
+      "sameDomain": "Or an address on the same domain (for example: p.name@commune.fr).",
+      "signIn": "Sign in with ProConnect",
+      "tagline": "ProConnect, the FranceConnect equivalent for professionals",
+      "videoTitle": "ProConnect sign-in tutorial"
+    },
+    "publishBal": {
+      "checking": "Checking against the National Address Base...",
+      "conflictSchemaAlt": "Diagram of the conflict between the Local Address Base and the National Address Base",
+      "conflictTitle": "This municipality already has a published Local Address Base.",
+      "continueOnPublished": "Or would you rather continue on the already published Local Address Base?",
+      "forceExplanation": "By forcing publication, this Local Address Base <strong>will replace the one currently in place</strong>.",
+      "forcePublication": "Force publication",
+      "publishedIconAlt": "Published Local Address Base icon",
+      "publishing": "Publishing...",
+      "replaceQuestion": "Are you sure you want to replace it?"
+    },
+    "publishRejected": {
+      "recommendation": "We recommend <strong>getting in touch with the administrators of the other Local Address Base</strong>, or with our support: <link></link>",
+      "title": "Your Local Address Base could not be published"
+    },
+    "publishedBal": {
+      "badgeTitle": "Publication",
+      "benefit1": "All <strong>changes will be propagated automatically</strong> to the <link>National Address Base.</link>",
+      "benefit2": "Your municipality is now compliant with the <link>3DS Law</link>.",
+      "benefit3": "Emergency services, public bodies and individuals can now <strong>submit reports</strong> to help you improve your addresses.",
+      "benefit4": "You can now <strong>download numbering orders</strong> for streets and house numbers.",
+      "continue": "Continue addressing",
+      "nextGoal": "Next goal",
+      "nextGoalContent": "Improve your addresses through <link>certification</link>. It showcases your work and <strong>makes the data easier to reuse</strong>.",
+      "thanksToPublication": "Thanks to publication",
+      "title": "Your Local Address Base has been published"
+    },
+    "strategy": {
+      "title": "Authorize your <strong>Local Address Base</strong> so it can be published in the <strong>National Address Base</strong>."
+    }
+  },
+  "header": {
+    "addressingGuides": "Addressing guides",
+    "help": "Need help",
+    "logoAlt": "mes-adresses.data.gouv.fr home page",
+    "videoTutorials": "Video tutorials"
+  },
+  "help": {
+    "baseLocale": {
+      "administer": {
+        "intro": "Open your Local Address Base settings by clicking the <cog></cog> icon at the top right of your screen, then choose “Settings”.",
+        "item1": "Change the name of your Local Address Base",
+        "item2": "Add or remove collaborators",
+        "item3": "Download your addresses in .csv format",
+        "outro": "Once your settings are done, click <saveButton>Save changes</saveButton>",
+        "title": "Administer your Local Address Base",
+        "youCan": "You will be able to:"
+      },
+      "create": {
+        "intro": "On the <b>New Local Address Base</b> page, select the <tab>Create</tab> tab",
+        "step1": "Enter the name of your Local Address Base in the <em>Name</em> field. It will let you identify your Local Address Base.",
+        "step2": "Enter the email address of your town hall or of the Local Address Base administrator. This address will receive the link giving access to editing your Local Address Base.",
+        "step3": "Search for your municipality, then select it from the list of suggestions.",
+        "step4": "If you want to start from scratch, uncheck the <em>Import streets and numbers from the National Address Base</em> box.",
+        "step5": "Finally, click the <createButton>Create the Local Address Base</createButton> button",
+        "title": "Create a new Local Address Base"
+      },
+      "import": {
+        "intro": "On the <b>New Local Address Base</b> page, select the <tab>Import a CSV file</tab> tab",
+        "step1": "Select or drop your file in <b>csv</b> format. Note that this file must not exceed 10 MB.",
+        "step2": "Enter the name of your Local Address Base in the <em>Name</em> field. It will let you identify your Local Address Base.",
+        "step3": "Enter the email address of your town hall or of the Local Address Base administrator. This address will receive the link giving access to editing your Local Address Base.",
+        "step4": "Finally, click the <createButton>Create the Local Address Base</createButton> button",
+        "title": "Import a Local Address Base"
+      },
+      "problems": {
+        "cannotEdit": "I cannot edit my Local Address Base",
+        "communeNotFound": {
+          "content": "If your municipality is a new one resulting from a merger, it may not appear in the list of suggestions. If that is your case, you can contact us at <mail>adresse@data.gouv.fr</mail>",
+          "title": "I cannot find my municipality"
+        }
+      },
+      "videoTitle": "Creating a Local Address Base:"
+    },
+    "contactUs": "Contact us at",
+    "havingAProblem": "Having a problem?",
+    "noSolutionFound": "Didn’t find a solution to your problem?",
+    "numeros": {
+      "add": {
+        "dragMarker": "A <marker></marker> has appeared in the centre of the map; drag it to the desired spot with your mouse",
+        "finish": "Finally, click <certifyButton>Certify and save</certifyButton> if you are confident in this address, or <saveButton>Save</saveButton> to give yourself time to check before certifying.",
+        "fromMapStep": "Click the <addIconButton></addIconButton> button",
+        "fromSidebarStep": "Click the <addButton>Add a house number</addButton> button",
+        "number": "Enter the number in the <field>Number</field> field",
+        "positionType": "Select the position using the <field>Type</field> drop-down",
+        "selectVoie": "Search for the street the number belongs to and select it. Note that if a street is already selected, it will be offered by default. You can also create a new street directly by clicking <createVoieButton>Create a street</createVoieButton>. You will be redirected to that street automatically.",
+        "suffix": "Enter the suffix (for example: bis) in the <field>Suffix</field> field",
+        "title": "Add a house number"
+      },
+      "chooseDelete": "In the menu that appears, choose <deleteItem>Delete…</deleteItem>",
+      "chooseEdit": "In the menu that appears, choose <editItem>Edit</editItem>",
+      "comment": {
+        "icon": "You will notice a <commentIcon></commentIcon> on the house number’s row. Hovering over it reveals the comment.",
+        "step3": "Fill in the <field>Comment</field> text field to leave a note about the house number",
+        "step4": "To save your comment, click <certifyButton>Certify and save</certifyButton>, or <saveButton>Save</saveButton> if you do not want to certify this address yet.",
+        "title": "Add a note or a comment"
+      },
+      "delete": {
+        "rightClick": "Right-click the house number",
+        "title": "Delete a house number"
+      },
+      "edit": {
+        "clickNumber": "Click the house number",
+        "title": "Edit a house number",
+        "whatYouCanChange": "You can now change the number, the suffix, the address type, or its position by moving the <marker></marker> on the map — and certify your address."
+      },
+      "fromMap": "From the map",
+      "fromSidebar": "From the side menu",
+      "goodToKnow": {
+        "content": "To improve address quality, we recommend certifying all of your addresses. <b>A certified address is declared authentic by the town hall</b>, which strengthens the quality of the Local Address Base and makes it easier to reuse.",
+        "title": "Good to know"
+      },
+      "moreButtonStep": "Click the <moreButton></moreButton> button to the right of the house number",
+      "openList": "Display a street’s house numbers by selecting it in the side menu, or by clicking its name or one of its numbers directly on the map.",
+      "parcelles": {
+        "colorCode": "Parcel colour code:",
+        "linkable": "parcel that can be linked",
+        "linked": "linked parcel",
+        "step3": "On the map, click the parcel or parcels you want to link to the house number",
+        "step4": "To save the parcels, click <certifyButton>Certify and save</certifyButton>, or <saveButton>Save</saveButton> if you do not want to certify this address yet.",
+        "title": "Link parcels",
+        "unlinkable": "parcel that can be unlinked"
+      },
+      "problems": {
+        "cannotAddOrDelete": "I cannot add or delete a house number",
+        "voieNotFound": {
+          "content": "Before creating a house number from the map, make sure the street it belongs to has already been created.",
+          "title": "I cannot find a street when adding a house number from the map"
+        }
+      },
+      "uncertify": {
+        "step2": "At the bottom of the page, click the <dangerButton>Stop certifying and save</dangerButton> button",
+        "title": "Stop certifying an address"
+      },
+      "videoTitle": "Creating / editing a house number:"
+    },
+    "or": "or",
+    "publication": {
+      "conflict": {
+        "explanation": "Another Local Address Base may already be synchronised with the National Address Base. In that case, your Local Address Base will conflict with it.",
+        "force": "By clicking <dangerButton>Force publication</dangerButton> your Local Address Base will be published and will replace the one currently in place.",
+        "title": "In case of a conflict"
+      },
+      "problems": {
+        "cannotEdit": "I cannot edit my Local Address Base"
+      },
+      "publish": {
+        "step1": "Click the <publishButton>Publish</publishButton> button",
+        "step2": "Authenticate with the town hall’s official email address or with your ProConnect account",
+        "step3": "Once the authorization is granted, you will automatically be prompted to publish your Local Address Base by clicking <successButton>Publish</successButton>",
+        "title": "Publish your Local Address Base"
+      },
+      "syncStatuses": {
+        "noHabilitation": "The Local Address Base’s authorization is not valid. You need to renew it so that new changes reach the National Address Base.",
+        "outdated": "Changes have been detected; they will be propagated automatically to the National Address Base within the next few hours.",
+        "paused": "You have paused updates for your Local Address Base. No change will be sent to the National Address Base. You can resume updates at any time.",
+        "replaced": "Another Local Address Base has replaced yours, so your addresses cannot be updated automatically. You can force the update in order to replace the Local Address Base currently in place.",
+        "synced": "Your Local Address Base is in sync with the National Address Base. All of its addresses are taken into account.",
+        "title": "Synchronisation statuses"
+      },
+      "videoTitle": "Publishing your Local Address Base:"
+    },
+    "readGuides": "Read the addressing guides",
+    "sidebarTuto": {
+      "hidden": "This menu can be hidden to leave more room for the map.",
+      "showAgain": "To bring it back, click the <button></button> button at the top left of your screen.",
+      "title": "I cannot see the side menu"
+    },
+    "tabs": {
+      "baseLocale": "Local base",
+      "numeros": "Numbers",
+      "publication": "Publication",
+      "toponymes": "Place names",
+      "voies": "Streets"
+    },
+    "title": "Need help?",
+    "toponymes": {
+      "add": {
+        "step1": "Select the <tab>Place names list</tab> tab, then click <addButton>Add a place name</addButton>",
+        "step2": "Enter the place name in the <muted>Place name...</muted> field",
+        "step3": "A <marker></marker> has appeared on the map; you can move it to assign one or more positions to your place name.<br></br>You can specify the position type with the <typeSelect>Segment</typeSelect> drop-down. If you do not want to define a position for the place name, simply click <trash></trash>",
+        "title": "Add a place name"
+      },
+      "assign": {
+        "step1": "Click the <addButton>Add a house number</addButton> button",
+        "step2": "Select the street of the house number you want to assign",
+        "step3": "A drop-down will appear. You can select one or more numbers from the list. If no number is selected, every number in the list will be assigned to the place name.",
+        "step4": "Finally, click the <successButton>Save</successButton> button",
+        "title": "Assign a house number to a place name"
+      },
+      "delete": {
+        "step1": "Click the <moreButton></moreButton> button to the right of the place name",
+        "step2": "In the menu that appears, choose <deleteItem>Delete…</deleteItem>",
+        "step3": "Finally, confirm your choice by clicking <dangerButton>Delete</dangerButton>",
+        "title": "Delete a place name"
+      },
+      "edit": {
+        "step1": "Click the place name",
+        "step2": "Edit the place name",
+        "step3": "You can also change the place name’s position by moving the <marker></marker> on the map",
+        "step4": "You can add positions with the <addButton>Add a position to the place name</addButton> button, or remove them with the <trash></trash> button",
+        "step5": "Finally, click <successButton>Save</successButton>",
+        "title": "Edit a place name"
+      },
+      "openList": "Display the list of a municipality’s place names by clicking its name at the top left of your screen",
+      "parcelles": {
+        "colorCode": "Parcel colour code:",
+        "linkable": "parcel that can be linked",
+        "linked": "linked parcel",
+        "step1": "Click the <moreButton></moreButton> button to the right of the place name",
+        "step2": "In the menu that appears, choose <editItem>Edit</editItem>",
+        "step3": "On the map, click the parcel or parcels you want to link to the place name",
+        "step4": "To save the parcels, click the <successButton>Save</successButton> button",
+        "title": "Link parcels",
+        "unlinkable": "parcel that can be unlinked"
+      },
+      "problems": {
+        "cannotAddOrDelete": "I cannot add or delete a place name"
+      },
+      "videoTitle": "Creating / editing a place name:"
+    },
+    "unauthorized": {
+      "checkBadge": "Make sure that <badge>Editing unavailable</badge> does not appear at the top right of your screen.",
+      "fix": "If you are indeed its owner, simply click the link that was emailed to you when your Local Address Base was created.",
+      "meaning": "It means you are not signed in, or that you do not have the rights to edit this Local Address Base."
+    },
+    "video": {
+      "allTutorials": "Find all the video tutorials",
+      "iframeTitle": "Creating a Local Address Base"
+    },
+    "voies": {
+      "add": {
+        "step1": "Click the <addButton>Add a street</addButton> button",
+        "step2": "Enter the name of the street you want to create in the <em>Street name…</em> field",
+        "step3": "Finally, click the <successButton>Add</successButton> button",
+        "title": "Add a street"
+      },
+      "convert": {
+        "intro": "You can turn a street into a place name if it contains no house numbers.",
+        "step1": "Click the <moreButton></moreButton> button to the right of the street name",
+        "step2": "In the menu that appears, choose <convertButton>Convert into a street without addresses</convertButton>",
+        "step3": "Finally, confirm your choice by clicking <primaryButton>Confirm</primaryButton>",
+        "step4": "You will be redirected to editing the new place name",
+        "title": "Convert a street into a street without addresses"
+      },
+      "delete": {
+        "step1": "Click the <moreButton></moreButton> button to the right of the street name",
+        "step2": "In the menu that appears, choose <deleteItem>Delete…</deleteItem>",
+        "step3": "Finally, confirm your choice by clicking <dangerButton>Delete</dangerButton>",
+        "title": "Delete a street"
+      },
+      "openList": "Display the list of a municipality’s streets by clicking its name at the top left of your screen.",
+      "problems": {
+        "cannotAddOrDelete": "I cannot add or delete a street"
+      },
+      "rename": {
+        "step1": "Click the street name",
+        "step2": "Edit the street name",
+        "step3": "Finally, click <successButton>Save</successButton>",
+        "title": "Rename a street"
+      },
+      "videoTitle": "Creating / editing a street:",
+      "view": {
+        "fromMap": "From the map",
+        "fromMapStep": "Click the street name or one of its house numbers",
+        "fromSidebar": "From the side menu",
+        "step1": "Click the <moreButton></moreButton> button to the right of the street name",
+        "step2": "In the menu that appears, choose <viewItem>View</viewItem>",
+        "title": "View a street"
+      }
+    }
+  },
+  "homeDrawer": {
+    "news": "News",
+    "noNews": "No news",
+    "noTrainings": "No upcoming training sessions",
+    "upcomingTrainings": "Upcoming training sessions"
+  },
+  "ieWarning": {
+    "recommendation": "We recommend using a different browser",
+    "unsupported": "Your browser <b>Internet Explorer</b> is no longer supported by our service."
+  },
+  "importDataStep": {
+    "analysing": "Analysing",
+    "banOption": {
+      "description": "This method is recommended in most cases. It lets you start from the addresses already in the National Address Base and enrich them with your own data.",
+      "label": "Start from the data already in the National Address Base"
+    },
+    "cannotDropFile": "This file cannot be dropped.",
+    "chooseStartingPoint": "Choose your starting point",
+    "errorTitle": "An error occurred",
+    "fileHasErrorsTitle": "The file contains errors",
+    "fileOption": {
+      "description": "This method is recommended if you already have a CSV file in BAL format.",
+      "label": "Use a CSV file in BAL format"
+    },
+    "fileTooLarge": "This file is too large. You must drop a file smaller than 10 MB.",
+    "invalidCsv": "The CSV file is invalid.",
+    "invalidRows": "{count, plural, one {<strong>1 row contains at least one error</strong> and cannot be imported into your Local Address Base.} other {<strong># rows contain at least one error</strong> and cannot be imported into your Local Address Base.}}",
+    "multipleCommunes": "The file must contain only one municipality. Please check your file.",
+    "noCommuneFound": "No municipality could be found.",
+    "notCsv": "This file type is not supported. You must drop a CSV file.",
+    "onlyValidRows": "If you continue, only the valid addresses will be used to create your Local Address Base.",
+    "parseError": "An error occurred while analysing the file.",
+    "singleFileOnly": "You can only drop a single file.",
+    "uploaderPlaceholder": "Select or drag your BAL file in CSV format here (10 MB maximum)",
+    "wrongCommune": "The file does not match the municipality selected in the previous step."
+  },
+  "langGoal": {
+    "badgeTitle": "Regional language logo",
+    "counter": "{count, plural, one {multilingual street, square or locality} other {multilingual streets, squares or localities}}",
+    "editCommuneName": "Edit the municipality name",
+    "editTitle": "Edit the municipality’s regional language",
+    "emptyContent": "For multilingual addressing, start by entering the municipality’s name in a regional language",
+    "ignoreGoal": "Dismiss goal",
+    "title": "Regional language"
+  },
+  "language": {
+    "title": "Choose a language"
+  },
+  "languagePreview": {
+    "regionalAlternatives": "Regional alternatives",
+    "undetectedLanguage": "The regional language name could not be detected",
+    "unsupportedLanguage": "Unsupported regional language name",
+    "voieNameIn": "Street name in {language}"
+  },
+  "languesRegionales": {
+    "addLanguage": "Add a regional language",
+    "chooseLanguage": "Choose a regional language",
+    "namePlaceholder": "Name in {language}",
+    "regionalLanguage": "regional language",
+    "removeLanguage": "Remove the regional language",
+    "selectLanguage": "Select a regional language"
+  },
+  "legalNotice": {
+    "accessibility": "Accessibility",
+    "accessibilityContent": "Full compliance with digital accessibility standards is a later goal, but we strive to make this platform accessible to everyone.",
+    "hosting": "Platform hosting",
+    "hostingContent": "The platform is hosted by:",
+    "learnMore": "Learn more",
+    "learnMoreContent": "To learn more about the French government’s digital accessibility policy:",
+    "noResponseContent": "If you do not receive a prompt reply from us, you are entitled to send your complaint or a referral request to the Défenseur des Droits.",
+    "phone": "Phone: {number}",
+    "publicationDirector": "Publication director",
+    "publicationDirectorContent": "The publication director is Mr Stanislas BOURRON, Director General of the ANCT.",
+    "publisher": "Platform publisher",
+    "publisherContent": "Bases Adresses Locales is published by the Incubateur des Territoires of the Agence nationale de la cohésion des territoires (ANCT), located at:",
+    "reportIssue": "Report a problem",
+    "reportIssueContent": "If you encounter an accessibility problem that prevents you from reaching content or a feature of the platform, please let us know:",
+    "security": "Security",
+    "securityContent1": "The platform is protected by an electronic certificate, shown in most browsers as a padlock. This protection helps keep exchanges confidential.",
+    "securityContent2": "Under no circumstances will the services associated with the platform send you emails asking you to enter personal information.",
+    "title": "Local Address Bases – Legal notice"
+  },
+  "mainTabs": {
+    "communeTabIllustration": "Illustration of the municipality tab"
+  },
+  "mapControls": {
+    "cadastreUnavailable": "The cadastre is not available for this municipality",
+    "cancelAddressCreation": "Cancel address creation",
+    "chooseBasemap": "Choose a basemap",
+    "closePanoramax": "Close Panoramax",
+    "closeRuler": "Close the measuring tool",
+    "contributeToPanoramax": "Contribute to Panoramax",
+    "createAddress": "Create an address",
+    "geolocate": "Locate me",
+    "geolocationError": "We cannot locate you. Check your browser settings.",
+    "hideCadastre": "Hide the cadastre",
+    "measureDistance": "Measure a distance",
+    "noBasemap": "No basemap",
+    "noPanoramaxImagery": "No imagery is available for this area.",
+    "noParcelleFound": "No parcel matches your search",
+    "numeros": "House numbers",
+    "pointsOfInterest": "Points of interest",
+    "rulerIconAlt": "Ruler icon",
+    "searchParcelle": "Search for a parcel",
+    "showCadastre": "Show the cadastre",
+    "takePhoto": "Take a photo of the map",
+    "takePhotoShort": "Take a photo",
+    "toponymes": "Place names",
+    "voies": "Streets"
+  },
+  "mapPopup": {
+    "addressCertified": "This address is certified",
+    "allCertified": "All house numbers certified",
+    "certified": "Certified",
+    "noNumero": "No house number",
+    "parcelles": "Parcel(s)",
+    "uncertified": "Not certified"
+  },
+  "massDeletionDialog": {
+    "contactUs": "If you are having difficulty using our tool and would like support, <strong>you can contact us at <mail>adresse@data.gouv.fr</mail></strong>",
+    "deletedHalf": "You have <strong>deleted at least 50% of the addresses</strong> currently known in the National Address Base.",
+    "title": "⚠️ A very large number of addresses has been deleted",
+    "videoTutorials": "<link>Video tutorials</link> are also available to guide you through your addressing work.",
+    "wholeCommune": "Please remember that your addresses must be published for <strong>the entire municipality</strong>."
+  },
+  "metadata": {
+    "description": "Mes Adresses is an online tool that lets you manage your addresses simply, from creating a Local Address Base through to keeping it up to date.",
+    "title": "mes-adresses.data.gouv.fr"
+  },
+  "nav": {
+    "home": "Home"
+  },
+  "newBal": {
+    "createBal": "Create a Local Address Base",
+    "createDemoBal": "Create a demo Local Address Base",
+    "createError": "An error occurred while creating the Local Address Base",
+    "importError": "An error occurred while importing the data into the Local Address Base",
+    "steps": {
+      "commune": "Choose the municipality",
+      "import": "Data import",
+      "infos": "Local Address Base details"
+    },
+    "suggestedName": "Addresses of {communeName}"
+  },
+  "notFound": {
+    "backHome": "Back to the home page",
+    "title": "Error 404 - Page not found"
+  },
+  "numeroEditor": {
+    "chooseToponyme": "- Choose a place name -",
+    "communeDeleguee": "Delegated municipality",
+    "createError": "The house number could not be added",
+    "createSuccess": "The house number was successfully added",
+    "hintMultipleMarkers": "Move the markers on the map to change the positions",
+    "hintSingleMarker": "Move the marker on the map to position the house number",
+    "noToponyme": "No place name",
+    "numero": "Number",
+    "numeroPlaceholderSuggested": "Suggested number: {suggestedNumero}",
+    "parcelles": "Parcels",
+    "reservedNumero": "Number 99999 is reserved for place names and complements",
+    "suffixe": "Suffix",
+    "toponyme": "Place name",
+    "updateError": "The house number could not be updated",
+    "updateSuccess": "The house number was successfully updated"
+  },
+  "numeroVoieSelector": {
+    "chooseVoie": "Choose a street",
+    "createVoie": "Create a street",
+    "newVoie": "New street",
+    "or": "OR",
+    "searchVoie": "Search for a street",
+    "voie": "Street*",
+    "voieNamePlaceholder": "Street name"
+  },
+  "numerosList": {
+    "addNumero": "Add a house number",
+    "archiveError": "The house number could not be archived",
+    "archiveManyError": "The house numbers could not be archived",
+    "archiveManySuccess": "The house numbers were archived",
+    "archiveSuccess": "The house number was archived",
+    "arreteError": "The numbering order could not be downloaded",
+    "arreteSuccess": "The numbering order was downloaded",
+    "certificatError": "The addressing certificate could not be downloaded",
+    "certificatSuccess": "The addressing certificate was downloaded",
+    "certified": "This address is certified by the municipality",
+    "deleteSelectedConfirm": "Are you sure you want to delete all the selected house numbers?",
+    "empty": "No house number",
+    "positionsCount": "{count, plural, one {# position} other {# positions}}",
+    "recoverAccess": "Recover admin access to the Local Address Base",
+    "search": "Search for a house number",
+    "title": "House number list",
+    "updateManyError": "The house numbers could not be updated",
+    "updateManySuccess": "The house numbers were updated"
+  },
+  "panelGoal": {
+    "secondaryGoals": "Secondary goals"
+  },
+  "populate": {
+    "populate": "Fetch addresses from the National Address Base",
+    "populating": "Fetching addresses…"
+  },
+  "positionEditor": {
+    "addToNumero": "Add a position to the house number",
+    "addToToponyme": "Add a position to the place name",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "noPosition": "This place name has no position",
+    "positions": "Positions *",
+    "type": "Type"
+  },
+  "positionTypes": {
+    "batiment": "Building",
+    "cageEscalier": "Stairwell",
+    "delivrancePostale": "Postal delivery",
+    "entree": "Entrance",
+    "logement": "Dwelling",
+    "parcelle": "Parcel",
+    "segment": "Segment",
+    "serviceTechnique": "Utility service"
+  },
+  "publicationGoal": {
+    "badgeTitle": "Publication",
+    "contactSupport": "If you still want to start from this Local Address Base, please contact support:",
+    "draftContent": "To be synchronised with the National Address Base, this Local Address Base must be published by {communeName}.<br></br>Note that once published, <strong>all changes are propagated automatically</strong> to the National Address Base.",
+    "goToPublished": "Go to the published Local Address Base",
+    "habilitationExpired": "Your authorization is no longer valid, please renew it",
+    "habiliteBal": "Authorize the Local Address Base",
+    "mustStartFromPublished": "You must start from the published Local Address Base",
+    "publish": "Publish",
+    "publishedContent": "All changes are propagated automatically to the National Address Base",
+    "replacedContact": "Please contact the administrators of the other Local Address Base, or our support: adresse@data.gouv.fr",
+    "replacedContent": "This Local Address Base has been replaced: another Local Address Base is synchronised with the National Address Base.",
+    "title": "Publication"
+  },
+  "publishProcess": {
+    "createHabilitationError": "Unable to start an authorization process",
+    "fetchBanError": "Unable to fetch data from the National Address Base"
+  },
+  "publishedBal": {
+    "alreadyPublishedBadge": "Local Address Base already published",
+    "alreadyPublishedFor": "A Local Address Base is already published for {communeName}.",
+    "communeCanTakeOver": "As the municipality is the competent authority for addressing, you can take over directly by continuing to the next step.",
+    "communeStaysCompetent": "The municipality remains the competent authority for addressing, and you can decide at any time to take back control of publishing your Local Address Base.",
+    "contactChefDeFile": "We recommend getting in touch with <strong>{email}</strong> before creating your Local Address Base.",
+    "contactOrganization": "We recommend getting in touch with this organisation:",
+    "continueFromPublished": "If you are its administrator, we recommend continuing your addressing work from it.",
+    "dataGouvPage": "data.gouv page for {organization}",
+    "existingDrafts": "There {count, plural, one {is already <b># unpublished Local Address Base</b>} other {are already <b># unpublished Local Address Bases</b>}} for {communeName}. If one is a draft from your town hall, you may want to recover it.",
+    "goToPublished": "Open the published Local Address Base",
+    "outdatedClient": "The published Local Address Base is out of date and no longer maintained, so you can go ahead and create yours.",
+    "outdatedSource": "The published Local Address Base is out of date. You can continue to the next step to replace it with yours.",
+    "publishedBy": "A Local Address Base has already been published by <strong>{publisher}</strong> for {communeName}.",
+    "publishedByOrganization": "A Local Address Base is already published by {organization} for {communeName}.",
+    "recoverWithEmail": "Recover a Local Address Base by email"
+  },
+  "purgeSignalements": {
+    "explanation": "If you have made changes to your Local Address Base, such as deleting or renaming streets, some reports may have become obsolete.",
+    "outcome": "Refreshing removes the obsolete reports from the list.",
+    "pleaseWait": "This operation may take some time, please wait.",
+    "purgeError": "An error occurred while refreshing the reports. Please try again later.",
+    "purged": "{count, plural, one {# expired report was removed from the list.} other {# expired reports were removed from the list.}}",
+    "refresh": "Refresh the reports",
+    "successTitle": "Success",
+    "title": "Refreshing reports"
+  },
+  "qualityGoal": {
+    "badgeTitle": "Publication",
+    "explanation": "To help you improve address quality, take advantage of one-click improvement suggestions.<br></br><br></br>These suggestions come from the <link>Best Practices Guide</link> and can be configured from the <menuButton>Menu</menuButton>",
+    "seeAlertsTitle": "See the alerts",
+    "seeSuggestions": "See the suggestions",
+    "suggestionsLabel": "{count, plural, one {Suggestion offered} other {Suggestions offered}}",
+    "title": "Quality improvement"
+  },
+  "readOnlyInfos": {
+    "cannotEdit": "You cannot edit this Local Address Base because you are not signed in as an administrator.",
+    "recoverAccess": "Recover my access",
+    "recoverHint": "If you are an administrator of this Local Address Base, you can recover your access by clicking the button below.",
+    "title": "You are in read-only mode"
+  },
+  "readOnlyWarning": {
+    "message": "You are in read-only mode: you cannot edit this Local Address Base",
+    "recoverAccess": "Recover my access"
+  },
+  "rejectionReasons": {
+    "alreadyHandled": "Report already handled",
+    "duplicate": "Duplicate report",
+    "misplaced": "Report incorrectly positioned",
+    "nonCompliant": "Report does not comply",
+    "notRelevant": "Report not relevant",
+    "other": "Other"
+  },
+  "renewTokenDialog": {
+    "error": "Unable to renew the authorizations",
+    "irreversibleContent": "You will not be able to edit the Local Address Base until you retrieve the new authorization sent to you by email.",
+    "irreversibleTitle": "Irreversible action",
+    "question": "You have removed one or more collaborators. Would you like to renew the authorizations?",
+    "success": "The authorizations were successfully renewed",
+    "title": "Renew authorizations"
+  },
+  "searchCommuneStep": {
+    "label": "Search for a municipality",
+    "noSearchContent": "Local Address Bases for this country are created with the Overture Maps importer on the command line — there is no municipality search for this guided flow yet.",
+    "noSearchTitle": "No municipality search for {country}"
+  },
+  "selectParcelles": {
+    "emptyNumero": "On the map, click the parcels you want to add to the house number.",
+    "emptyToponyme": "On the map, click the parcels you want to add to the place name.",
+    "helpNumero": "On the map, click the parcels you want to add to the house number. Specifying the parcels linked to this address speeds up its reuse by many services: tax authorities, postal, fibre and GPS operators.",
+    "helpToponyme": "On the map, click the parcels you want to add to the place name. Specifying the parcels linked to this address speeds up its reuse by many services: tax authorities, postal, fibre and GPS operators.",
+    "hideCadastre": "Hide the cadastre",
+    "invalidParcelles": "{count, plural, one {One parcel does not exist in the cadastre} other {Several parcels do not exist in the cadastre}}",
+    "showCadastre": "Show the cadastre",
+    "title": "Cadastral parcels"
+  },
+  "settings": {
+    "addBasemap": "Add a basemap",
+    "basemaps": "Basemaps",
+    "copied": "Copied",
+    "copyUrl": "Copy the URL",
+    "qualityAlerts": "Quality alerts",
+    "saveChanges": "Save changes",
+    "saveSuccess": "The settings were saved successfully",
+    "shareAccess": "Share access",
+    "shareAccessContent": "Mes Adresses works on mobile too. Scan the QR code to open your Local Address Base.",
+    "shareAccessTitle": "Share access with other devices",
+    "title": "Settings"
+  },
+  "sidebar": {
+    "closeForm": "Close the form",
+    "hideSidebar": "Hide the sidebar",
+    "openSidebar": "Open the sidebar"
+  },
+  "signalement": {
+    "noChange": "No change",
+    "positionAdded": "Position added",
+    "positionDeleted": "Position removed",
+    "positionTypeChanged": "Type changed",
+    "positions": "{count, plural, one {Position} other {Positions}}",
+    "proposedChange": "Proposed change"
+  },
+  "signalementDiff": {
+    "complement": "Complement",
+    "numero": "Number",
+    "voie": "Street"
+  },
+  "signalementForm": {
+    "accept": "Accept",
+    "acceptError": "Error while accepting the report.",
+    "addAddressToThisVoie": "Add the address to this street",
+    "addressAfterChange": "Address after the change",
+    "addressConcerned": "Address concerned",
+    "authorWillBeEmailed": "(The report’s author will receive this information by email)",
+    "createNewAddress": "Create a new address",
+    "createNumeroRequest": "Address creation request",
+    "createToponymeRequest": "Place name creation request",
+    "createdAddress": "Address created: <b>{label}</b>",
+    "currentAddress": "Current address",
+    "currentToponyme": "Current place name",
+    "currentVoieName": "Current street name",
+    "deleteNumeroRequest": "Address deletion request",
+    "deleteToponymeRequest": "Place name deletion request",
+    "deleteVoieRequest": "Street deletion request",
+    "deleteVoieWarning": "By accepting this report, the street <b>{voieName}</b> will be moved to the bin",
+    "deleteVoieWithNumeros": "along with the <b>{count, plural, one {# address} other {# addresses}}</b> attached to it",
+    "newVoieWillBeCreated": "The new street <b>{voieName}</b> will be created by accepting this report.",
+    "numeroAlreadyExists": "The street <b>{voieName}</b> already has an address at number <b>{numero}</b>.",
+    "possibleDuplicate": "Accepting this report could create a duplicate",
+    "proposedChange": "Proposed change",
+    "reason": "Reason",
+    "reasonPlaceholder": "Specify the reason for rejection; please do not include personal data",
+    "reject": "Reject",
+    "rejectAnd": "{count, plural, one {Reject and finish} other {Reject and go to the next}}",
+    "remaining": "{count, plural, one {# report left to handle} other {# reports left to handle}}",
+    "similarToponymes": "{count, plural, one {The Local Address Base contains a place name that is similar:} other {The Local Address Base contains several place names that are similar:}}",
+    "similarVoies": "{count, plural, one {The Local Address Base contains a street with a similar name:} other {The Local Address Base contains several streets with similar names:}}",
+    "toponymeAfterChange": "Place name after the change",
+    "toponymeConcerned": "Place name concerned",
+    "voieNameAfterChange": "Street name after the change",
+    "voieNameBefore": "Street name before the change",
+    "whatDoYouWantToDo": "What would you like to do?"
+  },
+  "signalementHeader": {
+    "acceptedOn": "You accepted this proposal on <b>{date}</b>",
+    "by": "by",
+    "comment": "Comment:",
+    "generalPublicIconAlt": "General public source icon",
+    "publicServiceIconAlt": "Public service source icon",
+    "publicSource": "This report comes from a member of the public",
+    "reason": "Reason:",
+    "rejectedOn": "You rejected this proposal on <b>{date}</b>",
+    "submittedAgo": "Submitted <b>{duration}</b> ago",
+    "submittedOn": "Submitted on <b>{date}</b>",
+    "trustedSource": "This report comes from a trusted party",
+    "via": "via"
+  },
+  "signalementList": {
+    "empty": "You have no proposals at the moment",
+    "filters": "Filters",
+    "refresh": "Refresh the reports",
+    "search": "Search for a report"
+  },
+  "signalementListItem": {
+    "acceptedOn": "Accepted on {date}",
+    "rejectedOn": "Rejected on {date}",
+    "trustedActor": "Trusted party"
+  },
+  "signalementTour": {
+    "archivedTab": "This one shows the reports that have already been handled",
+    "filterByType": "...or by type (Creation, Update and Deletion) by clicking this button",
+    "goToTab": "To view them, go to the reports tab.",
+    "pendingTab": "This tab shows the reports still waiting to be handled",
+    "searchByName": "You can filter reports by name using this search bar...",
+    "selectFromList": "Finally, select a report either from the list...",
+    "selectFromMap": "...or from the map",
+    "welcomeContent": "Residents or public services have proposed improvements to your municipality’s addresses through the reporting system.",
+    "welcomeTitle": "Your Local Address Base has received improvement proposals"
+  },
+  "signalementTypes": {
+    "create": "Creation",
+    "delete": "Deletion",
+    "missingAddress": "Missing address",
+    "update": "Update"
+  },
+  "signalementsPage": {
+    "acceptedToast": "The report was taken into account",
+    "backToList": "Back to the reports list",
+    "breadcrumb": "Reports",
+    "bulkActions": "Bulk actions",
+    "confirmBulkAction": "Confirm the bulk action",
+    "confirmIgnoreQuestion": "Are you sure you want to ignore these reports?",
+    "errorToast": "An error occurred",
+    "ignoreSignalements": "Ignore the reports",
+    "ignoredManyToast": "{count, plural, one {The report was ignored} other {The reports were ignored}}",
+    "ignoredToast": "The report was ignored",
+    "improvementRequests": "Improvement requests",
+    "locationNotFound": "The report’s location could not be found.",
+    "markedExpired": "It has been marked as expired and will no longer appear in the reports list.",
+    "tabArchived": "{count, plural, one {Archived} other {Archived}}",
+    "tabPending": "Pending"
+  },
+  "stepper": {
+    "lastStep": "Last step",
+    "nextStep": "Next step:"
+  },
+  "toponymeEditor": {
+    "communeDeleguee": "Delegated municipality",
+    "createError": "The place name could not be added",
+    "createSuccess": "The place name was successfully added",
+    "hintMultipleMarkers": "Move the markers on the map to change the positions",
+    "hintSingleMarker": "Move the marker on the map to position the place name",
+    "nom": "Place name",
+    "parcelles": "Parcels",
+    "updateError": "The place name could not be updated",
+    "updateSuccess": "The place name was successfully updated"
+  },
+  "toponymeGoal": {
+    "addToponyme": "Create an additional locality or a street without addresses",
+    "addToponymeTitle": "Add a place name",
+    "badgeTitle": "Publication",
+    "emptyContent": "Enrich your municipality’s addressing by recording its additional localities and streets without addresses.",
+    "explanation": "Preserve your historical hamlet and locality names. Link them to house numbers as an address complement.",
+    "ignoreGoal": "Dismiss goal",
+    "numerosCounter": "{count, plural, one {linked house number} other {linked house numbers}}",
+    "title": "Localities / Complements",
+    "toponymesCounter": "{count, plural, one {locality / complement} other {localities / complements}}"
+  },
+  "toponymePage": {
+    "editToponyme": "Edit the place name",
+    "linkNumeros": "Link house numbers",
+    "numerosList": "House number list",
+    "searchNumero": "Search for a house number",
+    "updateManySuccess": "The house numbers were updated"
+  },
+  "toponymesPage": {
+    "addToponyme": "Add a place name",
+    "addressesCertified": "The addresses are certified",
+    "archiveError": "The place name could not be archived",
+    "archiveSuccess": "The place name was archived",
+    "breadcrumb": "Place names",
+    "deleteConfirm": "Are you sure you want to delete this place name?",
+    "linkNumeros": "Link house numbers",
+    "newToponyme": "New place name",
+    "noNumero": "No house number",
+    "noPosition": "This place name has no position",
+    "noResults": "No results",
+    "searchPlaceholder": "Search for a place name",
+    "subtitle": "Additional localities and streets without addresses"
+  },
+  "trainingTypes": {
+    "advanced": "Advanced training",
+    "initial": "Introductory training",
+    "signalement": "Reports training"
+  },
+  "trash": {
+    "numerosDeleteError": "The house numbers could not be deleted",
+    "numerosDeleted": "The house numbers were deleted",
+    "toponymeDeleteError": "The place name could not be deleted",
+    "toponymeDeleted": "The place name was deleted",
+    "toponymeRestoreError": "The place name could not be restored",
+    "toponymeRestored": "The place name was restored",
+    "voieDeleteError": "The street could not be deleted",
+    "voieDeleted": "The street was deleted",
+    "voieRestoreError": "The street could not be restored",
+    "voieRestored": "The street was restored"
+  },
+  "trashList": {
+    "deletedNumeros": "{count, plural, one {# deleted house number} other {# deleted house numbers}}",
+    "deletedNumerosList": "Deleted house numbers",
+    "noNumero": "No house number",
+    "noResults": "No results",
+    "restoreNumeros": "{count, plural, one {Restore # house number} other {Restore # house numbers}}",
+    "restoreToponyme": "Restore place name",
+    "restoreVoie": "Restore street",
+    "restoreVoieWithNumeros": "{count, plural, one {Restore street with # house number} other {Restore street with # house numbers}}",
+    "searchNumero": "Search for a house number",
+    "searchToponyme": "Search for a place name",
+    "searchVoie": "Search for a street",
+    "seeNumeros": "See house number(s)",
+    "voie": "street",
+    "voieAndDeletedNumeros": "street and {count, plural, one {# deleted house number} other {# deleted house numbers}}"
+  },
+  "voieEditor": {
+    "createError": "The street could not be added",
+    "createSuccess": "The street was successfully added",
+    "metrique": "Metric",
+    "nom": "Street name",
+    "numerique": "Sequential",
+    "typeNumerotation": "Numbering type *",
+    "updateError": "The street could not be updated",
+    "updateSuccess": "The street was successfully updated"
+  },
+  "voiePage": {
+    "editVoie": "Edit the street",
+    "numerosList": "House number list"
+  },
+  "voiesPage": {
+    "addVoie": "Add a street",
+    "addressesCertified": "The addresses are certified",
+    "archiveError": "The street could not be archived",
+    "archiveSuccess": "The street was archived",
+    "arreteError": "The numbering order could not be downloaded",
+    "arreteSuccess": "The numbering order was downloaded",
+    "breadcrumb": "Streets",
+    "certifyConfirmLabel": "Certify the street’s house numbers",
+    "certifyQuestion": "Are you sure you want to certify every address on this street?",
+    "deleteConfirm": "Are you sure you want to delete this street and all of its house numbers?",
+    "filterLabel": "Filter",
+    "filterTitle": "street filters",
+    "filters": {
+      "all": "All",
+      "withSuggestions": "With suggestions",
+      "withoutCertification": "Without certification"
+    },
+    "handleSuggestions": "{count, plural, one {Handle the suggestion} other {Handle the # suggestions}}",
+    "newVoie": "New street",
+    "noResults": "No results",
+    "searchPlaceholder": "Search for a street, square or locality...",
+    "subtitle": "Numbered streets, squares and localities"
+  },
+  "warnings": {
+    "convertConfirm": "Convert into a street without addresses",
+    "convertConfirmQuestion": "Are you sure you want to convert this street into a street without addresses?",
+    "convertError": "The street could not be converted into a place name",
+    "convertSuccess": "The street was converted into a place name",
+    "convertTitle": "Convert the street into a street without addresses",
+    "doublonText": "Several streets share the same name",
+    "editNumero": "Edit the house number",
+    "editVoie": "Edit the street",
+    "mergeConfirm": "Merge the streets",
+    "mergeConfirmQuestion": "Are you sure you want to merge the {count} streets named {voieName}?",
+    "mergeTitle": "Merge the streets sharing a name",
+    "parcelleMissing": "The parcel does not exist in the cadastre",
+    "parcellesMissing": "Several parcels do not exist in the cadastre",
+    "suffixeIncorrect": "The house number suffix is incorrect",
+    "voieEmptyText": "This street contains no house numbers",
+    "voieNameSuggestion": "Suggestion about the street name",
+    "voieNumerosSuggestion": "Suggestion about the street’s house numbers"
+  },
+  "welcomeIllustration": {
+    "subtitle": "Start managing your addresses by creating a Local Address Base.",
+    "title": "Welcome to mes-adresses!"
+  },
+  "welcomeMessage": {
+    "guides": "Read the guides",
+    "needHelp": "Need help?",
+    "officialSource": "The Local Address Base will then become the single official source of addresses for {communeName}",
+    "ownPaceContent": "Once published, addresses are synchronised with the National Address Base.<br></br>All your changes are propagated as you go.",
+    "ownPaceTitle": "Work at your own pace.",
+    "publicationBadge": "Publication",
+    "start": "Start addressing",
+    "startWithPublication": "Start with <b>publication</b>!",
+    "title": "Welcome to the new Local Address Base of {communeName}",
+    "training": "Take a training course",
+    "tutorials": "Watch the tutorials"
+  }
+}

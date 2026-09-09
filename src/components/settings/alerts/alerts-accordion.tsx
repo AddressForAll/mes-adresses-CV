@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Pane, Checkbox, Heading } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { AccordionCard } from "../../accordion-card";
 import {
   AlertCodeEnum,
@@ -8,8 +9,8 @@ import {
 } from "@/lib/alerts/alerts.types";
 
 import {
-  AlertNumeroDefinitions,
-  AlertVoieDefinitions,
+  AlertNumeroCodes,
+  AlertVoieCodes,
 } from "@/lib/alerts/alerts.definitions";
 
 interface AlertsAccordionProps {
@@ -21,6 +22,8 @@ function AlertsAccordion({
   ignoredAlertCodes,
   setIgnoredAlertCodes,
 }: AlertsAccordionProps) {
+  const t = useTranslations("alertsSettings");
+  const ta = useTranslations("alertDefinitions");
   const [isAccordionVoieActive, setIsAccordionVoieActive] = useState(false);
   const [isAccordionNumeroActive, setIsAccordionNumeroActive] = useState(false);
 
@@ -61,9 +64,9 @@ function AlertsAccordion({
           <Pane paddingLeft={8}>
             <Checkbox
               margin={0}
-              label={<Heading size={400}>Alertes sur les voies</Heading>}
-              checked={Object.entries(AlertVoieDefinitions).every(
-                ([code]) => !ignoredAlertCodes.includes(code as AlertCodeEnum)
+              label={<Heading size={400}>{t("voieAlerts")}</Heading>}
+              checked={AlertVoieCodes.every(
+                (code) => !ignoredAlertCodes.includes(code)
               )}
               onChange={() =>
                 toggleAllAlertCodes(Object.values(AlertCodeVoieEnum))
@@ -75,14 +78,14 @@ function AlertsAccordion({
         onClick={() => setIsAccordionVoieActive(!isAccordionVoieActive)}
       >
         <Pane paddingLeft={8} paddingBottom={8}>
-          {Object.entries(AlertVoieDefinitions).map(([code, value]) => (
+          {AlertVoieCodes.map((code) => (
             <Checkbox
               key={code}
               marginTop={8}
               marginBottom={8}
-              label={value}
-              checked={!ignoredAlertCodes.includes(code as AlertCodeEnum)}
-              onChange={() => toggleAlertCode(code as AlertCodeEnum)}
+              label={ta(code)}
+              checked={!ignoredAlertCodes.includes(code)}
+              onChange={() => toggleAlertCode(code)}
             />
           ))}
         </Pane>
@@ -93,9 +96,9 @@ function AlertsAccordion({
           <Pane paddingLeft={8}>
             <Checkbox
               margin={0}
-              label={<Heading size={400}>Alertes sur les numéros</Heading>}
-              checked={Object.entries(AlertNumeroDefinitions).every(
-                ([code]) => !ignoredAlertCodes.includes(code as AlertCodeEnum)
+              label={<Heading size={400}>{t("numeroAlerts")}</Heading>}
+              checked={AlertNumeroCodes.every(
+                (code) => !ignoredAlertCodes.includes(code)
               )}
               onChange={() =>
                 toggleAllAlertCodes(Object.values(AlertCodeNumeroEnum))
@@ -107,14 +110,14 @@ function AlertsAccordion({
         onClick={() => setIsAccordionNumeroActive(!isAccordionNumeroActive)}
       >
         <Pane paddingLeft={8} paddingBottom={8}>
-          {Object.entries(AlertNumeroDefinitions).map(([code, value]) => (
+          {AlertNumeroCodes.map((code) => (
             <Checkbox
               key={code}
               marginTop={8}
               marginBottom={8}
-              label={value}
-              checked={!ignoredAlertCodes.includes(code as AlertCodeEnum)}
-              onChange={() => toggleAlertCode(code as AlertCodeEnum)}
+              label={ta(code)}
+              checked={!ignoredAlertCodes.includes(code)}
+              onChange={() => toggleAlertCode(code)}
             />
           ))}
         </Pane>

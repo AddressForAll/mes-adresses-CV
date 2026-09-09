@@ -6,6 +6,7 @@ import {
   Strong,
   defaultTheme,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import Confetti from "react-confetti";
 import style from "./animation-achievement.module.css";
 import AchievementBadge from "@/components/bal/panel-goal/achievements-badge/achievements-badge";
@@ -23,6 +24,7 @@ function PublishedBalStep({
   handleClose,
   dialogWidth,
 }: PublishedBalStepProps) {
+  const t = useTranslations("habilitation.publishedBal");
   const [displayTitle, setIsAnimating] = useState<boolean>(false);
 
   useEffect(() => {
@@ -59,7 +61,7 @@ function PublishedBalStep({
           {displayTitle && (
             <AchievementBadge
               icone="/static/images/achievements/published-bal.svg"
-              title="Publication"
+              title={t("badgeTitle")}
               completed={true}
               width={64}
               height={64}
@@ -74,67 +76,74 @@ function PublishedBalStep({
               className={style.slideInRight}
               color={defaultTheme.colors.green700}
             >
-              Votre Base Adresse Locale a bien été publiée
+              {t("title")}
             </Heading>
           )}
         </Pane>
 
         <Pane background="white" padding={24} borderRadius={8}>
           <Heading is="h3" marginBottom={8}>
-            Grâce à la publication
+            {t("thanksToPublication")}
           </Heading>
           <Paragraph is="li" marginBottom={8}>
-            Toutes les{" "}
-            <Strong>modifications remonteront automatiquement</Strong> dans la{" "}
-            <a
-              href={`https://adresse.data.gouv.fr/commune/${commune.code}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Base Adresse Nationale.
-            </a>
+            {t.rich("benefit1", {
+              strong: (chunks) => <Strong>{chunks}</Strong>,
+              link: (chunks) => (
+                <a
+                  href={`https://adresse.data.gouv.fr/commune/${commune.code}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {chunks}
+                </a>
+              ),
+            })}
           </Paragraph>
           <Paragraph is="li" marginBottom={8}>
-            Votre commune s&apos;est mise en conformité avec la{" "}
-            <a
-              href="https://guide-bonnes-pratiques.adresse.data.gouv.fr/transmettre-les-informations-a-la-base-adresse-nationale/le-coeur-de-linformation-legale"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Loi 3DS
-            </a>
-            .
+            {t.rich("benefit2", {
+              link: (chunks) => (
+                <a
+                  href="https://guide-bonnes-pratiques.adresse.data.gouv.fr/transmettre-les-informations-a-la-base-adresse-nationale/le-coeur-de-linformation-legale"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {chunks}
+                </a>
+              ),
+            })}
           </Paragraph>
           <Paragraph is="li" marginBottom={8}>
-            Les services de secours, administrations et particuliers peuvent
-            désormais <Strong>déposer des signalements</Strong> pour vous aider
-            à fiabiliser vos adresses.
+            {t.rich("benefit3", {
+              strong: (chunks) => <Strong>{chunks}</Strong>,
+            })}
           </Paragraph>
           <Paragraph is="li" marginBottom={16}>
-            Vous pouvez désormais{" "}
-            <Strong>télécharger des arrêtés de numérotation</Strong> pour les
-            voies et les numéros.
+            {t.rich("benefit4", {
+              strong: (chunks) => <Strong>{chunks}</Strong>,
+            })}
           </Paragraph>
           <Heading is="h3" marginBottom={8}>
-            Prochain objectif
+            {t("nextGoal")}
           </Heading>
           <Paragraph>
-            Fiabiliser vos adresses grâce à la{" "}
-            <a
-              href="https://guide.mes-adresses.data.gouv.fr/publier-une-base-adresse-locale-1/certifier-ses-adresses"
-              target="_blank"
-              rel="noreferrer"
-            >
-              certification
-            </a>
-            . Celle-ci permet de mettre en valeur votre travail et de{" "}
-            <Strong>faciliter la réutilisation de la donnée</Strong>.
+            {t.rich("nextGoalContent", {
+              strong: (chunks) => <Strong>{chunks}</Strong>,
+              link: (chunks) => (
+                <a
+                  href="https://guide.mes-adresses.data.gouv.fr/publier-une-base-adresse-locale-1/certifier-ses-adresses"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {chunks}
+                </a>
+              ),
+            })}
           </Paragraph>
         </Pane>
 
         <Pane display="flex" flexDirection="row" justifyContent="end" gap={16}>
           <Button intent="primary" appearance="primary" onClick={handleClose}>
-            Continuer l&apos;adressage
+            {t("continue")}
           </Button>
         </Pane>
       </Pane>

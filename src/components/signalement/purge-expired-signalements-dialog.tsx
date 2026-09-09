@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Dialog, Heading, Pane, Paragraph } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useContext, useState } from "react";
 import ProgressBar from "../progress-bar";
 import LayoutContext from "@/contexts/layout";
@@ -27,6 +28,8 @@ export function PurgeExpiredSignalementsDialog({
   isShown,
   onClose,
 }: PurgeExpiredSignalementsDialogProps) {
+  const t = useTranslations("purgeSignalements");
+  const tc = useTranslations("common");
   const [isLoading, setIsLoading] = useState(false);
   const { pushToast } = useContext(LayoutContext);
   const { fetchPendingSignalements } = useContext(SignalementContext);
@@ -83,16 +86,15 @@ export function PurgeExpiredSignalementsDialog({
       }
 
       pushToast({
-        title: "Succès",
-        message: `${purgedSignalementsCount} signalement(s) expiré(s) ont été retirés de la liste.`,
+        title: t("successTitle"),
+        message: t("purged", { count: purgedSignalementsCount }),
         intent: "success",
       });
     } catch (error) {
       console.error("Failed to purge expired signalements:", error);
       pushToast({
-        title: "Erreur",
-        message:
-          "Une erreur est survenue lors de l'actualisation des signalements. Veuillez réessayer ultérieurement.",
+        title: tc("error"),
+        message: t("purgeError"),
         intent: "danger",
       });
     } finally {
@@ -116,35 +118,26 @@ export function PurgeExpiredSignalementsDialog({
     >
       <Pane paddingY={16}>
         <Heading is="h4" size={600}>
-          Actualisation des signalements
+          {t("title")}
         </Heading>
       </Pane>
       {isLoading ? (
         <>
-          <Paragraph>
-            Cette opération peut prendre un certain temps, merci de patienter.
-          </Paragraph>
+          <Paragraph>{t("pleaseWait")}</Paragraph>
           <Pane marginBottom={16}>
             <ProgressBar percent={progress} />
           </Pane>
         </>
       ) : (
         <>
-          <Paragraph>
-            Si vous avez fait des modifications sur votre Base Adresse Locale
-            telles que des suppressions ou des renommages de voie, certains
-            signalements peuvent être devenus obsolètes.
-          </Paragraph>
-          <Paragraph marginTop={8}>
-            En les actualisant, les signalements obsolètes seront retirés de la
-            liste.
-          </Paragraph>
+          <Paragraph>{t("explanation")}</Paragraph>
+          <Paragraph marginTop={8}>{t("outcome")}</Paragraph>
           <Pane marginY={16} display="flex" justifyContent="flex-end">
             <Button marginRight={16} appearance="primary" onClick={handlePurge}>
-              Actualiser les signalements
+              {t("refresh")}
             </Button>
             <Button appearance="default" onClick={onClose}>
-              Fermer
+              {tc("close")}
             </Button>
           </Pane>
         </>

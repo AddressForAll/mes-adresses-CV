@@ -14,6 +14,7 @@ import { useParams } from "next/navigation";
 import MapContext from "./map";
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
 import { defaultTheme } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 const getStyles = (color = defaultTheme.colors.orange500) => [
   {
@@ -107,6 +108,7 @@ export enum DrawMode {
 }
 
 export function DrawContextProvider(props: ChildrenProps) {
+  const t = useTranslations("draw");
   const [drawMode, setDrawMode] = useState<DrawMode | null>(null);
   const [hint, setHint] = useState<string | null>(null);
   const [data, setData] = useState<GeoJSON.Feature<LineString> | null>(null);
@@ -163,9 +165,7 @@ export function DrawContextProvider(props: ChildrenProps) {
         case DrawMode.RULER:
           if (!data) {
             draw.changeMode("draw_line_string");
-            setHint(
-              "Cliquez sur la carte pour mesurer une distance. Double-cliquez pour terminer."
-            );
+            setHint(t("measureDistance"));
           } else {
             draw.changeMode("direct_select", { featureId: data.id });
             const lineLength = length(data, { units: "meters" });
@@ -175,29 +175,21 @@ export function DrawContextProvider(props: ChildrenProps) {
         case DrawMode.DRAW_NUMEROS_TO_TOPONYME_POLYGONE:
           draw.changeMode("draw_polygon");
           if (!data) {
-            setHint(
-              "Cliquez sur la carte pour indiquer le début du polygone, puis ajoutez de nouveaux points afin de tracer votre polygone. Une fois terminé, cliquez sur le dernier point afin d’indiquer la fin du polygone."
-            );
+            setHint(t("drawPolygon"));
           } else {
             draw.changeMode("direct_select", { featureId: data.id });
-            setHint(
-              "Vous pouvez éditer le polygone en déplaçant les points ou en ajoutant de nouveaux points en cliquant sur le contour du polygone."
-            );
+            setHint(t("editPolygon"));
           }
           break;
         case DrawMode.DRAW_METRIC_VOIE:
           if (!data) {
             draw.deleteAll();
             draw.changeMode("draw_line_string");
-            setHint(
-              "Cliquez sur la carte pour indiquer le début de la voie, puis ajoutez de nouveaux points afin de tracer votre voie. Une fois terminé, cliquez sur le dernier point afin d’indiquer la fin de la voie."
-            );
+            setHint(t("drawVoie"));
           } else {
             const featureId = data.id || draw.add(data)[0];
             draw.changeMode("direct_select", { featureId });
-            setHint(
-              "Vous pouvez éditer le tracé en déplaçant les points ou en ajoutant de nouveaux points en cliquant sur le tracé."
-            );
+            setHint(t("editVoie"));
           }
           break;
         default:
@@ -210,7 +202,7 @@ export function DrawContextProvider(props: ChildrenProps) {
       setHint(null);
       setData(null);
     }
-  }, [drawMode, data, isMapLoaded]);
+  }, [drawMode, data, isMapLoaded, t]);
 
   const value = useMemo(
     () => ({
