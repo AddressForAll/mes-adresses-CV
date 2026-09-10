@@ -35,7 +35,10 @@ function PopupFeatureVoie({ feature, commune }: PopupFeatureNumeroProps) {
         <Badge color="green">{t("allCertified")}</Badge>
       ) : (
         <Badge color="yellow">
-          {voie.nbNumerosCertifies}/{voie.nbNumeros} certifié(s)
+          {t("certifiedRatio", {
+            certified: voie.nbNumerosCertifies,
+            total: voie.nbNumeros,
+          })}
         </Badge>
       )}
     </Pane>

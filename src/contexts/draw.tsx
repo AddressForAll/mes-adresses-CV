@@ -169,7 +169,7 @@ export function DrawContextProvider(props: ChildrenProps) {
           } else {
             draw.changeMode("direct_select", { featureId: data.id });
             const lineLength = length(data, { units: "meters" });
-            setHint(`Longueur : ${Math.round(lineLength)} m.`);
+            setHint(t("length", { meters: Math.round(lineLength) }));
           }
           break;
         case DrawMode.DRAW_NUMEROS_TO_TOPONYME_POLYGONE:

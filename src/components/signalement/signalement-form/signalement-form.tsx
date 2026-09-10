@@ -17,6 +17,7 @@ import MapContext from "@/contexts/map";
 import { SignalementHeader } from "../signalement-header";
 import SignalementContext from "@/contexts/signalement";
 import { Paragraph } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import SignalementCreateToponyme from "./toponyme/signalement-create-toponyme";
 import { isToponymeChangesRequested } from "@/lib/utils/signalement";
 import SignalementDeleteToponyme from "./toponyme/signalement-delete-toponyme";
@@ -39,6 +40,7 @@ function SignalementForm({
   onSubmit,
   onClose,
 }: SignalementFormProps) {
+  const t = useTranslations("signalementForm");
   const [isLoading, setIsLoading] = useState(false);
   const { map } = useContext(MapContext);
   const { pendingSignalementsCount } = useContext(SignalementContext);
@@ -209,8 +211,7 @@ function SignalementForm({
           />
         ))}
       <Paragraph textAlign="center">
-        Il reste {pendingSignalementsCount} signalement
-        {pendingSignalementsCount === 1 ? "" : "s"} à traiter
+        {t("remaining", { count: pendingSignalementsCount })}
       </Paragraph>
     </Form>
   );

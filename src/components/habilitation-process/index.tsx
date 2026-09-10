@@ -76,6 +76,7 @@ function HabilitationProcess({
   handleClose,
 }: HabilitationProcessProps) {
   const t = useTranslations("habilitation");
+  const tc = useTranslations("common");
   const [flagURL, setFlagURL] = useState<string | null>(null);
   const [step, setStep] = useState(getStep(habilitation));
   const [isLoading, setIsLoading] = useState(false);
@@ -293,7 +294,7 @@ function HabilitationProcess({
             alignItems="center"
           >
             <Spinner size={42} />
-            <Text fontStyle="italic">Chargement…</Text>
+            <Text fontStyle="italic">{tc("loading")}</Text>
           </Pane>
         )}
       </Pane>

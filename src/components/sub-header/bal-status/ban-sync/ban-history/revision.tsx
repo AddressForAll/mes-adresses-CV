@@ -1,6 +1,7 @@
 import React from "react";
 import NextImage from "next/legacy/image";
 import { Pane, Text, StatusIndicator, Strong, Badge } from "evergreen-ui";
+import { useLocale, useTranslations } from "next-intl";
 
 import RevisionUser from "@/components/sub-header/bal-status/ban-sync/ban-history/revision-user";
 import { Revision as RevisionType } from "@/lib/api-depot/types";
@@ -21,6 +22,8 @@ interface RevisionProps {
 }
 
 function Revision({ baseLocaleId, commune, revision }: RevisionProps) {
+  const t = useTranslations("banHistory");
+  const locale = useLocale();
   const isUserBAL = revision.context.extras?.balId === baseLocaleId;
   const indicatorColor = getIndicatorColor(revision.isCurrent, isUserBAL);
 
@@ -33,7 +36,7 @@ function Revision({ baseLocaleId, commune, revision }: RevisionProps) {
     >
       <StatusIndicator color={indicatorColor} />
 
-      <Badge>{new Date(revision.publishedAt).toLocaleDateString()}</Badge>
+      <Badge>{new Date(revision.publishedAt).toLocaleDateString(locale)}</Badge>
 
       <RevisionUser
         context={revision.context}
@@ -44,7 +47,10 @@ function Revision({ baseLocaleId, commune, revision }: RevisionProps) {
       <Pane>
         {revision.client?.nom && (
           <Text>
-            via <Strong>{revision.client.nom}</Strong>
+            {t.rich("via", {
+              client: revision.client.nom,
+              b: (chunks) => <Strong>{chunks}</Strong>,
+            })}
           </Text>
         )}
       </Pane>
@@ -53,7 +59,7 @@ function Revision({ baseLocaleId, commune, revision }: RevisionProps) {
         {isUserBAL && (
           <NextImage
             src="/static/images/ban-logo.png"
-            alt="Logo Base Adresses Nationale"
+            alt={t("banLogoAlt")}
             width={24}
             height={24}
           />

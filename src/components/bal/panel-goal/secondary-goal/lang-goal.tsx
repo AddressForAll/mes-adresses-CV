@@ -124,9 +124,9 @@ function LangGoal({ baseLocale, onEditNomsAlt, onIgnoreGoal }: LangGoalProps) {
         {hasLangRegional && (
           <Pane padding={8}>
             <Paragraph marginBottom={8}>
-              Mettez en valeur votre patrimoine linguistique en renseignant vos
-              libellés de voies, places et lieux-dits
-              {langueRegional && ` en ${langueRegional}`}
+              {langueRegional
+                ? t("introWithLanguage", { language: langueRegional })
+                : t("intro")}
             </Paragraph>
           </Pane>
         )}

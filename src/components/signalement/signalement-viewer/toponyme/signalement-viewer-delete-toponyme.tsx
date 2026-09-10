@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import React, { useMemo } from "react";
 import { ExistingToponyme, Signalement } from "@/lib/openapi-signalement";
 import { SignalementToponymeDiffCard } from "../../signalement-diff/signalement-toponyme-diff-card";
@@ -11,6 +12,7 @@ interface SignalementViewerUpdateToponymeProps {
 function SignalementViewerUpdateToponyme({
   signalement,
 }: SignalementViewerUpdateToponymeProps) {
+  const tv = useTranslations("signalementViewer");
   const { existingLocation, status } = signalement;
 
   const { nom, position, parcelles } = existingLocation as ExistingToponyme;
@@ -26,8 +28,10 @@ function SignalementViewerUpdateToponyme({
     <SignalementToponymeDiffCard
       title={
         <>
-          Demande de suppression de toponyme{" "}
-          {status === Signalement.status.PROCESSED ? "acceptée" : "refusée"}
+          {tv("deleteToponyme", {
+            status:
+              status === Signalement.status.PROCESSED ? "accepted" : "rejected",
+          })}
           {status === Signalement.status.PROCESSED ? (
             <TickCircleIcon size={20} color="success" marginLeft={10} />
           ) : (

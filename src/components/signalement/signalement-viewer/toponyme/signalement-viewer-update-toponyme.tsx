@@ -17,6 +17,7 @@ interface SignalementViewerUpdateToponymeProps {
 function SignalementViewerUpdateToponyme({
   signalement,
 }: SignalementViewerUpdateToponymeProps) {
+  const tv = useTranslations("signalementViewer");
   const t = useTranslations("signalementForm");
   const { existingLocation, changesRequested, status } = signalement;
 
@@ -60,8 +61,12 @@ function SignalementViewerUpdateToponyme({
       <SignalementToponymeDiffCard
         title={
           <>
-            Modification{" "}
-            {status === Signalement.status.PROCESSED ? "acceptée" : "refusée"}
+            {tv("modification", {
+              status:
+                status === Signalement.status.PROCESSED
+                  ? "accepted"
+                  : "rejected",
+            })}
             {status === Signalement.status.PROCESSED ? (
               <TickCircleIcon size={20} color="success" marginLeft={10} />
             ) : (

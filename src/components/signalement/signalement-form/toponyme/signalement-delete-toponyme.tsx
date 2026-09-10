@@ -65,8 +65,10 @@ function SignalementDeleteToponyme({
       />
       <Alert flexShrink={0}>
         <Text>
-          En acceptant ce signalement, le toponyme {nom} sera placé dans la
-          corbeille
+          {t.rich("deleteToponymeWarning", {
+            toponymeName: nom,
+            b: (chunks) => <b>{chunks}</b>,
+          })}
         </Text>
       </Alert>
       <SignalementFormButtons

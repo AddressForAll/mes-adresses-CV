@@ -59,7 +59,7 @@ function FondDeCarteField({
         appearance="minimal"
       />
       <TextInputField
-        label="Nom"
+        label={t("nameShort")}
         title={t("nameLabel")}
         value={initialValue.name}
         onChange={(e) => onChange("name", e.target.value)}
@@ -74,7 +74,7 @@ function FondDeCarteField({
         isInvalid={errors?.["name"] == false}
       />
       <TextareaField
-        label="Url"
+        label={t("urlShort")}
         required
         title={t("urlLabel")}
         value={initialValue.url}

@@ -44,6 +44,7 @@ const fuseOptions = {
 export default function ToponymeNumerosPage() {
   const t = useTranslations("toponymePage");
   const tc = useTranslations("common");
+  const tt = useTranslations("toponymesPage");
   const { isFormOpen, handleEditing, editedNumero, reset } = useFormState();
 
   const [error, setError] = useState<string | null>(null);
@@ -141,7 +142,7 @@ export default function ToponymeNumerosPage() {
             savedSearchPagination[TabsEnum.TOPONYMES]
           )}
         >
-          Toponymes
+          {tt("breadcrumb")}
         </Link>
         <Text color="muted">{" > "}</Text>
         <Link
@@ -164,6 +165,8 @@ export default function ToponymeNumerosPage() {
     toponyme,
     setLastSelectedItem,
     savedSearchPagination,
+    t,
+    tt,
   ]);
 
   return (

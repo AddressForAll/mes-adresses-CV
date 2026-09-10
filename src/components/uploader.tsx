@@ -1,5 +1,6 @@
 import { FileRejection, useDropzone } from "react-dropzone";
 import { Pane, Spinner, Paragraph, PaneProps } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 interface UploaderProps {
   file: File | null;
@@ -21,9 +22,10 @@ function Uploader({
   onDropRejected,
   height = 100,
   isLoading,
-  loadingLabel = "Chargement…",
+  loadingLabel,
   ...props
 }: UploaderProps & Omit<PaneProps, "onDrop">) {
+  const t = useTranslations("common");
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     maxSize,
     onDrop,
@@ -43,7 +45,7 @@ function Uploader({
         flexDirection="column"
       >
         <Spinner size={32} />
-        <Paragraph marginTop={8}>Analyse en cours</Paragraph>
+        <Paragraph marginTop={8}>{loadingLabel ?? t("analysing")}</Paragraph>
       </Pane>
     );
   }

@@ -104,7 +104,7 @@ export function SignalementListItem({
                   <Strong color="white" is="div">
                     {signalement.source.nom}
                   </Strong>
-                  <Text color="white">Source grand public</Text>
+                  <Text color="white">{t("generalPublicSource")}</Text>
                 </>
               }
             >
@@ -144,14 +144,14 @@ export function SignalementListItem({
                     icon={SendToMapIcon}
                     onSelect={() => onSelect(signalement.id)}
                   >
-                    Traiter
+                    {t("process")}
                   </Menu.Item>
                   <Menu.Item
                     icon={TrashIcon}
                     intent="danger"
                     onSelect={() => onIgnore(signalement.id)}
                   >
-                    Ignorer
+                    {t("ignore")}
                   </Menu.Item>
                 </Menu.Group>
               </Menu>

@@ -77,9 +77,12 @@
     "convertError": "No se ha podido convertir la vía en topónimo",
     "convertSuccess": "La vía se ha convertido en topónimo",
     "convertToToponyme": "Convertir en topónimo",
+    "correctTo": "Corregir a",
+    "current": "Actual:",
     "finish": "Terminar",
     "mergeVoies": "Fusionar las vías",
     "parcelleError": "No se ha podido eliminar la parcela",
+    "parcelleMissing": "La parcela «{parcelle}» no existe en el catastro del municipio.",
     "parcelleSuccess": "La parcela se ha eliminado",
     "removeParcelle": "Eliminar la parcela",
     "skip": "Omitir",
@@ -87,6 +90,7 @@
     "suffixeInvalidInfo": "El sufijo «{suffixe}» contiene caracteres no válidos.",
     "suffixeLabel": "Sufijo del número",
     "suffixeSuccess": "El sufijo se ha corregido",
+    "suggestion": "Sugerencia:",
     "suggestionDoublon": "Sugerencia sobre vías con el mismo nombre",
     "suggestionParcelle": "Sugerencia sobre una parcela inexistente en el catastro",
     "suggestionSuffixe": "Sugerencia sobre el sufijo del número",
@@ -187,6 +191,7 @@
     "habiliteBal": "Habilitar la Base de Direcciones Local",
     "pauseError": "No se han podido pausar las actualizaciones de la Base de Direcciones Nacional",
     "pauseSuccess": "Se han pausado las actualizaciones automáticas de la Base de Direcciones Nacional",
+    "publish": "Publicar",
     "resumeError": "No se han podido reanudar las actualizaciones automáticas de la Base de Direcciones Nacional",
     "resumeSuccess": "Se han reanudado las actualizaciones automáticas de la Base de Direcciones Nacional"
   },
@@ -197,6 +202,7 @@
     "voiesCount": "<b>{count}</b> {count, plural, one {vía} other {vías}}"
   },
   "banHistory": {
+    "banLogoAlt": "Logo de la Base de Direcciones Nacional",
     "by": "Por",
     "electedOfficial": "cargo electo de {communeName}",
     "empty": "No se ha encontrado ninguna Base de Direcciones Local",
@@ -204,7 +210,9 @@
     "notProvided": "No indicado",
     "reduce": "Reducir",
     "showAll": "Mostrar todo el historial",
-    "title": "Historial de actualizaciones"
+    "title": "Historial de actualizaciones",
+    "townHallOf": "ayuntamiento de {communeName}",
+    "via": "vía <b>{client}</b>"
   },
   "banSync": {
     "automaticUpdate": "Actualización automática",
@@ -212,6 +220,8 @@
     "pauseAutomaticUpdate": "Suspender la actualización automática",
     "replaceConfirmation": "Entiendo que mi Base de Direcciones Local reemplazará a la que está sincronizada actualmente con la Base de Direcciones Nacional",
     "resumeAutomaticUpdate": "Reanudar la actualización automática",
+    "status": "Estado de sincronización",
+    "statusShort": "Estado",
     "syncing": "Sincronizando",
     "updateNow": "Actualizar"
   },
@@ -222,7 +232,8 @@
     "lastUpdate": "Última actualización {relative}",
     "manageAddresses": "Gestionar las direcciones",
     "neverUpdated": "Nunca actualizada",
-    "openBal": "Acceder a la Base de Direcciones Local"
+    "openBal": "Acceder a la Base de Direcciones Local",
+    "pendingSignalements": "Notificaciones pendientes:"
   },
   "basemaps": {
     "ortho": "Fotografía aérea",
@@ -261,29 +272,41 @@
     "uncertified": "Direcciones no certificadas"
   },
   "comment": {
+    "heading": "{count, plural, =0 {Comentario} other {Comentarios}}",
     "label": "Comentario",
+    "othersCount": "{count, plural, one {# comentario más} other {# comentarios más}}",
     "placeholder": "Esta nota es confidencial y no se publicará."
   },
   "common": {
     "add": "Añadir",
+    "analysing": "Analizando",
     "back": "Volver",
     "cancel": "Cancelar",
+    "certify": "Certificar",
     "close": "Cerrar",
     "confirm": "Confirmar",
     "continue": "Continuar",
     "delete": "Eliminar",
+    "deleteEllipsis": "Eliminar…",
     "edit": "Modificar",
     "error": "Error",
+    "finish": "Terminar",
     "inProgress": "En curso…",
     "learnMore": "Más información",
     "loading": "Cargando…",
+    "mairieLogoAlt": "logo del ayuntamiento",
     "next": "Siguiente",
     "no": "No",
     "noResults": "No se han encontrado resultados",
+    "numerosCount": "{count, plural, one {# número} other {# números}}",
+    "onlineTrainingLogoAlt": "logo de formaciones en línea",
     "previous": "Anterior",
     "save": "Guardar",
+    "saving": "Guardando…",
     "search": "Buscar",
+    "skip": "Omitir",
     "validate": "Validar",
+    "view": "Consultar",
     "warning": "Atención",
     "yes": "Sí"
   },
@@ -348,6 +371,7 @@
     "drawVoie": "Haga clic en el mapa para indicar el inicio de la vía y añada puntos para trazarla. Cuando termine, haga clic en el último punto para marcar el final.",
     "editPolygon": "Puede editar el polígono moviendo sus puntos o añadir nuevos puntos haciendo clic en su contorno.",
     "editVoie": "Puede editar el trazado moviendo sus puntos o añadir nuevos puntos haciendo clic en él.",
+    "length": "Longitud: {meters} m",
     "measureDistance": "Haga clic en el mapa para medir una distancia. Haga doble clic para terminar."
   },
   "drawMetricVoieEditor": {
@@ -378,11 +402,14 @@
     "nameLabel": "Nombre del mapa base",
     "namePlaceholder": "Mi mapa base",
     "nameRequired": "El nombre es obligatorio",
+    "nameShort": "Nombre",
     "remove": "Eliminar el mapa base",
+    "saveChanges": "Guardar los cambios",
     "updateError": "No se han podido actualizar los mapas base",
     "updateSuccess": "Los mapas base se han actualizado",
     "urlInvalid": "La URL del mapa base no es válida",
-    "urlLabel": "URL del mapa base"
+    "urlLabel": "URL del mapa base",
+    "urlShort": "URL"
   },
   "footer": {
     "accessibility": "Accesibilidad: no conforme",
@@ -764,6 +791,8 @@
     "editTitle": "Modificar la lengua regional del municipio",
     "emptyContent": "Para un direccionamiento multilingüe, empiece por indicar el nombre del municipio en lengua regional",
     "ignoreGoal": "Descartar objetivo",
+    "intro": "Ponga en valor su patrimonio lingüístico indicando los nombres de sus vías, plazas y parajes",
+    "introWithLanguage": "Ponga en valor su patrimonio lingüístico indicando los nombres de sus vías, plazas y parajes en {language}",
     "title": "Lengua regional"
   },
   "language": {
@@ -804,7 +833,11 @@
     "title": "Bases de Direcciones Locales – Aviso legal"
   },
   "mainTabs": {
-    "communeTabIllustration": "Ilustración de la pestaña del municipio"
+    "communeTabIllustration": "Ilustración de la pestaña del municipio",
+    "signalementsTabIllustration": "Ilustración de la pestaña de notificaciones",
+    "tabTitle": "{tab, select, commune {Pestaña del municipio} voies {Pestaña de vías} toponymes {Pestaña de topónimos} other {Pestaña de notificaciones}}",
+    "toponymesTabIllustration": "Ilustración de la pestaña de topónimos",
+    "voiesTabIllustration": "Ilustración de la pestaña de vías"
   },
   "mapControls": {
     "cadastreUnavailable": "El catastro no está disponible para este municipio",
@@ -822,6 +855,7 @@
     "noPanoramaxImagery": "No hay fotografías disponibles de este territorio.",
     "noParcelleFound": "Ninguna parcela coincide con su búsqueda",
     "numeros": "Números",
+    "openPanoramax": "Abrir Panoramax",
     "pointsOfInterest": "Puntos de interés",
     "rulerIconAlt": "Icono de regla",
     "searchParcelle": "Buscar una parcela",
@@ -835,6 +869,7 @@
     "addressCertified": "Esta dirección está certificada",
     "allCertified": "Todos los números certificados",
     "certified": "Certificado",
+    "certifiedRatio": "{certified}/{total} certificado(s)",
     "noNumero": "Ningún número",
     "parcelles": "Parcela(s)",
     "uncertified": "No certificado"
@@ -920,7 +955,8 @@
   },
   "populate": {
     "populate": "Recuperar las direcciones de la Base Nacional",
-    "populating": "Recuperando direcciones…"
+    "populating": "Recuperando direcciones…",
+    "question": "¿Desea importar las vías del municipio de {communeName} desde la Base de Direcciones Nacional?"
   },
   "positionEditor": {
     "addToNumero": "Añadir una posición al número",
@@ -1037,9 +1073,12 @@
   },
   "settings": {
     "addBasemap": "Añadir mapa base",
+    "adminLoginLink": "Enlace de acceso de administrador",
+    "adminLoginQrCode": "Código QR de acceso de administrador",
     "basemaps": "Mapas base",
     "copied": "Copiado",
     "copyUrl": "Copiar la URL",
+    "name": "Nombre",
     "qualityAlerts": "Alertas de calidad",
     "saveChanges": "Guardar los cambios",
     "saveSuccess": "Los ajustes se han guardado correctamente",
@@ -1055,6 +1094,7 @@
   },
   "signalement": {
     "noChange": "Sin cambios",
+    "parcelles": "{count, plural, one {Parcela} other {Parcelas}}",
     "positionAdded": "Posición añadida",
     "positionDeleted": "Posición eliminada",
     "positionTypeChanged": "Tipo modificado",
@@ -1082,6 +1122,7 @@
     "currentVoieName": "Nombre actual de la vía",
     "deleteNumeroRequest": "Solicitud de eliminación de dirección",
     "deleteToponymeRequest": "Solicitud de eliminación de un topónimo",
+    "deleteToponymeWarning": "Al aceptar esta notificación, el topónimo <b>{toponymeName}</b> se moverá a la papelera",
     "deleteVoieRequest": "Solicitud de eliminación de una vía",
     "deleteVoieWarning": "Al aceptar esta notificación, la vía <b>{voieName}</b> se moverá a la papelera",
     "deleteVoieWithNumeros": "junto con {count, plural, one {la <b>dirección</b>} other {las <b># direcciones</b>}} asociadas",
@@ -1124,6 +1165,9 @@
   },
   "signalementListItem": {
     "acceptedOn": "Aceptada el {date}",
+    "generalPublicSource": "Fuente del público general",
+    "ignore": "Ignorar",
+    "process": "Tratar",
     "rejectedOn": "Rechazada el {date}",
     "trustedActor": "Actor de confianza"
   },
@@ -1144,6 +1188,14 @@
     "missingAddress": "Dirección faltante",
     "update": "Modificación"
   },
+  "signalementViewer": {
+    "createNumero": "{status, select, accepted {Solicitud de creación de dirección aceptada} other {Solicitud de creación de dirección rechazada}}",
+    "createToponyme": "{status, select, accepted {Solicitud de creación de topónimo aceptada} other {Solicitud de creación de topónimo rechazada}}",
+    "deleteNumero": "{status, select, accepted {Solicitud de eliminación de dirección aceptada} other {Solicitud de eliminación de dirección rechazada}}",
+    "deleteToponyme": "{status, select, accepted {Solicitud de eliminación de topónimo aceptada} other {Solicitud de eliminación de topónimo rechazada}}",
+    "deleteVoie": "{status, select, accepted {Solicitud de eliminación de vía aceptada} other {Solicitud de eliminación de vía rechazada}}",
+    "modification": "{status, select, accepted {Modificación aceptada} other {Modificación rechazada}}"
+  },
   "signalementsPage": {
     "acceptedToast": "La notificación se ha tenido en cuenta",
     "backToList": "Volver a la lista de notificaciones",
@@ -1163,7 +1215,8 @@
   },
   "stepper": {
     "lastStep": "Último paso",
-    "nextStep": "Paso siguiente:"
+    "nextStep": "Paso siguiente:",
+    "stepOf": "Paso {step} de {total}"
   },
   "toponymeEditor": {
     "communeDeleguee": "Municipio delegado",
@@ -1217,6 +1270,11 @@
   "trash": {
     "numerosDeleteError": "No se han podido eliminar los números",
     "numerosDeleted": "Los números se han eliminado",
+    "tabs": {
+      "toponymes": "Topónimos",
+      "voies": "Vías"
+    },
+    "title": "Papelera",
     "toponymeDeleteError": "No se ha podido eliminar el topónimo",
     "toponymeDeleted": "El topónimo se ha eliminado",
     "toponymeRestoreError": "No se ha podido restaurar el topónimo",
@@ -1289,6 +1347,7 @@
     "doublonText": "Varias vías tienen el mismo nombre",
     "editNumero": "Editar el número",
     "editVoie": "Editar la vía",
+    "improve": "Mejorar",
     "mergeConfirm": "Fusionar las vías",
     "mergeConfirmQuestion": "¿Seguro que desea fusionar las {count} vías con el nombre {voieName}?",
     "mergeTitle": "Fusionar las vías con el mismo nombre",

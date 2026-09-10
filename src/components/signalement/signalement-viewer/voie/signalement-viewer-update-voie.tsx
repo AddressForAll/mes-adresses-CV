@@ -15,6 +15,7 @@ interface SignalementViewerUpdateVoieProps {
 function SignalementViewerUpdateVoie({
   signalement,
 }: SignalementViewerUpdateVoieProps) {
+  const tv = useTranslations("signalementViewer");
   const t = useTranslations("signalementForm");
   const { existingLocation, changesRequested, status } = signalement;
   const { nom: existingNom } = existingLocation as ExistingVoie;
@@ -31,8 +32,12 @@ function SignalementViewerUpdateVoie({
       <SignalementVoieDiffCard
         title={
           <>
-            Modification{" "}
-            {status === Signalement.status.PROCESSED ? "acceptée" : "refusée"}
+            {tv("modification", {
+              status:
+                status === Signalement.status.PROCESSED
+                  ? "accepted"
+                  : "rejected",
+            })}
             {status === Signalement.status.PROCESSED ? (
               <TickCircleIcon size={20} color="success" marginLeft={10} />
             ) : (

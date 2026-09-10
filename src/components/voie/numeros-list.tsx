@@ -87,6 +87,7 @@ function NumerosList({
   handleEditing,
 }: NumerosListProps) {
   const t = useTranslations("numerosList");
+  const tc = useTranslations("common");
   const [isRemoveWarningShown, setIsRemoveWarningShown] = useState(false);
   const [documentGenerationData, setDocumentGenerationData] =
     useState<DocumentGenerationData<GeneratedDocumentType> | null>(null);
@@ -480,14 +481,14 @@ function NumerosList({
                       handleEditing(numero.id);
                     }}
                   >
-                    Modifier
+                    {tc("edit")}
                   </Menu.Item>
                   <Menu.Item
                     icon={TrashIcon}
                     intent="danger"
                     onSelect={() => onRemove(numero.id)}
                   >
-                    Supprimer…
+                    {tc("deleteEllipsis")}
                   </Menu.Item>
                   {Boolean(token) &&
                     baseLocale.status === BaseLocale.status.PUBLISHED && (

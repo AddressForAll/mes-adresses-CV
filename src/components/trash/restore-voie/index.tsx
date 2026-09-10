@@ -14,6 +14,7 @@ interface RestoreVoieProps {
 
 function RestoreVoie({ voie, onRestoreVoie, onClose }: RestoreVoieProps) {
   const t = useTranslations("trashList");
+  const tc = useTranslations("common");
   const [selectedNumerosIds, setSelectedNumerosIds] = useState([]);
 
   const restaurerText = () => {
@@ -62,7 +63,7 @@ function RestoreVoie({ voie, onRestoreVoie, onClose }: RestoreVoieProps) {
             onClick={() => onClose()}
             marginLeft={10}
           >
-            Annuler
+            {tc("cancel")}
           </Button>
         </Pane>
       </Pane>

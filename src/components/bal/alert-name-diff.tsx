@@ -1,5 +1,6 @@
 import { ArrowRightIcon, Pane, Text } from "evergreen-ui";
 import fastDiff from "fast-diff";
+import { useTranslations } from "next-intl";
 import { AlertBatchItem } from "./alerts-batch-processor";
 import { AlertNumero } from "@/lib/alerts/alerts.types";
 
@@ -16,6 +17,7 @@ function AlertNameDiff({
   currentItem,
   isNumeroSuffixeAlert = false,
 }: AlertNameDiffProps) {
+  const t = useTranslations("alertsBatch");
   const diffStr = fastDiff(
     currentItem.alert.value,
     currentItem.alert.remediation
@@ -29,7 +31,7 @@ function AlertNameDiff({
       <Pane display="flex" justifyContent="left">
         <Pane marginBottom={8} minWidth="100px">
           <Text size={300} color="muted">
-            Actuel :
+            {t("current")}
           </Text>
           <Pane marginTop={4} padding={8} background="tint1" borderRadius={4}>
             <Text>
@@ -64,7 +66,7 @@ function AlertNameDiff({
         </Pane>
         <Pane>
           <Text size={300} color="muted">
-            Suggestion :
+            {t("suggestion")}
           </Text>
           <Pane marginTop={4} padding={8} background="tint1" borderRadius={4}>
             <Text>

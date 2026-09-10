@@ -28,7 +28,7 @@ function ShareClipBoard({ url }: ShareClipBoardProps) {
   return (
     <Pane display="flex" alignItems="end">
       <TextInputField
-        label="Lien de connexion administrateur"
+        label={t("adminLoginLink")}
         ref={textAreaRef}
         flex={1}
         marginBottom={0}

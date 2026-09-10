@@ -74,7 +74,7 @@ function HomeDrawer() {
             className={`${styles["home-drawer"]} ${styles["home-drawer-left"]}`}
           >
             <Heading size={500} className={styles["split-heading"]}>
-              Prochaines formations
+              {t("upcomingTrainings")}
             </Heading>
             {isLoading ? (
               <Pane
@@ -95,7 +95,7 @@ function HomeDrawer() {
               className={styles["split-heading"]}
               position="relative"
             >
-              Actualités
+              {t("news")}
               {showPulsar && (
                 <Pane position="absolute" top={8} right={16}>
                   <Pulsar />

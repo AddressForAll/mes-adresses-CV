@@ -1,14 +1,16 @@
 import { useState, useEffect, useMemo } from "react";
 import { Pane, Tablist, Tab, TrashIcon, Heading } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 
 import useTrash from "@/hooks/trash";
 
 import ItemsDeletedList from "@/components/trash/list/items-deleted-list";
 import RestoreVoie from "@/components/trash/restore-voie/index";
 
-const TABS = ["Voies", "Toponymes"];
+const TABS = ["voies", "toponymes"] as const;
 
 function Trash() {
+  const t = useTranslations("trash");
   const {
     voiesDeleted,
     toponymesDeleted,
@@ -67,7 +69,7 @@ function Trash() {
       >
         <Pane display="flex" alignItems="center">
           <TrashIcon />
-          <Heading paddingLeft={5}>Corbeille</Heading>
+          <Heading paddingLeft={5}>{t("title")}</Heading>
         </Pane>
       </Pane>
       <Pane
@@ -100,7 +102,7 @@ function Trash() {
                     isSelected={selectedTabIndex === index}
                     onSelect={() => setSelectedTabIndex(index)}
                   >
-                    {tab}
+                    {t(`tabs.${tab}`)}
                   </Tab>
                 ))}
               </Tablist>

@@ -62,7 +62,7 @@ export default function SignalementPage({
     setBreadcrumbs(
       <>
         <Link is={NextLink} href={`/bal/${baseLocale.id}/signalements`}>
-          Signalements
+          {t("breadcrumb")}
         </Link>
         <Text color="muted">{" > "}</Text>
         <Text aria-current="page">
@@ -77,7 +77,15 @@ export default function SignalementPage({
     return () => {
       setBreadcrumbs(null);
     };
-  }, [setBreadcrumbs, baseLocale, signalement, setTileLayersMode]);
+  }, [
+    setBreadcrumbs,
+    baseLocale,
+    signalement,
+    setTileLayersMode,
+    t,
+    tt,
+    locale,
+  ]);
 
   const isProcessableSignalement = useMemo(
     () =>

@@ -90,7 +90,7 @@ function PanoramaxControl({
           style={{ filter: disabled ? "grayscale(1) opacity(0.5)" : "none" }}
         />
       }
-      title="Ouvrir Panoramax"
+      title={t("openPanoramax")}
     />
   );
 

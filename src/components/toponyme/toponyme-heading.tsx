@@ -15,6 +15,7 @@ interface ToponymeHeadingProps {
 
 function ToponymeHeading({ toponyme, baseLocale }: ToponymeHeadingProps) {
   const t = useTranslations("toponymePage");
+  const tc = useTranslations("common");
   const { token } = useContext(TokenContext);
   const { numeros } = useContext(BalDataContext);
 
@@ -46,7 +47,7 @@ function ToponymeHeading({ toponyme, baseLocale }: ToponymeHeadingProps) {
           </Pane>
           {numeros && (
             <Text padding={0}>
-              {numeros.length} numéro{numeros.length > 1 ? "s" : ""}
+              {tc("numerosCount", { count: numeros.length })}
             </Text>
           )}
         </Pane>

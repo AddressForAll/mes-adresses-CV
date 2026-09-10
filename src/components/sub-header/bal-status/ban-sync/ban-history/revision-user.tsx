@@ -25,7 +25,7 @@ function RevisionUser({
         habilitation?.strategy?.type
       )
     ) {
-      userName = `mairie de ${communeName}`;
+      userName = t("townHallOf", { communeName });
     }
 
     if (habilitation?.strategy?.type === StrategyDTO.type.FRANCECONNECT) {
