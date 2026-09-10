@@ -766,6 +766,10 @@
     },
     "cannotDropFile": "No se puede soltar este archivo.",
     "chooseStartingPoint": "Elija su punto de partida",
+    "emptyOption": {
+      "description": "Usted mismo añadirá las vías y las direcciones en el editor.",
+      "label": "Empezar con una Base de Direcciones Local vacía"
+    },
     "errorTitle": "Se ha producido un error",
     "fileHasErrorsTitle": "El archivo contiene errores",
     "fileOption": {
@@ -1217,6 +1221,20 @@
     "lastStep": "Último paso",
     "nextStep": "Paso siguiente:",
     "stepOf": "Paso {step} de {total}"
+  },
+  "territorySelector": {
+    "choose": "Seleccionar…",
+    "entireTerritory": "{name} (todo el territorio)",
+    "levels": {
+      "county": "Condado",
+      "place": "Ciudad o localidad",
+      "state": "Estado"
+    },
+    "loadError": "No se pudo cargar la lista de territorios.",
+    "loading": "Cargando…",
+    "retry": "Reintentar",
+    "selectedLevel": "Nivel: {level}",
+    "territoryCode": "Código {code}"
   },
   "toponymeEditor": {
     "communeDeleguee": "Municipio delegado",

@@ -150,7 +150,7 @@ function RecoverBALCommune({
         {!baseLocale?.id && (
           <Paragraph marginBottom={8}>{t("chooseCommune")}</Paragraph>
         )}
-        {!baseLocale && countryProfile.geoApi && (
+        {!baseLocale && countryProfile.geoApi === "fr" && (
           <CommuneSearchField
             id="commune"
             required={false}
@@ -163,7 +163,7 @@ function RecoverBALCommune({
             onSelect={selectCommune}
           />
         )}
-        {!baseLocale && !countryProfile.geoApi && (
+        {!baseLocale && countryProfile.geoApi !== "fr" && (
           <Alert intent="none" hasIcon={false}>
             <Paragraph>
               {t("communeRecoveryUnavailable", {

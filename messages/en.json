@@ -766,6 +766,10 @@
     },
     "cannotDropFile": "This file cannot be dropped.",
     "chooseStartingPoint": "Choose your starting point",
+    "emptyOption": {
+      "description": "You will add the streets and addresses yourself in the editor.",
+      "label": "Start with an empty Local Address Base"
+    },
     "errorTitle": "An error occurred",
     "fileHasErrorsTitle": "The file contains errors",
     "fileOption": {
@@ -1217,6 +1221,20 @@
     "lastStep": "Last step",
     "nextStep": "Next step:",
     "stepOf": "Step {step} of {total}"
+  },
+  "territorySelector": {
+    "choose": "Select…",
+    "entireTerritory": "All of {name}",
+    "levels": {
+      "county": "County",
+      "place": "City or town",
+      "state": "State"
+    },
+    "loadError": "The list of territories could not be loaded.",
+    "loading": "Loading…",
+    "retry": "Retry",
+    "selectedLevel": "Level: {level}",
+    "territoryCode": "Code {code}"
   },
   "toponymeEditor": {
     "communeDeleguee": "Delegated municipality",

@@ -1,4 +1,5 @@
 import { CommuneSearchField } from "@/components/commune-search";
+import TerritorySelector from "@/components/territory-selector/territory-selector";
 import { CommuneType } from "@/types/commune";
 import { Alert, Pane } from "evergreen-ui";
 import { useTranslations } from "next-intl";
@@ -23,7 +24,7 @@ function SearchCommuneStep({
 }: SearchCommuneStepProps) {
   const t = useTranslations("searchCommuneStep");
   const [ref, setRef] = useState<HTMLInputElement>();
-  const { countryProfile } = useContext(CountryContext);
+  const { country, countryProfile } = useContext(CountryContext);
 
   useEffect(() => {
     if (ref) {
@@ -44,20 +45,35 @@ function SearchCommuneStep({
 
   return (
     <Pane>
-      <CommuneSearchField
-        required
-        innerRef={setRef}
-        id="commune"
-        initialSelectedItem={commune}
-        label={t("label")}
-        placeholder="Roche 42"
-        appearance="default"
-        maxWidth={500}
-        onSelect={setCommune}
-      />
+      {countryProfile.geoApi === "territories" ? (
+        <Pane maxWidth={760} marginBottom={24}>
+          <TerritorySelector
+            // Remount on a country switch so no dropdown keeps the old
+            // country's choices.
+            key={country}
+            country={country}
+            levels={countryProfile.territoryLevels}
+            commune={commune}
+            setCommune={setCommune}
+          />
+        </Pane>
+      ) : (
+        <CommuneSearchField
+          required
+          innerRef={setRef}
+          id="commune"
+          initialSelectedItem={commune}
+          label={t("label")}
+          placeholder="Roche 42"
+          appearance="default"
+          maxWidth={500}
+          onSelect={setCommune}
+        />
+      )}
       {commune && (
         <CommunePublicationInfos
           onCreateNewBAL={onCreateNewBAL}
+          allowAutomaticProceed={countryProfile.geoApi === "fr"}
           commune={commune}
           outdatedApiDepotClients={outdatedApiDepotClients}
           outdatedHarvestSources={outdatedHarvestSources}

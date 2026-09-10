@@ -13,5 +13,9 @@ export type CommuneDTO = {
     hasOrtho: boolean;
     hasPlanIGN: boolean;
     communesDeleguees: Array<CommunePrecedenteDTO>;
+    /**
+     * Territory bounding box [xmin, ymin, xmax, ymax], for non-French territories only
+     */
+    bbox?: Array<number>;
 };
 

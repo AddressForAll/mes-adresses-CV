@@ -8,16 +8,19 @@ import {
 } from "@ban-team/validateur-bal";
 import { Alert, Pane, Paragraph, Radio, Strong, Text } from "evergreen-ui";
 import { useTranslations } from "next-intl";
-import { Fragment, JSX, useState } from "react";
+import { Fragment, JSX, useContext, useState } from "react";
 import { uniqBy } from "lodash";
+import CountryContext from "@/contexts/country";
 
 interface ImportDataStepProps {
   commune: CommuneType;
   importValue: string;
-  setImportValue: (value: "ban" | "file") => void;
+  setImportValue: (value: ImportValue) => void;
   csvImportFile: File | null;
   setCsvImportFile: (file: File | null) => void;
 }
+
+export type ImportValue = "ban" | "empty" | "file";
 
 type CommuneRow = {
   code: string;
@@ -54,13 +57,20 @@ function ImportDataStep({
   const t = useTranslations("importDataStep");
   const [isLoading, setIsLoading] = useState(false);
   const [alert, setAlert] = useState<JSX.Element | null>(null);
+  const { countryProfile } = useContext(CountryContext);
   // Built inside the component so the labels go through the catalog.
   const options = [
-    {
-      label: t("banOption.label"),
-      value: "ban",
-      description: t("banOption.description"),
-    },
+    countryProfile.hasBanImport
+      ? {
+          label: t("banOption.label"),
+          value: "ban",
+          description: t("banOption.description"),
+        }
+      : {
+          label: t("emptyOption.label"),
+          value: "empty",
+          description: t("emptyOption.description"),
+        },
     {
       label: t("fileOption.label"),
       value: "file",
@@ -195,7 +205,7 @@ function ImportDataStep({
               name="import-option"
               checked={importValue === option.value}
               label={option.label}
-              onChange={() => setImportValue(option.value as "ban" | "file")}
+              onChange={() => setImportValue(option.value as ImportValue)}
             />
             {importValue === option.value && (
               <Alert intent="info" marginBottom={16}>
