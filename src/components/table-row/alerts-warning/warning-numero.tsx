@@ -20,7 +20,7 @@ function WarningNumero({ title, goToFormNumero }: WarningNumeroProps) {
         appearance="primary"
         style={{ backgroundColor: defaultTheme.colors.purple600 }}
       >
-        Ameliorer
+        {t("improve")}
       </Button>
     </>
   );

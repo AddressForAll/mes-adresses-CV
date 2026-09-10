@@ -142,7 +142,7 @@ function BALStatus({
                 appearance="primary"
                 onClick={handleShowHabilitation}
               >
-                Publier
+                {t("publish")}
               </Button>
             )}
           </>

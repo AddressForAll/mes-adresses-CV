@@ -294,7 +294,7 @@ export default function SignalementsPage({
                       setSelectedSignalements([]);
                     }}
                   >
-                    Confirmer
+                    {tc("confirm")}
                   </Button>
                   <Button
                     appearance="default"

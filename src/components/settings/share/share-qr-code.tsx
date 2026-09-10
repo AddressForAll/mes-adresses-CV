@@ -1,11 +1,13 @@
 import { Pane, Text } from "evergreen-ui";
 import { QRCodeSVG } from "qrcode.react";
+import { useTranslations } from "next-intl";
 
 interface ShareQRCodeProps {
   url: string;
 }
 
 function ShareQRCode({ url }: ShareQRCodeProps) {
+  const t = useTranslations("settings");
   return (
     <Pane
       display="flex"
@@ -21,7 +23,7 @@ function ShareQRCode({ url }: ShareQRCodeProps) {
         fontWeight="500"
         color="dark"
       >
-        QR code de connexion administrateur
+        {t("adminLoginQrCode")}
       </Text>
       <QRCodeSVG
         id="bal-access-qr-code"

@@ -4,6 +4,7 @@ import { useCallback, useContext, useEffect, useMemo } from "react";
 import { sortBy } from "lodash";
 import { Text } from "evergreen-ui";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { normalizeSort } from "@/lib/normalize";
 
 import BalDataContext from "@/contexts/bal-data";
@@ -23,6 +24,7 @@ import AlertsBatchProcessor, {
 import { TabsEnum } from "@/components/sidebar/main-tabs/main-tabs";
 
 export default function VoiesPage() {
+  const t = useTranslations("voiesPage");
   const { voies, baseLocale } = useContext(BalDataContext);
   const { setTileLayersMode } = useContext(MapContext);
   const router = useRouter();
@@ -35,12 +37,12 @@ export default function VoiesPage() {
   }, [setTileLayersMode]);
 
   useEffect(() => {
-    setBreadcrumbs(<Text aria-current="page">Voies</Text>);
+    setBreadcrumbs(<Text aria-current="page">{t("breadcrumb")}</Text>);
 
     return () => {
       setBreadcrumbs(null);
     };
-  }, [setBreadcrumbs]);
+  }, [setBreadcrumbs, t]);
 
   const getAllVoieAlerts = useCallback(
     (voieId: string): (AlertVoie | AlertNumero)[] => {

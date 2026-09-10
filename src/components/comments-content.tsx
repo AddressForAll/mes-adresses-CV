@@ -1,5 +1,6 @@
 import { Pane, Text } from "evergreen-ui";
 import { uniqueId } from "lodash";
+import { useTranslations } from "next-intl";
 
 const COMMENTS_LIMIT = 10;
 
@@ -12,6 +13,7 @@ function CommentsContent({
   mainComment,
   commentedNumeros,
 }: CommentsContentProps) {
+  const t = useTranslations("comment");
   const filteredComments = commentedNumeros.slice(0, COMMENTS_LIMIT);
   const nbComments = commentedNumeros.length;
   const remainComments = nbComments - COMMENTS_LIMIT;
@@ -30,7 +32,7 @@ function CommentsContent({
           </Pane>
         ) : (
           <Text color="white">
-            Commentaire{`${commentedNumeros.length > 0 ? "s" : ""}`}
+            {t("heading", { count: commentedNumeros.length })}
           </Text>
         )}
       </Pane>
@@ -48,9 +50,7 @@ function CommentsContent({
       {nbComments > COMMENTS_LIMIT && (
         <Pane marginTop={8}>
           <Text color="white">
-            {`${remainComments} autre${
-              remainComments > 1 ? "s" : ""
-            } commentaire${remainComments > 1 ? "s" : ""}`}
+            {t("othersCount", { count: remainComments })}
           </Text>
         </Pane>
       )}

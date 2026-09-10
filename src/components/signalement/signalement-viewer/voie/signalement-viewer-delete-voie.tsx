@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import React from "react";
 import { ExistingVoie, Signalement } from "@/lib/openapi-signalement";
 import { SignalementVoieDiffCard } from "../../signalement-diff/signalement-voie-diff-card";
@@ -10,6 +11,7 @@ interface SignalementViewerDeleteVoieProps {
 function SignalementViewerDeleteVoie({
   signalement,
 }: SignalementViewerDeleteVoieProps) {
+  const tv = useTranslations("signalementViewer");
   const { existingLocation, status } = signalement;
   const { nom: existingNom } = existingLocation as ExistingVoie;
 
@@ -18,8 +20,10 @@ function SignalementViewerDeleteVoie({
       signalementType={Signalement.type.LOCATION_TO_DELETE}
       title={
         <>
-          Demande de suppression de voie{" "}
-          {status === Signalement.status.PROCESSED ? "acceptée" : "refusée"}
+          {tv("deleteVoie", {
+            status:
+              status === Signalement.status.PROCESSED ? "accepted" : "rejected",
+          })}
           {status === Signalement.status.PROCESSED ? (
             <TickCircleIcon size={20} color="success" marginLeft={10} />
           ) : (

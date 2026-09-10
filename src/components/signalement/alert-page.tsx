@@ -46,7 +46,7 @@ export default function AlertPage({ alert }: AlertPageProps) {
     setBreadcrumbs(
       <>
         <Link is={NextLink} href={`/bal/${baseLocale.id}/signalements`}>
-          Signalements
+          {t("breadcrumb")}
         </Link>
         <Text color="muted">{" > "}</Text>
         <Text aria-current="page">
@@ -61,7 +61,7 @@ export default function AlertPage({ alert }: AlertPageProps) {
     return () => {
       setBreadcrumbs(null);
     };
-  }, [setBreadcrumbs, baseLocale, alert, setTileLayersMode]);
+  }, [setBreadcrumbs, baseLocale, alert, setTileLayersMode, t, tt, locale]);
 
   useEffect(() => {
     const fetchAuthor = async () => {

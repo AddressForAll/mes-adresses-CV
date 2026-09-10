@@ -142,7 +142,7 @@ function BaseLocaleCard({ baseLocale, onRemove }: BaseLocaleCardProps) {
           {pendingSignalementsCount > 0 && (
             <Pane marginTop={5} display="flex">
               <Text display="block" marginRight={5}>
-                Signalements en attente :
+                {t("pendingSignalements")}
               </Text>
               <Text fontWeight="bold" whiteSpace="nowrap">
                 {pendingSignalementsCount}

@@ -17,6 +17,7 @@ interface SignalementViewerUpdateNumeroProps {
 function SignalementViewerUpdateNumero({
   signalement,
 }: SignalementViewerUpdateNumeroProps) {
+  const tv = useTranslations("signalementViewer");
   const t = useTranslations("signalementForm");
   const { changesRequested, existingLocation, status } = signalement;
 
@@ -71,8 +72,12 @@ function SignalementViewerUpdateNumero({
       <SignalementNumeroDiffCard
         title={
           <>
-            Modification{" "}
-            {status === Signalement.status.PROCESSED ? "acceptée" : "refusée"}
+            {tv("modification", {
+              status:
+                status === Signalement.status.PROCESSED
+                  ? "accepted"
+                  : "rejected",
+            })}
             {status === Signalement.status.PROCESSED ? (
               <TickCircleIcon size={20} color="success" marginLeft={10} />
             ) : (

@@ -76,6 +76,7 @@ const options = [
 
 export default function VoiesPage() {
   const t = useTranslations("voiesPage");
+  const tc = useTranslations("common");
   const { token } = useContext(TokenContext);
   const [toRemove, setToRemove] = useState<string | null>(null);
   const {
@@ -440,7 +441,7 @@ export default function VoiesPage() {
                       browseToNumerosList(voie.id);
                     }}
                   >
-                    Consulter
+                    {tc("view")}
                   </Menu.Item>
                   <Menu.Item
                     icon={EditIcon}
@@ -448,7 +449,7 @@ export default function VoiesPage() {
                       browseToVoie(voie.id);
                     }}
                   >
-                    Modifier
+                    {tc("edit")}
                   </Menu.Item>
                   {!voie.isAllCertified && (
                     <Menu.Item
@@ -457,7 +458,7 @@ export default function VoiesPage() {
                         setToCertify(voie.id);
                       }}
                     >
-                      Certifier
+                      {tc("certify")}
                     </Menu.Item>
                   )}
                   <Menu.Item
@@ -467,7 +468,7 @@ export default function VoiesPage() {
                       setToRemove(voie.id);
                     }}
                   >
-                    Supprimer…
+                    {tc("deleteEllipsis")}
                   </Menu.Item>
                   {Boolean(token) &&
                     baseLocale.status === BaseLocale.status.PUBLISHED && (

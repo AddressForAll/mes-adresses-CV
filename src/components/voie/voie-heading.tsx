@@ -15,6 +15,7 @@ interface VoieHeadingProps {
 
 function VoieHeading({ voie, baseLocale }: VoieHeadingProps) {
   const t = useTranslations("voiePage");
+  const tc = useTranslations("common");
   const { token } = useContext(TokenContext);
   const { numeros } = useContext(BalDataContext);
 
@@ -46,7 +47,7 @@ function VoieHeading({ voie, baseLocale }: VoieHeadingProps) {
           </Pane>
           {numeros && (
             <Text padding={0}>
-              {numeros.length} numéro{numeros.length > 1 ? "s" : ""}
+              {tc("numerosCount", { count: numeros.length })}
             </Text>
           )}
           {voie.comment && (

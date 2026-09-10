@@ -13,6 +13,7 @@ interface AlertViewerProps {
 
 export function AlertViewer({ alert, author, onClose }: AlertViewerProps) {
   const t = useTranslations("signalementForm");
+  const tc = useTranslations("common");
   useAlertMap(alert);
 
   const createdAddressLabel =
@@ -63,7 +64,7 @@ export function AlertViewer({ alert, author, onClose }: AlertViewerProps) {
             display="inline-flex"
             onClick={onClose}
           >
-            Fermer
+            {tc("close")}
           </Button>
         </Pane>
       </Pane>

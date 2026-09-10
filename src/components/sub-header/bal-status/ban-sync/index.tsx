@@ -36,6 +36,7 @@ function BANSync({
   const { otherBalIdPublished } = useContext(BALRecoveryContext);
   const { isMobile } = useContext(LayoutContext);
   const t = useTranslations("balStatus");
+  const tb = useTranslations("banSync");
   const { key, intent } = computeStatus(
     baseLocale.status,
     baseLocale.sync,
@@ -79,7 +80,7 @@ function BANSync({
         position={Position.BOTTOM_RIGHT}
       >
         <Button height={28} appearance="primary" iconAfter={CaretDownIcon}>
-          {isMobile ? "Statut" : "Statut de synchronisation"}
+          {isMobile ? tb("statusShort") : tb("status")}
         </Button>
       </Popover>
     </Pane>

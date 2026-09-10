@@ -1,14 +1,7 @@
 import LocalStorageContext from "@/contexts/local-storage";
 import { useContext } from "react";
+import { useTranslations } from "next-intl";
 import Joyride from "react-joyride";
-
-const locale = {
-  skip: "Passer",
-  next: "Suivant",
-  back: "Précédent",
-  last: "Terminer",
-  close: "Fermer",
-};
 
 const styles = {
   buttonNext: {
@@ -46,6 +39,7 @@ export default function ProductTour({
   steps,
   localStorageKey,
 }: ProductTourProps) {
+  const t = useTranslations("common");
   const { productTour, setProductTour } = useContext(LocalStorageContext);
   const isHidden = productTour && productTour[localStorageKey];
 
@@ -55,7 +49,13 @@ export default function ProductTour({
       run
       continuous
       showSkipButton
-      locale={locale}
+      locale={{
+        skip: t("skip"),
+        next: t("next"),
+        back: t("previous"),
+        last: t("finish"),
+        close: t("close"),
+      }}
       styles={styles}
       callback={(e) => {
         if (

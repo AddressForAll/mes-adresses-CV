@@ -77,7 +77,7 @@ function CertificationButton({
           display="inline-flex"
           onClick={onCancel}
         >
-          Annuler
+          {tc("cancel")}
         </Button>
       </div>
     </div>

@@ -7,6 +7,7 @@ import {
 import { SignalementHeader } from "../signalement-header";
 import Form from "@/components/form";
 import { Button, Pane } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { useContext, useEffect } from "react";
 import MapContext from "@/contexts/map";
 import SignalementViewerUpdateNumero from "./numero/signalement-viewer-update-numero";
@@ -30,6 +31,7 @@ export function SignalementViewer({
   author,
   onClose,
 }: SignalementViewerProps) {
+  const tc = useTranslations("common");
   const { map } = useContext(MapContext);
 
   // Point the map to the location of the signalement
@@ -127,7 +129,7 @@ export function SignalementViewer({
             display="inline-flex"
             onClick={onClose}
           >
-            Fermer
+            {tc("close")}
           </Button>
         </Pane>
       </Pane>

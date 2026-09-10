@@ -371,8 +371,7 @@ function AlertsBatchProcessor({
           <UnorderedList>
             {isNumeroParcelleAlert ? (
               <Text>
-                La parcelle &quot;{currentItem.alert.value}&quot; n&apos;existe
-                pas dans le cadastre de la commune.
+                {t("parcelleMissing", { parcelle: currentItem.alert.value })}
               </Text>
             ) : (
               alertDefinitions.map((def, i) => (

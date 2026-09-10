@@ -45,6 +45,7 @@ function AlertEditor({
   hasDefinition = true,
 }: VoieEditorProps) {
   const ta = useTranslations("alertDefinitions");
+  const t = useTranslations("alertsBatch");
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
   const [alert, setAlert] = useState<Alert | null>(null);
 
@@ -117,7 +118,7 @@ function AlertEditor({
         ) : null}
         {alert.remediation && setValue && (
           <Text color={defaultTheme.colors.purple600}>
-            Corriger en
+            {t("correctTo")}
             <Button
               marginLeft={8}
               intent="primary"

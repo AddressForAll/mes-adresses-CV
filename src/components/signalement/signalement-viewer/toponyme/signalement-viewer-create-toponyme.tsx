@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import React from "react";
 import {
   Signalement,
@@ -14,6 +15,7 @@ interface SignalementViewerCreateToponymeProps {
 function SignalementViewerCreateToponyme({
   signalement,
 }: SignalementViewerCreateToponymeProps) {
+  const tv = useTranslations("signalementViewer");
   const { changesRequested, status } = signalement;
 
   const { nom, parcelles, positions } =
@@ -26,8 +28,10 @@ function SignalementViewerCreateToponyme({
     <SignalementToponymeDiffCard
       title={
         <>
-          Demande de création de toponyme{" "}
-          {status === Signalement.status.PROCESSED ? "acceptée" : "refusée"}
+          {tv("createToponyme", {
+            status:
+              status === Signalement.status.PROCESSED ? "accepted" : "rejected",
+          })}
           {status === Signalement.status.PROCESSED ? (
             <TickCircleIcon size={20} color="success" marginLeft={10} />
           ) : (

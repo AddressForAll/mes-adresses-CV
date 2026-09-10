@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import React, { useMemo } from "react";
 import { SignalementNumeroDiffCard } from "../../signalement-diff/signalement-numero-diff-card";
 import { ExistingNumero, Signalement } from "@/lib/openapi-signalement";
@@ -11,6 +12,7 @@ interface SignalementViewerDeleteNumeroProps {
 function SignalementViewerDeleteNumero({
   signalement,
 }: SignalementViewerDeleteNumeroProps) {
+  const tv = useTranslations("signalementViewer");
   const { existingLocation, status } = signalement;
 
   const { numero, suffixe, toponyme, parcelles, position, nomComplement } =
@@ -30,8 +32,12 @@ function SignalementViewerDeleteNumero({
         signalementType={Signalement.type.LOCATION_TO_DELETE}
         title={
           <>
-            Demande de suppression d&apos;adresse{" "}
-            {status === Signalement.status.PROCESSED ? "acceptée" : "refusée"}
+            {tv("deleteNumero", {
+              status:
+                status === Signalement.status.PROCESSED
+                  ? "accepted"
+                  : "rejected",
+            })}
             {status === Signalement.status.PROCESSED ? (
               <TickCircleIcon size={20} color="success" marginLeft={10} />
             ) : (

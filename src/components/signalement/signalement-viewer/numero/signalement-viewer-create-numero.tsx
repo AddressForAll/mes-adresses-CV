@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import React from "react";
 import {
   NumeroChangesRequestedDTO,
@@ -14,6 +15,7 @@ interface SignalementViewerCreateNumeroProps {
 function SignalementViewerCreateNumero({
   signalement,
 }: SignalementViewerCreateNumeroProps) {
+  const tv = useTranslations("signalementViewer");
   const { changesRequested, status } = signalement;
 
   const { numero, suffixe, parcelles, positions, nomVoie, nomComplement } =
@@ -28,8 +30,12 @@ function SignalementViewerCreateNumero({
         signalementType={Signalement.type.LOCATION_TO_CREATE}
         title={
           <>
-            Demande de création d&apos;adresse{" "}
-            {status === Signalement.status.PROCESSED ? "acceptée" : "refusée"}
+            {tv("createNumero", {
+              status:
+                status === Signalement.status.PROCESSED
+                  ? "accepted"
+                  : "rejected",
+            })}
             {status === Signalement.status.PROCESSED ? (
               <TickCircleIcon size={20} color="success" marginLeft={10} />
             ) : (

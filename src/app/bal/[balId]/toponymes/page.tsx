@@ -47,6 +47,7 @@ import { ButtonIconExpandHover } from "@/components/expand-button-hover/button-e
 
 export default function ToponymesPage() {
   const t = useTranslations("toponymesPage");
+  const tc = useTranslations("common");
   const { token } = useContext(TokenContext);
   const [toRemove, setToRemove] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -253,7 +254,7 @@ export default function ToponymesPage() {
                       browseToNumerosList(toponyme.id);
                     }}
                   >
-                    Consulter
+                    {tc("view")}
                   </Menu.Item>
                   <Menu.Item
                     icon={EditIcon}
@@ -261,7 +262,7 @@ export default function ToponymesPage() {
                       browseToToponyme(toponyme.id);
                     }}
                   >
-                    Modifier
+                    {tc("edit")}
                   </Menu.Item>
                   <Menu.Item
                     icon={TrashIcon}
@@ -270,7 +271,7 @@ export default function ToponymesPage() {
                       setToRemove(toponyme.id);
                     }}
                   >
-                    Supprimer…
+                    {tc("deleteEllipsis")}
                   </Menu.Item>
                 </TableRowActions>
               )}

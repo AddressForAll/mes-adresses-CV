@@ -28,7 +28,7 @@ export default function NewVoiePage() {
     setBreadcrumbs(
       <>
         <Link is={NextLink} href={`/bal/${baseLocale.id}/${TabsEnum.VOIES}`}>
-          Voies
+          {t("breadcrumb")}
         </Link>
         <Text color="muted">{" > "}</Text>
         <Text aria-current="page">{t("newVoie")}</Text>
@@ -38,7 +38,7 @@ export default function NewVoiePage() {
     return () => {
       setBreadcrumbs(null);
     };
-  }, [setBreadcrumbs, baseLocale.id]);
+  }, [setBreadcrumbs, baseLocale.id, t]);
 
   return (
     <ProtectedPage>

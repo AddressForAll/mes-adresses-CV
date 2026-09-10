@@ -7,11 +7,13 @@ import nearestPointOnLine from "@turf/nearest-point-on-line";
 import length from "@turf/length";
 import * as helpers from "@turf/helpers";
 import lineSlice from "@turf/line-slice";
+import { useTranslations } from "next-intl";
 
 import MapContext from "@/contexts/map";
 import MarkersContext from "@/contexts/markers";
 import BalDataContext from "@/contexts/bal-data";
 import { VOIE_TRACE_LINE } from "@/components/map/layers/tiles";
+import { getPositionTypeKey } from "@/lib/positions-types-list";
 
 interface EditableMarkerProps {
   size?: number;
@@ -28,6 +30,7 @@ function EditableMarker({
   isToponyme,
   viewport,
 }: EditableMarkerProps) {
+  const tp = useTranslations("positionTypes");
   const { map } = useContext(MapContext);
   const { markers, updateMarker, completeNumero, setSuggestedNumero } =
     useContext(MarkersContext);
@@ -119,9 +122,12 @@ function EditableMarker({
             fontSize={10}
             whiteSpace="nowrap"
           >
-            {completeNumero
-              ? `${completeNumero} - ${marker.type}`
-              : `${marker.type}`}
+            {[
+              completeNumero,
+              marker.type && tp(getPositionTypeKey(marker.type)),
+            ]
+              .filter(Boolean)
+              .join(" - ")}
           </Text>
 
           <MapMarkerIcon

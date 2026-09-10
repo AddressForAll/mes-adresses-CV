@@ -162,7 +162,7 @@ function FondDeCarteForm() {
               appearance="primary"
               onClick={saveFondDeCartes}
             >
-              Enregistrer les changements {isLoading && <RefreshIconRotate />}
+              {t("saveChanges")} {isLoading && <RefreshIconRotate />}
             </Button>
           </Pane>
         </Pane>

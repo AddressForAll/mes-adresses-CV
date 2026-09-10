@@ -87,7 +87,7 @@ function MainTabs({ balId }: MainTabsProps) {
               >
                 <ResponsiveImage
                   src="/static/images/icone-voies.png"
-                  alt={`Illustration de l'onglet voies`}
+                  alt={t("voiesTabIllustration")}
                   draggable={false}
                   orientation="portrait"
                   unoptimized
@@ -109,7 +109,7 @@ function MainTabs({ balId }: MainTabsProps) {
               >
                 <ResponsiveImage
                   src="/static/images/icone-toponymes.png"
-                  alt={`Illustration de l'onglet toponymes`}
+                  alt={t("toponymesTabIllustration")}
                   draggable={false}
                   orientation="portrait"
                   unoptimized
@@ -128,7 +128,7 @@ function MainTabs({ balId }: MainTabsProps) {
                 <ResponsiveImage
                   className={styles.tabImage}
                   src="/static/images/icone-signalements.png"
-                  alt={`Illustration de l'onglet signalements`}
+                  alt={t("signalementsTabIllustration")}
                   draggable={false}
                   orientation="portrait"
                   unoptimized
@@ -146,7 +146,7 @@ function MainTabs({ balId }: MainTabsProps) {
             const tab = (
               <Link
                 key={key}
-                title={`Onglet ${key}`}
+                title={t("tabTitle", { tab: key })}
                 className={styles.tabLink}
                 role="tab"
                 href={href}

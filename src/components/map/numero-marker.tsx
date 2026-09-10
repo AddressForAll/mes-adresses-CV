@@ -33,6 +33,7 @@ function NumeroMarker({
   removeAddress,
 }: NumeroMarkerProps) {
   const t = useTranslations("mapPopup");
+  const tc = useTranslations("common");
   const position =
     numero.positions.find((position) => position.type === "entrée") ||
     numero.positions[0];
@@ -94,7 +95,7 @@ function NumeroMarker({
                 intent="danger"
                 onSelect={() => removeAddress(numero.id)}
               >
-                Supprimer
+                {tc("delete")}
               </Menu.Item>
             </Menu.Group>
           </Menu>

@@ -22,7 +22,7 @@ function Stepper({
         <Heading is="h2">
           {steps[currentStepIndex].label}
           <Text marginLeft={8} fontSize={12} color="muted">
-            Étape {currentStepIndex + 1} sur {steps.length}
+            {t("stepOf", { step: currentStepIndex + 1, total: steps.length })}
           </Text>
         </Heading>
         <Pane className={styles["stepper-steps"]}>

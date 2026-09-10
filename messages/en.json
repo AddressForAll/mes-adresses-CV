@@ -77,9 +77,12 @@
     "convertError": "The street could not be converted into a place name",
     "convertSuccess": "The street was converted into a place name",
     "convertToToponyme": "Convert into a place name",
+    "correctTo": "Correct to",
+    "current": "Current:",
     "finish": "Finish",
     "mergeVoies": "Merge the streets",
     "parcelleError": "The parcel could not be removed",
+    "parcelleMissing": "Parcel “{parcelle}” does not exist in the municipality’s cadastre.",
     "parcelleSuccess": "The parcel was removed",
     "removeParcelle": "Remove the parcel",
     "skip": "Skip",
@@ -87,6 +90,7 @@
     "suffixeInvalidInfo": "The suffix “{suffixe}” contains invalid characters.",
     "suffixeLabel": "House number suffix",
     "suffixeSuccess": "The suffix was corrected",
+    "suggestion": "Suggestion:",
     "suggestionDoublon": "Suggestion about streets sharing a name",
     "suggestionParcelle": "Suggestion about a parcel missing from the cadastre",
     "suggestionSuffixe": "Suggestion about the house number suffix",
@@ -187,6 +191,7 @@
     "habiliteBal": "Authorize the Local Address Base",
     "pauseError": "Unable to pause updates to the National Address Base",
     "pauseSuccess": "Automatic updates to the National Address Base have been paused",
+    "publish": "Publish",
     "resumeError": "Unable to resume automatic updates to the National Address Base",
     "resumeSuccess": "Automatic updates to the National Address Base have resumed"
   },
@@ -197,6 +202,7 @@
     "voiesCount": "<b>{count}</b> {count, plural, one {street} other {streets}}"
   },
   "banHistory": {
+    "banLogoAlt": "National Address Base logo",
     "by": "By",
     "electedOfficial": "elected official of {communeName}",
     "empty": "No Local Address Base found",
@@ -204,7 +210,9 @@
     "notProvided": "Not provided",
     "reduce": "Collapse",
     "showAll": "Show the full history",
-    "title": "Update history"
+    "title": "Update history",
+    "townHallOf": "town hall of {communeName}",
+    "via": "via <b>{client}</b>"
   },
   "banSync": {
     "automaticUpdate": "Automatic update",
@@ -212,6 +220,8 @@
     "pauseAutomaticUpdate": "Pause automatic updates",
     "replaceConfirmation": "I understand that my Local Address Base will replace the one currently synchronised with the National Address Base",
     "resumeAutomaticUpdate": "Resume automatic updates",
+    "status": "Synchronisation status",
+    "statusShort": "Status",
     "syncing": "Synchronising",
     "updateNow": "Update now"
   },
@@ -222,7 +232,8 @@
     "lastUpdate": "Last updated {relative}",
     "manageAddresses": "Manage addresses",
     "neverUpdated": "Never updated",
-    "openBal": "Open the Local Address Base"
+    "openBal": "Open the Local Address Base",
+    "pendingSignalements": "Pending reports:"
   },
   "basemaps": {
     "ortho": "Aerial imagery",
@@ -261,29 +272,41 @@
     "uncertified": "Uncertified addresses"
   },
   "comment": {
+    "heading": "{count, plural, =0 {Comment} other {Comments}}",
     "label": "Comment",
+    "othersCount": "{count, plural, one {# other comment} other {# other comments}}",
     "placeholder": "This note is confidential and will not be published."
   },
   "common": {
     "add": "Add",
+    "analysing": "Analysing",
     "back": "Back",
     "cancel": "Cancel",
+    "certify": "Certify",
     "close": "Close",
     "confirm": "Confirm",
     "continue": "Continue",
     "delete": "Delete",
+    "deleteEllipsis": "Delete…",
     "edit": "Edit",
     "error": "Error",
+    "finish": "Finish",
     "inProgress": "In progress…",
     "learnMore": "Learn more",
     "loading": "Loading…",
+    "mairieLogoAlt": "town hall logo",
     "next": "Next",
     "no": "No",
     "noResults": "No results found",
+    "numerosCount": "{count, plural, one {# house number} other {# house numbers}}",
+    "onlineTrainingLogoAlt": "online training logo",
     "previous": "Previous",
     "save": "Save",
+    "saving": "Saving…",
     "search": "Search",
+    "skip": "Skip",
     "validate": "Confirm",
+    "view": "View",
     "warning": "Warning",
     "yes": "Yes"
   },
@@ -348,6 +371,7 @@
     "drawVoie": "Click on the map to mark the start of the street, then add points to draw it. When you are done, click the last point to mark the end of the street.",
     "editPolygon": "You can edit the polygon by moving its points, or add new points by clicking on its outline.",
     "editVoie": "You can edit the line by moving its points, or add new points by clicking on it.",
+    "length": "Length: {meters} m",
     "measureDistance": "Click on the map to measure a distance. Double-click to finish."
   },
   "drawMetricVoieEditor": {
@@ -378,11 +402,14 @@
     "nameLabel": "Basemap name",
     "namePlaceholder": "My basemap",
     "nameRequired": "The name is required",
+    "nameShort": "Name",
     "remove": "Remove the basemap",
+    "saveChanges": "Save changes",
     "updateError": "The basemaps could not be updated",
     "updateSuccess": "The basemaps were updated",
     "urlInvalid": "The basemap URL is invalid",
-    "urlLabel": "Basemap URL"
+    "urlLabel": "Basemap URL",
+    "urlShort": "URL"
   },
   "footer": {
     "accessibility": "Accessibility: non-compliant",
@@ -764,6 +791,8 @@
     "editTitle": "Edit the municipality’s regional language",
     "emptyContent": "For multilingual addressing, start by entering the municipality’s name in a regional language",
     "ignoreGoal": "Dismiss goal",
+    "intro": "Showcase your linguistic heritage by entering your street, square and locality names",
+    "introWithLanguage": "Showcase your linguistic heritage by entering your street, square and locality names in {language}",
     "title": "Regional language"
   },
   "language": {
@@ -804,7 +833,11 @@
     "title": "Local Address Bases – Legal notice"
   },
   "mainTabs": {
-    "communeTabIllustration": "Illustration of the municipality tab"
+    "communeTabIllustration": "Illustration of the municipality tab",
+    "signalementsTabIllustration": "Illustration of the reports tab",
+    "tabTitle": "{tab, select, commune {Municipality tab} voies {Streets tab} toponymes {Place names tab} other {Reports tab}}",
+    "toponymesTabIllustration": "Illustration of the place names tab",
+    "voiesTabIllustration": "Illustration of the streets tab"
   },
   "mapControls": {
     "cadastreUnavailable": "The cadastre is not available for this municipality",
@@ -822,6 +855,7 @@
     "noPanoramaxImagery": "No imagery is available for this area.",
     "noParcelleFound": "No parcel matches your search",
     "numeros": "House numbers",
+    "openPanoramax": "Open Panoramax",
     "pointsOfInterest": "Points of interest",
     "rulerIconAlt": "Ruler icon",
     "searchParcelle": "Search for a parcel",
@@ -835,6 +869,7 @@
     "addressCertified": "This address is certified",
     "allCertified": "All house numbers certified",
     "certified": "Certified",
+    "certifiedRatio": "{certified}/{total} certified",
     "noNumero": "No house number",
     "parcelles": "Parcel(s)",
     "uncertified": "Not certified"
@@ -920,7 +955,8 @@
   },
   "populate": {
     "populate": "Fetch addresses from the National Address Base",
-    "populating": "Fetching addresses…"
+    "populating": "Fetching addresses…",
+    "question": "Would you like to import the streets of {communeName} from the National Address Base?"
   },
   "positionEditor": {
     "addToNumero": "Add a position to the house number",
@@ -1037,9 +1073,12 @@
   },
   "settings": {
     "addBasemap": "Add a basemap",
+    "adminLoginLink": "Admin sign-in link",
+    "adminLoginQrCode": "Admin sign-in QR code",
     "basemaps": "Basemaps",
     "copied": "Copied",
     "copyUrl": "Copy the URL",
+    "name": "Name",
     "qualityAlerts": "Quality alerts",
     "saveChanges": "Save changes",
     "saveSuccess": "The settings were saved successfully",
@@ -1055,6 +1094,7 @@
   },
   "signalement": {
     "noChange": "No change",
+    "parcelles": "{count, plural, one {Parcel} other {Parcels}}",
     "positionAdded": "Position added",
     "positionDeleted": "Position removed",
     "positionTypeChanged": "Type changed",
@@ -1082,6 +1122,7 @@
     "currentVoieName": "Current street name",
     "deleteNumeroRequest": "Address deletion request",
     "deleteToponymeRequest": "Place name deletion request",
+    "deleteToponymeWarning": "By accepting this report, the place name <b>{toponymeName}</b> will be moved to the trash",
     "deleteVoieRequest": "Street deletion request",
     "deleteVoieWarning": "By accepting this report, the street <b>{voieName}</b> will be moved to the bin",
     "deleteVoieWithNumeros": "along with the <b>{count, plural, one {# address} other {# addresses}}</b> attached to it",
@@ -1124,6 +1165,9 @@
   },
   "signalementListItem": {
     "acceptedOn": "Accepted on {date}",
+    "generalPublicSource": "General public source",
+    "ignore": "Ignore",
+    "process": "Process",
     "rejectedOn": "Rejected on {date}",
     "trustedActor": "Trusted party"
   },
@@ -1144,6 +1188,14 @@
     "missingAddress": "Missing address",
     "update": "Update"
   },
+  "signalementViewer": {
+    "createNumero": "{status, select, accepted {Address creation request accepted} other {Address creation request rejected}}",
+    "createToponyme": "{status, select, accepted {Place name creation request accepted} other {Place name creation request rejected}}",
+    "deleteNumero": "{status, select, accepted {Address deletion request accepted} other {Address deletion request rejected}}",
+    "deleteToponyme": "{status, select, accepted {Place name deletion request accepted} other {Place name deletion request rejected}}",
+    "deleteVoie": "{status, select, accepted {Street deletion request accepted} other {Street deletion request rejected}}",
+    "modification": "{status, select, accepted {Change accepted} other {Change rejected}}"
+  },
   "signalementsPage": {
     "acceptedToast": "The report was taken into account",
     "backToList": "Back to the reports list",
@@ -1163,7 +1215,8 @@
   },
   "stepper": {
     "lastStep": "Last step",
-    "nextStep": "Next step:"
+    "nextStep": "Next step:",
+    "stepOf": "Step {step} of {total}"
   },
   "toponymeEditor": {
     "communeDeleguee": "Delegated municipality",
@@ -1217,6 +1270,11 @@
   "trash": {
     "numerosDeleteError": "The house numbers could not be deleted",
     "numerosDeleted": "The house numbers were deleted",
+    "tabs": {
+      "toponymes": "Place names",
+      "voies": "Streets"
+    },
+    "title": "Trash",
     "toponymeDeleteError": "The place name could not be deleted",
     "toponymeDeleted": "The place name was deleted",
     "toponymeRestoreError": "The place name could not be restored",
@@ -1289,6 +1347,7 @@
     "doublonText": "Several streets share the same name",
     "editNumero": "Edit the house number",
     "editVoie": "Edit the street",
+    "improve": "Improve",
     "mergeConfirm": "Merge the streets",
     "mergeConfirmQuestion": "Are you sure you want to merge the {count} streets named {voieName}?",
     "mergeTitle": "Merge the streets sharing a name",

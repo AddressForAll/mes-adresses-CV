@@ -38,7 +38,7 @@ function WarningLink({ title, url }: WarningLinkProps) {
         style={{ backgroundColor: defaultTheme.colors.purple600 }}
         onClick={handleMatomoEvent}
       >
-        Améliorer
+        {t("improve")}
       </Button>
     </>
   );

@@ -23,6 +23,7 @@ import { TilesLayerMode } from "@/components/map/layers/tiles";
 
 export function VoieNumerosPage() {
   const t = useTranslations("voiePage");
+  const tv = useTranslations("voiesPage");
   const { isFormOpen, handleEditing, editedNumero, reset } = useFormState();
 
   useHelp(3);
@@ -54,7 +55,7 @@ export function VoieNumerosPage() {
             savedSearchPagination[TabsEnum.VOIES]
           )}
         >
-          Voies
+          {tv("breadcrumb")}
         </Link>
         <Text color="muted">{" > "}</Text>
         <Link
@@ -77,6 +78,8 @@ export function VoieNumerosPage() {
     voie,
     setLastSelectedItem,
     savedSearchPagination,
+    t,
+    tv,
   ]);
 
   useEffect(() => {

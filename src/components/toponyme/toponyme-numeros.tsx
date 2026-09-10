@@ -8,6 +8,7 @@ import {
   CommentIcon,
   Position,
 } from "evergreen-ui";
+import { useTranslations } from "next-intl";
 import { Numero } from "@/lib/openapi-api-bal";
 
 interface ToponymeNumerosProps {
@@ -21,6 +22,7 @@ function ToponymeNumeros({
   handleSelect,
   isEditable,
 }: ToponymeNumerosProps) {
+  const tc = useTranslations("common");
   const [hovered, setHovered] = useState(null);
 
   const numerosByVoie: Record<string, Numero[]> = useMemo(() => {
@@ -50,8 +52,7 @@ function ToponymeNumeros({
                 {nomVoie}
               </Heading>
               <Table.TextCell flex="0 1 1">
-                {numerosByVoie[nomVoie].length} numéro
-                {numerosByVoie[nomVoie].length > 1 ? "s" : ""}
+                {tc("numerosCount", { count: numerosByVoie[nomVoie].length })}
               </Table.TextCell>
             </Table.Cell>
 
