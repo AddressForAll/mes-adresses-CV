@@ -19,6 +19,12 @@ interface CommunePublicationInfosProps {
   outdatedApiDepotClients: string[];
   outdatedHarvestSources: string[];
   onCreateNewBAL: (isDemoForce?: boolean) => void;
+  /**
+   * Skip straight to the next step when nothing exists for the commune yet.
+   * Off for the territory selectors: choosing a county there must not
+   * preempt choosing a place inside it.
+   */
+  allowAutomaticProceed?: boolean;
 }
 
 function CommunePublicationInfos({
@@ -26,6 +32,7 @@ function CommunePublicationInfos({
   outdatedHarvestSources,
   outdatedApiDepotClients,
   onCreateNewBAL,
+  allowAutomaticProceed = true,
 }: CommunePublicationInfosProps) {
   const t = useTranslations("communePublicationInfos");
   const [apiDepotLastRevision, setApiDepotLastRevision] =
@@ -34,10 +41,21 @@ function CommunePublicationInfos({
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (!isLoading && !apiDepotLastRevision && existingBALCount === 0) {
+    if (
+      allowAutomaticProceed &&
+      !isLoading &&
+      !apiDepotLastRevision &&
+      existingBALCount === 0
+    ) {
       onCreateNewBAL();
     }
-  }, [apiDepotLastRevision, existingBALCount, isLoading, onCreateNewBAL]);
+  }, [
+    allowAutomaticProceed,
+    apiDepotLastRevision,
+    existingBALCount,
+    isLoading,
+    onCreateNewBAL,
+  ]);
 
   useEffect(() => {
     const fetchData = async () => {

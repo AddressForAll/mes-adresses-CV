@@ -766,6 +766,10 @@
     },
     "cannotDropFile": "Impossible de déposer ce fichier.",
     "chooseStartingPoint": "Choisissez votre point de départ",
+    "emptyOption": {
+      "description": "Vous ajouterez vous-même les voies et les adresses dans l’éditeur.",
+      "label": "Commencer avec une Base Adresse Locale vide"
+    },
     "errorTitle": "Une erreur est survenue",
     "fileHasErrorsTitle": "Le fichier comporte des erreurs",
     "fileOption": {
@@ -1217,6 +1221,20 @@
     "lastStep": "Dernière étape",
     "nextStep": "Étape suivante :",
     "stepOf": "Étape {step} sur {total}"
+  },
+  "territorySelector": {
+    "choose": "Sélectionner…",
+    "entireTerritory": "{name} (tout le territoire)",
+    "levels": {
+      "county": "Comté",
+      "place": "Ville ou localité",
+      "state": "État"
+    },
+    "loadError": "La liste des territoires n’a pas pu être chargée.",
+    "loading": "Chargement…",
+    "retry": "Réessayer",
+    "selectedLevel": "Niveau : {level}",
+    "territoryCode": "Code {code}"
   },
   "toponymeEditor": {
     "communeDeleguee": "Commune déléguée",

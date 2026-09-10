@@ -372,7 +372,11 @@ function Map({
         // territory-sized bbox (a US county, say) would otherwise center
         // below the BAL tiles' minZoom and render nothing — see
         // src/lib/countries's minInitialZoom.
-        const isCommuneView = bounds === commune.bbox;
+        // An empty BAL framed on its whole territory is left unclamped:
+        // there are no BAL tiles to lose, and zoom 13 at a county's centre
+        // would drop the user somewhere arbitrary.
+        const isCommuneView =
+          bounds === commune.bbox && !commune.isTerritoryBBox;
         const minInitialZoom = getCountry(baseLocale.country).minInitialZoom;
         const zoom =
           isCommuneView && minInitialZoom
@@ -395,7 +399,14 @@ function Map({
         }));
       }
     }
-  }, [map, bounds, setViewport, commune.bbox, baseLocale.country]);
+  }, [
+    map,
+    bounds,
+    setViewport,
+    commune.bbox,
+    commune.isTerritoryBBox,
+    baseLocale.country,
+  ]);
 
   const sourceTiles: SourceProps = useMemo(() => {
     return {

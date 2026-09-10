@@ -66,9 +66,14 @@ export async function getCommuneWithBBox(
   );
 
   const { geoApi } = getCountry(baseLocale.country);
-  if (!geoApi) {
+  if (geoApi !== "fr") {
+    // Frame the addresses when there are some. A fresh BAL has none, so fall
+    // back to the territory's own bbox, which our API returns for catalog
+    // codes (`/v2/commune/:code`) — otherwise the map would open on France.
     if (voies.length > 0) {
       commune.bbox = bboxFromVoies(voies);
+    } else if (commune.bbox) {
+      commune.isTerritoryBBox = true;
     }
     return commune;
   }
