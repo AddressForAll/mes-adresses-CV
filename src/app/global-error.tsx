@@ -24,6 +24,7 @@ const MESSAGES: Record<Locale, { title: string; retry: string }> = {
   fr: { title: "Une erreur est survenue.", retry: "Réessayer" },
   en: { title: "An error occurred.", retry: "Try again" },
   es: { title: "Se ha producido un error.", retry: "Reintentar" },
+  pt: { title: "Ocorreu um erro.", retry: "Tentar novamente" },
 };
 
 function readLocale(): Locale {

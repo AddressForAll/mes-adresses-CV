@@ -1,0 +1,1396 @@
+{
+  "accessibility": {
+    "action1": "Oferecer um site acessível.",
+    "action2": "Prestar atenção às informações de acessibilidade dos dados.",
+    "commitment": "<strong>A Base de Endereços Nacional</strong> compromete-se a tornar acessíveis seus sites, intranet, extranet e softwares (assim como seus aplicativos móveis e mobiliário urbano digital), em conformidade com o artigo 47 da <strong>lei n.º 2005-102, de 11 de fevereiro de 2005</strong>. Para isso, adota a seguinte estratégia e ações:",
+    "complianceContent": "<strong>mes-adresses.data.gouv</strong> não está em conformidade com o <strong>referencial geral de melhoria da acessibilidade</strong> (RGAA), pois ainda não foi realizada uma auditoria de acessibilidade. A ausência de auditoria não põe em causa <strong>o caráter acessível</strong> do site atual.",
+    "complianceStatus": "Estado de conformidade",
+    "contactUs": "Fale conosco",
+    "declarationDate": "Esta declaração de acessibilidade foi elaborada em <strong>01/08/2022</strong> e se aplica a <strong>mes-adresses.data.gouv</strong>",
+    "infoAndContact": "Informações e contato",
+    "infoAndContactContent": "Se você não conseguir acessar um conteúdo ou serviço, pode entrar em contato com nossa equipe para ser orientado a uma alternativa acessível ou obter o conteúdo em outro formato.",
+    "nonCompliant": "Não conforme",
+    "remedies": "Vias de recurso",
+    "remediesContent": "Se você identificar uma <strong>falha de acessibilidade</strong> que o impeça de acessar um conteúdo ou funcionalidade do site, nos informar e não obtiver resposta, tem o direito de enviar sua reclamação ou um pedido ao <strong>Défenseur des droits</strong>.<br></br>Há várias formas à sua disposição:",
+    "remedyDelegate": "Entrar em contato com <strong>o delegado do Défenseur des droits</strong>",
+    "remedyDelegateSuffix": "da sua região.",
+    "remedyPost": "Enviar uma carta pelo correio (gratuito, não é preciso selo).",
+    "remedyWrite": "Escrever uma mensagem ao <strong>Défenseur des droits</strong>.",
+    "title": "Declaração de acessibilidade"
+  },
+  "addNumeros": {
+    "allSelected": "Todos os números estão selecionados",
+    "chooseVoie": "- Selecione um logradouro -",
+    "deselectAll": "Desmarcar todos os números",
+    "linkNumeros": "Associar números",
+    "noneAvailable": "Nenhum número disponível para este logradouro",
+    "or": "ou",
+    "polygonEditHint": "Modifique o polígono diretamente no mapa para alterar os números selecionados.",
+    "polygonHint": "Clique no mapa para desenhar um polígono. Ao terminar, clique no último ponto para fechar o polígono. Os números dentro do polígono serão selecionados",
+    "selectAll": "Selecionar todos os números",
+    "selectNumeros": "Selecionar os números",
+    "selectedCount": "{count, plural, =0 {Nenhum número selecionado} one {1 número selecionado} other {# números selecionados}}",
+    "selectionTitle": "Seleção de números",
+    "voie": "Logradouro",
+    "withPolygon": "Desenhando o contorno",
+    "withVoie": "Por logradouro"
+  },
+  "addressEditor": {
+    "createNew": "Criar novo",
+    "numero": "Número",
+    "title": "Novo endereço",
+    "toponyme": "Topônimo"
+  },
+  "adminEmailsField": {
+    "addButton": "Adicionar um e-mail de administrador",
+    "addTitle": "Adicionar um endereço de e-mail",
+    "label": "E-mails dos administradores *",
+    "placeholder": "Adicionar um endereço de e-mail…"
+  },
+  "alertDefinitions": {
+    "abbreviation_invalid": "O nome do logradouro parece conter uma abreviação inválida",
+    "bad_multi_word_rue": "O nome do logradouro parece conter a palavra «rue» várias vezes",
+    "bad_word_lieudit": "O nome do logradouro parece conter uma palavra de localidade inválida",
+    "caractere_invalide": "O nome do logradouro parece conter um caractere inválido",
+    "caractere_invalide_end": "O nome do logradouro parece terminar com um caractere inválido",
+    "caractere_invalide_start_or_end": "O nome do logradouro parece começar ou terminar com um caractere inválido",
+    "casse_incorrecte": "O nome do logradouro parece usar maiúsculas/minúsculas incorretas",
+    "doublon_voie_nom": "Vários logradouros parecem ter o mesmo nome",
+    "lake_of_accent": "O nome do logradouro parece estar sem um ou mais acentos",
+    "multi_space_caractere": "O nome do logradouro parece conter vários espaços seguidos",
+    "no_words_in_parentheses": "O nome do logradouro parece conter uma palavra entre parênteses",
+    "parcelle_not_exist": "O lote não existe mais no cadastro do município",
+    "suffixe_caractere_invalide": "O sufixo do número parece conter um caractere inválido",
+    "voie_empty": "O logradouro não tem números. É um logradouro sem endereços?"
+  },
+  "alertPublishedBal": {
+    "alreadyPublished": "Uma Base de Endereços Local já foi publicada para {communeName}",
+    "existingUnpublished": "Já existem Bases de Endereços Locais não publicadas para {communeName}",
+    "publishedIconAlt": "Ícone de Base de Endereços Local publicada"
+  },
+  "alertsBatch": {
+    "allProcessed": "Todas as sugestões foram tratadas",
+    "apply": "Aplicar",
+    "applyError": "Não foi possível aplicar a correção",
+    "applySuccess": "A correção foi aplicada",
+    "backToList": "Voltar à lista",
+    "convertError": "Não foi possível converter o logradouro em topônimo",
+    "convertSuccess": "O logradouro foi convertido em topônimo",
+    "convertToToponyme": "Converter em topônimo",
+    "correctTo": "Corrigir para",
+    "current": "Atual:",
+    "finish": "Concluir",
+    "mergeVoies": "Mesclar os logradouros",
+    "parcelleError": "Não foi possível remover o lote",
+    "parcelleMissing": "O lote «{parcelle}» não existe no cadastro do município.",
+    "parcelleSuccess": "O lote foi removido",
+    "removeParcelle": "Remover o lote",
+    "skip": "Pular",
+    "suffixeError": "Não foi possível corrigir o sufixo",
+    "suffixeInvalidInfo": "O sufixo «{suffixe}» contém caracteres inválidos.",
+    "suffixeLabel": "Sufixo do número",
+    "suffixeSuccess": "O sufixo foi corrigido",
+    "suggestion": "Sugestão:",
+    "suggestionDoublon": "Sugestão sobre logradouros com o mesmo nome",
+    "suggestionParcelle": "Sugestão sobre lote inexistente no cadastro",
+    "suggestionSuffixe": "Sugestão sobre o sufixo do número",
+    "suggestionVoieEmpty": "Sugestão sobre logradouro sem endereços",
+    "suggestionVoieName": "Sugestão sobre o nome do logradouro",
+    "voieEmptyInfo": "Este logradouro não contém nenhum número. Você pode convertê-lo em topônimo.",
+    "voieNameLabel": "Nome do logradouro"
+  },
+  "alertsSettings": {
+    "numeroAlerts": "Alertas sobre os números",
+    "voieAlerts": "Alertas sobre os logradouros"
+  },
+  "alreadyPublishedWarning": {
+    "goToPublished": "Acessar a Base de Endereços Local publicada",
+    "message": "Já existe uma Base de Endereços Local publicada para o município de {communeName}",
+    "orContactSupport": "ou entre em contato com o suporte:"
+  },
+  "balData": {
+    "loading": "Carregando a Base de Endereços Local...",
+    "newChangesDetail": "Elas serão enviadas automaticamente à Base de Endereços Nacional dentro de algumas horas.",
+    "newChangesDetected": "Novas alterações foram detectadas"
+  },
+  "balInfosStep": {
+    "creatingContent": "Sua Base de Endereços Local está sendo criada. Esta operação pode levar vários minutos.",
+    "creatingTitle": "Criando a Base de Endereços Local...",
+    "demoDescription": "Esta Base de Endereços Local nunca poderá ser publicada e não será salva.",
+    "demoLabel": "Criar uma Base local de demonstração?",
+    "nom": "Nome da Base de Endereços Local"
+  },
+  "balRecovery": {
+    "alreadyPublishedTitle": "Já existe uma Base de Endereços Local publicada para este município",
+    "byCommuneTitle": "Com o e-mail oficial do seu município",
+    "byEmailIntro": "Um e-mail será enviado para o endereço que você informou.",
+    "byEmailTitle": "Com o seu endereço de e-mail",
+    "cannotFindBals": "Não encontra suas Bases de Endereços Locais? Para recuperá-las por e-mail",
+    "chooseCommune": "Informe o município cujas Bases de Endereços Locais você deseja recuperar.",
+    "clickHere": "Clique aqui",
+    "communeRecoveryUnavailable": "A recuperação por município não está disponível para {country}.",
+    "contactSupport": "Se mesmo assim você quiser partir desta Base de Endereços Local, entre em contato com o suporte:",
+    "emailAlreadySent": "Um e-mail já foi enviado. Por favor, aguarde.",
+    "emailHintMany": "Nele você encontrará a lista de todas as Bases de Endereços Locais associadas a esse endereço. Basta clicar nos links correspondentes para encontrá-las no seu espaço.",
+    "emailHintOne": "Nele você encontrará um link de administração da sua Base de Endereços Local. Basta clicar no link para encontrá-la no seu espaço.",
+    "emailPlaceholder": "endereco@email.com.br",
+    "emailSentTo": "Um e-mail foi enviado para {email}",
+    "emailSentToCommune": "Um e-mail foi enviado ao município",
+    "emailWillBeSentTo": "Um e-mail com o link de recuperação será enviado para o endereço do seu município: <strong>{emails}</strong>",
+    "goToPublished": "Acessar a Base de Endereços Local publicada",
+    "loadingCommuneEmails": "Carregando os endereços de e-mail do município...",
+    "mairieLogoAlt": "logotipo da prefeitura",
+    "mustStartFromPublished": "Você deve partir da Base de Endereços Local publicada",
+    "receiveEmail": "Receber o e-mail",
+    "recoverManyTitle": "Recuperação das minhas Bases de Endereços Locais",
+    "recoverOneTitle": "Recuperação da sua Base de Endereços Local"
+  },
+  "balStatus": {
+    "consultation": {
+      "content": "Você está consultando esta Base de Endereços Local; nenhuma alteração será repassada à Base de Endereços Nacional.",
+      "label": "Somente leitura",
+      "title": "Você está consultando esta Base de Endereços Local"
+    },
+    "demo": {
+      "content": "Base de Endereços Local de demonstração: nenhum endereço será enviado à Base de Endereços Nacional",
+      "label": "Demonstração",
+      "title": "Base de Endereços Local de demonstração"
+    },
+    "draft": {
+      "content": "Esta Base de Endereços Local está em construção",
+      "label": "Rascunho",
+      "title": "Esta Base de Endereços Local está em construção"
+    },
+    "noHabilitation": {
+      "content": "As alterações não serão repassadas à Base de Endereços Nacional.",
+      "label": "Sem habilitação",
+      "title": "Esta Base de Endereços Local precisa de uma habilitação para alimentar a Base de Endereços Nacional"
+    },
+    "outdated": {
+      "content": "Novas alterações foram detectadas; elas serão repassadas automaticamente à Base de Endereços Nacional nas próximas horas.",
+      "label": "Atualização programada",
+      "title": "Esta Base de Endereços Local vai alimentar a Base de Endereços Nacional"
+    },
+    "paused": {
+      "content": "As atualizações automáticas desta Base de Endereços Local estão suspensas. Você pode retomar a sincronização a qualquer momento.",
+      "label": "Suspensa",
+      "title": "As atualizações automáticas desta Base de Endereços Local estão suspensas; ela não alimenta mais a Base de Endereços Nacional"
+    },
+    "replaced": {
+      "content": "Outra Base de Endereços Local também está sincronizada com a Base de Endereços Nacional. Entre em contato com os administradores da outra Base de Endereços Local ou com nosso suporte: adresse@data.gouv.fr",
+      "label": "Substituída",
+      "title": "Esta Base de Endereços Local não alimenta mais a Base de Endereços Nacional"
+    },
+    "synced": {
+      "content": "Esta Base de Endereços Local está em dia com a Base de Endereços Nacional. Qualquer alteração será repassada automaticamente à Base de Endereços Nacional nas próximas horas.",
+      "label": "Atualizada",
+      "title": "Esta Base de Endereços Local alimenta a Base de Endereços Nacional"
+    }
+  },
+  "balStatusActions": {
+    "habiliteBal": "Habilitar a Base de Endereços Local",
+    "pauseError": "Não foi possível suspender a atualização da Base de Endereços Nacional",
+    "pauseSuccess": "Atualizações automáticas da Base de Endereços Nacional suspensas",
+    "publish": "Publicar",
+    "resumeError": "Não foi possível retomar a atualização automática da Base de Endereços Nacional",
+    "resumeSuccess": "Atualização automática da Base de Endereços Nacional retomada"
+  },
+  "balSummary": {
+    "editNomsAlt": "Modificar os nomes alternativos do município em língua regional",
+    "numerosCount": "<b>{count}</b> {count, plural, one {número} other {números}}",
+    "toponymesCount": "<b>{count}</b> {count, plural, one {topônimo} other {topônimos}}",
+    "voiesCount": "<b>{count}</b> {count, plural, one {logradouro} other {logradouros}}"
+  },
+  "banHistory": {
+    "banLogoAlt": "Logotipo da Base de Endereços Nacional",
+    "by": "Por",
+    "electedOfficial": "autoridade eleita de {communeName}",
+    "empty": "Nenhuma Base de Endereços Local encontrada",
+    "loading": "Carregando o histórico",
+    "notProvided": "Não informado",
+    "reduce": "Recolher",
+    "showAll": "Mostrar todo o histórico",
+    "title": "Histórico de atualizações",
+    "townHallOf": "prefeitura de {communeName}",
+    "via": "via <b>{client}</b>"
+  },
+  "banSync": {
+    "automaticUpdate": "Atualização automática",
+    "forceUpdate": "Forçar a atualização",
+    "pauseAutomaticUpdate": "Suspender a atualização automática",
+    "replaceConfirmation": "Entendo que minha Base de Endereços Local substituirá a que está atualmente sincronizada com a Base de Endereços Nacional",
+    "resumeAutomaticUpdate": "Retomar a atualização automática",
+    "status": "Status de sincronização",
+    "statusShort": "Status",
+    "syncing": "Sincronizando",
+    "updateNow": "Atualizar"
+  },
+  "baseLocaleCard": {
+    "certifiedAddresses": "Endereços certificados:",
+    "deleteBal": "Excluir a Base de Endereços Local",
+    "hideBal": "Ocultar a Base de Endereços Local",
+    "lastUpdate": "Última atualização {relative}",
+    "manageAddresses": "Gerenciar os endereços",
+    "neverUpdated": "Nunca atualizada",
+    "openBal": "Acessar a Base de Endereços Local",
+    "pendingSignalements": "Relatos pendentes:"
+  },
+  "basemaps": {
+    "ortho": "Fotografia aérea",
+    "planIgn": "Mapa IGN",
+    "satellite": "Satélite (Esri)",
+    "street": "Mapa de ruas (CARTO)",
+    "vector": "Mapa OpenStreetMap"
+  },
+  "basesLocalesList": {
+    "createBal": "Criar uma Base de Endereços Local",
+    "deleteConfirm": "Tem certeza de que deseja excluir esta Base de Endereços Local? Esta ação é definitiva.",
+    "deleteError": "Não foi possível excluir a Base de Endereços Local",
+    "deleteSuccess": "A Base de Endereços Local foi excluída",
+    "filterPlaceholder": "Filtrar as Bases de Endereços Locais por nome",
+    "hideConfirm": "Tem certeza de que deseja ocultar esta Base de Endereços Local? Ela não aparecerá mais na sua página inicial, mas você poderá recuperá-la depois.",
+    "recoverBal": "Recuperar uma Base de Endereços Local",
+    "sortByDate": "Ordenar por data de atualização",
+    "sortByName": "Ordenar em ordem alfabética"
+  },
+  "certificationButton": {
+    "certifyAndSave": "Certificar e salvar",
+    "uncertifyAndSave": "Remover certificação e salvar"
+  },
+  "certificationGoal": {
+    "allCertified": "Todos os endereços estão certificados pelo município",
+    "badgeTitle": "Publicação",
+    "certified": "Endereços certificados",
+    "explanation": "A <link>certificação</link> permite <strong>acompanhar o avanço da qualificação</strong> dos endereços e <strong>valorizar o seu trabalho</strong> junto aos reutilizadores.",
+    "title": "Certificação",
+    "uncertified": "Endereços não certificados"
+  },
+  "certificationInfos": {
+    "certified": "Endereços certificados",
+    "explanation": "Os endereços certificados pelo município são marcados como confiáveis e prontos para serem utilizados pelos reutilizadores.",
+    "title": "Certificação",
+    "uncertified": "Endereços não certificados"
+  },
+  "comment": {
+    "heading": "{count, plural, =0 {Comentário} other {Comentários}}",
+    "label": "Comentário",
+    "othersCount": "{count, plural, one {mais # comentário} other {mais # comentários}}",
+    "placeholder": "Esta nota é confidencial e não será divulgada."
+  },
+  "common": {
+    "add": "Adicionar",
+    "analysing": "Analisando",
+    "back": "Voltar",
+    "cancel": "Cancelar",
+    "certify": "Certificar",
+    "close": "Fechar",
+    "confirm": "Confirmar",
+    "continue": "Continuar",
+    "delete": "Excluir",
+    "deleteEllipsis": "Excluir…",
+    "edit": "Editar",
+    "error": "Erro",
+    "finish": "Concluir",
+    "inProgress": "Em andamento…",
+    "learnMore": "Saiba mais",
+    "loading": "Carregando…",
+    "mairieLogoAlt": "logotipo da prefeitura",
+    "next": "Próximo",
+    "no": "Não",
+    "noResults": "Nenhum resultado encontrado",
+    "numerosCount": "{count, plural, one {# número} other {# números}}",
+    "onlineTrainingLogoAlt": "logotipo de capacitações on-line",
+    "previous": "Anterior",
+    "save": "Salvar",
+    "saving": "Salvando…",
+    "search": "Pesquisar",
+    "skip": "Pular",
+    "validate": "Validar",
+    "view": "Consultar",
+    "warning": "Atenção",
+    "yes": "Sim"
+  },
+  "communeNomsAltEditor": {
+    "error": "Não foi possível modificar o nome do município em língua regional",
+    "label": "Nome do município em língua regional",
+    "success": "O nome do município em língua regional foi modificado"
+  },
+  "communePublicationInfos": {
+    "contactSupport": "Se você tiver algum problema, pode entrar em contato com nosso suporte:",
+    "createDemoBal": "Criar uma Base de Endereços Local de demonstração",
+    "createNewBal": "Criar uma nova Base de Endereços Local",
+    "demoNotice": "Esta Base de Endereços Local nunca poderá ser publicada e não será salva"
+  },
+  "communeSearch": {
+    "searchCommune": "Pesquisar um município…"
+  },
+  "country": {
+    "title": "Escolha do país"
+  },
+  "demoWarning": {
+    "banner": "Esta Base de Endereços Local de demonstração será excluída em até 24 horas se não for modificada"
+  },
+  "disabledFormInput": {
+    "notAvailable": "Esta funcionalidade não está disponível para este município."
+  },
+  "documentGeneration": {
+    "arrete": "Decreto de numeração",
+    "arreteDialogTitle": "Baixar um modelo de decreto de numeração",
+    "arreteDisabled": "O decreto de numeração só pode ser gerado para um número certificado",
+    "certificat": "Certidão de endereçamento",
+    "certificatDialogTitle": "Geração de uma certidão de endereçamento",
+    "certificatDisabled": "A certidão de endereçamento só pode ser gerada para um número certificado e vinculado a pelo menos um lote",
+    "destinataireDescription": "Informe o nome do destinatário para uma certidão nominal",
+    "destinataireLabel": "Destinatário (opcional)",
+    "destinatairePlaceholder": "Sr. Rémi Dupont",
+    "download": "Baixar",
+    "emetteurDescription": "O emissor será mencionado na certidão de endereçamento",
+    "emetteurLabel": "Emissor (opcional)",
+    "emetteurPlaceholder": "Sylvie Loiseau, Vice-prefeita",
+    "format": "Formato",
+    "generate": "Gerar",
+    "generateTemplate": "Gerar um modelo",
+    "orTakePhoto": "Ou clique em <camera></camera> para gerar a planta de situação automaticamente",
+    "planDescription": "A planta de situação fornecida será inserida no decreto de numeração",
+    "planLabel": "Planta de situação (opcional)",
+    "rememberEmetteur": "Lembrar o emissor",
+    "selectFile": "Selecionar o arquivo (formatos PNG e JPEG, máximo 5 MB)",
+    "takePhotoTitle": "Tirar uma foto do mapa"
+  },
+  "downloads": {
+    "balCsv": "Base de Endereços Local (formato CSV)",
+    "certificateHint": "Para baixar uma certidão de endereçamento, acesse a lista de números de um logradouro e abra o menu de ações do número em questão.",
+    "commentsWarning": "Atenção: se você incluiu informações pessoais nos seus comentários, elas estarão presentes na exportação da sua Base de Endereços Local.",
+    "filairesGeojson": "Lista de eixos de logradouro (formato GeoJSON)",
+    "title": "Downloads",
+    "voiesCsv": "Lista de logradouros (formato CSV)",
+    "withComments": "Com comentários"
+  },
+  "draw": {
+    "drawPolygon": "Clique no mapa para indicar o início do polígono e depois adicione novos pontos para traçá-lo. Ao terminar, clique no último ponto para indicar o fim do polígono.",
+    "drawVoie": "Clique no mapa para indicar o início do logradouro e depois adicione novos pontos para traçá-lo. Ao terminar, clique no último ponto para indicar o fim do logradouro.",
+    "editPolygon": "Você pode editar o polígono movendo os pontos ou adicionando novos pontos ao clicar no contorno do polígono.",
+    "editVoie": "Você pode editar o traçado movendo os pontos ou adicionando novos pontos ao clicar no traçado.",
+    "length": "Comprimento: {meters} m.",
+    "measureDistance": "Clique no mapa para medir uma distância. Clique duas vezes para terminar."
+  },
+  "drawMetricVoieEditor": {
+    "clear": "Apagar o traçado",
+    "hint": "Use o mapa para desenhar o traçado do logradouro",
+    "title": "Traçado do logradouro"
+  },
+  "drawer": {
+    "downloads": "Downloads",
+    "settings": "Configurações",
+    "trash": "Lixeira"
+  },
+  "duration": {
+    "days": "{count, plural, one {# dia} other {# dias}}",
+    "hours": "{count, plural, one {# hora} other {# horas}}",
+    "minutes": "{count, plural, one {# minuto} other {# minutos}}",
+    "seconds": "{count, plural, one {# segundo} other {# segundos}}"
+  },
+  "editor": {
+    "loadingBal": "Carregando a Base de Endereços Local"
+  },
+  "fondDeCarte": {
+    "addBasemap": "Adicionar um mapa base",
+    "addBasemapTitle": "Adicionar mapa base",
+    "howToAddContent": "Somente URLs de serviços WMTS ou WMS são suportadas. Os dados devem ser do tipo raster e as imagens de 256x256 pixels. Veja o exemplo abaixo.",
+    "howToAddTitle": "Como adicionar seus próprios mapas base?",
+    "nameInvalid": "O nome é inválido",
+    "nameLabel": "Nome do mapa base",
+    "namePlaceholder": "Meu mapa base",
+    "nameRequired": "O nome é obrigatório",
+    "nameShort": "Nome",
+    "remove": "Remover o mapa base",
+    "saveChanges": "Salvar as alterações",
+    "updateError": "Não foi possível atualizar os mapas base",
+    "updateSuccess": "Os mapas base foram atualizados",
+    "urlInvalid": "A URL do mapa base é inválida",
+    "urlLabel": "URL do mapa base",
+    "urlShort": "URL"
+  },
+  "footer": {
+    "accessibility": "Acessibilidade: não conforme",
+    "legalNotice": "Aviso legal"
+  },
+  "fusionVoies": {
+    "mergeError": "Não foi possível mesclar os logradouros",
+    "mergeSuccess": "Os logradouros foram mesclados"
+  },
+  "groupedActions": {
+    "choosePositionType": "-- Escolha um tipo de posição --",
+    "chooseToponyme": "- Escolher um topônimo -",
+    "clearAllComments": "Apagar todos os comentários",
+    "commentsWillBeRemoved": "Alguns números selecionados têm um comentário. Em caso de exclusão, seus comentários serão apagados.",
+    "commentsWillBeReplaced": "Alguns números selecionados têm um comentário. Em caso de modificação, seus comentários serão substituídos.",
+    "communeDeleguee": "Município delegado",
+    "deleteNumeros": "Excluir os números",
+    "dialogTitle": "Edição múltipla",
+    "editNumeros": "Editar os números",
+    "mixedToponymes": "Os números selecionados não têm o mesmo topônimo. Não é possível editar o topônimo em lote. Eles devem ser modificados separadamente.",
+    "mixedVoies": "Os números selecionados não estão no mesmo logradouro. Não é possível editar o logradouro em lote. Eles devem ser modificados separadamente.",
+    "multiPosition": "Alguns números selecionados têm várias posições. Não é possível editar o tipo de posição em lote. Eles devem ser modificados separadamente.",
+    "noToponyme": "Não associar topônimo",
+    "positionType": "Tipo de posição",
+    "selectedCount": "{count, plural, one {# número selecionado} other {# números selecionados}}",
+    "title": "Ações em lote",
+    "toponyme": "Topônimo",
+    "voie": "Logradouro",
+    "warningTitle": "Atenção"
+  },
+  "habilitation": {
+    "authRejected": {
+      "notAnElectedOfficial": "Você não foi identificado como autoridade eleita do município de {communeName}.",
+      "title": "Seu pedido de habilitação foi recusado",
+      "tooManyAttempts": "Você excedeu o número máximo de tentativas permitidas."
+    },
+    "codeEmail": {
+      "annuaireStep1": "Acesse <link>lannuaire.service-public.fr</link>",
+      "annuaireStep2": "Consulte a ficha do seu município no diretório",
+      "annuaireStep3": "Clique no link «Demander une mise à jour de cette page», visível no fim da página",
+      "invalidEmailTitle": "E-mail inválido",
+      "outdatedEmailTitle": "Este e-mail está incorreto ou desatualizado?",
+      "receiveCode": "Receber um código de habilitação",
+      "title": "Pelo e-mail oficial da prefeitura",
+      "updateEmail": "Atualize o e-mail"
+    },
+    "codeValidation": {
+      "allowlistSender": "Autorize o endereço «mes-adresses-no-reply@adresse.data.gouv.fr» nas configurações do seu antispam (Mailinblack, por exemplo)",
+      "checkSpam": "Verifique sua caixa de spam",
+      "codeExpiresOnClose": "O código deixará de ser válido se você fechar a janela",
+      "enterCode": "Digite o código enviado para o endereço: {email}",
+      "logoAlt": "logotipo da prefeitura",
+      "noCodeReceived": "Não recebeu o código?",
+      "resendCode": "Reenviar o código",
+      "title": "Autenticação da prefeitura"
+    },
+    "emailNotSent": "Não foi possível enviar o e-mail",
+    "invalidCode": "O código não é válido",
+    "proConnect": {
+      "connectWith": "<strong>Entre com</strong> o endereço de e-mail <emails></emails>informado pela sua prefeitura no <link>diretório do serviço público</link>",
+      "questions": "Em caso de dúvidas, <strong>fale com nossa equipe:</strong> <link></link>",
+      "sameDomain": "Ou um endereço com o mesmo nome de domínio (exemplo: p.nome@commune.fr).",
+      "signIn": "Entrar com ProConnect",
+      "tagline": "ProConnect, o equivalente do FranceConnect para profissionais",
+      "videoTitle": "Tutorial de conexão ProConnect"
+    },
+    "publishBal": {
+      "checking": "Verificando na Base de Endereços Nacional...",
+      "conflictSchemaAlt": "Esquema do conflito entre a Base de Endereços Local e a Base de Endereços Nacional",
+      "conflictTitle": "Este município já possui uma Base de Endereços Local publicada.",
+      "continueOnPublished": "Ou prefere continuar na Base de Endereços Local já publicada?",
+      "forceExplanation": "Ao forçar a publicação, esta Base de Endereços Local <strong>substituirá a atualmente em vigor</strong>.",
+      "forcePublication": "Forçar a publicação",
+      "publishedIconAlt": "Ícone de Base de Endereços Local publicada",
+      "publishing": "Publicando...",
+      "replaceQuestion": "Tem certeza de que deseja substituí-la?"
+    },
+    "publishRejected": {
+      "recommendation": "Recomendamos <strong>entrar em contato com os administradores da outra Base de Endereços Local</strong> ou com nosso suporte: <link></link>",
+      "title": "Não foi possível publicar sua Base de Endereços Local"
+    },
+    "publishedBal": {
+      "badgeTitle": "Publicação",
+      "benefit1": "Todas as <strong>alterações serão enviadas automaticamente</strong> à <link>Base de Endereços Nacional.</link>",
+      "benefit2": "Seu município está agora em conformidade com a <link>Lei 3DS</link>.",
+      "benefit3": "Serviços de emergência, órgãos públicos e cidadãos podem agora <strong>enviar relatos</strong> para ajudar você a qualificar seus endereços.",
+      "benefit4": "Agora você pode <strong>baixar decretos de numeração</strong> para logradouros e números.",
+      "continue": "Continuar o endereçamento",
+      "nextGoal": "Próximo objetivo",
+      "nextGoalContent": "Qualifique seus endereços por meio da <link>certificação</link>. Ela permite valorizar o seu trabalho e <strong>facilitar a reutilização dos dados</strong>.",
+      "thanksToPublication": "Graças à publicação",
+      "title": "Sua Base de Endereços Local foi publicada"
+    },
+    "strategy": {
+      "title": "Habilite sua <strong>Base de Endereços Local</strong> para publicá-la na <strong>Base de Endereços Nacional</strong>."
+    }
+  },
+  "header": {
+    "addressingGuides": "Guias de endereçamento",
+    "help": "Precisa de ajuda",
+    "logoAlt": "Página inicial do site mes-adresses.data.gouv.fr",
+    "videoTutorials": "Tutoriais em vídeo"
+  },
+  "help": {
+    "baseLocale": {
+      "administer": {
+        "intro": "Acesse as configurações da sua Base de Endereços Local clicando no ícone <cog></cog> no canto superior direito da tela. Depois escolha «Configurações».",
+        "item1": "Alterar o nome da sua Base de Endereços Local",
+        "item2": "Adicionar ou remover colaboradores",
+        "item3": "Baixar seus endereços em formato .csv",
+        "outro": "Depois de concluir os ajustes, clique em <saveButton>Salvar as alterações</saveButton>",
+        "title": "Administrar sua Base de Endereços Local",
+        "youCan": "Você poderá:"
+      },
+      "create": {
+        "intro": "Na página <b>Nova Base de Endereços Local</b>, selecione a aba <tab>Criar</tab>",
+        "step1": "Informe o nome da sua Base de Endereços Local no campo <em>Nome</em>. Ele permitirá identificar sua Base de Endereços Local.",
+        "step2": "Informe o endereço de e-mail da sua prefeitura ou do administrador da Base de Endereços Local. É esse endereço que receberá o link de acesso à edição da sua Base de Endereços Local.",
+        "step3": "Pesquise seu município e selecione-o na lista de sugestões.",
+        "step4": "Se quiser começar do zero, desmarque a opção <em>Importar logradouros e números da Base de Endereços Nacional</em>.",
+        "step5": "Para concluir, clique no botão <createButton>Criar a Base de Endereços Local</createButton>",
+        "title": "Criar uma nova Base de Endereços Local"
+      },
+      "import": {
+        "intro": "Na página <b>Nova Base de Endereços Local</b>, selecione a aba <tab>Importar um arquivo CSV</tab>",
+        "step1": "Selecione ou solte seu arquivo em formato <b>csv</b>. Atenção: esse arquivo não deve ultrapassar 10 MB.",
+        "step2": "Informe o nome da sua Base de Endereços Local no campo <em>Nome</em>. Ele permitirá identificar sua Base de Endereços Local.",
+        "step3": "Informe o endereço de e-mail da sua prefeitura ou do administrador da Base de Endereços Local. É esse endereço que receberá o link de acesso à edição da sua Base de Endereços Local.",
+        "step4": "Para concluir, clique no botão <createButton>Criar a Base de Endereços Local</createButton>",
+        "title": "Importar uma Base de Endereços Local"
+      },
+      "problems": {
+        "cannotEdit": "Não consigo editar minha Base de Endereços Local",
+        "communeNotFound": {
+          "content": "Se o seu município é novo e resulta de uma fusão, é possível que ele não apareça na lista de sugestões. Nesse caso, entre em contato conosco pelo <mail>adresse@data.gouv.fr</mail>",
+          "title": "Não encontro meu município"
+        }
+      },
+      "videoTitle": "Criação de uma Base de Endereços Local:"
+    },
+    "contactUs": "Fale conosco pelo",
+    "havingAProblem": "Está com algum problema?",
+    "noSolutionFound": "Não encontrou a solução para o seu problema?",
+    "numeros": {
+      "add": {
+        "dragMarker": "Um <marker></marker> apareceu no centro do mapa; arraste-o com o mouse até o local desejado",
+        "finish": "Para concluir, clique no botão <certifyButton>Certificar e salvar</certifyButton> se você valida este endereço, ou em <saveButton>Salvar</saveButton> para ter tempo de verificá-lo antes de certificar.",
+        "fromMapStep": "Clique no botão <addIconButton></addIconButton>",
+        "fromSidebarStep": "Clique no botão <addButton>Adicionar um número</addButton>",
+        "number": "Informe o número no campo <field>Número</field>",
+        "positionType": "Selecione a posição no menu suspenso <field>Tipo</field>",
+        "selectVoie": "Pesquise o logradouro ao qual o número pertence e selecione-o. Observe que, se um logradouro já estiver selecionado, ele será sugerido por padrão. Você também pode criar um novo logradouro diretamente clicando em <createVoieButton>Criar um logradouro</createVoieButton>. Você será redirecionado automaticamente para esse logradouro.",
+        "suffix": "Informe o sufixo (exemplo: bis) no campo <field>Sufixo</field>",
+        "title": "Adicionar um número"
+      },
+      "chooseDelete": "No menu que acabou de aparecer, escolha <deleteItem>Excluir…</deleteItem>",
+      "chooseEdit": "No menu que acabou de aparecer, escolha <editItem>Editar</editItem>",
+      "comment": {
+        "icon": "Você verá um <commentIcon></commentIcon> na linha do número. Passe o mouse sobre ele para ver o comentário.",
+        "step3": "Preencha o campo de texto <field>Comentário</field> para deixar uma nota sobre o número",
+        "step4": "Para salvar seu comentário, clique no botão <certifyButton>Certificar e salvar</certifyButton>, ou em <saveButton>Salvar</saveButton> se não quiser certificar este endereço por enquanto.",
+        "title": "Adicionar uma nota ou um comentário"
+      },
+      "delete": {
+        "rightClick": "Clique com o botão direito no número",
+        "title": "Excluir um número"
+      },
+      "edit": {
+        "clickNumber": "Clique no número",
+        "title": "Editar um número",
+        "whatYouCanChange": "Agora você pode modificar o número, o sufixo, o tipo de endereço ou sua posição movendo o <marker></marker> no mapa, e certificar seu endereço."
+      },
+      "fromMap": "Pelo mapa",
+      "fromSidebar": "Pelo menu lateral",
+      "goodToKnow": {
+        "content": "Para reforçar a qualidade dos endereços, recomendamos certificar todos os seus endereços. <b>Um endereço certificado é declarado autêntico pela prefeitura</b>, o que reforça a qualidade da Base de Endereços Local e facilita sua reutilização.",
+        "title": "Bom saber"
+      },
+      "moreButtonStep": "Clique no botão <moreButton></moreButton> à direita do número",
+      "openList": "Exiba a lista de números de um logradouro selecionando-o no menu lateral ou clicando no nome dele ou em um de seus números diretamente no mapa.",
+      "parcelles": {
+        "colorCode": "Código de cores dos lotes:",
+        "linkable": "lote que pode ser associado",
+        "linked": "lote associado",
+        "step3": "No mapa, clique no lote ou nos lotes que deseja associar ao número",
+        "step4": "Para salvar os lotes, clique no botão <certifyButton>Certificar e salvar</certifyButton>, ou em <saveButton>Salvar</saveButton> se não quiser certificar este endereço por enquanto.",
+        "title": "Associar lotes",
+        "unlinkable": "lote que pode ser desassociado"
+      },
+      "problems": {
+        "cannotAddOrDelete": "Não consigo adicionar/excluir um número",
+        "voieNotFound": {
+          "content": "Antes de criar um número pelo mapa, verifique se o logradouro ao qual ele pertence já foi criado.",
+          "title": "Não encontro o logradouro ao adicionar um número pelo mapa"
+        }
+      },
+      "uncertify": {
+        "step2": "No fim da página, clique no botão <dangerButton>Remover certificação e salvar</dangerButton>",
+        "title": "Remover a certificação de um endereço"
+      },
+      "videoTitle": "Criação / modificação de um número:"
+    },
+    "or": "ou",
+    "publication": {
+      "conflict": {
+        "explanation": "Pode acontecer que outra Base de Endereços Local já esteja sincronizada com a Base de Endereços Nacional. Nesse caso, sua Base de Endereços Local entrará em conflito com ela.",
+        "force": "Ao clicar em <dangerButton>Forçar a publicação</dangerButton>, sua Base de Endereços Local será publicada e substituirá a atualmente em vigor.",
+        "title": "Em caso de conflito"
+      },
+      "problems": {
+        "cannotEdit": "Não consigo editar minha Base de Endereços Local"
+      },
+      "publish": {
+        "step1": "Clique no botão <publishButton>Publicar</publishButton>",
+        "step2": "Autentique-se pelo e-mail oficial da prefeitura ou com sua conta ProConnect",
+        "step3": "Depois de obter a habilitação, você será convidado automaticamente a publicar sua Base de Endereços Local clicando em <successButton>Publicar</successButton>",
+        "title": "Publicar sua Base de Endereços Local"
+      },
+      "syncStatuses": {
+        "noHabilitation": "A habilitação da Base de Endereços Local não é válida. É preciso renová-la para que as novas alterações cheguem à Base de Endereços Nacional.",
+        "outdated": "Alterações foram detectadas; elas serão repassadas automaticamente à Base de Endereços Nacional nas próximas horas.",
+        "paused": "Você suspendeu as atualizações da sua Base de Endereços Local. Nenhuma alteração será enviada à Base de Endereços Nacional. Você pode retomar as atualizações a qualquer momento.",
+        "replaced": "Outra Base de Endereços Local substituiu a sua; não é possível atualizar seus endereços automaticamente. Você pode forçar a atualização para substituir a Base de Endereços Local atualmente em vigor.",
+        "synced": "Sua Base de Endereços Local está em dia com a Base de Endereços Nacional. Todos os seus endereços foram considerados.",
+        "title": "Status de sincronização"
+      },
+      "videoTitle": "Publicação da sua Base de Endereços Local:"
+    },
+    "readGuides": "Consulte os guias de endereçamento",
+    "sidebarTuto": {
+      "hidden": "Este menu pode ser ocultado para deixar mais espaço para o mapa.",
+      "showAgain": "Para exibi-lo novamente, clique no botão <button></button> no canto superior esquerdo da tela.",
+      "title": "Não vejo o menu lateral"
+    },
+    "tabs": {
+      "baseLocale": "Base local",
+      "numeros": "Números",
+      "publication": "Publicação",
+      "toponymes": "Topônimos",
+      "voies": "Logradouros"
+    },
+    "title": "Precisa de ajuda?",
+    "toponymes": {
+      "add": {
+        "step1": "Selecione a aba <tab>Lista de topônimos</tab> e clique em <addButton>Adicionar um topônimo</addButton>",
+        "step2": "Digite o nome do topônimo no campo <muted>Nome do topônimo...</muted>",
+        "step3": "Um <marker></marker> apareceu no mapa; você pode movê-lo para atribuir uma ou mais posições ao seu topônimo.<br></br>Você pode especificar o tipo de posição com o menu suspenso <typeSelect>Segmento</typeSelect> Se não quiser definir uma posição para o topônimo, basta clicar em <trash></trash>",
+        "title": "Adicionar um topônimo"
+      },
+      "assign": {
+        "step1": "Clique no botão <addButton>Adicionar um número</addButton>",
+        "step2": "Selecione o logradouro do número que deseja atribuir",
+        "step3": "Um menu suspenso será exibido. Você pode selecionar um ou mais números da lista. Se nenhum número for selecionado, todos os números da lista serão atribuídos ao topônimo.",
+        "step4": "Para concluir, clique no botão <successButton>Salvar</successButton>",
+        "title": "Atribuir um número a um topônimo"
+      },
+      "delete": {
+        "step1": "Clique no botão <moreButton></moreButton> à direita do nome do topônimo",
+        "step2": "No menu que acabou de aparecer, escolha <deleteItem>Excluir…</deleteItem>",
+        "step3": "Para concluir, confirme sua escolha clicando em <dangerButton>Excluir</dangerButton>",
+        "title": "Excluir um topônimo"
+      },
+      "edit": {
+        "step1": "Clique no nome do topônimo",
+        "step2": "Edite o nome do topônimo",
+        "step3": "Você também pode alterar a posição do topônimo movendo o <marker></marker> no mapa",
+        "step4": "Você pode adicionar posições com o botão <addButton>Adicionar uma posição ao topônimo</addButton> ou removê-las com o botão <trash></trash>",
+        "step5": "Para concluir, clique em <successButton>Salvar</successButton>",
+        "title": "Editar um topônimo"
+      },
+      "openList": "Exiba a lista de topônimos de um município clicando no nome dele, no canto superior esquerdo da tela",
+      "parcelles": {
+        "colorCode": "Código de cores dos lotes:",
+        "linkable": "lote que pode ser associado",
+        "linked": "lote associado",
+        "step1": "Clique no botão <moreButton></moreButton> à direita do topônimo",
+        "step2": "No menu que acabou de aparecer, escolha <editItem>Editar</editItem>",
+        "step3": "No mapa, clique no lote ou nos lotes que deseja associar ao topônimo",
+        "step4": "Para salvar os lotes, clique no botão <successButton>Salvar</successButton>",
+        "title": "Associar lotes",
+        "unlinkable": "lote que pode ser desassociado"
+      },
+      "problems": {
+        "cannotAddOrDelete": "Não consigo adicionar/excluir um topônimo"
+      },
+      "videoTitle": "Criação / modificação de um topônimo:"
+    },
+    "unauthorized": {
+      "checkBadge": "Verifique se <badge>Edição impossível</badge> não aparece no canto superior direito da tela.",
+      "fix": "No entanto, se você for de fato o proprietário, basta clicar no link que recebeu por e-mail ao criar sua Base de Endereços Local.",
+      "meaning": "Ele indica que você não está autenticado ou que não tem permissão para modificar esta Base de Endereços Local."
+    },
+    "video": {
+      "allTutorials": "Veja todos os tutoriais em vídeo",
+      "iframeTitle": "Criação de uma Base de Endereços Local"
+    },
+    "voies": {
+      "add": {
+        "step1": "Clique no botão <addButton>Adicionar um logradouro</addButton>",
+        "step2": "Digite o nome do logradouro que deseja criar no campo <em>Nome do logradouro…</em>",
+        "step3": "Para concluir, clique no botão <successButton>Adicionar</successButton>",
+        "title": "Adicionar um logradouro"
+      },
+      "convert": {
+        "intro": "Você pode transformar um logradouro em topônimo se ele não contiver nenhum número.",
+        "step1": "Clique no botão <moreButton></moreButton> à direita do nome do logradouro",
+        "step2": "No menu que acabou de aparecer, escolha <convertButton>Converter em logradouro sem endereços</convertButton>",
+        "step3": "Para concluir, confirme sua escolha clicando em <primaryButton>Confirmar</primaryButton>",
+        "step4": "Você será redirecionado para a edição do novo topônimo",
+        "title": "Converter um logradouro em logradouro sem endereços"
+      },
+      "delete": {
+        "step1": "Clique no botão <moreButton></moreButton> à direita do nome do logradouro",
+        "step2": "No menu que acabou de aparecer, escolha <deleteItem>Excluir…</deleteItem>",
+        "step3": "Para concluir, confirme sua escolha clicando em <dangerButton>Excluir</dangerButton>",
+        "title": "Excluir um logradouro"
+      },
+      "openList": "Exiba a lista de logradouros de um município clicando no nome dele, no canto superior esquerdo da tela.",
+      "problems": {
+        "cannotAddOrDelete": "Não consigo adicionar/excluir um logradouro"
+      },
+      "rename": {
+        "step1": "Clique no nome do logradouro",
+        "step2": "Edite o nome do logradouro",
+        "step3": "Para concluir, clique em <successButton>Salvar</successButton>",
+        "title": "Renomear um logradouro"
+      },
+      "videoTitle": "Criação / modificação de um logradouro:",
+      "view": {
+        "fromMap": "Pelo mapa",
+        "fromMapStep": "Clique no nome do logradouro ou em um de seus números",
+        "fromSidebar": "Pelo menu lateral",
+        "step1": "Clique no botão <moreButton></moreButton> à direita do nome do logradouro",
+        "step2": "No menu que acabou de aparecer, escolha <viewItem>Consultar</viewItem>",
+        "title": "Consultar um logradouro"
+      }
+    }
+  },
+  "homeDrawer": {
+    "news": "Novidades",
+    "noNews": "Nenhuma novidade",
+    "noTrainings": "Nenhuma capacitação programada",
+    "upcomingTrainings": "Próximas capacitações"
+  },
+  "ieWarning": {
+    "recommendation": "Recomendamos usar outro navegador",
+    "unsupported": "Seu navegador <b>Internet Explorer</b> não é mais suportado pelo nosso serviço."
+  },
+  "importDataStep": {
+    "analysing": "Analisando",
+    "banOption": {
+      "description": "Este método é recomendado na maioria dos casos. Ele permite partir dos endereços já presentes na Base de Endereços Nacional e enriquecê-los com seus próprios dados.",
+      "label": "Partir dos dados existentes na Base de Endereços Nacional"
+    },
+    "cannotDropFile": "Não é possível soltar este arquivo.",
+    "chooseStartingPoint": "Escolha seu ponto de partida",
+    "emptyOption": {
+      "description": "Você mesmo adicionará os logradouros e os endereços no editor.",
+      "label": "Começar com uma Base de Endereços Local vazia"
+    },
+    "errorTitle": "Ocorreu um erro",
+    "fileHasErrorsTitle": "O arquivo contém erros",
+    "fileOption": {
+      "description": "Este método é recomendado se você já tem um arquivo CSV no formato BAL.",
+      "label": "Usar um arquivo CSV no formato BAL"
+    },
+    "fileTooLarge": "Este arquivo é grande demais. Você deve soltar um arquivo com menos de 10 MB.",
+    "invalidCsv": "O arquivo CSV é inválido.",
+    "invalidRows": "{count, plural, one {<strong>1 linha contém pelo menos um erro</strong> e não poderá ser importada na sua Base de Endereços Local.} other {<strong># linhas contêm pelo menos um erro</strong> e não poderão ser importadas na sua Base de Endereços Local.}}",
+    "multipleCommunes": "O arquivo deve conter um único município. Verifique seu arquivo.",
+    "noCommuneFound": "Nenhum município foi encontrado.",
+    "notCsv": "Este tipo de arquivo não é suportado. Você deve soltar um arquivo CSV.",
+    "onlyValidRows": "Ao continuar, somente os endereços válidos serão usados para criar sua Base de Endereços Local.",
+    "parseError": "Ocorreu um erro ao analisar o arquivo.",
+    "singleFileOnly": "Você só pode soltar um arquivo.",
+    "uploaderPlaceholder": "Selecione ou arraste aqui seu arquivo BAL em formato CSV (máximo 10 MB)",
+    "wrongCommune": "O arquivo não corresponde ao município selecionado na etapa anterior."
+  },
+  "langGoal": {
+    "badgeTitle": "Logotipo de língua regional",
+    "counter": "{count, plural, one {logradouro, praça ou localidade multilíngue} other {logradouros, praças ou localidades multilíngues}}",
+    "editCommuneName": "Modifique o nome do município",
+    "editTitle": "Modifique a língua regional do município",
+    "emptyContent": "Para um endereçamento multilíngue, comece informando o nome do município em língua regional",
+    "ignoreGoal": "Remover objetivo",
+    "intro": "Valorize seu patrimônio linguístico informando os nomes dos seus logradouros, praças e localidades",
+    "introWithLanguage": "Valorize seu patrimônio linguístico informando os nomes dos seus logradouros, praças e localidades em {language}",
+    "title": "Língua regional"
+  },
+  "language": {
+    "title": "Escolha do idioma"
+  },
+  "languagePreview": {
+    "regionalAlternatives": "Alternativas regionais",
+    "undetectedLanguage": "Não foi possível detectar o nome da língua regional",
+    "unsupportedLanguage": "Nome de língua regional não suportada",
+    "voieNameIn": "Nome do logradouro em {language}"
+  },
+  "languesRegionales": {
+    "addLanguage": "Adicionar uma língua regional",
+    "chooseLanguage": "Escolher uma língua regional",
+    "namePlaceholder": "Nome em {language}",
+    "regionalLanguage": "língua regional",
+    "removeLanguage": "Remover a língua regional",
+    "selectLanguage": "Selecionar uma língua regional"
+  },
+  "legalNotice": {
+    "accessibility": "Acessibilidade",
+    "accessibilityContent": "A conformidade com as normas de acessibilidade digital é um objetivo futuro, mas procuramos tornar esta plataforma acessível a todas as pessoas.",
+    "hosting": "Hospedagem da plataforma",
+    "hostingContent": "A plataforma é hospedada por:",
+    "learnMore": "Saiba mais",
+    "learnMoreContent": "Para saber mais sobre a política de acessibilidade digital do Estado francês:",
+    "noResponseContent": "Se você não obtiver uma resposta rápida de nossa parte, tem o direito de enviar sua reclamação ou um pedido ao Défenseur des Droits.",
+    "phone": "Telefone: {number}",
+    "publicationDirector": "Diretor de publicação",
+    "publicationDirectorContent": "O diretor de publicação é o Sr. Stanislas BOURRON, Diretor-Geral da ANCT.",
+    "publisher": "Editor da plataforma",
+    "publisherContent": "Bases Adresses Locales é editada no Incubateur des Territoires da Agence nationale de la cohésion des territoires (ANCT), localizada em:",
+    "reportIssue": "Relatar um problema",
+    "reportIssueContent": "Se você encontrar uma falha de acessibilidade que o impeça de acessar um conteúdo ou funcionalidade da plataforma, informe-nos:",
+    "security": "Segurança",
+    "securityContent1": "A plataforma é protegida por um certificado eletrônico, representado na grande maioria dos navegadores por um cadeado. Essa proteção contribui para a confidencialidade das trocas.",
+    "securityContent2": "Em nenhuma hipótese os serviços associados à plataforma enviarão e-mails solicitando que você informe dados pessoais.",
+    "title": "Bases de Endereços Locais – Aviso legal"
+  },
+  "mainTabs": {
+    "communeTabIllustration": "Ilustração da aba do município",
+    "signalementsTabIllustration": "Ilustração da aba de relatos",
+    "tabTitle": "{tab, select, commune {Aba do município} voies {Aba de logradouros} toponymes {Aba de topônimos} other {Aba de relatos}}",
+    "toponymesTabIllustration": "Ilustração da aba de topônimos",
+    "voiesTabIllustration": "Ilustração da aba de logradouros"
+  },
+  "mapControls": {
+    "cadastreUnavailable": "O cadastro não está disponível para este município",
+    "cancelAddressCreation": "Cancelar a criação de um endereço",
+    "chooseBasemap": "Escolha do mapa base",
+    "closePanoramax": "Fechar o Panoramax",
+    "closeRuler": "Fechar a ferramenta de medição",
+    "contributeToPanoramax": "Contribuir com o Panoramax",
+    "createAddress": "Criar um endereço",
+    "geolocate": "Localizar-me",
+    "geolocationError": "Não conseguimos localizar você. Verifique as configurações do seu navegador.",
+    "hideCadastre": "Ocultar o cadastro",
+    "measureDistance": "Medir uma distância",
+    "noBasemap": "Nenhum mapa base",
+    "noPanoramaxImagery": "Nenhuma fotografia deste território está disponível.",
+    "noParcelleFound": "Nenhum lote corresponde à sua pesquisa",
+    "numeros": "Números",
+    "openPanoramax": "Abrir o Panoramax",
+    "pointsOfInterest": "Pontos de interesse",
+    "rulerIconAlt": "Ícone de régua",
+    "searchParcelle": "Pesquisar um lote",
+    "showCadastre": "Mostrar o cadastro",
+    "takePhoto": "Tirar uma foto do mapa",
+    "takePhotoShort": "Tirar uma foto",
+    "toponymes": "Topônimos",
+    "voies": "Logradouros"
+  },
+  "mapPopup": {
+    "addressCertified": "Este endereço está certificado",
+    "allCertified": "Todos os números certificados",
+    "certified": "Certificado",
+    "certifiedRatio": "{certified}/{total} certificado(s)",
+    "noNumero": "Nenhum número",
+    "parcelles": "Lote(s)",
+    "uncertified": "Não certificado"
+  },
+  "massDeletionDialog": {
+    "contactUs": "Se você tiver dificuldades para usar nossa ferramenta e quiser acompanhamento, <strong>entre em contato conosco pelo endereço <mail>adresse@data.gouv.fr</mail></strong>",
+    "deletedHalf": "Você <strong>excluiu pelo menos 50% dos endereços</strong> atualmente conhecidos na Base de Endereços Nacional.",
+    "title": "⚠️ Um número muito grande de endereços foi excluído",
+    "videoTutorials": "<link>Tutoriais em vídeo</link> também estão disponíveis para acompanhar você nos seus trabalhos de endereçamento.",
+    "wholeCommune": "Lembramos que a publicação dos seus endereços deve abranger <strong>todo o município</strong>."
+  },
+  "metadata": {
+    "description": "Mes Adresses é uma ferramenta on-line que permite gerenciar seus endereços com facilidade, da criação de uma Base de Endereços Local à sua atualização.",
+    "title": "mes-adresses.data.gouv.fr"
+  },
+  "nav": {
+    "home": "Início"
+  },
+  "newBal": {
+    "createBal": "Criar uma Base de Endereços Local",
+    "createDemoBal": "Criar uma Base de Endereços Local de demonstração",
+    "createError": "Ocorreu um erro ao criar a Base de Endereços Local",
+    "importError": "Ocorreu um erro ao importar os dados na Base de Endereços Local",
+    "steps": {
+      "commune": "Escolha do município",
+      "import": "Importação dos dados",
+      "infos": "Informações sobre a Base de Endereços Local"
+    },
+    "suggestedName": "Endereços de {communeName}"
+  },
+  "notFound": {
+    "backHome": "Voltar à página inicial",
+    "title": "Erro 404 - Página não encontrada"
+  },
+  "numeroEditor": {
+    "chooseToponyme": "- Escolher um topônimo -",
+    "communeDeleguee": "Município delegado",
+    "createError": "Não foi possível adicionar o número",
+    "createSuccess": "O número foi adicionado",
+    "hintMultipleMarkers": "Mova os marcadores no mapa para modificar as posições",
+    "hintSingleMarker": "Mova o marcador no mapa para posicionar o número",
+    "noToponyme": "Nenhum topônimo",
+    "numero": "Número",
+    "numeroPlaceholderSuggested": "Número recomendado: {suggestedNumero}",
+    "parcelles": "Lotes",
+    "reservedNumero": "O número 99999 é reservado a localidades e complementos",
+    "suffixe": "Sufixo",
+    "toponyme": "Topônimo",
+    "updateError": "Não foi possível modificar o número",
+    "updateSuccess": "O número foi modificado"
+  },
+  "numeroVoieSelector": {
+    "chooseVoie": "Escolher um logradouro",
+    "createVoie": "Criar um logradouro",
+    "newVoie": "Novo logradouro",
+    "or": "OU",
+    "searchVoie": "Pesquisar um logradouro",
+    "voie": "Logradouro*",
+    "voieNamePlaceholder": "Nome do logradouro"
+  },
+  "numerosList": {
+    "addNumero": "Adicionar um número",
+    "archiveError": "Não foi possível arquivar o número",
+    "archiveManyError": "Não foi possível arquivar os números",
+    "archiveManySuccess": "Os números foram arquivados",
+    "archiveSuccess": "O número foi arquivado",
+    "arreteError": "Não foi possível baixar o decreto de numeração",
+    "arreteSuccess": "O decreto de numeração foi baixado",
+    "certificatError": "Não foi possível baixar a certidão de endereçamento",
+    "certificatSuccess": "A certidão de endereçamento foi baixada",
+    "certified": "Este endereço está certificado pelo município",
+    "deleteSelectedConfirm": "Tem certeza de que deseja excluir todos os números selecionados?",
+    "empty": "Nenhum número",
+    "positionsCount": "{count, plural, one {# posição} other {# posições}}",
+    "recoverAccess": "Recuperar o acesso de administração da Base de Endereços Local",
+    "search": "Pesquisar um número",
+    "title": "Lista de números",
+    "updateManyError": "Não foi possível modificar os números",
+    "updateManySuccess": "Os números foram modificados"
+  },
+  "panelGoal": {
+    "secondaryGoals": "Objetivos secundários"
+  },
+  "populate": {
+    "populate": "Recuperar os endereços da Base de Endereços Nacional",
+    "populating": "Recuperando os endereços…",
+    "question": "Deseja importar os logradouros do município de {communeName} da Base de Endereços Nacional?"
+  },
+  "positionEditor": {
+    "addToNumero": "Adicionar uma posição ao número",
+    "addToToponyme": "Adicionar uma posição ao topônimo",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "noPosition": "Este topônimo não tem posição",
+    "positions": "Posições *",
+    "type": "Tipo"
+  },
+  "positionTypes": {
+    "batiment": "Edificação",
+    "cageEscalier": "Escadaria",
+    "delivrancePostale": "Entrega postal",
+    "entree": "Entrada",
+    "logement": "Unidade habitacional",
+    "parcelle": "Lote",
+    "segment": "Segmento",
+    "serviceTechnique": "Serviço técnico"
+  },
+  "publicationGoal": {
+    "badgeTitle": "Publicação",
+    "contactSupport": "Se mesmo assim você quiser partir desta Base de Endereços Local, entre em contato com o suporte:",
+    "draftContent": "Para ser sincronizada com a Base de Endereços Nacional, esta Base de Endereços Local deve ser publicada pelo município de {communeName}.<br></br>Observe que, depois de publicada, <strong>todas as alterações serão enviadas automaticamente</strong> à Base de Endereços Nacional.",
+    "goToPublished": "Acessar a Base de Endereços Local publicada",
+    "habilitationExpired": "Sua habilitação não é mais válida. Por favor, renove-a",
+    "habiliteBal": "Habilitar a Base de Endereços Local",
+    "mustStartFromPublished": "Você deve partir da Base de Endereços Local publicada",
+    "publish": "Publicar",
+    "publishedContent": "Todas as alterações serão enviadas automaticamente à Base de Endereços Nacional",
+    "replacedContact": "Entre em contato com os administradores da outra Base de Endereços Local ou com nosso suporte: adresse@data.gouv.fr",
+    "replacedContent": "A Base de Endereços Local foi substituída por outra; outra Base de Endereços Local está sincronizada com a Base de Endereços Nacional.",
+    "title": "Publicação"
+  },
+  "publishProcess": {
+    "createHabilitationError": "Não foi possível criar um processo de habilitação",
+    "fetchBanError": "Não foi possível recuperar os dados da Base de Endereços Nacional"
+  },
+  "publishedBal": {
+    "alreadyPublishedBadge": "Base de Endereços Local já publicada",
+    "alreadyPublishedFor": "Uma Base de Endereços Local já está publicada para {communeName}.",
+    "communeCanTakeOver": "Como o município é o responsável pelo endereçamento, você pode assumir diretamente continuando para a próxima etapa.",
+    "communeStaysCompetent": "O município continua sendo, no entanto, a autoridade responsável pelo endereçamento, e você pode decidir a qualquer momento retomar o controle da publicação da sua Base de Endereços Local.",
+    "contactChefDeFile": "Recomendamos entrar em contato com <strong>{email}</strong> antes de continuar a criação da sua Base de Endereços Local.",
+    "contactOrganization": "Recomendamos entrar em contato com esta organização:",
+    "continueFromPublished": "Se você for o administrador dela, recomendamos continuar o endereçamento a partir dela.",
+    "dataGouvPage": "Página data.gouv {organization}",
+    "existingDrafts": "Já existem <b>{count, plural, one {# Base de Endereços Local não publicada} other {# Bases de Endereços Locais não publicadas}}</b> para {communeName}. Se for um rascunho da sua prefeitura, talvez você queira recuperá-lo?",
+    "goToPublished": "Acessar a Base de Endereços Local publicada",
+    "outdatedClient": "A Base de Endereços Local publicada está desatualizada e não é mais mantida. Você pode, portanto, continuar a criação da sua Base de Endereços Local.",
+    "outdatedSource": "A Base de Endereços Local publicada está desatualizada. Você pode continuar para a próxima etapa para substituí-la pela sua.",
+    "publishedBy": "Uma Base de Endereços Local já foi publicada por <strong>{publisher}</strong> para {communeName}.",
+    "publishedByOrganization": "Uma Base de Endereços Local já está publicada por {organization} para {communeName}.",
+    "recoverWithEmail": "Recuperar uma Base de Endereços Local por e-mail"
+  },
+  "purgeSignalements": {
+    "explanation": "Se você fez alterações na sua Base de Endereços Local, como exclusões ou renomeações de logradouros, alguns relatos podem ter ficado obsoletos.",
+    "outcome": "Ao atualizá-los, os relatos obsoletos serão removidos da lista.",
+    "pleaseWait": "Esta operação pode levar algum tempo. Por favor, aguarde.",
+    "purgeError": "Ocorreu um erro ao atualizar os relatos. Tente novamente mais tarde.",
+    "purged": "{count, plural, one {# relato expirado foi removido da lista.} other {# relatos expirados foram removidos da lista.}}",
+    "refresh": "Atualizar os relatos",
+    "successTitle": "Sucesso",
+    "title": "Atualização dos relatos"
+  },
+  "qualityGoal": {
+    "badgeTitle": "Publicação",
+    "explanation": "Para ajudar você a qualificar os endereços, aproveite sugestões de melhoria com um clique.<br></br><br></br>Essas sugestões vêm do <link>Guia de Boas Práticas</link> e podem ser configuradas no <menuButton>Menu</menuButton>",
+    "seeAlertsTitle": "Ver os alertas",
+    "seeSuggestions": "Ver as sugestões",
+    "suggestionsLabel": "{count, plural, one {Sugestão proposta} other {Sugestões propostas}}",
+    "title": "Qualificação"
+  },
+  "readOnlyInfos": {
+    "cannotEdit": "Você não pode modificar esta Base de Endereços Local porque não está autenticado como administrador.",
+    "recoverAccess": "Recuperar meu acesso",
+    "recoverHint": "Se você é administrador desta Base de Endereços Local, pode recuperar seu acesso clicando no botão abaixo.",
+    "title": "Você está no modo de consulta"
+  },
+  "readOnlyWarning": {
+    "message": "Você está no modo de consulta e não pode modificar esta Base de Endereços Local",
+    "recoverAccess": "Recuperar meu acesso"
+  },
+  "rejectionReasons": {
+    "alreadyHandled": "Relato já tratado",
+    "duplicate": "Relato duplicado",
+    "misplaced": "Relato mal posicionado",
+    "nonCompliant": "Relato não conforme",
+    "notRelevant": "Relato não pertinente",
+    "other": "Outro"
+  },
+  "renewTokenDialog": {
+    "error": "Não foi possível renovar as autorizações",
+    "irreversibleContent": "Você não poderá mais modificar a Base de Endereços Local até recuperar a nova autorização que receberá por e-mail.",
+    "irreversibleTitle": "Ação irreversível",
+    "question": "Você removeu um ou mais colaboradores. Deseja renovar as autorizações?",
+    "success": "As autorizações foram renovadas",
+    "title": "Renovação das autorizações"
+  },
+  "searchCommuneStep": {
+    "label": "Pesquisar um município",
+    "noSearchContent": "As Bases de Endereços Locais deste país são criadas com o importador Overture Maps, pela linha de comando — ainda não há pesquisa de município neste fluxo de criação guiada.",
+    "noSearchTitle": "Nenhuma pesquisa de município para {country}"
+  },
+  "selectParcelles": {
+    "emptyNumero": "No mapa, clique nos lotes que deseja adicionar ao número.",
+    "emptyToponyme": "No mapa, clique nos lotes que deseja adicionar ao topônimo.",
+    "helpNumero": "No mapa, clique nos lotes que deseja adicionar ao número. Ao especificar os lotes associados a este endereço, você acelera sua reutilização por diversos serviços: DDFiP, operadores de correio, de fibra óptica e de GPS.",
+    "helpToponyme": "No mapa, clique nos lotes que deseja adicionar ao topônimo. Ao especificar os lotes associados a este endereço, você acelera sua reutilização por diversos serviços: DDFiP, operadores de correio, de fibra óptica e de GPS.",
+    "hideCadastre": "Ocultar o cadastro",
+    "invalidParcelles": "{count, plural, one {Um lote não existe no cadastro} other {Vários lotes não existem no cadastro}}",
+    "showCadastre": "Mostrar o cadastro",
+    "title": "Lotes do cadastro"
+  },
+  "settings": {
+    "addBasemap": "Adicionar mapa base",
+    "adminLoginLink": "Link de acesso de administrador",
+    "adminLoginQrCode": "QR code de acesso de administrador",
+    "basemaps": "Mapas base",
+    "copied": "Copiado",
+    "copyUrl": "Copiar a URL",
+    "name": "Nome",
+    "qualityAlerts": "Alertas de qualidade",
+    "saveChanges": "Salvar as alterações",
+    "saveSuccess": "As configurações foram salvas",
+    "shareAccess": "Compartilhamento de acesso",
+    "shareAccessContent": "O Mes Adresses também funciona no seu celular. Escaneie o QR code para acessar sua Base de Endereços Local.",
+    "shareAccessTitle": "Compartilhe o acesso com outros dispositivos",
+    "title": "Configurações"
+  },
+  "sidebar": {
+    "closeForm": "Fechar o formulário",
+    "hideSidebar": "Ocultar a barra lateral",
+    "openSidebar": "Abrir a barra lateral"
+  },
+  "signalement": {
+    "noChange": "Nenhuma alteração",
+    "parcelles": "{count, plural, one {Lote} other {Lotes}}",
+    "positionAdded": "Posição adicionada",
+    "positionDeleted": "Posição removida",
+    "positionTypeChanged": "Tipo alterado",
+    "positions": "{count, plural, one {Posição} other {Posições}}",
+    "proposedChange": "Alteração proposta"
+  },
+  "signalementDiff": {
+    "complement": "Complemento",
+    "numero": "Número",
+    "voie": "Logradouro"
+  },
+  "signalementForm": {
+    "accept": "Aceitar",
+    "acceptError": "Erro ao aceitar o relato.",
+    "addAddressToThisVoie": "Adicionar o endereço a este logradouro",
+    "addressAfterChange": "Endereço após a alteração",
+    "addressConcerned": "Endereço em questão",
+    "authorWillBeEmailed": "(O autor do relato receberá esta informação por e-mail)",
+    "createNewAddress": "Criar um novo endereço",
+    "createNumeroRequest": "Pedido de criação de endereço",
+    "createToponymeRequest": "Pedido de criação de um topônimo",
+    "createdAddress": "Endereço criado: <b>{label}</b>",
+    "currentAddress": "Endereço atual",
+    "currentToponyme": "Topônimo atual",
+    "currentVoieName": "Nome atual do logradouro",
+    "deleteNumeroRequest": "Pedido de exclusão de endereço",
+    "deleteToponymeRequest": "Pedido de exclusão de um topônimo",
+    "deleteToponymeWarning": "Ao aceitar este relato, o topônimo <b>{toponymeName}</b> será movido para a lixeira",
+    "deleteVoieRequest": "Pedido de exclusão de um logradouro",
+    "deleteVoieWarning": "Ao aceitar este relato, o logradouro <b>{voieName}</b> será movido para a lixeira",
+    "deleteVoieWithNumeros": "com {count, plural, one {o <b>endereço</b> vinculado a ele} other {os <b># endereços</b> vinculados a ele}}",
+    "newVoieWillBeCreated": "O novo logradouro <b>{voieName}</b> será criado ao aceitar este relato.",
+    "numeroAlreadyExists": "O logradouro <b>{voieName}</b> já tem um endereço no número <b>{numero}</b>.",
+    "possibleDuplicate": "Aceitar este relato pode criar uma duplicata",
+    "proposedChange": "Alteração proposta",
+    "reason": "Motivo",
+    "reasonPlaceholder": "Especifique o motivo da recusa. Por favor, não informe dados pessoais",
+    "reject": "Recusar",
+    "rejectAnd": "{count, plural, one {Recusar e concluir} other {Recusar e passar ao próximo}}",
+    "remaining": "{count, plural, one {Resta # relato a tratar} other {Restam # relatos a tratar}}",
+    "similarToponymes": "{count, plural, one {A Base de Endereços Local tem um topônimo com nome semelhante:} other {A Base de Endereços Local tem vários topônimos com nomes semelhantes:}}",
+    "similarVoies": "{count, plural, one {A Base de Endereços Local tem um logradouro com nome semelhante:} other {A Base de Endereços Local tem vários logradouros com nomes semelhantes:}}",
+    "toponymeAfterChange": "Topônimo após a alteração",
+    "toponymeConcerned": "Topônimo em questão",
+    "voieNameAfterChange": "Nome do logradouro após a alteração",
+    "voieNameBefore": "Nome do logradouro antes da alteração",
+    "whatDoYouWantToDo": "O que você deseja fazer?"
+  },
+  "signalementHeader": {
+    "acceptedOn": "Você aceitou esta proposta em <b>{date}</b>",
+    "by": "por",
+    "comment": "Comentário:",
+    "generalPublicIconAlt": "Ícone de fonte do público em geral",
+    "publicServiceIconAlt": "Ícone de fonte de serviço público",
+    "publicSource": "Este relato vem de uma fonte do público em geral",
+    "reason": "Motivo:",
+    "rejectedOn": "Você recusou esta proposta em <b>{date}</b>",
+    "submittedAgo": "Enviada há <b>{duration}</b>",
+    "submittedOn": "Enviada em <b>{date}</b>",
+    "trustedSource": "Este relato vem de um ator de confiança",
+    "via": "via"
+  },
+  "signalementList": {
+    "empty": "Você não tem nenhuma proposta no momento",
+    "filters": "Filtros",
+    "refresh": "Atualizar os relatos",
+    "search": "Pesquisar um relato"
+  },
+  "signalementListItem": {
+    "acceptedOn": "Aceita em {date}",
+    "generalPublicSource": "Fonte do público em geral",
+    "ignore": "Ignorar",
+    "process": "Tratar",
+    "rejectedOn": "Recusada em {date}",
+    "trustedActor": "Ator de confiança"
+  },
+  "signalementTour": {
+    "archivedTab": "Esta aba permite consultar os relatos já tratados",
+    "filterByType": "...ou por tipo (Criação, Alteração e Exclusão) clicando neste botão",
+    "goToTab": "Para visualizá-los, acesse a aba de relatos.",
+    "pendingTab": "Esta aba permite consultar os relatos aguardando tratamento",
+    "searchByName": "Você pode filtrar os relatos por nome digitando nesta barra de pesquisa...",
+    "selectFromList": "Por fim, selecione um relato pela lista...",
+    "selectFromMap": "Ou pelo mapa",
+    "welcomeContent": "Cidadãos ou serviços públicos propuseram melhorias nos endereços do seu município por meio do sistema de relatos.",
+    "welcomeTitle": "Sua Base de Endereços Local recebeu propostas de melhoria"
+  },
+  "signalementTypes": {
+    "create": "Criação",
+    "delete": "Exclusão",
+    "missingAddress": "Endereço ausente",
+    "update": "Alteração"
+  },
+  "signalementViewer": {
+    "createNumero": "{status, select, accepted {Pedido de criação de endereço aceito} other {Pedido de criação de endereço recusado}}",
+    "createToponyme": "{status, select, accepted {Pedido de criação de topônimo aceito} other {Pedido de criação de topônimo recusado}}",
+    "deleteNumero": "{status, select, accepted {Pedido de exclusão de endereço aceito} other {Pedido de exclusão de endereço recusado}}",
+    "deleteToponyme": "{status, select, accepted {Pedido de exclusão de topônimo aceito} other {Pedido de exclusão de topônimo recusado}}",
+    "deleteVoie": "{status, select, accepted {Pedido de exclusão de logradouro aceito} other {Pedido de exclusão de logradouro recusado}}",
+    "modification": "{status, select, accepted {Alteração aceita} other {Alteração recusada}}"
+  },
+  "signalementsPage": {
+    "acceptedToast": "O relato foi registrado",
+    "backToList": "Voltar à lista de relatos",
+    "breadcrumb": "Relatos",
+    "bulkActions": "Ações em lote",
+    "confirmBulkAction": "Confirmar a ação em lote",
+    "confirmIgnoreQuestion": "Tem certeza de que deseja ignorar estes relatos?",
+    "errorToast": "Ocorreu um erro",
+    "ignoreSignalements": "Ignorar os relatos",
+    "ignoredManyToast": "{count, plural, one {O relato foi ignorado} other {Os relatos foram ignorados}}",
+    "ignoredToast": "O relato foi ignorado",
+    "improvementRequests": "Pedidos de melhoria",
+    "locationNotFound": "Não foi possível encontrar a localização do relato.",
+    "markedExpired": "Ele foi marcado como expirado e não aparecerá mais na lista de relatos.",
+    "tabArchived": "{count, plural, one {Arquivado} other {Arquivados}}",
+    "tabPending": "Em andamento"
+  },
+  "stepper": {
+    "lastStep": "Última etapa",
+    "nextStep": "Próxima etapa:",
+    "stepOf": "Etapa {step} de {total}"
+  },
+  "territorySelector": {
+    "choose": "Selecionar…",
+    "entireTerritory": "{name} (todo o território)",
+    "levels": {
+      "county": "Condado",
+      "place": "Cidade ou localidade",
+      "state": "Estado"
+    },
+    "loadError": "Não foi possível carregar a lista de territórios.",
+    "loading": "Carregando…",
+    "retry": "Tentar novamente",
+    "selectedLevel": "Nível: {level}",
+    "territoryCode": "Código {code}"
+  },
+  "toponymeEditor": {
+    "communeDeleguee": "Município delegado",
+    "createError": "Não foi possível adicionar o topônimo",
+    "createSuccess": "O topônimo foi adicionado",
+    "hintMultipleMarkers": "Mova os marcadores no mapa para modificar as posições",
+    "hintSingleMarker": "Mova o marcador no mapa para posicionar o topônimo",
+    "nom": "Nome do topônimo",
+    "parcelles": "Lotes",
+    "updateError": "Não foi possível modificar o topônimo",
+    "updateSuccess": "O topônimo foi modificado"
+  },
+  "toponymeGoal": {
+    "addToponyme": "Crie uma localidade complementar ou um logradouro sem endereço",
+    "addToponymeTitle": "Adicionar um topônimo",
+    "badgeTitle": "Publicação",
+    "emptyContent": "Enriqueça o endereçamento do seu município informando suas localidades complementares e logradouros sem endereço.",
+    "explanation": "Preserve os nomes dos seus povoados e localidades históricas. Associe-os aos números como complemento de endereço.",
+    "ignoreGoal": "Remover objetivo",
+    "numerosCounter": "{count, plural, one {número associado} other {números associados}}",
+    "title": "Localidades / Complementos",
+    "toponymesCounter": "{count, plural, one {localidade / complemento} other {localidades / complementos}}"
+  },
+  "toponymePage": {
+    "editToponyme": "Editar o topônimo",
+    "linkNumeros": "Associar números",
+    "numerosList": "Lista de números",
+    "searchNumero": "Pesquisar um número",
+    "updateManySuccess": "Os números foram modificados"
+  },
+  "toponymesPage": {
+    "addToponyme": "Adicionar um topônimo",
+    "addressesCertified": "Os endereços estão certificados",
+    "archiveError": "Não foi possível arquivar o topônimo",
+    "archiveSuccess": "O topônimo foi arquivado",
+    "breadcrumb": "Topônimos",
+    "deleteConfirm": "Tem certeza de que deseja excluir este topônimo?",
+    "linkNumeros": "Associar números",
+    "newToponyme": "Novo topônimo",
+    "noNumero": "Nenhum número",
+    "noPosition": "Este topônimo não tem posição",
+    "noResults": "Nenhum resultado",
+    "searchPlaceholder": "Pesquisar um topônimo",
+    "subtitle": "Localidades complementares e logradouros sem endereço"
+  },
+  "trainingTypes": {
+    "advanced": "Capacitação avançada",
+    "initial": "Capacitação inicial",
+    "signalement": "Capacitação sobre relatos"
+  },
+  "trash": {
+    "numerosDeleteError": "Não foi possível excluir os números",
+    "numerosDeleted": "Os números foram excluídos",
+    "tabs": {
+      "toponymes": "Topônimos",
+      "voies": "Logradouros"
+    },
+    "title": "Lixeira",
+    "toponymeDeleteError": "Não foi possível excluir o topônimo",
+    "toponymeDeleted": "O topônimo foi excluído",
+    "toponymeRestoreError": "Não foi possível restaurar o topônimo",
+    "toponymeRestored": "O topônimo foi restaurado",
+    "voieDeleteError": "Não foi possível excluir o logradouro",
+    "voieDeleted": "O logradouro foi excluído",
+    "voieRestoreError": "Não foi possível restaurar o logradouro",
+    "voieRestored": "O logradouro foi restaurado"
+  },
+  "trashList": {
+    "deletedNumeros": "{count, plural, one {# número excluído} other {# números excluídos}}",
+    "deletedNumerosList": "Lista de números excluídos",
+    "noNumero": "Nenhum número",
+    "noResults": "Nenhum resultado",
+    "restoreNumeros": "{count, plural, one {Restaurar # número} other {Restaurar # números}}",
+    "restoreToponyme": "Restaurar topônimo",
+    "restoreVoie": "Restaurar logradouro",
+    "restoreVoieWithNumeros": "{count, plural, one {Restaurar logradouro com # número} other {Restaurar logradouro com # números}}",
+    "searchNumero": "Pesquisar um número",
+    "searchToponyme": "Pesquisar um topônimo",
+    "searchVoie": "Pesquisar um logradouro",
+    "seeNumeros": "Ver número(s)",
+    "voie": "logradouro",
+    "voieAndDeletedNumeros": "logradouro e {count, plural, one {# número excluído} other {# números excluídos}}"
+  },
+  "voieEditor": {
+    "createError": "Não foi possível adicionar o logradouro",
+    "createSuccess": "O logradouro foi adicionado",
+    "metrique": "Métrica",
+    "nom": "Nome do logradouro",
+    "numerique": "Sequencial",
+    "typeNumerotation": "Tipo de numeração *",
+    "updateError": "Não foi possível modificar o logradouro",
+    "updateSuccess": "O logradouro foi modificado"
+  },
+  "voiePage": {
+    "editVoie": "Editar o logradouro",
+    "numerosList": "Lista de números"
+  },
+  "voiesPage": {
+    "addVoie": "Adicionar um logradouro",
+    "addressesCertified": "Os endereços estão certificados",
+    "archiveError": "Não foi possível arquivar o logradouro",
+    "archiveSuccess": "O logradouro foi arquivado",
+    "arreteError": "Não foi possível baixar o decreto de numeração",
+    "arreteSuccess": "O decreto de numeração foi baixado",
+    "breadcrumb": "Logradouros",
+    "certifyConfirmLabel": "Certificar os números do logradouro",
+    "certifyQuestion": "Tem certeza de que deseja certificar todos os endereços deste logradouro?",
+    "deleteConfirm": "Tem certeza de que deseja excluir este logradouro e todos os seus números?",
+    "filterLabel": "Filtro",
+    "filterTitle": "filtros de logradouros",
+    "filters": {
+      "all": "Todos",
+      "withSuggestions": "Com sugestões",
+      "withoutCertification": "Sem certificação"
+    },
+    "handleSuggestions": "{count, plural, one {Tratar a sugestão} other {Tratar as # sugestões}}",
+    "newVoie": "Novo logradouro",
+    "noResults": "Nenhum resultado",
+    "searchPlaceholder": "Pesquisar um logradouro, uma praça, uma localidade...",
+    "subtitle": "Logradouros, praças e localidades numerados"
+  },
+  "warnings": {
+    "convertConfirm": "Converter em logradouro sem endereços",
+    "convertConfirmQuestion": "Tem certeza de que deseja converter este logradouro em logradouro sem endereços?",
+    "convertError": "Não foi possível converter o logradouro em topônimo",
+    "convertSuccess": "O logradouro foi convertido em topônimo",
+    "convertTitle": "Converter o logradouro em logradouro sem endereços",
+    "doublonText": "Vários logradouros têm o mesmo nome",
+    "editNumero": "Editar o número",
+    "editVoie": "Editar o logradouro",
+    "improve": "Melhorar",
+    "mergeConfirm": "Mesclar os logradouros",
+    "mergeConfirmQuestion": "Tem certeza de que deseja mesclar os {count} logradouros com o nome {voieName}",
+    "mergeTitle": "Mesclar os logradouros com o mesmo nome",
+    "parcelleMissing": "O lote não existe no cadastro",
+    "parcellesMissing": "Vários lotes não existem no cadastro",
+    "suffixeIncorrect": "O sufixo do número está incorreto",
+    "voieEmptyText": "Este logradouro não contém nenhum número",
+    "voieNameSuggestion": "Sugestão sobre o nome do logradouro",
+    "voieNumerosSuggestion": "Sugestão sobre os números do logradouro"
+  },
+  "welcomeIllustration": {
+    "subtitle": "Comece a gerenciar seus endereços criando uma Base de Endereços Local (BAL).",
+    "title": "Bem-vindo ao mes-adresses!"
+  },
+  "welcomeMessage": {
+    "guides": "Consulte os guias",
+    "needHelp": "Precisa de ajuda?",
+    "officialSource": "A Base de Endereços Local passará então a ser a única fonte oficial dos endereços de {communeName}",
+    "ownPaceContent": "Depois de publicados, os endereços são sincronizados com a Base de Endereços Nacional.<br></br>Todas as suas alterações serão enviadas à medida que forem feitas.",
+    "ownPaceTitle": "Faça o endereçamento no seu ritmo.",
+    "publicationBadge": "Publicação",
+    "start": "Comece o endereçamento",
+    "startWithPublication": "Comece pela <b>publicação</b>!",
+    "title": "Bem-vindo à nova Base de Endereços Local de {communeName}",
+    "training": "Faça uma capacitação",
+    "tutorials": "Assista aos tutoriais"
+  }
+}

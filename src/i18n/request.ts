@@ -9,8 +9,9 @@ import { getUserLocale } from "./locale";
 import fr from "../../messages/fr.json";
 import en from "../../messages/en.json";
 import es from "../../messages/es.json";
+import pt from "../../messages/pt.json";
 
-const CATALOGS: Record<Locale, typeof fr> = { fr, en, es };
+const CATALOGS: Record<Locale, typeof fr> = { fr, en, es, pt };
 
 export default getRequestConfig(async () => {
   const locale = await getUserLocale();
