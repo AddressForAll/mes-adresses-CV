@@ -7,7 +7,7 @@
  * `/bal/<id>` share link working unchanged, which matters because BAL links are
  * mailed out to town halls and cannot be rewritten after the fact.
  */
-export const LOCALES = ["fr", "en", "es"] as const;
+export const LOCALES = ["fr", "en", "es", "pt"] as const;
 
 export type Locale = (typeof LOCALES)[number];
 
@@ -33,4 +33,5 @@ export const LOCALE_LABELS: Record<Locale, string> = {
   fr: "Français",
   en: "English",
   es: "Español",
+  pt: "Português",
 };
