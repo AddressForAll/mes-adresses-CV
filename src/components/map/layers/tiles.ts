@@ -167,12 +167,7 @@ const numerosLabelLayer = {
   },
   layout: {
     "text-font": ["Open Sans Regular"],
-    "text-field": [
-      "case",
-      ["has", "suffixe"],
-      ["format", ["get", "numero"], {}, " ", {}, ["get", "suffixe"], {}],
-      ["get", "numero"],
-    ],
+    "text-field": ["get", "numeroComplet"],
     // "text-ignore-placement": true,
     "text-allow-overlap": true,
     "text-variable-anchor": ["left", "right"],

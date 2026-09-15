@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useContext, useEffect } from "react";
 import { xor, sortBy } from "lodash";
-import { Pane, SelectField, TextInputField } from "evergreen-ui";
+import { Checkbox, Pane, SelectField, TextInputField } from "evergreen-ui";
 import { useTranslations } from "next-intl";
 
 import { normalizeSort } from "@/lib/normalize";
@@ -79,7 +79,13 @@ function NumeroEditor({
   const [isLoading, setIsLoading] = useState(false);
   const [certifie, setCertifie] = useState(initialValue?.certifie || false);
   const [numero, onNumeroChange] = useInput(
-    initialValue?.numero.toString() || ""
+    initialValue?.numero?.toString() || ""
+  );
+  const [numeroTexte, onNumeroTexteChange] = useInput(
+    initialValue?.numeroTexte || ""
+  );
+  const [isNumberless, setIsNumberless] = useState(
+    Boolean(initialValue?.id && initialValue.numero == null)
   );
   const [numeroWasEdited, setNumeroWasEdited] = useState<boolean>(false);
   const [nomVoie, onNomVoieChange] = useState("");
@@ -133,8 +139,12 @@ function NumeroEditor({
   const getNumeroBody = useCallback(() => {
     const body = {
       toponymeId,
-      numero: Number(numero),
-      suffixe: suffixe?.length > 0 ? suffixe.toLowerCase().trim() : null,
+      numero: isNumberless ? null : Number(numero),
+      numeroTexte: isNumberless ? numeroTexte.trim() || null : null,
+      suffixe:
+        !isNumberless && suffixe?.length > 0
+          ? suffixe.toLowerCase().trim()
+          : null,
       comment: comment.length > 0 ? comment : null,
       parcelles: highlightedParcelles,
       certifie: certifie ?? (initialValue?.certifie || false),
@@ -159,6 +169,8 @@ function NumeroEditor({
   }, [
     initialValue,
     numero,
+    numeroTexte,
+    isNumberless,
     suffixe,
     markers,
     certifie,
@@ -174,7 +186,7 @@ function NumeroEditor({
 
       setIsLoading(true);
 
-      if (parseInt(numero) === 99999) {
+      if (!isNumberless && parseInt(numero) === 99999) {
         setValidationMessages([`numero:${t("reservedNumero")}`]);
         setIsLoading(false);
         return;
@@ -259,21 +271,35 @@ function NumeroEditor({
       onSubmitted,
       toaster,
       numero,
+      isNumberless,
       reloadNumerosAlerts,
       reloadVoieAlerts,
     ]
   );
 
   useEffect(() => {
-    onNumeroChange({ target: { value: initialValue?.numero.toString() } });
+    onNumeroChange({
+      target: { value: initialValue?.numero?.toString() || "" },
+    });
+    onNumeroTexteChange({
+      target: { value: initialValue?.numeroTexte || "" },
+    });
+    setIsNumberless(Boolean(initialValue?.id && initialValue.numero == null));
     onSuffixeChange({ target: { value: initialValue?.suffixe } });
     setCompleteNumero(
-      computeCompletNumero(initialValue?.numero, initialValue?.suffixe)
+      computeCompletNumero(
+        initialValue?.numero,
+        initialValue?.suffixe,
+        initialValue?.numeroTexte
+      )
     );
   }, [
     initialValue?.numero,
+    initialValue?.id,
     initialValue?.suffixe,
+    initialValue?.numeroTexte,
     onNumeroChange,
+    onNumeroTexteChange,
     onSuffixeChange,
     setCompleteNumero,
   ]);
@@ -297,6 +323,11 @@ function NumeroEditor({
     onSuffixeChange(event);
     const value: string = event.target.value;
     setCompleteNumero(computeCompletNumero(numero, value));
+  };
+
+  const handleChangeNumeroTexte = (event) => {
+    onNumeroTexteChange(event);
+    setCompleteNumero(computeCompletNumero(null, null, event.target.value));
   };
 
   const handleVoieIdChange = useCallback((voieId) => {
@@ -352,6 +383,7 @@ function NumeroEditor({
       <AddressPreview
         numero={numero}
         suffixe={suffixe}
+        numeroTexte={isNumberless ? numeroTexte : undefined}
         selectedNomToponyme={selectedNomToponyme}
         voie={nomVoie || selectedNomVoie}
         commune={commune}
@@ -411,54 +443,82 @@ function NumeroEditor({
           </FormInput>
         )}
 
+        <Checkbox
+          label={t("numberless")}
+          checked={isNumberless}
+          onChange={(event) => {
+            const checked = event.target.checked;
+            setIsNumberless(checked);
+            setCompleteNumero(
+              checked
+                ? computeCompletNumero(null, null, numeroTexte)
+                : computeCompletNumero(numero, suffixe)
+            );
+          }}
+        />
+
         <FormInput ref={refs?.numero}>
-          <Pane display="flex" alignItems="flex-start" gap={8}>
+          {isNumberless ? (
             <TextInputField
               ref={ref}
-              required
-              label={t("numero")}
-              display="block"
-              type="number"
+              label={t("numberlessLabel")}
               disabled={isLoading}
-              width="50%"
-              maxWidth={300}
-              flex={2}
-              value={numero}
+              value={numeroTexte}
+              maxLength={100}
               marginBottom={0}
-              onWheel={(e) => e.target.blur()}
-              placeholder={
-                suggestedNumero
-                  ? t("numeroPlaceholderSuggested", { suggestedNumero })
-                  : t("numero")
-              }
-              onChange={handleChangeNumero}
-              validationMessage={getValidationMessage("numero")}
+              placeholder={t("numberlessPlaceholder")}
+              onChange={handleChangeNumeroTexte}
+              validationMessage={getValidationMessage("numeroTexte")}
             />
-
-            <Pane width="50%">
+          ) : (
+            <Pane display="flex" alignItems="flex-start" gap={8}>
               <TextInputField
-                label=""
-                style={{ textTransform: "lowercase" }}
+                ref={ref}
+                required
+                label={t("numero")}
                 display="block"
-                marginTop={18}
+                type="number"
                 disabled={isLoading}
-                flex={1}
-                value={suffixe}
+                width="50%"
+                maxWidth={300}
+                flex={2}
+                value={numero}
                 marginBottom={0}
-                placeholder={t("suffixe")}
-                onChange={handleChangeSuffixe}
-                validationMessage={getValidationMessage("suffixe")}
+                onWheel={(e) => e.target.blur()}
+                placeholder={
+                  suggestedNumero
+                    ? t("numeroPlaceholderSuggested", { suggestedNumero })
+                    : t("numero")
+                }
+                onChange={handleChangeNumero}
+                validationMessage={getValidationMessage("numero")}
               />
-              <AlertEditor
-                hasDefinition={false}
-                value={suffixe}
-                setValue={handleChangeSuffixe}
-                validation={computeNumeroSuffixeAlerts}
-                model={AlertModelEnum.NUMERO}
-                field={AlertFieldNumeroEnum.NUMERO_SUFFIXE}
-              />
+
+              <Pane width="50%">
+                <TextInputField
+                  label=""
+                  style={{ textTransform: "lowercase" }}
+                  display="block"
+                  marginTop={18}
+                  disabled={isLoading}
+                  flex={1}
+                  value={suffixe}
+                  marginBottom={0}
+                  placeholder={t("suffixe")}
+                  onChange={handleChangeSuffixe}
+                  validationMessage={getValidationMessage("suffixe")}
+                />
+                <AlertEditor
+                  hasDefinition={false}
+                  value={suffixe}
+                  setValue={handleChangeSuffixe}
+                  validation={computeNumeroSuffixeAlerts}
+                  model={AlertModelEnum.NUMERO}
+                  field={AlertFieldNumeroEnum.NUMERO_SUFFIXE}
+                />
+              </Pane>
             </Pane>
-          </Pane>
+          )}
         </FormInput>
 
         <FormInput ref={refs?.positions}>

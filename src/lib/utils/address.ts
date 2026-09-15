@@ -6,9 +6,11 @@ export const getAddressPreview = (
   suffixe: string,
   commune?: CommuneDTO,
   toponyme?: string,
-  voie?: string
+  voie?: string,
+  numeroTexte?: string
 ) => {
-  const completNumero = computeCompletNumero(numero, suffixe) || "";
+  const completNumero =
+    computeCompletNumero(numero, suffixe, numeroTexte) || "";
   if (toponyme) {
     return `${completNumero} ${voie}, ${toponyme}${
       commune ? ` - ${commune.nom} (${commune.code})` : ""

@@ -916,6 +916,9 @@
     "hintMultipleMarkers": "Mueva los marcadores en el mapa para modificar las posiciones",
     "hintSingleMarker": "Mueva el marcador en el mapa para posicionar el número",
     "noToponyme": "Ningún topónimo",
+    "numberless": "Dirección sin número",
+    "numberlessLabel": "Designación de origen (opcional)",
+    "numberlessPlaceholder": "Por ejemplo: s/n, nombre de casa o bloque",
     "numero": "Número",
     "numeroPlaceholderSuggested": "Número recomendado: {suggestedNumero}",
     "parcelles": "Parcelas",
@@ -1227,6 +1230,7 @@
     "entireTerritory": "{name} (todo el territorio)",
     "levels": {
       "county": "Condado",
+      "municipality": "Municipio",
       "place": "Ciudad o localidad",
       "state": "Estado"
     },

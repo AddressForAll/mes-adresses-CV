@@ -15,7 +15,8 @@ export type Numero = {
     balId: string;
     voieId: string;
     toponymeId: string;
-    numero: number;
+    numero?: number | null;
+    numeroTexte?: string | null;
     suffixe: string;
     numeroComplet: string;
     comment: string;
@@ -28,4 +29,3 @@ export type Numero = {
     voie: Voie;
     toponyme: Toponyme;
 };
-

@@ -64,13 +64,14 @@ export function MissingAddressAlertForm({
   useAlertMap(alert, !showNumeroEditor);
 
   const onCreateNewAddress = (_numero: Numero) => {
-    const { numero, suffixe, banId, voie, toponyme } = _numero;
+    const { numero, numeroTexte, suffixe, banId, voie, toponyme } = _numero;
     const label = getAddressPreview(
       numero,
       suffixe,
       commune,
       toponyme?.nom,
-      voie?.nom
+      voie?.nom,
+      numeroTexte
     );
 
     return handleAccept({

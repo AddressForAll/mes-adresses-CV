@@ -45,6 +45,17 @@ export interface CountryProfile {
 export const DEFAULT_COUNTRY = "fr";
 
 export const COUNTRIES: Record<string, CountryProfile> = {
+  br: {
+    code: "br",
+    label: "Brasil",
+    basemaps: [MapStyle.SATELLITE, MapStyle.STREET],
+    defaultBasemap: MapStyle.SATELLITE,
+    hasCadastre: false,
+    hasBanImport: false,
+    geoApi: "territories",
+    territoryLevels: ["state", "municipality"],
+    minInitialZoom: 13,
+  },
   fr: {
     code: "fr",
     label: "France",
