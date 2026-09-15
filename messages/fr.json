@@ -916,6 +916,9 @@
     "hintMultipleMarkers": "Déplacez les marqueurs sur la carte pour modifier les positions",
     "hintSingleMarker": "Déplacez le marqueur sur la carte pour positionner le numéro",
     "noToponyme": "Aucun toponyme",
+    "numberless": "Adresse sans numéro",
+    "numberlessLabel": "Désignation d’origine (facultative)",
+    "numberlessPlaceholder": "Par exemple : sans numéro, nom de maison ou bloc",
     "numero": "Numéro",
     "numeroPlaceholderSuggested": "Numéro recommandé : {suggestedNumero}",
     "parcelles": "Parcelles",
@@ -1227,6 +1230,7 @@
     "entireTerritory": "{name} (tout le territoire)",
     "levels": {
       "county": "Comté",
+      "municipality": "Municipalité",
       "place": "Ville ou localité",
       "state": "État"
     },

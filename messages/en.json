@@ -916,6 +916,9 @@
     "hintMultipleMarkers": "Move the markers on the map to change the positions",
     "hintSingleMarker": "Move the marker on the map to position the house number",
     "noToponyme": "No place name",
+    "numberless": "Address without a number",
+    "numberlessLabel": "Source designation (optional)",
+    "numberlessPlaceholder": "For example: s/n, house name or block",
     "numero": "Number",
     "numeroPlaceholderSuggested": "Suggested number: {suggestedNumero}",
     "parcelles": "Parcels",
@@ -1227,6 +1230,7 @@
     "entireTerritory": "All of {name}",
     "levels": {
       "county": "County",
+      "municipality": "Municipality",
       "place": "City or town",
       "state": "State"
     },

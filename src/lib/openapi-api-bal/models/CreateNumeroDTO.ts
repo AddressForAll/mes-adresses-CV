@@ -4,7 +4,8 @@
 /* eslint-disable */
 import type { Position } from './Position';
 export type CreateNumeroDTO = {
-    numero: number;
+    numero?: number | null;
+    numeroTexte?: string | null;
     suffixe?: string | null;
     comment?: string | null;
     toponymeId?: string | null;
@@ -13,4 +14,3 @@ export type CreateNumeroDTO = {
     communeDeleguee?: string;
     positions: Array<Position>;
 };
-

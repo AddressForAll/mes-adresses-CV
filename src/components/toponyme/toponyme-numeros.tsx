@@ -27,7 +27,15 @@ function ToponymeNumeros({
 
   const numerosByVoie: Record<string, Numero[]> = useMemo(() => {
     return groupBy(
-      numeros.sort((a, b) => a.numero - b.numero),
+      numeros.sort((a, b) =>
+        (a.numeroComplet || "").localeCompare(
+          b.numeroComplet || "",
+          undefined,
+          {
+            numeric: true,
+          }
+        )
+      ),
       (d) => d.voie?.nom
     );
   }, [numeros]);
@@ -57,7 +65,7 @@ function ToponymeNumeros({
             </Table.Cell>
 
             {numerosByVoie[nomVoie].map(
-              ({ id, numero, suffixe, positions, comment }: Numero) => (
+              ({ id, numeroComplet, positions, comment }: Numero) => (
                 <Table.Row
                   key={id}
                   style={{
@@ -76,8 +84,7 @@ function ToponymeNumeros({
                 >
                   <Table.Cell data-browsable>
                     <Table.TextCell data-editable flex="0 1 1">
-                      {numero}
-                      {suffixe}{" "}
+                      {numeroComplet}{" "}
                       {hovered === id && isEditable && (
                         <EditIcon marginBottom={-4} marginLeft={8} />
                       )}

@@ -12,7 +12,9 @@ interface PopupFeatureNumeroProps {
     properties: {
       idVoie: string;
       idToponyme?: string;
-      numero: number;
+      numero?: number | null;
+      numeroTexte?: string;
+      numeroComplet: string;
       certifie: boolean;
       parcelles: string;
       suffixe: string;
@@ -40,7 +42,7 @@ function PopupFeatureNumero({ feature, commune }: PopupFeatureNumeroProps) {
   return (
     <Pane display="flex" flexDirection="column">
       <Strong>
-        {feature.properties.numero} {feature.properties.suffixe} {voie?.nom}
+        {feature.properties.numeroComplet} {voie?.nom}
       </Strong>
       {toponyme && <Text is="i">{toponyme.nom}</Text>}
       <Text marginBottom="10px">

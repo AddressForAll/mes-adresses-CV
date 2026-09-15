@@ -44,7 +44,8 @@ function NumeroMarker({
 
   const { coordinates } = position.point;
   const completNumero =
-    numero.numeroComplet || computeCompletNumero(numero.numero, numero.suffixe);
+    numero.numeroComplet ||
+    computeCompletNumero(numero.numero, numero.suffixe, numero.numeroTexte);
 
   return (
     <Marker

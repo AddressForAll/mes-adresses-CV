@@ -6,6 +6,7 @@ import { CommuneType } from "@/types/commune";
 interface AddressPreviewProps {
   numero: string | number;
   suffixe?: string;
+  numeroTexte?: string;
   selectedNomToponyme?: string;
   voie?: string;
   commune?: CommuneType;
@@ -14,6 +15,7 @@ interface AddressPreviewProps {
 function AddressPreview({
   numero,
   suffixe,
+  numeroTexte,
   selectedNomToponyme,
   voie,
   commune,
@@ -23,7 +25,8 @@ function AddressPreview({
     suffixe,
     commune,
     selectedNomToponyme,
-    voie
+    voie,
+    numeroTexte
   );
 
   return (
