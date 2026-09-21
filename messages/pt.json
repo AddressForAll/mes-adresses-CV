@@ -129,6 +129,8 @@
     "chooseCommune": "Informe o município cujas Bases de Endereços Locais você deseja recuperar.",
     "clickHere": "Clique aqui",
     "communeRecoveryUnavailable": "A recuperação por município não está disponível para {country}.",
+    "countryRecoveryUnavailable": "A recuperação do acesso de administração ainda não está disponível para Bases de Endereços Locais no {country}. Para editar esta base, use o link de administração compartilhado pelo proprietário.",
+    "countryRecoveryUnavailableTitle": "A recuperação de acesso ainda não está disponível",
     "contactSupport": "Se mesmo assim você quiser partir desta Base de Endereços Local, entre em contato com o suporte:",
     "emailAlreadySent": "Um e-mail já foi enviado. Por favor, aguarde.",
     "emailHintMany": "Nele você encontrará a lista de todas as Bases de Endereços Locais associadas a esse endereço. Basta clicar nos links correspondentes para encontrá-las no seu espaço.",
@@ -252,6 +254,14 @@
     "recoverBal": "Recuperar uma Base de Endereços Local",
     "sortByDate": "Ordenar por data de atualização",
     "sortByName": "Ordenar em ordem alfabética"
+  },
+  "publicBasesLocales": {
+    "addresses": "{count} endereços",
+    "intro": "Abra uma base de endereços importada sem acesso de administração.",
+    "location": "{country} · {territory}",
+    "readOnly": "Somente leitura",
+    "title": "Explorar as Bases de Endereços Locais existentes",
+    "view": "Ver endereços"
   },
   "certificationButton": {
     "certifyAndSave": "Certificar e salvar",
@@ -1017,7 +1027,8 @@
     "outdatedSource": "A Base de Endereços Local publicada está desatualizada. Você pode continuar para a próxima etapa para substituí-la pela sua.",
     "publishedBy": "Uma Base de Endereços Local já foi publicada por <strong>{publisher}</strong> para {communeName}.",
     "publishedByOrganization": "Uma Base de Endereços Local já está publicada por {organization} para {communeName}.",
-    "recoverWithEmail": "Recuperar uma Base de Endereços Local por e-mail"
+    "recoverWithEmail": "Recuperar uma Base de Endereços Local por e-mail",
+    "viewExisting": "Ver {name}"
   },
   "purgeSignalements": {
     "explanation": "Se você fez alterações na sua Base de Endereços Local, como exclusões ou renomeações de logradouros, alguns relatos podem ter ficado obsoletos.",

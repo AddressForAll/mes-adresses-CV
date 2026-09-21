@@ -14,6 +14,8 @@ export interface CountryProfile {
    * whole territory from Overture is the CLI importer's job.
    */
   hasBanImport: boolean;
+  /** Whether an administrator can recover a lost BAL access link by email. */
+  hasAccessRecovery: boolean;
   /**
    * How this country's `/new` flow picks the territory a BAL is created for:
    * - `"fr"`: free-text search against geo.api.gouv.fr (upstream behaviour).
@@ -52,6 +54,7 @@ export const COUNTRIES: Record<string, CountryProfile> = {
     defaultBasemap: MapStyle.SATELLITE,
     hasCadastre: false,
     hasBanImport: false,
+    hasAccessRecovery: false,
     geoApi: "territories",
     territoryLevels: ["state", "municipality"],
     minInitialZoom: 13,
@@ -63,6 +66,7 @@ export const COUNTRIES: Record<string, CountryProfile> = {
     defaultBasemap: MapStyle.VECTOR,
     hasCadastre: true,
     hasBanImport: true,
+    hasAccessRecovery: true,
     geoApi: "fr",
   },
   us: {
@@ -76,6 +80,7 @@ export const COUNTRIES: Record<string, CountryProfile> = {
     defaultBasemap: MapStyle.SATELLITE,
     hasCadastre: false,
     hasBanImport: false,
+    hasAccessRecovery: false,
     geoApi: "territories",
     territoryLevels: ["state", "county", "place"],
     minInitialZoom: 13,

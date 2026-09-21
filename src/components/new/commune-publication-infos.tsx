@@ -38,6 +38,9 @@ function CommunePublicationInfos({
   const [apiDepotLastRevision, setApiDepotLastRevision] =
     useState<Revision | null>(null);
   const [existingBALCount, setExistingBALCount] = useState(0);
+  const [existingBALs, setExistingBALs] = useState<
+    PageBaseLocaleDTO["results"]
+  >([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -63,7 +66,7 @@ function CommunePublicationInfos({
       try {
         const draftResponse: PageBaseLocaleDTO =
           await BasesLocalesService.searchBaseLocale(
-            "1",
+            "100",
             "0",
             "false",
             commune.code,
@@ -74,7 +77,7 @@ function CommunePublicationInfos({
 
         const replacedResponse: PageBaseLocaleDTO =
           await BasesLocalesService.searchBaseLocale(
-            "1",
+            "100",
             "0",
             "false",
             commune.code,
@@ -84,6 +87,10 @@ function CommunePublicationInfos({
         const replacedCount = replacedResponse.count;
 
         setExistingBALCount(draftCount + replacedCount);
+        setExistingBALs([
+          ...(draftResponse.results || []),
+          ...(replacedResponse.results || []),
+        ]);
       } catch (error) {
         console.error("Error fetching existing BAL count:", error);
       }
@@ -101,6 +108,7 @@ function CommunePublicationInfos({
 
     setApiDepotLastRevision(null);
     setExistingBALCount(0);
+    setExistingBALs([]);
     setIsLoading(false);
     void fetchData();
   }, [commune]);
@@ -139,6 +147,7 @@ function CommunePublicationInfos({
               <AlertExistingBALMesAdresses
                 commune={commune}
                 existingBALCount={existingBALCount}
+                existingBALs={existingBALs}
               />
             )}
 

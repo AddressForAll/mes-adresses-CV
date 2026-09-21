@@ -1,12 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Dialog, Heading, Pane } from "evergreen-ui";
+import { Alert, Dialog, Heading, Pane, Paragraph } from "evergreen-ui";
 import { useTranslations } from "next-intl";
 
 import RecoverBALCommune from "./recover-bal-commune";
 import RecoverBALMail from "./recover-bal-mail";
 import { BaseLocale } from "@/lib/openapi-api-bal";
+import { getCountry } from "@/lib/countries";
 
 interface RecoverBALAlertProps {
   isShown: boolean;
@@ -25,6 +26,9 @@ function RecoverBALAlert({
   const [isLoading, setIsLoading] = useState(false);
   const [errorMail, setErrorMail] = useState<string | null>(null);
   const [errorCommune, setErrorCommune] = useState<string | null>(null);
+  const countryProfile = baseLocale ? getCountry(baseLocale.country) : null;
+  const isAccessRecoveryAvailable =
+    !countryProfile || countryProfile.hasAccessRecovery;
 
   const handleComplete = () => {
     setIsLoading(false);
@@ -40,7 +44,7 @@ function RecoverBALAlert({
   return (
     <Dialog
       isShown={isShown}
-      width={isDisplayCommuneRecovery ? 1000 : 500}
+      width={isAccessRecoveryAvailable && isDisplayCommuneRecovery ? 1000 : 500}
       hasHeader={false}
       hasFooter={false}
       onCloseComplete={() => handleComplete()}
@@ -57,27 +61,39 @@ function RecoverBALAlert({
             {baseLocale ? t("recoverOneTitle") : t("recoverManyTitle")}
           </Heading>
         </Pane>
-        <Pane display="flex" gap={16}>
-          <RecoverBALMail
-            defaultEmail={defaultEmail}
-            baseLocaleId={baseLocale?.id}
-            error={errorMail}
-            isLoading={isLoading}
-            setError={setErrorMail}
-            setIsLoading={setIsLoading}
-            onClose={onClose}
-          />
-          {isDisplayCommuneRecovery && (
-            <RecoverBALCommune
-              baseLocale={baseLocale}
-              error={errorCommune}
+        {isAccessRecoveryAvailable ? (
+          <Pane display="flex" gap={16}>
+            <RecoverBALMail
+              defaultEmail={defaultEmail}
+              baseLocaleId={baseLocale?.id}
+              error={errorMail}
               isLoading={isLoading}
-              setError={setErrorCommune}
+              setError={setErrorMail}
               setIsLoading={setIsLoading}
               onClose={onClose}
             />
-          )}
-        </Pane>
+            {isDisplayCommuneRecovery && (
+              <RecoverBALCommune
+                baseLocale={baseLocale}
+                error={errorCommune}
+                isLoading={isLoading}
+                setError={setErrorCommune}
+                setIsLoading={setIsLoading}
+                onClose={onClose}
+              />
+            )}
+          </Pane>
+        ) : (
+          <Pane marginTop={16} padding={16} background="white" borderRadius={8}>
+            <Alert intent="none" title={t("countryRecoveryUnavailableTitle")}>
+              <Paragraph>
+                {t("countryRecoveryUnavailable", {
+                  country: countryProfile.label,
+                })}
+              </Paragraph>
+            </Alert>
+          </Pane>
+        )}
       </Pane>
     </Dialog>
   );

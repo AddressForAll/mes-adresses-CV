@@ -129,6 +129,8 @@
     "chooseCommune": "Enter the municipality whose Local Address Bases you want to recover.",
     "clickHere": "Click here",
     "communeRecoveryUnavailable": "Recovery by municipality is not available for {country}.",
+    "countryRecoveryUnavailable": "Administration access recovery is not available for Local Address Bases in {country} yet. To edit this Base, use the administration link shared by its owner.",
+    "countryRecoveryUnavailableTitle": "Access recovery is not available yet",
     "contactSupport": "If you still want to start from this Local Address Base, please contact support:",
     "emailAlreadySent": "An email has already been sent, please wait.",
     "emailHintMany": "It will contain the list of all Local Address Bases linked to that address. Just click the links to find them again in your workspace.",
@@ -252,6 +254,14 @@
     "recoverBal": "Recover a Local Address Base",
     "sortByDate": "Sort by last update",
     "sortByName": "Sort alphabetically"
+  },
+  "publicBasesLocales": {
+    "addresses": "{count} addresses",
+    "intro": "Open an imported address base without administration access.",
+    "location": "{country} · {territory}",
+    "readOnly": "Read-only",
+    "title": "Explore existing Local Address Bases",
+    "view": "View addresses"
   },
   "certificationButton": {
     "certifyAndSave": "Certify and save",
@@ -1017,7 +1027,8 @@
     "outdatedSource": "The published Local Address Base is out of date. You can continue to the next step to replace it with yours.",
     "publishedBy": "A Local Address Base has already been published by <strong>{publisher}</strong> for {communeName}.",
     "publishedByOrganization": "A Local Address Base is already published by {organization} for {communeName}.",
-    "recoverWithEmail": "Recover a Local Address Base by email"
+    "recoverWithEmail": "Recover a Local Address Base by email",
+    "viewExisting": "View {name}"
   },
   "purgeSignalements": {
     "explanation": "If you have made changes to your Local Address Base, such as deleting or renaming streets, some reports may have become obsolete.",

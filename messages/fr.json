@@ -129,6 +129,8 @@
     "chooseCommune": "Renseigner la commune dont vous voulez récupérer les Bases Adresses Locales.",
     "clickHere": "Cliquez ici",
     "communeRecoveryUnavailable": "La récupération par commune n’est pas disponible pour {country}.",
+    "countryRecoveryUnavailable": "La récupération des accès d’administration n’est pas encore disponible pour les Bases Adresses Locales de {country}. Pour modifier cette base, utilisez le lien d’administration partagé par son propriétaire.",
+    "countryRecoveryUnavailableTitle": "La récupération des accès n’est pas encore disponible",
     "contactSupport": "Si vous voulez quand même repartir de cette BAL, veuillez contacter le support:",
     "emailAlreadySent": "Un email a déjà été envoyé, merci de patienter.",
     "emailHintMany": "Vous y retrouverez la liste de toutes les Bases Adresses Locales associées à celle-ci. Il vous suffira alors de cliquer sur les liens qui y sont associés afin de pouvoir les retrouver sur votre espace.",
@@ -252,6 +254,14 @@
     "recoverBal": "Récupérer une base adresse locale",
     "sortByDate": "Trier par date de mise à jour",
     "sortByName": "Trier par ordre alphabétique"
+  },
+  "publicBasesLocales": {
+    "addresses": "{count} adresses",
+    "intro": "Ouvrez une base d’adresses importée sans accès d’administration.",
+    "location": "{country} · {territory}",
+    "readOnly": "Lecture seule",
+    "title": "Explorer les Bases Adresses Locales existantes",
+    "view": "Voir les adresses"
   },
   "certificationButton": {
     "certifyAndSave": "Certifier et enregistrer",
@@ -1017,7 +1027,8 @@
     "outdatedSource": "La Base Adresse Locale publiée est obsolète. Vous pouvez continuer à l’étape suivante pour la remplacer par la vôtre.",
     "publishedBy": "Une Base Adresse Locale a déjà été publiée par <strong>{publisher}</strong> pour {communeName}.",
     "publishedByOrganization": "Une Base Adresse Locale est déjà publiée par {organization} pour {communeName}.",
-    "recoverWithEmail": "Récupérer une BAL avec un email"
+    "recoverWithEmail": "Récupérer une BAL avec un email",
+    "viewExisting": "Voir {name}"
   },
   "purgeSignalements": {
     "explanation": "Si vous avez fait des modifications sur votre Base Adresse Locale telles que des suppressions ou des renommages de voie, certains signalements peuvent être devenus obsolètes.",

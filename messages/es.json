@@ -129,6 +129,8 @@
     "chooseCommune": "Indique el municipio cuyas Bases de Direcciones Locales desea recuperar.",
     "clickHere": "Haga clic aquí",
     "communeRecoveryUnavailable": "La recuperación por municipio no está disponible para {country}.",
+    "countryRecoveryUnavailable": "La recuperación del acceso de administración aún no está disponible para las Bases de Direcciones Locales de {country}. Para editar esta base, utilice el enlace de administración compartido por su propietario.",
+    "countryRecoveryUnavailableTitle": "La recuperación de acceso aún no está disponible",
     "contactSupport": "Si aun así desea partir de esta Base de Direcciones Local, contacte con el soporte:",
     "emailAlreadySent": "Ya se ha enviado un correo, espere por favor.",
     "emailHintMany": "Contendrá la lista de todas las Bases de Direcciones Locales asociadas a esa dirección. Bastará con hacer clic en los enlaces para recuperarlas en su espacio.",
@@ -252,6 +254,14 @@
     "recoverBal": "Recuperar una Base de Direcciones Local",
     "sortByDate": "Ordenar por fecha de actualización",
     "sortByName": "Ordenar alfabéticamente"
+  },
+  "publicBasesLocales": {
+    "addresses": "{count} direcciones",
+    "intro": "Abra una base de direcciones importada sin acceso de administración.",
+    "location": "{country} · {territory}",
+    "readOnly": "Solo lectura",
+    "title": "Explorar las Bases de Direcciones Locales existentes",
+    "view": "Ver direcciones"
   },
   "certificationButton": {
     "certifyAndSave": "Certificar y guardar",
@@ -1017,7 +1027,8 @@
     "outdatedSource": "La Base de Direcciones Local publicada está obsoleta. Puede continuar al siguiente paso para reemplazarla por la suya.",
     "publishedBy": "Ya se ha publicado una Base de Direcciones Local por <strong>{publisher}</strong> para {communeName}.",
     "publishedByOrganization": "Ya hay una Base de Direcciones Local publicada por {organization} para {communeName}.",
-    "recoverWithEmail": "Recuperar una Base de Direcciones Local por correo"
+    "recoverWithEmail": "Recuperar una Base de Direcciones Local por correo",
+    "viewExisting": "Ver {name}"
   },
   "purgeSignalements": {
     "explanation": "Si ha realizado cambios en su Base de Direcciones Local, como eliminar o renombrar vías, algunas notificaciones pueden haber quedado obsoletas.",

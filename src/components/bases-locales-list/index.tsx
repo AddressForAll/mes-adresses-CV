@@ -18,15 +18,18 @@ import BaseLocaleCard from "@/components/base-locale-card";
 import {
   BasesLocalesService,
   BaseLocaleWithHabilitationDTO,
+  ExtendedBaseLocaleDTO,
   OpenAPI,
 } from "@/lib/openapi-api-bal";
 import LayoutContext from "@/contexts/layout";
 import CreateBaseLocaleCard from "./create-bal-card";
 import WelcomeIllustration from "../welcome-illustration";
+import PublicBasesLocales from "@/components/public-bases-locales";
 import styles from "./bases-locales-list.module.css";
 
 interface BasesLocalesListProps {
   initialBasesLocales: Array<BaseLocaleWithHabilitationDTO & { token: string }>;
+  publicBasesLocales: ExtendedBaseLocaleDTO[];
 }
 
 type SortType = {
@@ -59,7 +62,10 @@ const sortFnMap = {
 
 const PAGE_SIZE = 8;
 
-function BasesLocalesList({ initialBasesLocales }: BasesLocalesListProps) {
+function BasesLocalesList({
+  initialBasesLocales,
+  publicBasesLocales,
+}: BasesLocalesListProps) {
   const t = useTranslations("basesLocalesList");
   const [search, setSearch] = useState("");
   const [basesLocales, setBasesLocales] = useState(initialBasesLocales);
@@ -129,7 +135,7 @@ function BasesLocalesList({ initialBasesLocales }: BasesLocalesListProps) {
       prev.filter((baseLocale) => baseLocale.id !== balId)
     );
     setBALToRemove(null);
-  }, [BALtoRemove, getBalToken, removeBalAccess, toaster]);
+  }, [BALtoRemove, getBalToken, removeBalAccess, toaster, t]);
 
   const handleRemove = useCallback(
     (balId: string) => {
@@ -169,6 +175,10 @@ function BasesLocalesList({ initialBasesLocales }: BasesLocalesListProps) {
         onCancel={() => setBALToRemove(null)}
         onConfirm={onRemove}
       />
+
+      {basesLocales.length === 0 && (
+        <PublicBasesLocales basesLocales={publicBasesLocales} />
+      )}
 
       <Pane display="flex" flex={1}>
         {basesLocales.length > 0 ? (
@@ -269,6 +279,10 @@ function BasesLocalesList({ initialBasesLocales }: BasesLocalesListProps) {
           </Pane>
         )}
       </Pane>
+
+      {basesLocales.length > 0 && (
+        <PublicBasesLocales basesLocales={publicBasesLocales} />
+      )}
 
       {totalPages > 1 && (
         <Pane display="flex" justifyContent="center" padding={16}>

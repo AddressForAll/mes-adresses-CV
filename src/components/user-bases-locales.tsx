@@ -5,6 +5,7 @@ import { Pane, Spinner } from "evergreen-ui";
 import LocalStorageContext from "@/contexts/local-storage";
 import BasesLocalesList from "@/components/bases-locales-list";
 import {
+  ExtendedBaseLocaleDTO,
   BaseLocaleWithHabilitationDTO,
   BasesLocalesService,
 } from "@/lib/openapi-api-bal";
@@ -16,6 +17,9 @@ function UserBasesLocales() {
   const [isLoading, setIsLoading] = useState(true);
   const [basesLocales, setBasesLocales] = useState<
     Array<BaseLocaleWithHabilitationDTO & { token: string }>
+  >([]);
+  const [publicBasesLocales, setPublicBasesLocales] = useState<
+    ExtendedBaseLocaleDTO[]
   >([]);
 
   const getUserBals = useCallback(async () => {
@@ -47,6 +51,35 @@ function UserBasesLocales() {
     }
   }, [balAccess, getUserBals, isLoading]);
 
+  useEffect(() => {
+    async function getPublicBals() {
+      try {
+        const response = await BasesLocalesService.searchBaseLocale(
+          "100",
+          "0",
+          "false",
+          undefined,
+          undefined,
+          undefined,
+          ExtendedBaseLocaleDTO.importType.OVERTURE
+        );
+        // Keep this defensive filter even though the API accepts importType:
+        // during a rolling deployment an older API may ignore the new query
+        // parameter and return unrelated BALs.
+        setPublicBasesLocales(
+          response.results.filter(
+            ({ importType }) =>
+              importType === ExtendedBaseLocaleDTO.importType.OVERTURE
+          )
+        );
+      } catch (error) {
+        console.error("Error fetching public Local Address Bases:", error);
+      }
+    }
+
+    void getPublicBals();
+  }, []);
+
   if (balAccess === undefined || isLoading) {
     return (
       <Pane display="flex" alignItems="center" justifyContent="center" flex={1}>
@@ -64,7 +97,10 @@ function UserBasesLocales() {
         justifyContent="flex-start"
         overflowY="auto"
       >
-        <BasesLocalesList initialBasesLocales={basesLocales} />
+        <BasesLocalesList
+          initialBasesLocales={basesLocales}
+          publicBasesLocales={publicBasesLocales}
+        />
       </Pane>
       <HomeDrawer />
     </Pane>

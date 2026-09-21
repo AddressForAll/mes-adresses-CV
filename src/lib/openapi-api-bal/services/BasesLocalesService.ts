@@ -71,6 +71,7 @@ export class BasesLocalesService {
      * @param commune
      * @param email
      * @param status
+     * @param importType
      * @returns PageBaseLocaleDTO
      * @throws ApiError
      */
@@ -81,6 +82,7 @@ export class BasesLocalesService {
         commune?: string,
         email?: string,
         status?: string,
+        importType?: string,
     ): CancelablePromise<PageBaseLocaleDTO> {
         return __request(OpenAPI, {
             method: 'GET',
@@ -92,6 +94,7 @@ export class BasesLocalesService {
                 'commune': commune,
                 'email': email,
                 'status': status,
+                'importType': importType,
             },
         });
     }
