@@ -128,6 +128,7 @@ export default function AlertPage({ alert }: AlertPageProps) {
       refreshBALSync,
       updateOneSignalement,
       baseLocale,
+      t,
     ]
   );
 

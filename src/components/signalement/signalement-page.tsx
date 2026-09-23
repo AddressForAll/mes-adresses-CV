@@ -173,6 +173,7 @@ export default function SignalementPage({
       refreshBALSync,
       updateOneSignalement,
       baseLocale,
+      t,
     ]
   );
 

@@ -194,7 +194,7 @@ export default function VoiesPage() {
           .GENERATE_ARRETE_NUMEROTATION_VOIE
       );
     },
-    [toaster, matomoTrackEvent]
+    [toaster, matomoTrackEvent, t]
   );
 
   const browseQualityBatch = () => {

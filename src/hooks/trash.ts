@@ -58,7 +58,7 @@ function useTrash(): UseTrashType {
       await deleteVoie();
       await reloadAllDeleted();
     },
-    [toaster, reloadAllDeleted]
+    [toaster, reloadAllDeleted, t]
   );
 
   const onRestoreVoie = useCallback(
@@ -89,6 +89,7 @@ function useTrash(): UseTrashType {
       refreshBALSync,
       reloadAllDeleted,
       toaster,
+      t,
     ]
   );
 
@@ -109,7 +110,7 @@ function useTrash(): UseTrashType {
       await deleteNumeros();
       await reloadAllDeleted();
     },
-    [baseLocale.id, reloadAllDeleted, toaster]
+    [baseLocale.id, reloadAllDeleted, toaster, t]
   );
 
   const onRemoveToponyme = useCallback(
@@ -122,7 +123,7 @@ function useTrash(): UseTrashType {
       await deleteToponyme();
       await reloadAllDeleted();
     },
-    [reloadAllDeleted, toaster]
+    [reloadAllDeleted, toaster, t]
   );
 
   const onRestoreToponyme = useCallback(
@@ -148,6 +149,7 @@ function useTrash(): UseTrashType {
       refreshBALSync,
       reloadAllDeleted,
       toaster,
+      t,
     ]
   );
 

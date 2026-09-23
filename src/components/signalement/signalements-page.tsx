@@ -150,7 +150,7 @@ export default function SignalementsPage({
           missingAddressLabel: tt("missingAddress"),
         }),
       })),
-    [signalements]
+    [signalements, locale, tt]
   );
 
   const [signalementsList, setSignalementsList] = useFuse(

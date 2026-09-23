@@ -105,6 +105,7 @@ function NumerosMarkers({
       refreshBALSync,
       reloadTiles,
       toaster,
+      t,
     ]
   );
 

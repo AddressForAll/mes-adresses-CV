@@ -232,6 +232,7 @@ function NumerosList({
       reloadTiles,
       toaster,
       reloadVoie,
+      t,
     ]
   );
 
@@ -257,7 +258,7 @@ function NumerosList({
           .GENERATE_CERTIFICAT_ADRESSAGE
       );
     },
-    [toaster, matomoTrackEvent]
+    [toaster, matomoTrackEvent, t]
   );
 
   const onDownloadArreteDeNumerotation = useCallback(
@@ -285,7 +286,7 @@ function NumerosList({
           .GENERATE_ARRETE_NUMEROTATION_NUMERO
       );
     },
-    [toaster, matomoTrackEvent]
+    [toaster, matomoTrackEvent, t]
   );
 
   const onMultipleRemove = async () => {

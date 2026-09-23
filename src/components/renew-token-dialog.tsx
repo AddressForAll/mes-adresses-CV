@@ -46,7 +46,15 @@ function RenewTokenDialog({
     reloadEmails();
     setIsLoading(false);
     setIsShown(false);
-  }, [baseLocaleId, setError, setIsShown, toaster, addBalAccess, reloadEmails]);
+  }, [
+    baseLocaleId,
+    setError,
+    setIsShown,
+    toaster,
+    addBalAccess,
+    reloadEmails,
+    t,
+  ]);
 
   return (
     <Pane>

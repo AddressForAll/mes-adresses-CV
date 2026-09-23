@@ -75,6 +75,7 @@ export function useFusionVoies(
       refreshBALSync,
       reloadVoieAlerts,
       setLoading,
+      t,
     ]
   );
 

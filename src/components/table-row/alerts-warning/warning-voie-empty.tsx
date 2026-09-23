@@ -83,6 +83,7 @@ function WarningVoieEmpty({ baseLocale, voie }: WarningVoieEmptyProps) {
     reloadVoieAlerts,
     baseLocale.id,
     router,
+    t,
   ]);
 
   return (

@@ -26,7 +26,7 @@ function CertificationButton({
     }
 
     return isCertified ? tc("save") : t("certifyAndSave");
-  }, [isLoading, isCertified]);
+  }, [isLoading, isCertified, t, tc]);
 
   const submitLabel = useMemo(() => {
     if (isLoading) {
@@ -34,7 +34,7 @@ function CertificationButton({
     }
 
     return isCertified ? t("uncertifyAndSave") : tc("save");
-  }, [isLoading, isCertified]);
+  }, [isLoading, isCertified, t, tc]);
 
   return (
     <div className={styles["certification-button-wrapper"]}>

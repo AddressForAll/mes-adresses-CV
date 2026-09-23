@@ -23,8 +23,9 @@ function FondDeCarteForm() {
   const tb = useTranslations("basemaps");
   // The built-in basemap names as the reader currently sees them — a custom
   // basemap must not collide with one of them in the list they share.
-  const reservedBasemapNames = Object.values(STYLE_LABEL_KEYS).map((key) =>
-    tb(key)
+  const reservedBasemapNames = useMemo(
+    () => Object.values(STYLE_LABEL_KEYS).map((key) => tb(key)),
+    [tb]
   );
   const [isLoading, setIsLoading] = useState(false);
   const { baseLocale, reloadBaseLocale } = useContext(BalDataContext);
@@ -63,6 +64,7 @@ function FondDeCarteForm() {
       reloadBaseLocale,
       toaster,
       matomoTrackEvent,
+      t,
     ]
   );
 
@@ -84,7 +86,7 @@ function FondDeCarteForm() {
       })
     );
     return Object.fromEntries(urlIsValid);
-  }, [fondsDeCartesForm]);
+  }, [fondsDeCartesForm, reservedBasemapNames]);
 
   const saveFondDeCartes = useCallback(async () => {
     setIsLoading(true);
