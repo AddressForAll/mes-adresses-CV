@@ -850,7 +850,9 @@
     "communeTabIllustration": "Ilustración de la pestaña del municipio",
     "signalementsTabIllustration": "Ilustración de la pestaña de notificaciones",
     "tabTitle": "{tab, select, commune {Pestaña del municipio} voies {Pestaña de vías} toponymes {Pestaña de topónimos} other {Pestaña de notificaciones}}",
+    "toponymesTabLabel": "Topónimos",
     "toponymesTabIllustration": "Ilustración de la pestaña de topónimos",
+    "voiesTabLabel": "Vías",
     "voiesTabIllustration": "Ilustración de la pestaña de vías"
   },
   "mapControls": {

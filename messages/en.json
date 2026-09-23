@@ -850,7 +850,9 @@
     "communeTabIllustration": "Illustration of the municipality tab",
     "signalementsTabIllustration": "Illustration of the reports tab",
     "tabTitle": "{tab, select, commune {Municipality tab} voies {Streets tab} toponymes {Place names tab} other {Reports tab}}",
+    "toponymesTabLabel": "Place names",
     "toponymesTabIllustration": "Illustration of the place names tab",
+    "voiesTabLabel": "Streets",
     "voiesTabIllustration": "Illustration of the streets tab"
   },
   "mapControls": {

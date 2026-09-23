@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useMemo, useState } from "react";
+import { useContext, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { Pane, Pulsar } from "evergreen-ui";
 import Link from "next/link";
@@ -13,6 +13,8 @@ import { getLinkWithPagination } from "@/hooks/search-pagination";
 import DynamicTextIcon from "./dynamic-text-icon/dynamic-text-icon";
 import ResponsiveImage from "@/components/responsive-image";
 import { usePathname } from "next/navigation";
+import CountryContext from "@/contexts/country";
+import MunicipalityTabIcon from "./municipality-tab-icon";
 
 export enum TabsEnum {
   COMMUNE = "commune",
@@ -21,11 +23,6 @@ export enum TabsEnum {
   SIGNALEMENTS = "signalements",
 }
 
-const textExamples = {
-  [TabsEnum.VOIES]: ["Rue Chaptal", "Rue du Bac", "Quai de Lot", "Le Voisinet"],
-  [TabsEnum.TOPONYMES]: ["La Butte", "Les Loges", "Lambert", "Tartifume"],
-};
-
 interface MainTabsProps {
   balId: string;
 }
@@ -33,6 +30,11 @@ interface MainTabsProps {
 function MainTabs({ balId }: MainTabsProps) {
   const t = useTranslations("mainTabs");
   const pathname = usePathname();
+  const { country } = useContext(CountryContext);
+  const tabLabels = {
+    [TabsEnum.VOIES]: [t("voiesTabLabel")],
+    [TabsEnum.TOPONYMES]: [t("toponymesTabLabel")],
+  };
 
   const selectedTab = useMemo(() => {
     const splittedPath = pathname.split("/");
@@ -49,11 +51,6 @@ function MainTabs({ balId }: MainTabsProps) {
   const isAdmin = Boolean(token);
   const { isEditing } = useContext(BalDataContext);
   const { savedSearchPagination } = useContext(SearchPaginationContext);
-  const [selectedTextIndexes, setSelectedTextIndexes] = useState({
-    [TabsEnum.VOIES]: 0,
-    [TabsEnum.TOPONYMES]: 0,
-  });
-
   const isTabSelected = (tabKey: TabsEnum, index: number) => {
     return selectedTab ? selectedTab === tabKey : index === 0;
   };
@@ -66,12 +63,10 @@ function MainTabs({ balId }: MainTabsProps) {
             key: TabsEnum.COMMUNE,
             icon: (
               <div className={styles.tabImage}>
-                <ResponsiveImage
-                  src="/static/images/icone-commune.png"
-                  alt={t("communeTabIllustration")}
-                  draggable={false}
-                  orientation="portrait"
-                  unoptimized
+                <MunicipalityTabIcon
+                  country={country}
+                  label={t("communeTabIllustration")}
+                  className={styles.tabImage}
                 />
               </div>
             ),
@@ -81,9 +76,9 @@ function MainTabs({ balId }: MainTabsProps) {
             key: TabsEnum.VOIES,
             icon: (
               <DynamicTextIcon
-                selectedTextIndex={selectedTextIndexes[TabsEnum.VOIES]}
+                selectedTextIndex={0}
                 className={styles.tabImage}
-                texts={textExamples[TabsEnum.VOIES]}
+                texts={tabLabels[TabsEnum.VOIES]}
               >
                 <ResponsiveImage
                   src="/static/images/icone-voies.png"
@@ -103,9 +98,9 @@ function MainTabs({ balId }: MainTabsProps) {
             key: TabsEnum.TOPONYMES,
             icon: (
               <DynamicTextIcon
-                selectedTextIndex={selectedTextIndexes[TabsEnum.TOPONYMES]}
+                selectedTextIndex={0}
                 className={styles.tabImage}
-                texts={textExamples[TabsEnum.TOPONYMES]}
+                texts={tabLabels[TabsEnum.TOPONYMES]}
               >
                 <ResponsiveImage
                   src="/static/images/icone-toponymes.png"
@@ -152,17 +147,6 @@ function MainTabs({ balId }: MainTabsProps) {
                 href={href}
                 shallow
                 draggable={false}
-                {...((key === TabsEnum.VOIES || key === TabsEnum.TOPONYMES) && {
-                  onClick: () => {
-                    setSelectedTextIndexes((prev) => ({
-                      ...prev,
-                      [key]:
-                        prev[key] + 1 >= textExamples[key].length
-                          ? 0
-                          : prev[key] + 1,
-                    }));
-                  },
-                })}
               >
                 <Pane
                   className={`${styles.tab}${

@@ -850,7 +850,9 @@
     "communeTabIllustration": "Illustration de l’onglet commune",
     "signalementsTabIllustration": "Illustration de l’onglet signalements",
     "tabTitle": "{tab, select, commune {Onglet commune} voies {Onglet voies} toponymes {Onglet toponymes} other {Onglet signalements}}",
+    "toponymesTabLabel": "Toponymes",
     "toponymesTabIllustration": "Illustration de l’onglet toponymes",
+    "voiesTabLabel": "Voies",
     "voiesTabIllustration": "Illustration de l’onglet voies"
   },
   "mapControls": {

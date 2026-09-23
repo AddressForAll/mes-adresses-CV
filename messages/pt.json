@@ -850,7 +850,9 @@
     "communeTabIllustration": "Ilustração da aba do município",
     "signalementsTabIllustration": "Ilustração da aba de relatos",
     "tabTitle": "{tab, select, commune {Aba do município} voies {Aba de logradouros} toponymes {Aba de topônimos} other {Aba de relatos}}",
+    "toponymesTabLabel": "Topônimos",
     "toponymesTabIllustration": "Ilustração da aba de topônimos",
+    "voiesTabLabel": "Logradouros",
     "voiesTabIllustration": "Ilustração da aba de logradouros"
   },
   "mapControls": {
