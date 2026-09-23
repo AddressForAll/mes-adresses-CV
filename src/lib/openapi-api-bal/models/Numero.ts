@@ -18,6 +18,7 @@ export type Numero = {
     numero?: number | null;
     numeroTexte?: string | null;
     suffixe: string;
+    postalCode?: string | null;
     numeroComplet: string;
     comment: string;
     parcelles: Array<string>;

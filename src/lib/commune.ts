@@ -32,6 +32,76 @@ function percentile(sortedValues: number[], p: number): number {
  */
 const MIN_VOIES_FOR_PERCENTILE_BBOX = 20;
 
+type WeightedCoordinate = {
+  coordinate: number;
+  weight: number;
+};
+
+function weightedMedian(values: WeightedCoordinate[]): number | undefined {
+  if (values.length === 0) {
+    return undefined;
+  }
+
+  const sortedValues = [...values].sort((a, b) => a.coordinate - b.coordinate);
+  const totalWeight = sortedValues.reduce(
+    (total, { weight }) => total + weight,
+    0
+  );
+  let cumulativeWeight = 0;
+
+  for (const { coordinate, weight } of sortedValues) {
+    cumulativeWeight += weight;
+    if (cumulativeWeight >= totalWeight / 2) {
+      return coordinate;
+    }
+  }
+}
+
+/**
+ * Approximate the median address position from data already returned with the
+ * voie list. Each voie centroid is weighted by its number of addresses, so a
+ * dense town street contributes more than a sparsely addressed rural road.
+ * A median is deliberately used instead of a mean to resist distant points.
+ */
+function addressWeightedCenter(
+  voies: ExtendedVoieDTO[]
+): [number, number] | undefined {
+  const weightedCentroids = voies.flatMap((voie) => {
+    const coordinates = voie.centroid?.coordinates;
+    const weight = voie.nbNumeros;
+
+    if (
+      !Array.isArray(coordinates) ||
+      coordinates.length < 2 ||
+      !Number.isFinite(coordinates[0]) ||
+      !Number.isFinite(coordinates[1]) ||
+      !Number.isFinite(weight) ||
+      weight <= 0
+    ) {
+      return [];
+    }
+
+    return [{ longitude: coordinates[0], latitude: coordinates[1], weight }];
+  });
+
+  const longitude = weightedMedian(
+    weightedCentroids.map(({ longitude, weight }) => ({
+      coordinate: longitude,
+      weight,
+    }))
+  );
+  const latitude = weightedMedian(
+    weightedCentroids.map(({ latitude, weight }) => ({
+      coordinate: latitude,
+      weight,
+    }))
+  );
+
+  return longitude === undefined || latitude === undefined
+    ? undefined
+    : [longitude, latitude];
+}
+
 function bboxFromVoies(voies: ExtendedVoieDTO[]): number[] {
   const bboxs = voies.map(({ bbox }) => bbox);
 
@@ -72,6 +142,7 @@ export async function getCommuneWithBBox(
     // codes (`/v2/commune/:code`) — otherwise the map would open on France.
     if (voies.length > 0) {
       commune.bbox = bboxFromVoies(voies);
+      commune.initialCenter = addressWeightedCenter(voies);
     } else if (commune.bbox) {
       commune.isTerritoryBBox = true;
     }

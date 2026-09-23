@@ -18,6 +18,7 @@ interface PopupFeatureNumeroProps {
       certifie: boolean;
       parcelles: string;
       suffixe: string;
+      postalCode?: string;
     };
   };
   commune: CommuneType;
@@ -46,7 +47,10 @@ function PopupFeatureNumero({ feature, commune }: PopupFeatureNumeroProps) {
       </Strong>
       {toponyme && <Text is="i">{toponyme.nom}</Text>}
       <Text marginBottom="10px">
-        {commune.code} - {commune.nom}
+        {feature.properties.postalCode
+          ? `${feature.properties.postalCode} - `
+          : ""}
+        {commune.nom}
       </Text>
       {feature.properties.certifie ? (
         <Badge color="green">{t("certified")}</Badge>

@@ -26,9 +26,7 @@ function PopupFeatureVoie({ feature, commune }: PopupFeatureNumeroProps) {
   return (
     <Pane display="flex" flexDirection="column">
       <Strong>{feature.properties.nom}</Strong>
-      <Text marginBottom="10px">
-        {commune.code} - {commune.nom}
-      </Text>
+      <Text marginBottom="10px">{commune.nom}</Text>
       {toponyme.nbNumeros <= 0 ? (
         <Badge color="red">{t("noNumero")}</Badge>
       ) : toponyme.isAllCertified ? (

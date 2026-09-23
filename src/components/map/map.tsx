@@ -382,12 +382,16 @@ function Map({
           isCommuneView && minInitialZoom
             ? Math.max(camera.zoom, minInitialZoom)
             : camera.zoom;
+        const initialCenter =
+          isCommuneView && commune.initialCenter
+            ? commune.initialCenter
+            : [(camera.center as any).lng, (camera.center as any).lat];
         setViewport((viewport: ViewState) => ({
           ...viewport,
           bearing: camera.bearing,
           zoom,
-          longitude: (camera.center as any).lng,
-          latitude: (camera.center as any).lat,
+          longitude: initialCenter[0],
+          latitude: initialCenter[1],
         }));
       } else if (hash) {
         const [zoom, latitude, longitude]: string[] = hash.split("/");
@@ -404,6 +408,7 @@ function Map({
     bounds,
     setViewport,
     commune.bbox,
+    commune.initialCenter,
     commune.isTerritoryBBox,
     baseLocale.country,
   ]);
