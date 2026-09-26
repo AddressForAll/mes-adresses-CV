@@ -1,5 +1,5 @@
 import { BaseLocale } from "@/lib/openapi-api-bal";
-import React, { useContext, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   TextInputField,
   Button,
@@ -21,10 +21,6 @@ import { ShareBALAccessDialog } from "./share/share-bal-access-dialog";
 import FondDeCarteList from "./fond-de-carte/fond-de-carte-list";
 import FondDeCarteDialog from "./fond-de-carte/fond-de-carte-dialog";
 import AlertsAccordion from "./alerts/alerts-accordion";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 
 interface SettingsProps {
   baseLocale: BaseLocale;
@@ -37,13 +33,8 @@ function Settings({ baseLocale, token }: SettingsProps) {
   const [showBALAccessDialog, setShowBALAccessDialog] = useState(false);
   const [showFondDeCarteDialog, setShowFondDeCarteDialog] = useState(false);
   const [newEmailInput, setNewEmailInput] = useState("");
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
   const onShowBALAccessDialog = () => {
-    matomoTrackEvent(
-      MatomoEventCategory.SETTINGS,
-      MatomoEventAction[MatomoEventCategory.SETTINGS].SHARE_ACCESS
-    );
     setShowBALAccessDialog(true);
   };
 

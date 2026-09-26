@@ -1,16 +1,9 @@
 /* eslint no-restricted-imports: off */
-import { BALWidgetConfig, EventType, EventTypeTypeEnum } from "./type";
+import { BALWidgetConfig } from "./type";
 
 const NEXT_PUBLIC_BAL_ADMIN_URL =
   process.env.NEXT_PUBLIC_BAL_ADMIN_URL ||
   "https://bal-admin.adresse.data.gouv.fr";
-
-/** Badge colour per training type; the labels live in the `trainingTypes` namespace. */
-export const trainingTypeMap = {
-  [EventTypeTypeEnum.FORMATION]: { color: "green", key: "initial" },
-  [EventTypeTypeEnum.FORMATION_LVL2]: { color: "blue", key: "advanced" },
-  [EventTypeTypeEnum.FORMATION_SPECIALE]: { color: "teal", key: "signalement" },
-};
 
 export class ApiBalAdminService {
   public static async getBALWidgetConfig(): Promise<BALWidgetConfig> {
@@ -25,38 +18,5 @@ export class ApiBalAdminService {
     const data: BALWidgetConfig = await response.json();
 
     return data;
-  }
-
-  public static async getEvents(): Promise<EventType[]> {
-    const response = await fetch(`${NEXT_PUBLIC_BAL_ADMIN_URL}/api/events`);
-    if (!response.ok) {
-      throw new Error("Error while fetching bal events");
-    }
-
-    return response.json();
-  }
-
-  public static async fetchNextTrainings(): Promise<EventType[]> {
-    const allEvents = await this.getEvents();
-
-    const upcomingTrainings = allEvents
-      .filter(({ date, endHour, type }) => {
-        const [hour, minute] = endHour.split(":");
-        const eventDate = new Date(date);
-        eventDate.setHours(parseInt(hour), parseInt(minute));
-
-        return (
-          eventDate.getTime() >= Date.now() &&
-          Object.keys(trainingTypeMap).includes(type)
-        );
-      })
-      .sort((a, b) => {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-
-        return dateA.getTime() - dateB.getTime();
-      }) as EventType[];
-
-    return upcomingTrainings;
   }
 }

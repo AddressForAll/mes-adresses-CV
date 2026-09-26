@@ -11,10 +11,6 @@ import {
   BasesLocalesService,
 } from "@/lib/openapi-api-bal";
 import FondDeCarteField from "./fond-de-carte-field";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 import LayoutContext from "@/contexts/layout";
 import { STYLE_LABEL_KEYS } from "@/components/map/controls/style-control";
 
@@ -30,7 +26,6 @@ function FondDeCarteForm() {
   const [isLoading, setIsLoading] = useState(false);
   const { baseLocale, reloadBaseLocale } = useContext(BalDataContext);
   const { toaster } = useContext(LayoutContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
   const [fondsDeCartesForm, setFondDeCartesForm] = useState<
     BaseLocaleFondDeCarte[]
   >(cloneDeep(baseLocale.settings.fondsDeCartes) || []);
@@ -53,19 +48,8 @@ function FondDeCarteForm() {
       );
       await saveFondsDeCarte();
       await reloadBaseLocale();
-      matomoTrackEvent(
-        MatomoEventCategory.SETTINGS,
-        MatomoEventAction[MatomoEventCategory.SETTINGS].UPDATE_CUSTOM_MAP_STYLES
-      );
     },
-    [
-      baseLocale.id,
-      baseLocale.settings,
-      reloadBaseLocale,
-      toaster,
-      matomoTrackEvent,
-      t,
-    ]
+    [baseLocale.id, baseLocale.settings, reloadBaseLocale, toaster, t]
   );
 
   const computeErrors = useCallback(async () => {

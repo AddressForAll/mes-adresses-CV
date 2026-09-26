@@ -58,10 +58,6 @@ import {
   DocumentGenerationData,
   GeneratedDocumentType,
 } from "../document-generation/document-generation.types";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 import AlertsContext from "@/contexts/alerts";
 import TableNumeroWarning from "../table-row/table-numero-warning";
 
@@ -98,7 +94,6 @@ function NumerosList({
   } = useContext(BALRecoveryContext);
   const [selectedNumerosIds, setSelectedNumerosIds] = useState<string[]>([]);
   const { toaster } = useContext(LayoutContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
   const { numerosAlerts } = useContext(AlertsContext);
   const {
     voies,
@@ -252,13 +247,8 @@ function NumerosList({
         t("certificatError")
       );
       await downloadCertificat();
-      matomoTrackEvent(
-        MatomoEventCategory.DOCUMENT,
-        MatomoEventAction[MatomoEventCategory.DOCUMENT]
-          .GENERATE_CERTIFICAT_ADRESSAGE
-      );
     },
-    [toaster, matomoTrackEvent, t]
+    [toaster, t]
   );
 
   const onDownloadArreteDeNumerotation = useCallback(
@@ -280,13 +270,8 @@ function NumerosList({
         t("arreteError")
       );
       await downloadArreteDeNumerotation();
-      matomoTrackEvent(
-        MatomoEventCategory.DOCUMENT,
-        MatomoEventAction[MatomoEventCategory.DOCUMENT]
-          .GENERATE_ARRETE_NUMEROTATION_NUMERO
-      );
     },
-    [toaster, matomoTrackEvent, t]
+    [toaster, t]
   );
 
   const onMultipleRemove = async () => {

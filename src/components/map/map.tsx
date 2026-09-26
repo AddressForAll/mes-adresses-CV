@@ -65,15 +65,6 @@ import {
   SOURCE_LAYER as CADASTRE_SOURCE_LAYER,
 } from "./layers/cadastre";
 import RulerControl from "./controls/ruler-control";
-import PanoramaxControl from "./controls/panoramax-control";
-import {
-  PANORAMAX_LAYERS_SOURCE,
-  PANORAMAX_PICTURE_LAYER_ID,
-  PANORAMAX_SOURCE_ID,
-  PANORAMAX_TILE_URL,
-  panoramaxPictureLayer,
-  panoramaxSequenceLayer,
-} from "./layers/panoramax";
 
 const settings = {
   maxZoom: 19,
@@ -124,7 +115,6 @@ function Map({
   const { isParcelleSelectionEnabled, handleParcelles } =
     useContext(ParcellesContext);
   const { isMobile } = useContext(LayoutContext);
-  const [showPanoramax, setShowPanoramax] = useState(false);
 
   const [cursor, setCursor] = useState("default");
   const [isContextMenuDisplayed, setIsContextMenuDisplayed] = useState(null);
@@ -144,8 +134,7 @@ function Map({
     viewport.zoom > 14 &&
     (featureHovered.sourceLayer === LAYERS_SOURCE.VOIES_POINTS ||
       featureHovered.sourceLayer === LAYERS_SOURCE.NUMEROS_POINTS ||
-      featureHovered.sourceLayer === LAYERS_SOURCE.TOPONYME_POINTS ||
-      featureHovered.sourceLayer === PANORAMAX_LAYERS_SOURCE.PICTURES);
+      featureHovered.sourceLayer === LAYERS_SOURCE.TOPONYME_POINTS);
 
   function getBaseStyle(style: MapStyle | string) {
     const fondDeCarte = baseLocale.settings?.fondsDeCartes?.find(
@@ -248,8 +237,7 @@ function Map({
         NUMEROS_POINT,
         NUMEROS_LABEL,
         VOIE_LABEL,
-        TOPONYME_LABEL,
-        PANORAMAX_PICTURE_LAYER_ID
+        TOPONYME_LABEL
       );
     }
 
@@ -266,11 +254,7 @@ function Map({
       const features = map
         .queryRenderedFeatures(event.point)
         .filter(({ source }) => {
-          return (
-            source === "cadastre" ||
-            source === "tiles" ||
-            source === "panoramax"
-          );
+          return source === "cadastre" || source === "tiles";
         });
       const feature = features && features[0];
       const source = feature && feature.source;
@@ -296,17 +280,6 @@ function Map({
             } else {
               handleSelectVoie(feature, router, balId as string);
             }
-          }
-          break;
-        }
-        case "panoramax": {
-          if (feature.sourceLayer === PANORAMAX_LAYERS_SOURCE.PICTURES) {
-            const pictureId = feature.properties.id;
-            window.open(
-              `${process.env.NEXT_PUBLIC_PANORAMAX_API_ENDPOINT}/?focus=pic&pic=${pictureId}`,
-              "_blank",
-              "noreferrer"
-            );
           }
           break;
         }
@@ -490,12 +463,6 @@ function Map({
         {!isMobile && <ImageControl map={map} communeNom={commune.nom} />}
         {!isMobile && <RulerControl disabled={isEditing} />}
         {isMobile && navigator.geolocation && <GeolocationControl map={map} />}
-        <PanoramaxControl
-          commune={commune}
-          map={map}
-          showPanoramax={showPanoramax}
-          setShowPanoramax={setShowPanoramax}
-        />
       </Pane>
 
       {hint && (
@@ -537,28 +504,6 @@ function Map({
             {Object.values(getTilesLayers(tileLayersMode)).map((layer) => (
               <Layer key={layer.id} {...(layer as LayerProps)} />
             ))}
-          </Source>
-
-          <Source
-            id={PANORAMAX_SOURCE_ID}
-            type="vector"
-            tiles={[PANORAMAX_TILE_URL]}
-          >
-            <Layer
-              {...({
-                ...panoramaxSequenceLayer,
-                paint: {
-                  ...panoramaxSequenceLayer.paint,
-                  "line-opacity": showPanoramax ? 1 : 0,
-                },
-              } as LayerProps)}
-            />
-            <Layer
-              {...({
-                ...panoramaxPictureLayer,
-                layout: { visibility: showPanoramax ? "visible" : "none" },
-              } as LayerProps)}
-            />
           </Source>
 
           {(voie || toponyme) && !drawMode && numeros && (

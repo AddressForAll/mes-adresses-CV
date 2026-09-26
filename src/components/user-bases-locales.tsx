@@ -10,7 +10,6 @@ import {
   BasesLocalesService,
 } from "@/lib/openapi-api-bal";
 import { sortBalByUpdate } from "@/lib/utils/sort-bal";
-import HomeDrawer from "./home-drawer";
 
 function UserBasesLocales() {
   const { balAccess } = useContext(LocalStorageContext);
@@ -102,7 +101,6 @@ function UserBasesLocales() {
           publicBasesLocales={publicBasesLocales}
         />
       </Pane>
-      <HomeDrawer />
     </Pane>
   );
 }

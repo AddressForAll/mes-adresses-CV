@@ -7,10 +7,6 @@ import BalDataContext from "@/contexts/bal-data";
 import { ExtendedVoieDTO, Voie, VoiesService } from "@/lib/openapi-api-bal";
 import LayoutContext from "@/contexts/layout";
 import MapContext from "@/contexts/map";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 
 export function useFusionVoies(
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
@@ -24,7 +20,6 @@ export function useFusionVoies(
     reloadVoieAlerts,
   } = useContext(BalDataContext);
   const { reloadTiles } = useContext(MapContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
   const { toaster } = useContext(LayoutContext);
 
   const onFusionVoie = useCallback(
@@ -58,16 +53,11 @@ export function useFusionVoies(
       );
 
       await fusionVoies();
-      matomoTrackEvent(
-        MatomoEventCategory.QUALITY,
-        MatomoEventAction[MatomoEventCategory.QUALITY].FUSION_VOIES
-      );
 
       setLoading(false);
     },
     [
       toaster,
-      matomoTrackEvent,
       voies,
       reloadVoies,
       reloadParcelles,

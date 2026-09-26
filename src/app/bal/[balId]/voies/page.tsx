@@ -60,10 +60,6 @@ import {
 } from "@/components/document-generation/document-generation.types";
 import { GenerateArreteDeNumerotationDialog } from "@/components/document-generation/generate-arrete-de-numerotation-dialog";
 import { ButtonIconExpandHover } from "@/components/expand-button-hover/button-expand-hover";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 import { AlertNumero, AlertVoie } from "@/lib/alerts/alerts.types";
 import AlertsContext from "@/contexts/alerts";
 import TableVoieWarning from "@/components/table-row/table-voie-warning";
@@ -90,7 +86,6 @@ export default function VoiesPage() {
     reloadVoiesDoublonsAlerts,
   } = useContext(BalDataContext);
   const { reloadTiles, setTileLayersMode } = useContext(MapContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -135,14 +130,8 @@ export default function VoiesPage() {
       // Shallow update: same-page query param, no need for a server round-trip
       window.history.replaceState(null, "", `${pathname}${query}`);
       setFilter(value);
-      if (value === "with-suggestions") {
-        matomoTrackEvent(
-          MatomoEventCategory.QUALITY,
-          MatomoEventAction[MatomoEventCategory.QUALITY].SEE_ALL_SUGGESTIONS
-        );
-      }
     },
-    [setFilter, matomoTrackEvent, pathname]
+    [setFilter, pathname]
   );
 
   const handleRemove = async () => {
@@ -188,20 +177,11 @@ export default function VoiesPage() {
         t("arreteError")
       );
       await downloadArreteDeNumerotation();
-      matomoTrackEvent(
-        MatomoEventCategory.DOCUMENT,
-        MatomoEventAction[MatomoEventCategory.DOCUMENT]
-          .GENERATE_ARRETE_NUMEROTATION_VOIE
-      );
     },
-    [toaster, matomoTrackEvent, t]
+    [toaster, t]
   );
 
   const browseQualityBatch = () => {
-    matomoTrackEvent(
-      MatomoEventCategory.QUALITY,
-      MatomoEventAction[MatomoEventCategory.QUALITY].PROCESS_SUGGESTIONS
-    );
     void router.push(`/bal/${baseLocale.id}/${TabsEnum.VOIES}/quality-batch`);
   };
 

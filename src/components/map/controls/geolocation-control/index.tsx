@@ -6,10 +6,6 @@ import { useTranslations } from "next-intl";
 import { useContext, useState } from "react";
 import styles from "./geolocation-control.module.css";
 import type { Map as MaplibreMap } from "maplibre-gl";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 
 interface GeolocationControlProps {
   map: MaplibreMap;
@@ -20,7 +16,6 @@ function GeolocationControl({ map }: GeolocationControlProps) {
   const tc = useTranslations("common");
   const [isFlying, setIsFlying] = useState(false);
   const { pushToast } = useContext(LayoutContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
   const flyToCurrentPosition = () => {
     navigator.geolocation.getCurrentPosition(
@@ -33,10 +28,6 @@ function GeolocationControl({ map }: GeolocationControlProps) {
         map.once("moveend", () => {
           setIsFlying(false);
         });
-        matomoTrackEvent(
-          MatomoEventCategory.MAP,
-          MatomoEventAction[MatomoEventCategory.MAP].GEOLOCATE_ME
-        );
       },
       (err) => {
         pushToast({

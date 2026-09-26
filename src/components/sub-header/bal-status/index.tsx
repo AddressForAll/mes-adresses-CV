@@ -15,10 +15,6 @@ import {
 } from "@/lib/openapi-api-bal";
 import { CommuneType } from "@/types/commune";
 import BALRecoveryContext from "@/contexts/bal-recovery";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 
 interface BALStatusProps {
   baseLocale: ExtendedBaseLocaleDTO;
@@ -46,7 +42,6 @@ function BALStatus({
     boolean | null
   >(null);
   const { otherBalIdPublished } = useContext(BALRecoveryContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
   useEffect(() => {
     async function checkHabilitationValid() {
@@ -64,10 +59,6 @@ function BALStatus({
 
   const handleShowHabilitation = (e) => {
     e.stopPropagation();
-    matomoTrackEvent(
-      MatomoEventCategory.HABILITATION,
-      MatomoEventAction[MatomoEventCategory.HABILITATION].OPEN_HABILITATION
-    );
     handleHabilitation();
   };
 

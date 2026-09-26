@@ -17,10 +17,6 @@ import {
   ExportCsvService,
 } from "@/lib/openapi-api-bal";
 import TokenContext from "@/contexts/token";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 
 interface DownloadsProps {
   baseLocale: BaseLocale;
@@ -30,7 +26,6 @@ function Downloads({ baseLocale }: DownloadsProps) {
   const t = useTranslations("downloads");
   const { token } = useContext(TokenContext);
   const [withComment, setWithComment] = useState(false);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
   const downloadFile = (file: string, filename: string) => {
     const url = window.URL.createObjectURL(new Blob([file]));
@@ -44,33 +39,17 @@ function Downloads({ baseLocale }: DownloadsProps) {
 
   const downloadBalCsv = async () => {
     const file = await ExportCsvService.getCsvBal(withComment, baseLocale.id);
-    matomoTrackEvent(
-      MatomoEventCategory.DOWNLOAD,
-      withComment
-        ? MatomoEventAction[MatomoEventCategory.DOWNLOAD]
-            .DOWNLOAD_BAL_CSV_WITH_COMMENT
-        : MatomoEventAction[MatomoEventCategory.DOWNLOAD]
-            .DOWNLOAD_BAL_CSV_WITHOUT_COMMENT
-    );
     downloadFile(file, "bal.csv");
   };
 
   const downloadVoieCsv = async () => {
     const file = await ExportCsvService.getCsvVoies(baseLocale.id);
-    matomoTrackEvent(
-      MatomoEventCategory.DOWNLOAD,
-      MatomoEventAction[MatomoEventCategory.DOWNLOAD].DOWNLOAD_VOIE_CSV
-    );
     downloadFile(file, "liste-des-voies.csv");
   };
 
   const downloadVoieGeoJSON = async () => {
     const file = await BasesLocalesService.findFilairesVoiesGeoJson(
       baseLocale.id
-    );
-    matomoTrackEvent(
-      MatomoEventCategory.DOWNLOAD,
-      MatomoEventAction[MatomoEventCategory.DOWNLOAD].DOWNLOAD_VOIE_GEOJSON
     );
     downloadFile(JSON.stringify(file), "liste-des-filaires-de-voie.geojson");
   };

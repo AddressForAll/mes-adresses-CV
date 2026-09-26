@@ -40,10 +40,6 @@ import {
   isAlertNumeroSuffixe,
   isAlertNumeroParcelle,
 } from "@/lib/alerts/utils/alerts-numero.utils";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 import { useFusionVoies } from "@/hooks/fusion-voies";
 
 export interface AlertBatchItem {
@@ -78,7 +74,6 @@ function AlertsBatchProcessor({
   } = useContext(BalDataContext);
   const { reloadTiles } = useContext(MapContext);
   const { toaster } = useContext(LayoutContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
   const { onFusionVoie } = useFusionVoies(setIsLoading);
 
   const currentItem = items[currentIndex];
@@ -134,10 +129,6 @@ function AlertsBatchProcessor({
     setIsLoading(true);
     try {
       if (isVoieNameAlert) {
-        matomoTrackEvent(
-          MatomoEventCategory.QUALITY,
-          MatomoEventAction[MatomoEventCategory.QUALITY].CORRECT_NOM_VOIE
-        );
         const applyCorrection = toaster(
           () =>
             VoiesService.updateVoie(currentItem.voie.id, {
@@ -155,10 +146,6 @@ function AlertsBatchProcessor({
           reloadVoieAlerts(updatedVoie, voies);
         }
       } else if (isNumeroSuffixeAlert && currentItem.numeroId) {
-        matomoTrackEvent(
-          MatomoEventCategory.QUALITY,
-          MatomoEventAction[MatomoEventCategory.QUALITY].CORRECT_SUFFIX_NUMERO
-        );
         const applyCorrection = toaster(
           () =>
             NumerosService.updateNumero(currentItem.numeroId, {
@@ -188,7 +175,6 @@ function AlertsBatchProcessor({
     isNumeroSuffixeAlert,
     reloadTiles,
     refreshBALSync,
-    matomoTrackEvent,
     toaster,
     reloadVoies,
     reloadVoieAlerts,
@@ -200,10 +186,6 @@ function AlertsBatchProcessor({
 
     setIsLoading(true);
     try {
-      matomoTrackEvent(
-        MatomoEventCategory.QUALITY,
-        MatomoEventAction[MatomoEventCategory.QUALITY].CONVERT_VOIE_TO_TOPONYME
-      );
       const convert = toaster(
         async () => {
           await VoiesService.convertToToponyme(currentItem.voie.id);
@@ -229,7 +211,6 @@ function AlertsBatchProcessor({
   }, [
     currentItem,
     isVoieEmpty,
-    matomoTrackEvent,
     toaster,
     reloadTiles,
     refreshBALSync,
@@ -244,10 +225,6 @@ function AlertsBatchProcessor({
 
     setIsLoading(true);
     try {
-      matomoTrackEvent(
-        MatomoEventCategory.QUALITY,
-        MatomoEventAction[MatomoEventCategory.QUALITY].REMOVE_INVALID_PARCELLE
-      );
       const numero = await NumerosService.findNumero(currentItem.numeroId);
       const invalidParcelle = (currentItem.alert as AlertNumero).value;
       const filteredParcelles = numero.parcelles.filter(
@@ -275,7 +252,6 @@ function AlertsBatchProcessor({
   }, [
     currentItem,
     isNumeroParcelleAlert,
-    matomoTrackEvent,
     toaster,
     reloadNumerosAlerts,
     reloadTiles,

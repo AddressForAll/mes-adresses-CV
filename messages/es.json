@@ -758,12 +758,6 @@
       }
     }
   },
-  "homeDrawer": {
-    "news": "Novedades",
-    "noNews": "Sin novedades",
-    "noTrainings": "No hay formaciones próximas",
-    "upcomingTrainings": "Próximas formaciones"
-  },
   "ieWarning": {
     "recommendation": "Le recomendamos utilizar otro navegador",
     "unsupported": "Su navegador <b>Internet Explorer</b> ya no es compatible con nuestro servicio."
@@ -859,19 +853,15 @@
     "cadastreUnavailable": "El catastro no está disponible para este municipio",
     "cancelAddressCreation": "Cancelar la creación de una dirección",
     "chooseBasemap": "Elegir el mapa base",
-    "closePanoramax": "Cerrar Panoramax",
     "closeRuler": "Cerrar la herramienta de medición",
-    "contributeToPanoramax": "Participar en Panoramax",
     "createAddress": "Crear una dirección",
     "geolocate": "Localizarme",
     "geolocationError": "No podemos localizarle. Compruebe la configuración de su navegador.",
     "hideCadastre": "Ocultar el catastro",
     "measureDistance": "Medir una distancia",
     "noBasemap": "Ningún mapa base",
-    "noPanoramaxImagery": "No hay fotografías disponibles de este territorio.",
     "noParcelleFound": "Ninguna parcela coincide con su búsqueda",
     "numeros": "Números",
-    "openPanoramax": "Abrir Panoramax",
     "pointsOfInterest": "Puntos de interés",
     "rulerIconAlt": "Icono de regla",
     "searchParcelle": "Buscar una parcela",
@@ -1296,11 +1286,6 @@
     "noResults": "Sin resultados",
     "searchPlaceholder": "Buscar un topónimo",
     "subtitle": "Lugares complementarios y vías sin direcciones"
-  },
-  "trainingTypes": {
-    "advanced": "Formación avanzada",
-    "initial": "Formación inicial",
-    "signalement": "Formación sobre notificaciones"
   },
   "trash": {
     "numerosDeleteError": "No se han podido eliminar los números",

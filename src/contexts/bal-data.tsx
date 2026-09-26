@@ -23,7 +23,6 @@ import {
   ExtendedVoieDTO,
 } from "@/lib/openapi-api-bal";
 import TokenContext from "@/contexts/token";
-import MatomoTrackingContext from "@/contexts/matomo-tracking";
 import useHabilitation from "@/hooks/habilitation";
 import LayoutContext from "./layout";
 import { ApiDepotService, PRO_CONNECT_QUERY_PARAM } from "@/lib/api-depot";
@@ -105,9 +104,6 @@ export function BalDataContextProvider({
   const [isRefrehSyncStat, setIsRefrehSyncStat] = useState<boolean>(false);
   const { pushToast } = useContext(LayoutContext);
   const { token } = useContext(TokenContext);
-  const { setBaseLocale: setMatomoBaseLocale } = useContext(
-    MatomoTrackingContext
-  );
   const [isBALDataLoaded, setIsBALDataLoaded] = useState<boolean>(false);
   const { setOtherBalIdPublished } = useContext(BALRecoveryContext);
   const {
@@ -116,16 +112,6 @@ export function BalDataContextProvider({
     reloadNumerosAlerts,
     reloadVoiesDoublonsAlerts,
   } = useContext(AlertsContext);
-
-  // Sync baseLocale to Matomo tracking context
-  useEffect(() => {
-    setMatomoBaseLocale(baseLocale);
-  }, [baseLocale, setMatomoBaseLocale]);
-
-  // Clear Matomo baseLocale on unmount only
-  useEffect(() => {
-    return () => setMatomoBaseLocale(null);
-  }, [setMatomoBaseLocale]);
 
   const _setBalAlreadyPublished = useCallback(async (codeCommune) => {
     try {

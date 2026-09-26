@@ -758,12 +758,6 @@
       }
     }
   },
-  "homeDrawer": {
-    "news": "Actualités",
-    "noNews": "Pas d’actualité",
-    "noTrainings": "Pas de formations à venir",
-    "upcomingTrainings": "Prochaines formations"
-  },
   "ieWarning": {
     "recommendation": "Nous vous recommandons d‘utiliser un autre navigateur",
     "unsupported": "Votre navigateur <b>Internet Explorer</b> n‘est plus supporté par notre service."
@@ -859,19 +853,15 @@
     "cadastreUnavailable": "Le cadastre n’est pas disponible pour cette commune",
     "cancelAddressCreation": "Annuler la création d’une adresse",
     "chooseBasemap": "Choix du fond de carte",
-    "closePanoramax": "Fermer Panoramax",
     "closeRuler": "Fermer l’outil de mesure",
-    "contributeToPanoramax": "Participer à Panoramax",
     "createAddress": "Créer une adresse",
     "geolocate": "Me géolocaliser",
     "geolocationError": "Nous n’arrivons pas à vous géolocaliser. Vérifiez les paramètres de votre navigateur.",
     "hideCadastre": "Masquer le cadastre",
     "measureDistance": "Mesurer une distance",
     "noBasemap": "Aucun fond de carte",
-    "noPanoramaxImagery": "Aucune photographie du territoire n’est disponible.",
     "noParcelleFound": "Aucune parcelle ne correspond à votre recherche",
     "numeros": "Numéros",
-    "openPanoramax": "Ouvrir Panoramax",
     "pointsOfInterest": "Points d’intérets",
     "rulerIconAlt": "Icône de règle",
     "searchParcelle": "Rechercher une parcelle",
@@ -1296,11 +1286,6 @@
     "noResults": "Aucun résultat",
     "searchPlaceholder": "Rechercher un toponyme",
     "subtitle": "Lieux-dits complémentaires et voies sans adresse"
-  },
-  "trainingTypes": {
-    "advanced": "Formation approfondie",
-    "initial": "Formation initiale",
-    "signalement": "Formation signalement"
   },
   "trash": {
     "numerosDeleteError": "Les numéros n’ont pas pu être supprimés",

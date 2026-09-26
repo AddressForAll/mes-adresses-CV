@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import { extractStyles } from "evergreen-ui";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
-import { MatomoTrackingContextProvider } from "@/contexts/matomo-tracking";
 import { LayoutContextProvider } from "@/contexts/layout";
-import { BALWidgetProvider } from "@/contexts/bal-widget";
 import { LocalStorageContextProvider } from "@/contexts/local-storage";
 import { CountryContextProvider } from "@/contexts/country";
 import { HelpContextProvider } from "@/contexts/help";
@@ -48,22 +46,18 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <OpenAPIContextProvider>
-            <MatomoTrackingContextProvider>
-              <LayoutContextProvider>
-                <BALWidgetProvider>
-                  <LocalStorageContextProvider>
-                    <CountryContextProvider>
-                      <HelpContextProvider>
-                        <BALRecoveryProvider>
-                          <Help />
-                          <Main>{children}</Main>
-                        </BALRecoveryProvider>
-                      </HelpContextProvider>
-                    </CountryContextProvider>
-                  </LocalStorageContextProvider>
-                </BALWidgetProvider>
-              </LayoutContextProvider>
-            </MatomoTrackingContextProvider>
+            <LayoutContextProvider>
+              <LocalStorageContextProvider>
+                <CountryContextProvider>
+                  <HelpContextProvider>
+                    <BALRecoveryProvider>
+                      <Help />
+                      <Main>{children}</Main>
+                    </BALRecoveryProvider>
+                  </HelpContextProvider>
+                </CountryContextProvider>
+              </LocalStorageContextProvider>
+            </LayoutContextProvider>
           </OpenAPIContextProvider>
         </NextIntlClientProvider>
       </body>

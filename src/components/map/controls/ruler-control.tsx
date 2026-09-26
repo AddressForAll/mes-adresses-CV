@@ -1,8 +1,4 @@
 import DrawContext, { DrawMode } from "@/contexts/draw";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 import { CrossIcon, IconButton } from "evergreen-ui";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -15,7 +11,6 @@ interface RulerControlProps {
 function RulerControl({ disabled }: RulerControlProps) {
   const t = useTranslations("mapControls");
   const { drawMode, setDrawMode } = useContext(DrawContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
   return drawMode === DrawMode.RULER ? (
     <IconButton
@@ -32,10 +27,6 @@ function RulerControl({ disabled }: RulerControlProps) {
       disabled={disabled}
       onClick={() => {
         setDrawMode(DrawMode.RULER);
-        matomoTrackEvent(
-          MatomoEventCategory.MAP,
-          MatomoEventAction[MatomoEventCategory.MAP].ENABLE_RULER
-        );
       }}
       height={29}
       width={29}

@@ -28,10 +28,6 @@ import PublishBalStep from "./steps/publish-bal";
 import PublishedBalStep from "./steps/published-bal";
 import PublishBalRejectedStep from "./steps/publish-bal-rejected";
 import AuthenticationValidateStep from "./steps/validate-authentication";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 
 export const StepPublicationEnum = {
   STRATEGY_SELECTION: 0,
@@ -88,7 +84,6 @@ function HabilitationProcess({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
   const sendCode = async () => {
     try {
@@ -108,11 +103,6 @@ function HabilitationProcess({
   };
 
   const redirectToProConnect = () => {
-    matomoTrackEvent(
-      MatomoEventCategory.HABILITATION,
-      MatomoEventAction[MatomoEventCategory.HABILITATION].CLICK_PROCONNECT
-    );
-
     const redirectUrl = encodeURIComponent(
       `${EDITEUR_URL}${pathname}?${PRO_CONNECT_QUERY_PARAM}=1`
     );

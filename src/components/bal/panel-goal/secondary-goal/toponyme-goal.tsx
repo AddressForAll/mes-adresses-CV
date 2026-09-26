@@ -18,10 +18,6 @@ import { AccordionCard } from "@/components/accordion-card";
 import AchievementBadge from "../achievements-badge/achievements-badge";
 import Counter from "@/components/counter";
 import { TabsEnum } from "@/components/sidebar/main-tabs/main-tabs";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 
 interface LangGoalProps {
   baseLocale: ExtendedBaseLocaleDTO;
@@ -32,7 +28,6 @@ function LangGoal({ baseLocale, onIgnoreGoal }: LangGoalProps) {
   const t = useTranslations("toponymeGoal");
   const [isActive, setIsActive] = useState(false);
   const { toponymes } = useContext(BalDataContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
   const nbNumerosWithToponymes = toponymes.reduce(
     (acc, toponyme) => acc + toponyme.nbNumeros,
@@ -42,14 +37,7 @@ function LangGoal({ baseLocale, onIgnoreGoal }: LangGoalProps) {
   const isCompleted = toponymes.length > 0 && nbNumerosWithToponymes > 0;
 
   const toggleAccordion = () => {
-    const isOpen = !isActive;
-    setIsActive(isOpen);
-    if (isOpen) {
-      matomoTrackEvent(
-        MatomoEventCategory.GAMIFICATION,
-        MatomoEventAction[MatomoEventCategory.GAMIFICATION].OPEN_TOPONYME_GOAL
-      );
-    }
+    setIsActive(!isActive);
   };
 
   return (

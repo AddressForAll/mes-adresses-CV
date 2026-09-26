@@ -12,10 +12,6 @@ import LangGoal from "./secondary-goal/lang-goal";
 import ToponymeGoal from "./secondary-goal/toponyme-goal";
 import { AccordionSimple } from "./secondary-goal/accordion-simple";
 import BalDataContext from "@/contexts/bal-data";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 import CertificationGoal from "./primary-goal/certification-goal";
 import QualityGoal from "./primary-goal/quality-goal";
 
@@ -27,7 +23,6 @@ interface PanelGoalProps {
 function PanelGoal({ commune, onEditNomsAlt }: PanelGoalProps) {
   const t = useTranslations("panelGoal");
   const { baseLocale, reloadBaseLocale } = useContext(BalDataContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
   const { settings } = baseLocale;
   const isPublished =
     baseLocale.status === ExtendedBaseLocaleDTO.status.PUBLISHED;
@@ -64,11 +59,6 @@ function PanelGoal({ commune, onEditNomsAlt }: PanelGoalProps) {
                   baseLocale={baseLocale}
                   onIgnoreGoal={() => {
                     ignoreGoal("toponymeGoalIgnored");
-                    matomoTrackEvent(
-                      MatomoEventCategory.GAMIFICATION,
-                      MatomoEventAction[MatomoEventCategory.GAMIFICATION]
-                        .IGNORE_GOAL_TOPONYME
-                    );
                   }}
                 />
               )}
@@ -78,11 +68,6 @@ function PanelGoal({ commune, onEditNomsAlt }: PanelGoalProps) {
                   onEditNomsAlt={onEditNomsAlt}
                   onIgnoreGoal={() => {
                     ignoreGoal("languageGoalIgnored");
-                    matomoTrackEvent(
-                      MatomoEventCategory.GAMIFICATION,
-                      MatomoEventAction[MatomoEventCategory.GAMIFICATION]
-                        .IGNORE_GOAL_LANGUAGE
-                    );
                   }}
                 />
               )}

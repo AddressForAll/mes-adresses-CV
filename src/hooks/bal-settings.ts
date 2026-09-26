@@ -5,10 +5,6 @@ import TokenContext from "@/contexts/token";
 import { useCallback, useContext, useMemo, useState } from "react";
 import { isEqual, difference } from "lodash";
 import { BaseLocale, BasesLocalesService } from "@/lib/openapi-api-bal";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 import { AlertCodeEnum } from "@/lib/alerts/alerts.types";
 
 const mailHasChanged = (listA, listB) => {
@@ -35,7 +31,6 @@ export function useBALSettings(baseLocale: BaseLocale) {
   const { reloadBaseLocale, reloadVoiesAlerts, reloadNumerosAlerts } =
     useContext(BalDataContext);
   const { pushToast } = useContext(LayoutContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
   const [nomInput, setNomInput] = useState(baseLocale.nom);
   const [emailsInput, setEmailsInput] = useState(emails || []);
@@ -83,11 +78,6 @@ export function useBALSettings(baseLocale: BaseLocale) {
           await BasesLocalesService.updateBaseLocale(baseLocale.id, {
             nom: nomInput.trim(),
           });
-
-          matomoTrackEvent(
-            MatomoEventCategory.SETTINGS,
-            MatomoEventAction[MatomoEventCategory.SETTINGS].UPDATE_BAL_NAME
-          );
         }
         if (effectiveEmailsHaveChanged) {
           await BasesLocalesService.updateBaseLocale(baseLocale.id, {
@@ -97,15 +87,6 @@ export function useBALSettings(baseLocale: BaseLocale) {
           await reloadEmails();
           if (difference(emails, effectiveEmails).length > 0) {
             setIsRenewTokenWarningShown(true);
-            matomoTrackEvent(
-              MatomoEventCategory.SETTINGS,
-              MatomoEventAction[MatomoEventCategory.SETTINGS].REMOVE_ADMIN
-            );
-          } else {
-            matomoTrackEvent(
-              MatomoEventCategory.SETTINGS,
-              MatomoEventAction[MatomoEventCategory.SETTINGS].ADD_ADMIN
-            );
           }
         }
         if (ignoredAlertCodesChanged) {
@@ -144,7 +125,6 @@ export function useBALSettings(baseLocale: BaseLocale) {
       baseLocale.id,
       baseLocale.settings,
       nomInput,
-      matomoTrackEvent,
       emailsInput,
       reloadEmails,
       emails,

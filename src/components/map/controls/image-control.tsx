@@ -22,10 +22,6 @@ import {
 import MapContext from "@/contexts/map";
 import LayerShowHideControl from "./layer-show-hide-control";
 import { getImageBase64 } from "@/lib/utils/map";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 
 const poiLayersIds = ["poi-level-1", "poi-level-2", "poi-level-3"];
 
@@ -37,7 +33,6 @@ interface ImageControlProps {
 function ImageControl({ map, communeNom }: ImageControlProps) {
   const t = useTranslations("mapControls");
   const { tileLayersMode } = useContext(MapContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
 
   const [adresseLayerIsDisplayed, setAdresseLayerIsDisplayed] =
     useState<boolean>(true);
@@ -129,10 +124,6 @@ function ImageControl({ map, communeNom }: ImageControlProps) {
       a.href = imageBase64;
       a.download = `Screenshot-${communeNom}.png`;
       a.click();
-      matomoTrackEvent(
-        MatomoEventCategory.MAP,
-        MatomoEventAction[MatomoEventCategory.MAP].TAKE_SCREENSHOT
-      );
     } catch (e) {
       console.error(e);
     }

@@ -17,8 +17,6 @@ interface LocalStorageContextType {
   setRecoveryEmailCommuneSent: (value: Date) => void;
   productTour: Record<string, boolean>;
   setProductTour: (value: Record<string, boolean>) => void;
-  lastNewsSeen: string;
-  setLastNewsSeen: (value: string) => void;
   removeBalAccess: (index: string) => void;
   registeredMapStyle?: { [balId: string]: MapStyle | string };
   setRegisteredMapStyle: (value: {
@@ -39,7 +37,6 @@ const WELCOMED_KEY = "was-welcomed";
 const RECOVERY_EMAIL = "recovery-email-sent";
 const RECOVERY_EMAIL_COMMUNE = "recovery-email-commune-sent";
 const PRODUCT_TOUR = "product-tour";
-const LAST_NEWS_SEEN = "last-news-seen";
 const MAP_STYLE = "map-style";
 const CERTIFICAT_EMETTEUR = "certificat-emetteur";
 const SELECTED_COUNTRY = "selected-country";
@@ -53,7 +50,6 @@ export function LocalStorageContextProvider(props: ChildrenProps) {
   const [recoveryEmailCommuneSent, setRecoveryEmailCommuneSent] =
     useLocalStorage(RECOVERY_EMAIL_COMMUNE);
   const [productTour, setProductTour] = useLocalStorage(PRODUCT_TOUR);
-  const [lastNewsSeen, setLastNewsSeen] = useLocalStorage(LAST_NEWS_SEEN);
   const [registeredMapStyle, setRegisteredMapStyle] =
     useLocalStorage(MAP_STYLE);
   const [certificatEmetteur, setCertificatEmetteur] =
@@ -74,8 +70,6 @@ export function LocalStorageContextProvider(props: ChildrenProps) {
       setRecoveryEmailCommuneSent,
       productTour,
       setProductTour,
-      lastNewsSeen,
-      setLastNewsSeen,
       removeBalAccess,
       setRegisteredMapStyle,
       registeredMapStyle,
@@ -96,8 +90,6 @@ export function LocalStorageContextProvider(props: ChildrenProps) {
       setRecoveryEmailCommuneSent,
       productTour,
       setProductTour,
-      lastNewsSeen,
-      setLastNewsSeen,
       removeBalAccess,
       setRegisteredMapStyle,
       registeredMapStyle,

@@ -15,10 +15,6 @@ import LayoutContext from "@/contexts/layout";
 import DialogWarningAction from "@/components/dialog-warning-action";
 import MapContext from "@/contexts/map";
 import { TabsEnum } from "@/components/sidebar/main-tabs/main-tabs";
-import MatomoTrackingContext, {
-  MatomoEventAction,
-  MatomoEventCategory,
-} from "@/contexts/matomo-tracking";
 
 interface WarningVoieEmptyProps {
   baseLocale: ExtendedBaseLocaleDTO;
@@ -35,7 +31,6 @@ function WarningVoieEmpty({ baseLocale, voie }: WarningVoieEmptyProps) {
     reloadVoieAlerts,
   } = useContext(BalDataContext);
   const { reloadTiles } = useContext(MapContext);
-  const { matomoTrackEvent } = useContext(MatomoTrackingContext);
   const [toConvert, setToConvert] = useState<ExtendedVoieDTO | null>(null);
   const [onConvertLoading, setOnConvertLoading] = useState<boolean>(false);
   const { toaster } = useContext(LayoutContext);
@@ -64,16 +59,11 @@ function WarningVoieEmpty({ baseLocale, voie }: WarningVoieEmptyProps) {
     );
 
     await convertToponyme();
-    matomoTrackEvent(
-      MatomoEventCategory.QUALITY,
-      MatomoEventAction[MatomoEventCategory.QUALITY].CONVERT_VOIE_TO_TOPONYME
-    );
 
     setOnConvertLoading(false);
     setToConvert(null);
   }, [
     toaster,
-    matomoTrackEvent,
     toConvert,
     reloadVoies,
     reloadToponymes,

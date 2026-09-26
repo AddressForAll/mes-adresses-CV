@@ -758,12 +758,6 @@
       }
     }
   },
-  "homeDrawer": {
-    "news": "News",
-    "noNews": "No news",
-    "noTrainings": "No upcoming training sessions",
-    "upcomingTrainings": "Upcoming training sessions"
-  },
   "ieWarning": {
     "recommendation": "We recommend using a different browser",
     "unsupported": "Your browser <b>Internet Explorer</b> is no longer supported by our service."
@@ -859,19 +853,15 @@
     "cadastreUnavailable": "The cadastre is not available for this municipality",
     "cancelAddressCreation": "Cancel address creation",
     "chooseBasemap": "Choose a basemap",
-    "closePanoramax": "Close Panoramax",
     "closeRuler": "Close the measuring tool",
-    "contributeToPanoramax": "Contribute to Panoramax",
     "createAddress": "Create an address",
     "geolocate": "Locate me",
     "geolocationError": "We cannot locate you. Check your browser settings.",
     "hideCadastre": "Hide the cadastre",
     "measureDistance": "Measure a distance",
     "noBasemap": "No basemap",
-    "noPanoramaxImagery": "No imagery is available for this area.",
     "noParcelleFound": "No parcel matches your search",
     "numeros": "House numbers",
-    "openPanoramax": "Open Panoramax",
     "pointsOfInterest": "Points of interest",
     "rulerIconAlt": "Ruler icon",
     "searchParcelle": "Search for a parcel",
@@ -1296,11 +1286,6 @@
     "noResults": "No results",
     "searchPlaceholder": "Search for a place name",
     "subtitle": "Additional localities and streets without addresses"
-  },
-  "trainingTypes": {
-    "advanced": "Advanced training",
-    "initial": "Introductory training",
-    "signalement": "Reports training"
   },
   "trash": {
     "numerosDeleteError": "The house numbers could not be deleted",

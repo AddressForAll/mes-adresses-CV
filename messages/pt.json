@@ -758,12 +758,6 @@
       }
     }
   },
-  "homeDrawer": {
-    "news": "Novidades",
-    "noNews": "Nenhuma novidade",
-    "noTrainings": "Nenhuma capacitação programada",
-    "upcomingTrainings": "Próximas capacitações"
-  },
   "ieWarning": {
     "recommendation": "Recomendamos usar outro navegador",
     "unsupported": "Seu navegador <b>Internet Explorer</b> não é mais suportado pelo nosso serviço."
@@ -859,19 +853,15 @@
     "cadastreUnavailable": "O cadastro não está disponível para este município",
     "cancelAddressCreation": "Cancelar a criação de um endereço",
     "chooseBasemap": "Escolha do mapa base",
-    "closePanoramax": "Fechar o Panoramax",
     "closeRuler": "Fechar a ferramenta de medição",
-    "contributeToPanoramax": "Contribuir com o Panoramax",
     "createAddress": "Criar um endereço",
     "geolocate": "Localizar-me",
     "geolocationError": "Não conseguimos localizar você. Verifique as configurações do seu navegador.",
     "hideCadastre": "Ocultar o cadastro",
     "measureDistance": "Medir uma distância",
     "noBasemap": "Nenhum mapa base",
-    "noPanoramaxImagery": "Nenhuma fotografia deste território está disponível.",
     "noParcelleFound": "Nenhum lote corresponde à sua pesquisa",
     "numeros": "Números",
-    "openPanoramax": "Abrir o Panoramax",
     "pointsOfInterest": "Pontos de interesse",
     "rulerIconAlt": "Ícone de régua",
     "searchParcelle": "Pesquisar um lote",
@@ -1296,11 +1286,6 @@
     "noResults": "Nenhum resultado",
     "searchPlaceholder": "Pesquisar um topônimo",
     "subtitle": "Localidades complementares e logradouros sem endereço"
-  },
-  "trainingTypes": {
-    "advanced": "Capacitação avançada",
-    "initial": "Capacitação inicial",
-    "signalement": "Capacitação sobre relatos"
   },
   "trash": {
     "numerosDeleteError": "Não foi possível excluir os números",
