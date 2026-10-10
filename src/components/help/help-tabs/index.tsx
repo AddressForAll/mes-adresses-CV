@@ -2,16 +2,10 @@ import BaseLocale from "@/components/help/help-tabs/base-locale";
 import Voies from "@/components/help/help-tabs/voies";
 import Toponymes from "@/components/help/help-tabs/toponymes";
 import Numeros from "@/components/help/help-tabs/numeros";
-import Publication from "@/components/help/help-tabs/publication";
+import Share from "@/components/help/help-tabs/share";
 
 /** Tab keys; labels live in the `help.tabs` catalog namespace. */
-export const TABS = [
-  "baseLocale",
-  "voies",
-  "toponymes",
-  "numeros",
-  "publication",
-];
+export const TABS = ["baseLocale", "voies", "toponymes", "numeros", "share"];
 
 interface HelpTabsProps {
   tab: number;
@@ -28,7 +22,7 @@ function HelpTabs({ tab }: HelpTabsProps) {
     case 3:
       return <Numeros />;
     case 4:
-      return <Publication />;
+      return <Share />;
     default:
       return <BaseLocale />;
   }

@@ -1,19 +1,10 @@
 import { useContext } from "react";
 import NextLink from "next/link";
 import Image from "next/image";
-import {
-  Pane,
-  Button,
-  HelpIcon,
-  BookIcon,
-  VideoIcon,
-  Heading,
-  Text,
-} from "evergreen-ui";
+import { Pane, Button, HelpIcon, Heading, Text } from "evergreen-ui";
 import { useTranslations } from "next-intl";
 
 import HelpContext from "@/contexts/help";
-import { PEERTUBE_LINK } from "@/components/help/video-container";
 import { MobileHelpMenu } from "./mobile-layout/mobile-help-menu";
 import LayoutContext from "@/contexts/layout";
 import CountrySelector from "@/components/country-selector";
@@ -81,30 +72,6 @@ function Header() {
               onClick={() => setShowHelp(!showHelp)}
             >
               {t("help")}
-            </Button>
-
-            <Button
-              is="a"
-              href={`${PEERTUBE_LINK}/w/p/cm6YcSnDdztzRjKTH3vNFn`}
-              target="_blank"
-              appearance="minimal"
-              marginRight="12px"
-              minHeight="55px"
-              iconAfter={VideoIcon}
-            >
-              {t("videoTutorials")}
-            </Button>
-
-            <Button
-              is="a"
-              href="https://doc.adresse.data.gouv.fr/"
-              target="_blank"
-              appearance="minimal"
-              marginRight="12px"
-              minHeight="55px"
-              iconAfter={BookIcon}
-            >
-              {t("addressingGuides")}
             </Button>
           </Pane>
         ) : (

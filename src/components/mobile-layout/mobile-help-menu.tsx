@@ -1,55 +1,22 @@
 import { useContext } from "react";
-import {
-  Button,
-  HelpIcon,
-  BookIcon,
-  VideoIcon,
-  Popover,
-  Position,
-  Menu,
-  InfoSignIcon,
-} from "evergreen-ui";
+import { IconButton, HelpIcon } from "evergreen-ui";
 import { useTranslations } from "next-intl";
 
-import { PEERTUBE_LINK } from "@/components/help/video-container";
 import HelpContext from "@/contexts/help";
 
+// The help panel is the only entry left (the upstream video and guide links
+// were French-only), so this is a plain toggle rather than a popover menu.
 export function MobileHelpMenu() {
   const t = useTranslations("header");
   const { showHelp, setShowHelp } = useContext(HelpContext);
 
   return (
-    <Popover
-      position={Position.BOTTOM_RIGHT}
-      content={
-        <Menu>
-          <Menu.Group>
-            <Menu.Item icon={HelpIcon} onClick={() => setShowHelp(!showHelp)}>
-              {t("help")}
-            </Menu.Item>
-            <Menu.Item
-              is="a"
-              target="_blank"
-              icon={VideoIcon}
-              href={`${PEERTUBE_LINK}/c/base_adresse_locale/videos`}
-            >
-              {t("videoTutorials")}
-            </Menu.Item>
-            <Menu.Item
-              is="a"
-              target="_blank"
-              href="https://doc.adresse.data.gouv.fr/"
-              icon={BookIcon}
-            >
-              {t("addressingGuides")}
-            </Menu.Item>
-          </Menu.Group>
-        </Menu>
-      }
-    >
-      <Button appearance="minimal">
-        <InfoSignIcon />
-      </Button>
-    </Popover>
+    <IconButton
+      appearance="minimal"
+      icon={HelpIcon}
+      aria-label={t("help")}
+      title={t("help")}
+      onClick={() => setShowHelp(!showHelp)}
+    />
   );
 }

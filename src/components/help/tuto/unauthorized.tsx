@@ -1,7 +1,8 @@
-import { Paragraph, Button, EditIcon } from "evergreen-ui";
+import { Paragraph } from "evergreen-ui";
 import { useTranslations } from "next-intl";
 
 import Tuto from "@/components/help/tuto";
+import helpTags from "@/components/help/tags";
 
 interface UnauthorizedProps {
   title: string;
@@ -12,23 +13,8 @@ function Unauthorized({ title }: UnauthorizedProps) {
 
   return (
     <Tuto title={title}>
-      <Paragraph marginTop="default">
-        {t.rich("checkBadge", {
-          badge: (chunks) => (
-            <Button
-              height={24}
-              margin={8}
-              appearance="primary"
-              intent="danger"
-              iconBefore={EditIcon}
-            >
-              {chunks}
-            </Button>
-          ),
-        })}
-      </Paragraph>
-      <Paragraph marginTop="default">{t("meaning")}</Paragraph>
-      <Paragraph marginTop="default">{t("fix")}</Paragraph>
+      <Paragraph marginTop="default">{t.rich("readOnly", helpTags)}</Paragraph>
+      <Paragraph marginTop="default">{t.rich("fix", helpTags)}</Paragraph>
     </Tuto>
   );
 }
