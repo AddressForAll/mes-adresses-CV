@@ -17,7 +17,6 @@ export const STYLE_LABEL_KEYS: Record<MapStyle, string> = {
   [MapStyle.ORTHO]: "ortho",
   [MapStyle.VECTOR]: "vector",
   [MapStyle.PLAN_IGN]: "planIgn",
-  [MapStyle.STREET]: "street",
   [MapStyle.SATELLITE]: "satellite",
 };
 
