@@ -4,11 +4,9 @@ import { useContext } from "react";
 import {
   Pane,
   SideSheet,
-  Paragraph,
   Heading,
   Tablist,
   Tab,
-  Link,
   Button,
   CrossIcon,
 } from "evergreen-ui";
@@ -59,19 +57,6 @@ function Help() {
         <HelpTabs tab={selectedIndex} />
       </Pane>
 
-      <Pane padding={16} background="tint2" elevation={1}>
-        <Heading>{t("noSolutionFound")}</Heading>
-        <Paragraph>
-          <Link target="_blank" href="https://doc.adresse.data.gouv.fr/">
-            {t("readGuides")}
-          </Link>
-        </Paragraph>
-        <Paragraph>{t("or")}</Paragraph>
-        <Paragraph>
-          {t("contactUs")}{" "}
-          <a href="mailto:adresse@data.gouv.fr">adresse@data.gouv.fr</a>
-        </Paragraph>
-      </Pane>
       {isMobile && (
         <Button
           onClick={() => setShowHelp(false)}

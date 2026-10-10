@@ -518,242 +518,248 @@
     }
   },
   "header": {
-    "addressingGuides": "Guias de endereçamento",
     "help": "Precisa de ajuda",
-    "logoAlt": "Página inicial do site mes-adresses.data.gouv.fr",
-    "videoTutorials": "Tutoriais em vídeo"
+    "logoAlt": "Página inicial do site mes-adresses.data.gouv.fr"
   },
   "help": {
     "baseLocale": {
+      "about": {
+        "content": "Uma Base de Endereços Local reúne todos os endereços de um município: seus <b>logradouros</b>, seus <b>topônimos</b> e seus <b>números</b>, cada um posicionado no mapa. O Mes Adresses permite que o município — ou qualquer pessoa que trabalhe com ele — a construa e a mantenha atualizada.",
+        "countryLanguage": "Escolha o país em que você trabalha no seletor do topo da página. O seletor de idioma, logo ao lado, muda apenas o idioma da interface: você pode, por exemplo, editar um município dos Estados Unidos em português.",
+        "title": "O que é uma Base de Endereços Local?"
+      },
+      "access": {
+        "content": "Seu acesso de edição fica salvo neste navegador, e suas Bases de Endereços Locais aparecem na página inicial dele. Para editar em outro dispositivo ou dar acesso a um colega, abra o <menuButton>Menu</menuButton> e, em <b>Configurações</b>, clique em <shareButton>Compartilhamento de acesso</shareButton>: você recebe o link de administração e o QR code correspondente.",
+        "title": "Manter o acesso à sua Base de Endereços Local",
+        "warning": "Fora da França, um acesso perdido ainda não pode ser recuperado por e-mail: guarde o link de administração em um lugar seguro."
+      },
       "administer": {
-        "intro": "Acesse as configurações da sua Base de Endereços Local clicando no ícone <cog></cog> no canto superior direito da tela. Depois escolha «Configurações».",
-        "item1": "Alterar o nome da sua Base de Endereços Local",
-        "item2": "Adicionar ou remover colaboradores",
-        "item3": "Baixar seus endereços em formato .csv",
-        "outro": "Depois de concluir os ajustes, clique em <saveButton>Salvar as alterações</saveButton>",
-        "title": "Administrar sua Base de Endereços Local",
-        "youCan": "Você poderá:"
+        "intro": "No editor, clique em <menuButton>Menu</menuButton> no canto superior direito. A aba <b>Configurações</b> permite:",
+        "item1": "renomear a Base de Endereços Local",
+        "item2": "adicionar ou remover e-mails de administradores",
+        "item3": "adicionar mapas base",
+        "item4": "escolher quais alertas de qualidade são exibidos",
+        "outro": "Depois clique em <primaryButton>Salvar as alterações</primaryButton>. A aba <b>Lixeira</b> lista os logradouros, topônimos e números excluídos para que você possa restaurá-los.",
+        "title": "Administrar sua Base de Endereços Local"
       },
       "create": {
-        "intro": "Na página <b>Nova Base de Endereços Local</b>, selecione a aba <tab>Criar</tab>",
-        "step1": "Informe o nome da sua Base de Endereços Local no campo <em>Nome</em>. Ele permitirá identificar sua Base de Endereços Local.",
-        "step2": "Informe o endereço de e-mail da sua prefeitura ou do administrador da Base de Endereços Local. É esse endereço que receberá o link de acesso à edição da sua Base de Endereços Local.",
-        "step3": "Pesquise seu município e selecione-o na lista de sugestões.",
-        "step4": "Se quiser começar do zero, desmarque a opção <em>Importar logradouros e números da Base de Endereços Nacional</em>.",
-        "step5": "Para concluir, clique no botão <createButton>Criar a Base de Endereços Local</createButton>",
-        "title": "Criar uma nova Base de Endereços Local"
+        "demo": "Quer apenas experimentar o editor? Na última etapa, ative <em>Criar uma Base local de demonstração?</em>: nenhum e-mail de administrador é necessário.",
+        "intro": "Na página inicial, clique em <b>Criar uma Base de Endereços Local</b>. A criação tem três etapas:",
+        "step1": "<b>Escolha do município.</b> Nos Estados Unidos, escolha o <em>Estado</em>, o <em>Condado</em> e depois a <em>Cidade ou localidade</em> — ou o condado inteiro. No Brasil, escolha o <em>Estado</em> e depois o <em>Município</em>. Na França, busque o município pelo nome. Em seguida, clique em <button>Criar uma nova Base de Endereços Local</button>.",
+        "step2": "<b>Importação dos dados.</b> Escolha o ponto de partida: uma Base de Endereços Local vazia ou um arquivo CSV no formato BAL (no máximo 10 MB). Na França, também é possível partir dos endereços que já estão na Base de Endereços Nacional. Em seguida, clique em <primaryButton>Próximo</primaryButton>.",
+        "step3": "<b>Informações sobre a Base de Endereços Local.</b> Confira o nome sugerido e informe pelo menos um e-mail de administrador; depois clique em <primaryButton>Criar uma Base de Endereços Local</primaryButton>.",
+        "title": "Criar uma Base de Endereços Local"
       },
-      "import": {
-        "intro": "Na página <b>Nova Base de Endereços Local</b>, selecione a aba <tab>Importar um arquivo CSV</tab>",
-        "step1": "Selecione ou solte seu arquivo em formato <b>csv</b>. Atenção: esse arquivo não deve ultrapassar 10 MB.",
-        "step2": "Informe o nome da sua Base de Endereços Local no campo <em>Nome</em>. Ele permitirá identificar sua Base de Endereços Local.",
-        "step3": "Informe o endereço de e-mail da sua prefeitura ou do administrador da Base de Endereços Local. É esse endereço que receberá o link de acesso à edição da sua Base de Endereços Local.",
-        "step4": "Para concluir, clique no botão <createButton>Criar a Base de Endereços Local</createButton>",
-        "title": "Importar uma Base de Endereços Local"
+      "existing": {
+        "content": "Se já existirem Bases de Endereços Locais para o município escolhido, a primeira etapa as lista para que você possa abrir uma em vez de começar do zero. Alguns territórios foram pré-carregados a partir dos dados abertos do Overture Maps: eles aparecem na página inicial em <b>Explorar as Bases de Endereços Locais existentes</b>, onde qualquer pessoa pode consultá-los em modo somente leitura.",
+        "title": "Já existe uma Base de Endereços Local para o meu município"
       },
       "problems": {
-        "cannotEdit": "Não consigo editar minha Base de Endereços Local",
+        "cannotEdit": "Não consigo modificar minha Base de Endereços Local",
         "communeNotFound": {
-          "content": "Se o seu município é novo e resulta de uma fusão, é possível que ele não apareça na lista de sugestões. Nesse caso, entre em contato conosco pelo <mail>adresse@data.gouv.fr</mail>",
+          "content": "Primeiro, confira se o país certo está selecionado no topo da página. Fora da França, as listas de estados e municípios vêm dos limites administrativos do Overture Maps: alguns municípios estão ausentes e ainda não podem ser selecionados.",
           "title": "Não encontro meu município"
         }
-      },
-      "videoTitle": "Criação de uma Base de Endereços Local:"
+      }
     },
-    "contactUs": "Fale conosco pelo",
     "havingAProblem": "Está com algum problema?",
-    "noSolutionFound": "Não encontrou a solução para o seu problema?",
     "numeros": {
       "add": {
-        "dragMarker": "Um <marker></marker> apareceu no centro do mapa; arraste-o com o mouse até o local desejado",
-        "finish": "Para concluir, clique no botão <certifyButton>Certificar e salvar</certifyButton> se você valida este endereço, ou em <saveButton>Salvar</saveButton> para ter tempo de verificá-lo antes de certificar.",
-        "fromMapStep": "Clique no botão <addIconButton></addIconButton>",
+        "dragMarker": "Um <marker></marker> aparece no centro do mapa: arraste-o até o local certo",
+        "finish": "Por fim, clique em <certifyButton>Certificar e salvar</certifyButton> se tiver certeza deste endereço, ou em <saveButton>Salvar</saveButton> para conferi-lo depois.",
+        "fromMapStep": "Clique no botão <addIconButton></addIconButton> (<b>Criar um endereço</b>) à direita do mapa",
         "fromSidebarStep": "Clique no botão <addButton>Adicionar um número</addButton>",
-        "number": "Informe o número no campo <field>Número</field>",
-        "positionType": "Selecione a posição no menu suspenso <field>Tipo</field>",
-        "selectVoie": "Pesquise o logradouro ao qual o número pertence e selecione-o. Observe que, se um logradouro já estiver selecionado, ele será sugerido por padrão. Você também pode criar um novo logradouro diretamente clicando em <createVoieButton>Criar um logradouro</createVoieButton>. Você será redirecionado automaticamente para esse logradouro.",
-        "suffix": "Informe o sufixo (exemplo: bis) no campo <field>Sufixo</field>",
+        "number": "Informe o <b>Número</b> e, se necessário, um <b>Sufixo</b> (por exemplo: A, B)",
+        "numberless": "Se o endereço não tiver número, marque <b>Endereço sem número</b>. Você pode manter a designação usada localmente — como “s/n” ou o nome de uma casa — no campo <b>Designação de origem</b>.",
+        "positionType": "Escolha o <b>Tipo</b> de posição (entrada, edificação…). Use <b>Adicionar uma posição ao número</b> para registrar várias.",
+        "selectVoie": "Confira o <b>Logradouro</b>: o logradouro atual é sugerido por padrão. Você também pode criar um diretamente com <button>Criar um logradouro</button>.",
         "title": "Adicionar um número"
       },
-      "chooseDelete": "No menu que acabou de aparecer, escolha <deleteItem>Excluir…</deleteItem>",
-      "chooseEdit": "No menu que acabou de aparecer, escolha <editItem>Editar</editItem>",
+      "bulk": {
+        "step1": "Na lista de números de um logradouro, marque os que deseja alterar",
+        "step2": "Use as <b>Ações em lote</b> que aparecem para alterar o logradouro, o topônimo ou o tipo de posição, ou para excluí-los",
+        "title": "Editar vários números de uma vez"
+      },
+      "chooseDelete": "No menu que aparece, escolha <deleteItem>Excluir…</deleteItem>",
+      "chooseEdit": "No menu que aparece, escolha <editItem>Editar</editItem>",
       "comment": {
-        "icon": "Você verá um <commentIcon></commentIcon> na linha do número. Passe o mouse sobre ele para ver o comentário.",
-        "step3": "Preencha o campo de texto <field>Comentário</field> para deixar uma nota sobre o número",
-        "step4": "Para salvar seu comentário, clique no botão <certifyButton>Certificar e salvar</certifyButton>, ou em <saveButton>Salvar</saveButton> se não quiser certificar este endereço por enquanto.",
+        "icon": "Um <commentIcon></commentIcon> aparece então na linha do número: passe o mouse sobre ele para ler o comentário.",
+        "step3": "Preencha o campo <b>Comentário</b>",
+        "step4": "Clique em <certifyButton>Certificar e salvar</certifyButton>, ou em <saveButton>Salvar</saveButton> se ainda não quiser certificar este endereço",
         "title": "Adicionar uma nota ou um comentário"
       },
       "delete": {
+        "bin": "Os números excluídos vão para a <b>Lixeira</b> (no <b>Menu</b>), de onde podem ser restaurados.",
         "rightClick": "Clique com o botão direito no número",
         "title": "Excluir um número"
       },
       "edit": {
         "clickNumber": "Clique no número",
         "title": "Editar um número",
-        "whatYouCanChange": "Agora você pode modificar o número, o sufixo, o tipo de endereço ou sua posição movendo o <marker></marker> no mapa, e certificar seu endereço."
+        "whatYouCanChange": "Altere o número, o logradouro, o topônimo ou as posições — movendo o <marker></marker> no mapa — e salve."
       },
       "fromMap": "Pelo mapa",
       "fromSidebar": "Pelo menu lateral",
       "goodToKnow": {
-        "content": "Para reforçar a qualidade dos endereços, recomendamos certificar todos os seus endereços. <b>Um endereço certificado é declarado autêntico pela prefeitura</b>, o que reforça a qualidade da Base de Endereços Local e facilita sua reutilização.",
+        "content": "Certifique seus endereços depois de conferi-los. <b>Um endereço certificado é declarado confiável pelo município</b>, o que facilita a reutilização da Base de Endereços Local.",
         "title": "Bom saber"
       },
       "moreButtonStep": "Clique no botão <moreButton></moreButton> à direita do número",
-      "openList": "Exiba a lista de números de um logradouro selecionando-o no menu lateral ou clicando no nome dele ou em um de seus números diretamente no mapa.",
+      "openList": "Exiba os números de um logradouro clicando nele na aba <b>Logradouros</b>, ou clicando no nome dele ou em um dos seus números no mapa.",
       "parcelles": {
-        "colorCode": "Código de cores dos lotes:",
-        "linkable": "lote que pode ser associado",
-        "linked": "lote associado",
         "step3": "No mapa, clique no lote ou nos lotes que deseja associar ao número",
-        "step4": "Para salvar os lotes, clique no botão <certifyButton>Certificar e salvar</certifyButton>, ou em <saveButton>Salvar</saveButton> se não quiser certificar este endereço por enquanto.",
-        "title": "Associar lotes",
-        "unlinkable": "lote que pode ser desassociado"
+        "step4": "Clique em <certifyButton>Certificar e salvar</certifyButton>, ou em <saveButton>Salvar</saveButton>",
+        "title": "Associar lotes"
       },
       "problems": {
-        "cannotAddOrDelete": "Não consigo adicionar/excluir um número",
+        "cannotAddOrDelete": "Não consigo adicionar ou excluir um número",
         "voieNotFound": {
-          "content": "Antes de criar um número pelo mapa, verifique se o logradouro ao qual ele pertence já foi criado.",
+          "content": "Confira se o logradouro já foi criado, ou crie-o diretamente no formulário do número.",
           "title": "Não encontro o logradouro ao adicionar um número pelo mapa"
         }
       },
       "uncertify": {
-        "step2": "No fim da página, clique no botão <dangerButton>Remover certificação e salvar</dangerButton>",
+        "step3": "No fim do formulário, clique em <dangerButton>Remover certificação e salvar</dangerButton>",
         "title": "Remover a certificação de um endereço"
-      },
-      "videoTitle": "Criação / modificação de um número:"
+      }
     },
-    "or": "ou",
-    "publication": {
-      "conflict": {
-        "explanation": "Pode acontecer que outra Base de Endereços Local já esteja sincronizada com a Base de Endereços Nacional. Nesse caso, sua Base de Endereços Local entrará em conflito com ela.",
-        "force": "Ao clicar em <dangerButton>Forçar a publicação</dangerButton>, sua Base de Endereços Local será publicada e substituirá a atualmente em vigor.",
-        "title": "Em caso de conflito"
+    "parcelles": {
+      "colorCode": "Código de cores dos lotes:",
+      "linkable": "lote que pode ser associado",
+      "linked": "lote associado",
+      "unlinkable": "lote que pode ser desassociado"
+    },
+    "screenshots": {
+      "downloads": "A aba Downloads do Menu",
+      "newDetails": "Etapa 3: nome e e-mail do administrador da Base de Endereços Local",
+      "newImport": "Etapa 2: escolha do ponto de partida da Base de Endereços Local",
+      "newTerritory": "Etapa 1: escolha de um município dos Estados Unidos com as listas Estado, Condado e Cidade ou localidade",
+      "numeroForm": "O formulário para adicionar um número",
+      "publicBals": "Bases de Endereços Locais pré-carregadas, listadas em modo somente leitura na página inicial",
+      "settings": "A aba Configurações do Menu",
+      "voieForm": "O formulário para adicionar um logradouro",
+      "voiesList": "A lista de logradouros, com o campo de busca e os botões de filtro e de adicionar"
+    },
+    "share": {
+      "download": {
+        "comments": "Uma exportação com comentários inclui tudo o que foi escrito neles: evite inserir dados pessoais nos comentários.",
+        "intro": "Abra o <menuButton>Menu</menuButton> e depois a aba <b>Downloads</b>. Você pode baixar:",
+        "item1": "a Base de Endereços Local no formato CSV (BAL), com ou sem os comentários",
+        "item2": "a lista de logradouros no formato CSV",
+        "title": "Baixar seus endereços"
+      },
+      "editAccess": {
+        "content": "Abra o <menuButton>Menu</menuButton> e, em <b>Configurações</b>, clique em <shareButton>Compartilhamento de acesso</shareButton> para obter o link de administração e o QR code correspondente — prático para continuar pelo celular em campo.",
+        "title": "Compartilhar o acesso de edição",
+        "warning": "Qualquer pessoa com este link pode modificar a Base de Endereços Local: compartilhe-o apenas com pessoas de confiança."
       },
       "problems": {
-        "cannotEdit": "Não consigo editar minha Base de Endereços Local"
+        "cannotEdit": "Não consigo modificar minha Base de Endereços Local"
       },
-      "publish": {
-        "step1": "Clique no botão <publishButton>Publicar</publishButton>",
-        "step2": "Autentique-se pelo e-mail oficial da prefeitura ou com sua conta ProConnect",
-        "step3": "Depois de obter a habilitação, você será convidado automaticamente a publicar sua Base de Endereços Local clicando em <successButton>Publicar</successButton>",
-        "title": "Publicar sua Base de Endereços Local"
+      "publication": {
+        "content": "Na França, uma Base de Endereços Local é publicada na Base de Endereços Nacional. Esta demonstração nunca envia dados a nenhum serviço público: a publicação está desativada, e o botão <primaryButton>Publicar</primaryButton> não pode ser concluído.",
+        "draft": "Sua Base de Endereços Local continua como <b>rascunho</b>: você pode continuar editando e baixá-la a qualquer momento.",
+        "title": "E a publicação?"
       },
-      "syncStatuses": {
-        "noHabilitation": "A habilitação da Base de Endereços Local não é válida. É preciso renová-la para que as novas alterações cheguem à Base de Endereços Nacional.",
-        "outdated": "Alterações foram detectadas; elas serão repassadas automaticamente à Base de Endereços Nacional nas próximas horas.",
-        "paused": "Você suspendeu as atualizações da sua Base de Endereços Local. Nenhuma alteração será enviada à Base de Endereços Nacional. Você pode retomar as atualizações a qualquer momento.",
-        "replaced": "Outra Base de Endereços Local substituiu a sua; não é possível atualizar seus endereços automaticamente. Você pode forçar a atualização para substituir a Base de Endereços Local atualmente em vigor.",
-        "synced": "Sua Base de Endereços Local está em dia com a Base de Endereços Nacional. Todos os seus endereços foram considerados.",
-        "title": "Status de sincronização"
-      },
-      "videoTitle": "Publicação da sua Base de Endereços Local:"
+      "viewAccess": {
+        "content": "Compartilhe o endereço da página do editor como aparece no seu navegador. Quem abri-lo sem acesso de administrador verá a Base de Endereços Local em modo <b>somente leitura</b>.",
+        "title": "Deixar outras pessoas consultarem seus endereços"
+      }
     },
-    "readGuides": "Consulte os guias de endereçamento",
     "sidebarTuto": {
       "hidden": "Este menu pode ser ocultado para deixar mais espaço para o mapa.",
       "showAgain": "Para exibi-lo novamente, clique no botão <button></button> no canto superior esquerdo da tela.",
       "title": "Não vejo o menu lateral"
     },
     "tabs": {
-      "baseLocale": "Base local",
+      "baseLocale": "Primeiros passos",
       "numeros": "Números",
-      "publication": "Publicação",
+      "share": "Compartilhar e exportar",
       "toponymes": "Topônimos",
       "voies": "Logradouros"
     },
     "title": "Precisa de ajuda?",
     "toponymes": {
+      "about": {
+        "content": "Topônimos são lugares com nome que não são logradouros numerados: povoados, bairros, sítios, logradouros sem endereços… Um número pode ser associado a um topônimo além do seu logradouro.",
+        "title": "O que é um topônimo?"
+      },
       "add": {
-        "step1": "Selecione a aba <tab>Lista de topônimos</tab> e clique em <addButton>Adicionar um topônimo</addButton>",
-        "step2": "Digite o nome do topônimo no campo <muted>Nome do topônimo...</muted>",
-        "step3": "Um <marker></marker> apareceu no mapa; você pode movê-lo para atribuir uma ou mais posições ao seu topônimo.<br></br>Você pode especificar o tipo de posição com o menu suspenso <typeSelect>Segmento</typeSelect> Se não quiser definir uma posição para o topônimo, basta clicar em <trash></trash>",
+        "step1": "Clique no botão <addIconButton></addIconButton> ao lado do campo de busca",
+        "step2": "Informe o nome no campo <em>Topônimo</em>",
+        "step3": "Um <marker></marker> aparece no mapa: mova-o para posicionar o topônimo. Você pode adicionar outras posições ou remover uma com <trash></trash>.",
+        "step4": "Clique em <successButton>Salvar</successButton>",
         "title": "Adicionar um topônimo"
       },
-      "assign": {
-        "step1": "Clique no botão <addButton>Adicionar um número</addButton>",
-        "step2": "Selecione o logradouro do número que deseja atribuir",
-        "step3": "Um menu suspenso será exibido. Você pode selecionar um ou mais números da lista. Se nenhum número for selecionado, todos os números da lista serão atribuídos ao topônimo.",
-        "step4": "Para concluir, clique no botão <successButton>Salvar</successButton>",
-        "title": "Atribuir um número a um topônimo"
-      },
       "delete": {
-        "step1": "Clique no botão <moreButton></moreButton> à direita do nome do topônimo",
-        "step2": "No menu que acabou de aparecer, escolha <deleteItem>Excluir…</deleteItem>",
-        "step3": "Para concluir, confirme sua escolha clicando em <dangerButton>Excluir</dangerButton>",
+        "step2": "No menu que aparece, escolha <deleteItem>Excluir…</deleteItem>",
+        "step3": "Confirme clicando em <dangerButton>Excluir</dangerButton>",
         "title": "Excluir um topônimo"
       },
       "edit": {
-        "step1": "Clique no nome do topônimo",
-        "step2": "Edite o nome do topônimo",
-        "step3": "Você também pode alterar a posição do topônimo movendo o <marker></marker> no mapa",
-        "step4": "Você pode adicionar posições com o botão <addButton>Adicionar uma posição ao topônimo</addButton> ou removê-las com o botão <trash></trash>",
-        "step5": "Para concluir, clique em <successButton>Salvar</successButton>",
+        "step2": "No menu que aparece, escolha <editItem>Editar</editItem>",
+        "step3": "Altere o nome ou mova o <marker></marker> no mapa e clique em <successButton>Salvar</successButton>",
         "title": "Editar um topônimo"
       },
-      "openList": "Exiba a lista de topônimos de um município clicando no nome dele, no canto superior esquerdo da tela",
+      "link": {
+        "step1": "Clique no topônimo para abri-lo",
+        "step2": "Clique em <addButton>Associar números</addButton>",
+        "step3": "Selecione os números <b>Por logradouro</b> — escolha um logradouro e depois alguns ou todos os seus números — ou <b>Desenhando o contorno</b> ao redor deles no mapa",
+        "step4": "Clique em <successButton>Salvar</successButton>",
+        "title": "Associar números a um topônimo"
+      },
+      "moreButtonStep": "Clique no botão <moreButton></moreButton> à direita do topônimo",
+      "openList": "Abra a aba <b>Topônimos</b> no topo do menu lateral.",
       "parcelles": {
-        "colorCode": "Código de cores dos lotes:",
-        "linkable": "lote que pode ser associado",
-        "linked": "lote associado",
-        "step1": "Clique no botão <moreButton></moreButton> à direita do topônimo",
-        "step2": "No menu que acabou de aparecer, escolha <editItem>Editar</editItem>",
         "step3": "No mapa, clique no lote ou nos lotes que deseja associar ao topônimo",
-        "step4": "Para salvar os lotes, clique no botão <successButton>Salvar</successButton>",
-        "title": "Associar lotes",
-        "unlinkable": "lote que pode ser desassociado"
+        "step4": "Clique em <successButton>Salvar</successButton>",
+        "title": "Associar lotes"
       },
       "problems": {
-        "cannotAddOrDelete": "Não consigo adicionar/excluir um topônimo"
-      },
-      "videoTitle": "Criação / modificação de um topônimo:"
+        "cannotAddOrDelete": "Não consigo adicionar ou excluir um topônimo"
+      }
     },
     "unauthorized": {
-      "checkBadge": "Verifique se <badge>Edição impossível</badge> não aparece no canto superior direito da tela.",
-      "fix": "No entanto, se você for de fato o proprietário, basta clicar no link que recebeu por e-mail ao criar sua Base de Endereços Local.",
-      "meaning": "Ele indica que você não está autenticado ou que não tem permissão para modificar esta Base de Endereços Local."
-    },
-    "video": {
-      "allTutorials": "Veja todos os tutoriais em vídeo",
-      "iframeTitle": "Criação de uma Base de Endereços Local"
+      "fix": "Abra-a novamente no navegador em que você a criou, ou com o link de administração compartilhado por um dos administradores (<b>Menu</b> › <b>Configurações</b> › <b>Compartilhamento de acesso</b>).",
+      "readOnly": "Se o menu lateral mostrar <em>Você está no modo de consulta</em>, você está vendo a Base de Endereços Local sem acesso de administrador."
     },
     "voies": {
       "add": {
-        "step1": "Clique no botão <addButton>Adicionar um logradouro</addButton>",
-        "step2": "Digite o nome do logradouro que deseja criar no campo <em>Nome do logradouro…</em>",
-        "step3": "Para concluir, clique no botão <successButton>Adicionar</successButton>",
+        "step1": "Clique no botão <addIconButton></addIconButton> ao lado do campo de busca",
+        "step2": "Informe o nome no campo <em>Nome do logradouro</em>",
+        "step3": "Escolha o <em>Tipo de numeração</em>: <b>Sequencial</b> (1, 2, 3…) ou <b>Métrica</b> (números conforme a distância a partir do início do logradouro)",
+        "step4": "Clique em <successButton>Salvar</successButton>",
         "title": "Adicionar um logradouro"
       },
-      "convert": {
-        "intro": "Você pode transformar um logradouro em topônimo se ele não contiver nenhum número.",
-        "step1": "Clique no botão <moreButton></moreButton> à direita do nome do logradouro",
-        "step2": "No menu que acabou de aparecer, escolha <convertButton>Converter em logradouro sem endereços</convertButton>",
-        "step3": "Para concluir, confirme sua escolha clicando em <primaryButton>Confirmar</primaryButton>",
-        "step4": "Você será redirecionado para a edição do novo topônimo",
-        "title": "Converter um logradouro em logradouro sem endereços"
+      "certify": {
+        "step2": "No menu que aparece, escolha <certifyItem>Certificar</certifyItem>",
+        "step3": "Confirme para certificar todos os endereços do logradouro",
+        "title": "Certificar todos os números de um logradouro"
       },
       "delete": {
-        "step1": "Clique no botão <moreButton></moreButton> à direita do nome do logradouro",
-        "step2": "No menu que acabou de aparecer, escolha <deleteItem>Excluir…</deleteItem>",
-        "step3": "Para concluir, confirme sua escolha clicando em <dangerButton>Excluir</dangerButton>",
+        "step2": "No menu que aparece, escolha <deleteItem>Excluir…</deleteItem>",
+        "step3": "Confirme clicando em <dangerButton>Excluir</dangerButton>. O logradouro e seus números vão para a <b>Lixeira</b> (no <b>Menu</b>), de onde podem ser restaurados.",
         "title": "Excluir um logradouro"
       },
-      "openList": "Exiba a lista de logradouros de um município clicando no nome dele, no canto superior esquerdo da tela.",
+      "moreButtonStep": "Clique no botão <moreButton></moreButton> à direita do logradouro",
+      "openList": "Abra a aba <b>Logradouros</b> no topo do menu lateral.",
       "problems": {
-        "cannotAddOrDelete": "Não consigo adicionar/excluir um logradouro"
+        "cannotAddOrDelete": "Não consigo adicionar ou excluir um logradouro"
       },
       "rename": {
-        "step1": "Clique no nome do logradouro",
-        "step2": "Edite o nome do logradouro",
-        "step3": "Para concluir, clique em <successButton>Salvar</successButton>",
+        "step2": "No menu que aparece, escolha <editItem>Editar</editItem>",
+        "step3": "Altere o nome e clique em <successButton>Salvar</successButton>",
         "title": "Renomear um logradouro"
       },
-      "videoTitle": "Criação / modificação de um logradouro:",
+      "suggestions": {
+        "content": "Uma <bulb></bulb> ao lado de um logradouro indica que o editor tem uma sugestão sobre ele: por exemplo, vários logradouros com o mesmo nome, que podem ser mesclados, ou um logradouro sem números, que pode ser convertido em topônimo.",
+        "handle": "Para revisá-las uma após a outra, clique no botão <filterButton></filterButton>, escolha <b>Com sugestões</b> e depois <b>Tratar as sugestões</b>. O mesmo filtro também lista os logradouros <b>Sem certificação</b>.",
+        "title": "Sugestões de qualidade"
+      },
       "view": {
-        "fromMap": "Pelo mapa",
-        "fromMapStep": "Clique no nome do logradouro ou em um de seus números",
-        "fromSidebar": "Pelo menu lateral",
-        "step1": "Clique no botão <moreButton></moreButton> à direita do nome do logradouro",
-        "step2": "No menu que acabou de aparecer, escolha <viewItem>Consultar</viewItem>",
+        "fromList": "Clique no nome do logradouro para abrir a lista de números",
+        "fromMap": "No mapa, você também pode clicar no nome do logradouro ou em um dos seus números",
+        "fromMenu": "Ou escolha <viewItem>Consultar</viewItem> no menu <moreButton></moreButton> para centralizar o mapa nele",
         "title": "Consultar um logradouro"
       }
     }

@@ -518,242 +518,248 @@
     }
   },
   "header": {
-    "addressingGuides": "Guías de direccionamiento",
     "help": "¿Necesita ayuda?",
-    "logoAlt": "Página de inicio de mes-adresses.data.gouv.fr",
-    "videoTutorials": "Tutoriales en vídeo"
+    "logoAlt": "Página de inicio de mes-adresses.data.gouv.fr"
   },
   "help": {
     "baseLocale": {
+      "about": {
+        "content": "Una Base de Direcciones Local recoge todas las direcciones de un municipio: sus <b>vías</b>, sus <b>topónimos</b> y sus <b>números</b>, cada uno situado en el mapa. Mes Adresses permite al municipio — o a cualquier persona que trabaje con él — crearla y mantenerla al día.",
+        "countryLanguage": "Elija el país en el que trabaja con el selector de la parte superior de la página. El selector de idioma, justo al lado, solo cambia el idioma de la interfaz: puede, por ejemplo, editar un municipio de Estados Unidos en portugués.",
+        "title": "¿Qué es una Base de Direcciones Local?"
+      },
+      "access": {
+        "content": "Su acceso de edición se guarda en este navegador, y sus Bases de Direcciones Locales aparecen en su página de inicio. Para editar desde otro dispositivo o dar acceso a un colega, abra el <menuButton>Menu</menuButton> y, en <b>Ajustes</b>, haga clic en <shareButton>Compartir acceso</shareButton>: obtendrá el enlace de administración y su código QR.",
+        "title": "Conservar el acceso a su Base de Direcciones Local",
+        "warning": "Fuera de Francia, un acceso perdido todavía no puede recuperarse por correo electrónico: guarde el enlace de administración en un lugar seguro."
+      },
       "administer": {
-        "intro": "Acceda a los ajustes de su Base de Direcciones Local haciendo clic en el icono <cog></cog> situado arriba a la derecha de la pantalla. Después elija «Ajustes».",
-        "item1": "Cambiar el nombre de su Base de Direcciones Local",
-        "item2": "Añadir o eliminar colaboradores",
-        "item3": "Descargar sus direcciones en formato .csv",
-        "outro": "Una vez terminados los ajustes, haga clic en <saveButton>Guardar los cambios</saveButton>",
-        "title": "Administrar su Base de Direcciones Local",
-        "youCan": "Podrá:"
+        "intro": "En el editor, haga clic en <menuButton>Menu</menuButton> arriba a la derecha. La pestaña <b>Ajustes</b> le permite:",
+        "item1": "cambiar el nombre de la Base de Direcciones Local",
+        "item2": "añadir o quitar correos electrónicos de administradores",
+        "item3": "añadir mapas base",
+        "item4": "elegir qué alertas de calidad se muestran",
+        "outro": "Después haga clic en <primaryButton>Guardar los cambios</primaryButton>. La pestaña <b>Papelera</b> muestra las vías, topónimos y números eliminados para que pueda restaurarlos.",
+        "title": "Administrar su Base de Direcciones Local"
       },
       "create": {
-        "intro": "En la página <b>Nueva Base de Direcciones Local</b>, seleccione la pestaña <tab>Crear</tab>",
-        "step1": "Introduzca el nombre de su Base de Direcciones Local en el campo <em>Nombre</em>. Le permitirá identificar su Base de Direcciones Local.",
-        "step2": "Introduzca la dirección de correo electrónico de su ayuntamiento o del administrador de la Base de Direcciones Local. Esta dirección recibirá el enlace de acceso a la edición de su Base de Direcciones Local.",
-        "step3": "Busque su municipio y selecciónelo en la lista de sugerencias.",
-        "step4": "Si desea empezar desde cero, desmarque la casilla <em>Importar vías y números desde la Base de Direcciones Nacional</em>.",
-        "step5": "Para terminar, haga clic en el botón <createButton>Crear la Base de Direcciones Local</createButton>",
-        "title": "Crear una nueva Base de Direcciones Local"
+        "demo": "¿Solo quiere probar el editor? En el último paso, active <em>¿Crear una Base local de demostración?</em>: no hace falta ningún correo de administrador.",
+        "intro": "En la página de inicio, haga clic en <b>Crear una Base de Direcciones Local</b>. La creación tiene tres pasos:",
+        "step1": "<b>Elección del municipio.</b> En Estados Unidos, elija el <em>Estado</em>, el <em>Condado</em> y después la <em>Ciudad o localidad</em> — o el condado entero. En Brasil, elija el <em>Estado</em> y después el <em>Municipio</em>. En Francia, busque el municipio por su nombre. Luego haga clic en <button>Crear una nueva Base de Direcciones Local</button>.",
+        "step2": "<b>Importación de datos.</b> Elija su punto de partida: una Base de Direcciones Local vacía o un archivo CSV en formato BAL (10 MB como máximo). En Francia también puede partir de las direcciones ya presentes en la Base de Direcciones Nacional. Luego haga clic en <primaryButton>Siguiente</primaryButton>.",
+        "step3": "<b>Información de la Base de Direcciones Local.</b> Compruebe el nombre propuesto e introduzca al menos un correo electrónico de administrador; después haga clic en <primaryButton>Crear una Base de Direcciones Local</primaryButton>.",
+        "title": "Crear una Base de Direcciones Local"
       },
-      "import": {
-        "intro": "En la página <b>Nueva Base de Direcciones Local</b>, seleccione la pestaña <tab>Importar un archivo CSV</tab>",
-        "step1": "Seleccione o suelte su archivo en formato <b>csv</b>. Tenga en cuenta que este archivo no debe superar los 10 MB.",
-        "step2": "Introduzca el nombre de su Base de Direcciones Local en el campo <em>Nombre</em>. Le permitirá identificar su Base de Direcciones Local.",
-        "step3": "Introduzca la dirección de correo electrónico de su ayuntamiento o del administrador de la Base de Direcciones Local. Esta dirección recibirá el enlace de acceso a la edición de su Base de Direcciones Local.",
-        "step4": "Para terminar, haga clic en el botón <createButton>Crear la Base de Direcciones Local</createButton>",
-        "title": "Importar una Base de Direcciones Local"
+      "existing": {
+        "content": "Si ya existen Bases de Direcciones Locales para el municipio elegido, el primer paso las muestra para que pueda abrir una en lugar de empezar de cero. Algunos territorios se han precargado a partir de los datos abiertos de Overture Maps: aparecen en la página de inicio en <b>Explorar las Bases de Direcciones Locales existentes</b>, donde cualquiera puede consultarlos en solo lectura.",
+        "title": "Ya existe una Base de Direcciones Local para mi municipio"
       },
       "problems": {
-        "cannotEdit": "No consigo editar mi Base de Direcciones Local",
+        "cannotEdit": "No puedo modificar mi Base de Direcciones Local",
         "communeNotFound": {
-          "content": "Si su municipio es nuevo y procede de una fusión, es posible que no aparezca en la lista de sugerencias. Si es su caso, puede contactarnos en <mail>adresse@data.gouv.fr</mail>",
+          "content": "Compruebe primero que el país correcto está seleccionado en la parte superior de la página. Fuera de Francia, las listas de estados y municipios proceden de los límites administrativos de Overture Maps: faltan algunos municipios, que todavía no pueden seleccionarse.",
           "title": "No encuentro mi municipio"
         }
-      },
-      "videoTitle": "Creación de una Base de Direcciones Local:"
+      }
     },
-    "contactUs": "Contáctenos en",
     "havingAProblem": "¿Tiene algún problema?",
-    "noSolutionFound": "¿No ha encontrado la solución a su problema?",
     "numeros": {
       "add": {
-        "dragMarker": "Ha aparecido un <marker></marker> en el centro del mapa; arrástrelo al lugar deseado con el ratón",
-        "finish": "Para terminar, haga clic en <certifyButton>Certificar y guardar</certifyButton> si valida esta dirección, o en <saveButton>Guardar</saveButton> para darse tiempo a comprobarla antes de certificar.",
-        "fromMapStep": "Haga clic en el botón <addIconButton></addIconButton>",
+        "dragMarker": "Aparece un <marker></marker> en el centro del mapa: arrástrelo al lugar correcto",
+        "finish": "Por último, haga clic en <certifyButton>Certificar y guardar</certifyButton> si está seguro de esta dirección, o en <saveButton>Guardar</saveButton> para comprobarla más tarde.",
+        "fromMapStep": "Haga clic en el botón <addIconButton></addIconButton> (<b>Crear una dirección</b>) a la derecha del mapa",
         "fromSidebarStep": "Haga clic en el botón <addButton>Añadir un número</addButton>",
-        "number": "Introduzca el número en el campo <field>Número</field>",
-        "positionType": "Seleccione la posición mediante el desplegable <field>Tipo</field>",
-        "selectVoie": "Busque la vía a la que pertenece el número y selecciónela. Tenga en cuenta que si ya hay una vía seleccionada, se le propondrá por defecto. También puede crear una nueva vía directamente haciendo clic en <createVoieButton>Crear una vía</createVoieButton>. Se le redirigirá automáticamente a esa vía.",
-        "suffix": "Introduzca el sufijo (por ejemplo: bis) en el campo <field>Sufijo</field>",
+        "number": "Introduzca el <b>Número</b> y, si hace falta, un <b>Sufijo</b> (por ejemplo: A, bis)",
+        "numberless": "Si la dirección no tiene número, marque en su lugar <b>Dirección sin número</b>. Puede conservar la designación que se usa localmente — como «s/n» o el nombre de una casa — en el campo <b>Designación de origen</b>.",
+        "positionType": "Elija el <b>Tipo</b> de posición (entrada, edificio…). Use <b>Añadir una posición al número</b> para registrar varias.",
+        "selectVoie": "Compruebe la <b>Vía</b>: la vía actual se propone por defecto. También puede crear una directamente con <button>Crear una vía</button>.",
         "title": "Añadir un número"
+      },
+      "bulk": {
+        "step1": "En la lista de números de una vía, marque los que quiere cambiar",
+        "step2": "Use las <b>Acciones en lote</b> que aparecen para cambiar su vía, su topónimo o su tipo de posición, o para eliminarlos",
+        "title": "Modificar varios números a la vez"
       },
       "chooseDelete": "En el menú que aparece, elija <deleteItem>Eliminar…</deleteItem>",
       "chooseEdit": "En el menú que aparece, elija <editItem>Modificar</editItem>",
       "comment": {
-        "icon": "Verá un <commentIcon></commentIcon> en la fila del número. Al pasar el cursor por encima aparecerá el comentario.",
-        "step3": "Rellene el campo de texto <field>Comentario</field> para dejar una nota sobre el número",
-        "step4": "Para guardar su comentario, haga clic en <certifyButton>Certificar y guardar</certifyButton>, o en <saveButton>Guardar</saveButton> si no desea certificar esta dirección por ahora.",
+        "icon": "Aparecerá entonces un <commentIcon></commentIcon> en la fila del número: pase el ratón por encima para leer el comentario.",
+        "step3": "Rellene el campo <b>Comentario</b>",
+        "step4": "Haga clic en <certifyButton>Certificar y guardar</certifyButton>, o en <saveButton>Guardar</saveButton> si todavía no quiere certificar esta dirección",
         "title": "Añadir una nota o un comentario"
       },
       "delete": {
+        "bin": "Los números eliminados van a la <b>Papelera</b> (en el <b>Menu</b>), desde donde puede restaurarlos.",
         "rightClick": "Haga clic derecho en el número",
         "title": "Eliminar un número"
       },
       "edit": {
         "clickNumber": "Haga clic en el número",
-        "title": "Editar un número",
-        "whatYouCanChange": "Ahora puede modificar el número, el sufijo, el tipo de dirección o su posición moviendo el <marker></marker> en el mapa, y certificar su dirección."
+        "title": "Modificar un número",
+        "whatYouCanChange": "Cambie el número, su vía, su topónimo o sus posiciones — desplazando el <marker></marker> en el mapa — y guarde."
       },
       "fromMap": "Desde el mapa",
       "fromSidebar": "Desde el menú lateral",
       "goodToKnow": {
-        "content": "Para reforzar la calidad de las direcciones, le recomendamos certificar todas sus direcciones. <b>Una dirección certificada es declarada auténtica por el ayuntamiento</b>, lo que refuerza la calidad de la Base de Direcciones Local y facilita su reutilización.",
+        "content": "Certifique sus direcciones una vez comprobadas. <b>Una dirección certificada es declarada fiable por el municipio</b>, lo que facilita la reutilización de la Base de Direcciones Local.",
         "title": "Conviene saber"
       },
-      "moreButtonStep": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del número",
-      "openList": "Muestre la lista de números de una vía seleccionándola en el menú lateral o haciendo clic en su nombre o en uno de sus números directamente en el mapa.",
+      "moreButtonStep": "Haga clic en el botón <moreButton></moreButton> a la derecha del número",
+      "openList": "Muestre los números de una vía haciendo clic en ella en la pestaña <b>Vías</b>, o haciendo clic en su nombre o en uno de sus números en el mapa.",
       "parcelles": {
-        "colorCode": "Código de colores de las parcelas:",
-        "linkable": "parcela que puede asociarse",
-        "linked": "parcela asociada",
         "step3": "En el mapa, haga clic en la parcela o parcelas que desea asociar al número",
-        "step4": "Para guardar las parcelas, haga clic en <certifyButton>Certificar y guardar</certifyButton>, o en <saveButton>Guardar</saveButton> si no desea certificar esta dirección por ahora.",
-        "title": "Asociar parcelas",
-        "unlinkable": "parcela que puede desasociarse"
+        "step4": "Haga clic en <certifyButton>Certificar y guardar</certifyButton>, o en <saveButton>Guardar</saveButton>",
+        "title": "Asociar parcelas"
       },
       "problems": {
-        "cannotAddOrDelete": "No consigo añadir o eliminar un número",
+        "cannotAddOrDelete": "No puedo añadir ni eliminar un número",
         "voieNotFound": {
-          "content": "Antes de crear un número desde el mapa, asegúrese de que la vía a la que pertenece ya haya sido creada.",
-          "title": "No encuentro ninguna vía al añadir un número desde el mapa"
+          "content": "Compruebe que la vía se ha creado antes, o créela directamente desde el formulario del número.",
+          "title": "No encuentro la vía al añadir un número desde el mapa"
         }
       },
       "uncertify": {
-        "step2": "Al final de la página, haga clic en el botón <dangerButton>Dejar de certificar y guardar</dangerButton>",
+        "step3": "En la parte inferior del formulario, haga clic en <dangerButton>Dejar de certificar y guardar</dangerButton>",
         "title": "Dejar de certificar una dirección"
-      },
-      "videoTitle": "Creación / modificación de un número:"
+      }
     },
-    "or": "o",
-    "publication": {
-      "conflict": {
-        "explanation": "Puede ocurrir que otra Base de Direcciones Local ya esté sincronizada con la Base de Direcciones Nacional. En ese caso, su Base de Direcciones Local entrará en conflicto con ella.",
-        "force": "Al hacer clic en <dangerButton>Forzar la publicación</dangerButton> su Base de Direcciones Local se publicará y reemplazará a la actual.",
-        "title": "En caso de conflicto"
+    "parcelles": {
+      "colorCode": "Código de colores de las parcelas:",
+      "linkable": "parcela que puede asociarse",
+      "linked": "parcela asociada",
+      "unlinkable": "parcela que puede desasociarse"
+    },
+    "screenshots": {
+      "downloads": "La pestaña Descargas del Menú",
+      "newDetails": "Paso 3: nombre y correo electrónico del administrador de la Base de Direcciones Local",
+      "newImport": "Paso 2: elección del punto de partida de la Base de Direcciones Local",
+      "newTerritory": "Paso 1: elección de un municipio de Estados Unidos con las listas Estado, Condado y Ciudad o localidad",
+      "numeroForm": "El formulario para añadir un número",
+      "publicBals": "Bases de Direcciones Locales precargadas, listadas en solo lectura en la página de inicio",
+      "settings": "La pestaña Ajustes del Menú",
+      "voieForm": "El formulario para añadir una vía",
+      "voiesList": "La lista de vías, con su campo de búsqueda y sus botones de filtro y de añadir"
+    },
+    "share": {
+      "download": {
+        "comments": "Una exportación con comentarios incluye todo lo que se haya escrito en ellos: evite introducir datos personales en los comentarios.",
+        "intro": "Abra el <menuButton>Menu</menuButton> y después la pestaña <b>Descargas</b>. Puede descargar:",
+        "item1": "la Base de Direcciones Local en formato CSV (BAL), con o sin comentarios",
+        "item2": "la lista de vías en formato CSV",
+        "title": "Descargar sus direcciones"
+      },
+      "editAccess": {
+        "content": "Abra el <menuButton>Menu</menuButton> y, en <b>Ajustes</b>, haga clic en <shareButton>Compartir acceso</shareButton> para obtener el enlace de administración y su código QR — práctico para seguir desde un teléfono sobre el terreno.",
+        "title": "Compartir el acceso de edición",
+        "warning": "Cualquier persona con este enlace puede modificar la Base de Direcciones Local: compártalo solo con personas de confianza."
       },
       "problems": {
-        "cannotEdit": "No consigo editar mi Base de Direcciones Local"
+        "cannotEdit": "No puedo modificar mi Base de Direcciones Local"
       },
-      "publish": {
-        "step1": "Haga clic en el botón <publishButton>Publicar</publishButton>",
-        "step2": "Autentíquese mediante el correo oficial del ayuntamiento o con su cuenta ProConnect",
-        "step3": "Una vez obtenida la habilitación, se le invitará automáticamente a publicar su Base de Direcciones Local haciendo clic en <successButton>Publicar</successButton>",
-        "title": "Publicar su Base de Direcciones Local"
+      "publication": {
+        "content": "En Francia, una Base de Direcciones Local se publica en la Base de Direcciones Nacional. Esta demostración nunca envía datos a ningún servicio público: la publicación está desactivada, por lo que el botón <primaryButton>Publicar</primaryButton> no puede completarse.",
+        "draft": "Su Base de Direcciones Local sigue siendo un <b>borrador</b>: puede seguir editándola y descargarla en cualquier momento.",
+        "title": "¿Y la publicación?"
       },
-      "syncStatuses": {
-        "noHabilitation": "La habilitación de la Base de Direcciones Local no es válida. Debe renovarla para que los nuevos cambios lleguen a la Base de Direcciones Nacional.",
-        "outdated": "Se han detectado cambios; se propagarán automáticamente a la Base de Direcciones Nacional en las próximas horas.",
-        "paused": "Ha suspendido las actualizaciones de su Base de Direcciones Local. No se enviará ningún cambio a la Base de Direcciones Nacional. Puede reanudar las actualizaciones en cualquier momento.",
-        "replaced": "Otra Base de Direcciones Local ha reemplazado la suya, por lo que sus direcciones no pueden actualizarse automáticamente. Puede forzar la actualización para reemplazar la Base de Direcciones Local actual.",
-        "synced": "Su Base de Direcciones Local está sincronizada con la Base de Direcciones Nacional. Todas sus direcciones se tienen en cuenta.",
-        "title": "Estados de sincronización"
-      },
-      "videoTitle": "Publicación de su Base de Direcciones Local:"
+      "viewAccess": {
+        "content": "Comparta la dirección de la página del editor tal como aparece en su navegador. Quienes la abran sin acceso de administrador verán la Base de Direcciones Local en <b>solo lectura</b>.",
+        "title": "Permitir que otros consulten sus direcciones"
+      }
     },
-    "readGuides": "Consulte las guías de direccionamiento",
     "sidebarTuto": {
       "hidden": "Este menú puede ocultarse para dejar más espacio al mapa.",
       "showAgain": "Para que reaparezca, haga clic en el botón <button></button> situado arriba a la izquierda de la pantalla.",
       "title": "No veo el menú lateral"
     },
     "tabs": {
-      "baseLocale": "Base local",
+      "baseLocale": "Primeros pasos",
       "numeros": "Números",
-      "publication": "Publicación",
+      "share": "Compartir y exportar",
       "toponymes": "Topónimos",
       "voies": "Vías"
     },
     "title": "¿Necesita ayuda?",
     "toponymes": {
+      "about": {
+        "content": "Los topónimos son lugares con nombre que no son vías numeradas: aldeas, barrios, parajes, vías sin direcciones… Un número puede asociarse a un topónimo además de a su vía.",
+        "title": "¿Qué es un topónimo?"
+      },
       "add": {
-        "step1": "Seleccione la pestaña <tab>Lista de topónimos</tab> y haga clic en <addButton>Añadir un topónimo</addButton>",
-        "step2": "Introduzca el nombre del topónimo en el campo <muted>Nombre del topónimo...</muted>",
-        "step3": "Ha aparecido un <marker></marker> en el mapa; puede moverlo para asignar una o varias posiciones a su topónimo.<br></br>Puede indicar el tipo de posición con el desplegable <typeSelect>Segmento</typeSelect> Si no desea definir una posición para el topónimo, simplemente haga clic en <trash></trash>",
+        "step1": "Haga clic en el botón <addIconButton></addIconButton> junto al campo de búsqueda",
+        "step2": "Introduzca el nombre en el campo <em>Topónimo</em>",
+        "step3": "Aparece un <marker></marker> en el mapa: desplácelo para situar el topónimo. Puede añadir más posiciones o quitar una con <trash></trash>.",
+        "step4": "Haga clic en <successButton>Guardar</successButton>",
         "title": "Añadir un topónimo"
       },
-      "assign": {
-        "step1": "Haga clic en el botón <addButton>Añadir un número</addButton>",
-        "step2": "Seleccione la vía del número que desea asignar",
-        "step3": "Aparecerá un desplegable. Puede seleccionar uno o varios números de la lista. Si no se selecciona ninguno, todos los números de la lista se asignarán al topónimo.",
-        "step4": "Para terminar, haga clic en el botón <successButton>Guardar</successButton>",
-        "title": "Asignar un número a un topónimo"
-      },
       "delete": {
-        "step1": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del nombre del topónimo",
         "step2": "En el menú que aparece, elija <deleteItem>Eliminar…</deleteItem>",
-        "step3": "Para terminar, confirme su elección haciendo clic en <dangerButton>Eliminar</dangerButton>",
+        "step3": "Confirme haciendo clic en <dangerButton>Eliminar</dangerButton>",
         "title": "Eliminar un topónimo"
       },
       "edit": {
-        "step1": "Haga clic en el nombre del topónimo",
-        "step2": "Edite el nombre del topónimo",
-        "step3": "También puede cambiar la posición del topónimo moviendo el <marker></marker> en el mapa",
-        "step4": "Puede añadir posiciones con el botón <addButton>Añadir una posición al topónimo</addButton> o eliminarlas con el botón <trash></trash>",
-        "step5": "Para terminar, haga clic en <successButton>Guardar</successButton>",
-        "title": "Editar un topónimo"
-      },
-      "openList": "Muestre la lista de topónimos de un municipio haciendo clic en su nombre, arriba a la izquierda de la pantalla",
-      "parcelles": {
-        "colorCode": "Código de colores de las parcelas:",
-        "linkable": "parcela que puede asociarse",
-        "linked": "parcela asociada",
-        "step1": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del topónimo",
         "step2": "En el menú que aparece, elija <editItem>Modificar</editItem>",
+        "step3": "Cambie el nombre o desplace el <marker></marker> en el mapa y haga clic en <successButton>Guardar</successButton>",
+        "title": "Modificar un topónimo"
+      },
+      "link": {
+        "step1": "Haga clic en el topónimo para abrirlo",
+        "step2": "Haga clic en <addButton>Asociar números</addButton>",
+        "step3": "Seleccione los números <b>Con una vía</b> — elija una vía y después algunos o todos sus números — o <b>Dibujando el contorno</b> a su alrededor en el mapa",
+        "step4": "Haga clic en <successButton>Guardar</successButton>",
+        "title": "Asociar números a un topónimo"
+      },
+      "moreButtonStep": "Haga clic en el botón <moreButton></moreButton> a la derecha del topónimo",
+      "openList": "Abra la pestaña <b>Topónimos</b> en la parte superior del menú lateral.",
+      "parcelles": {
         "step3": "En el mapa, haga clic en la parcela o parcelas que desea asociar al topónimo",
-        "step4": "Para guardar las parcelas, haga clic en el botón <successButton>Guardar</successButton>",
-        "title": "Asociar parcelas",
-        "unlinkable": "parcela que puede desasociarse"
+        "step4": "Haga clic en <successButton>Guardar</successButton>",
+        "title": "Asociar parcelas"
       },
       "problems": {
-        "cannotAddOrDelete": "No consigo añadir o eliminar un topónimo"
-      },
-      "videoTitle": "Creación / modificación de un topónimo:"
+        "cannotAddOrDelete": "No puedo añadir ni eliminar un topónimo"
+      }
     },
     "unauthorized": {
-      "checkBadge": "Asegúrese de que <badge>Edición imposible</badge> no aparezca arriba a la derecha de la pantalla.",
-      "fix": "Sin embargo, si usted es el propietario, basta con hacer clic en el enlace que recibió por correo al crear su Base de Direcciones Local.",
-      "meaning": "Indica que no ha iniciado sesión o que no tiene permisos para modificar esta Base de Direcciones Local."
-    },
-    "video": {
-      "allTutorials": "Vea todos los tutoriales en vídeo",
-      "iframeTitle": "Creación de una Base de Direcciones Local"
+      "fix": "Vuelva a abrirla en el navegador en el que la creó, o con el enlace de administración compartido por uno de sus administradores (<b>Menu</b> › <b>Ajustes</b> › <b>Compartir acceso</b>).",
+      "readOnly": "Si el menú lateral muestra <em>Está en modo de solo lectura</em>, está consultando la Base de Direcciones Local sin acceso de administrador."
     },
     "voies": {
       "add": {
-        "step1": "Haga clic en el botón <addButton>Añadir una vía</addButton>",
-        "step2": "Introduzca el nombre de la vía que desea crear en el campo <em>Nombre de la vía…</em>",
-        "step3": "Para terminar, haga clic en el botón <successButton>Añadir</successButton>",
+        "step1": "Haga clic en el botón <addIconButton></addIconButton> junto al campo de búsqueda",
+        "step2": "Introduzca el nombre en el campo <em>Nombre de la vía</em>",
+        "step3": "Elija el <em>Tipo de numeración</em>: <b>Numérica</b> (1, 2, 3…) o <b>Métrica</b> (números según la distancia desde el inicio de la vía)",
+        "step4": "Haga clic en <successButton>Guardar</successButton>",
         "title": "Añadir una vía"
       },
-      "convert": {
-        "intro": "Puede transformar una vía en topónimo si esta no contiene ningún número.",
-        "step1": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del nombre de la vía",
-        "step2": "En el menú que aparece, elija <convertButton>Convertir en vía sin direcciones</convertButton>",
-        "step3": "Para terminar, confirme su elección haciendo clic en <primaryButton>Confirmar</primaryButton>",
-        "step4": "Se le redirigirá a la edición del nuevo topónimo",
-        "title": "Convertir una vía en vía sin direcciones"
+      "certify": {
+        "step2": "En el menú que aparece, elija <certifyItem>Certificar</certifyItem>",
+        "step3": "Confirme para certificar todas las direcciones de la vía",
+        "title": "Certificar todos los números de una vía"
       },
       "delete": {
-        "step1": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del nombre de la vía",
         "step2": "En el menú que aparece, elija <deleteItem>Eliminar…</deleteItem>",
-        "step3": "Para terminar, confirme su elección haciendo clic en <dangerButton>Eliminar</dangerButton>",
+        "step3": "Confirme haciendo clic en <dangerButton>Eliminar</dangerButton>. La vía y sus números van a la <b>Papelera</b> (en el <b>Menu</b>), desde donde puede restaurarlos.",
         "title": "Eliminar una vía"
       },
-      "openList": "Muestre la lista de vías de un municipio haciendo clic en su nombre, arriba a la izquierda de la pantalla.",
+      "moreButtonStep": "Haga clic en el botón <moreButton></moreButton> a la derecha de la vía",
+      "openList": "Abra la pestaña <b>Vías</b> en la parte superior del menú lateral.",
       "problems": {
-        "cannotAddOrDelete": "No consigo añadir o eliminar una vía"
+        "cannotAddOrDelete": "No puedo añadir ni eliminar una vía"
       },
       "rename": {
-        "step1": "Haga clic en el nombre de la vía",
-        "step2": "Edite el nombre de la vía",
-        "step3": "Para terminar, haga clic en <successButton>Guardar</successButton>",
-        "title": "Renombrar una vía"
+        "step2": "En el menú que aparece, elija <editItem>Modificar</editItem>",
+        "step3": "Cambie el nombre y haga clic en <successButton>Guardar</successButton>",
+        "title": "Cambiar el nombre de una vía"
       },
-      "videoTitle": "Creación / modificación de una vía:",
+      "suggestions": {
+        "content": "Una <bulb></bulb> junto a una vía indica que el editor tiene una sugerencia sobre ella: por ejemplo, varias vías con el mismo nombre, que pueden fusionarse, o una vía sin números, que puede convertirse en topónimo.",
+        "handle": "Para revisarlas una tras otra, haga clic en el botón <filterButton></filterButton>, elija <b>Con sugerencias</b> y después <b>Tratar las sugerencias</b>. El mismo filtro muestra también las vías <b>Sin certificación</b>.",
+        "title": "Sugerencias de calidad"
+      },
       "view": {
-        "fromMap": "Desde el mapa",
-        "fromMapStep": "Haga clic en el nombre de la vía o en uno de sus números",
-        "fromSidebar": "Desde el menú lateral",
-        "step1": "Haga clic en el botón <moreButton></moreButton> situado a la derecha del nombre de la vía",
-        "step2": "En el menú que aparece, elija <viewItem>Consultar</viewItem>",
+        "fromList": "Haga clic en el nombre de la vía para abrir su lista de números",
+        "fromMap": "En el mapa también puede hacer clic en el nombre de la vía o en uno de sus números",
+        "fromMenu": "O elija <viewItem>Consultar</viewItem> en el menú <moreButton></moreButton> para centrar el mapa en ella",
         "title": "Consultar una vía"
       }
     }

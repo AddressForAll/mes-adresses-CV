@@ -1,108 +1,80 @@
-import {
-  Pane,
-  OrderedList,
-  ListItem,
-  Button,
-  Strong,
-  Paragraph,
-  Tab,
-  CogIcon,
-  PlusIcon,
-} from "evergreen-ui";
+import { useContext } from "react";
+import { Alert, Pane, OrderedList, ListItem, Paragraph } from "evergreen-ui";
 import { useTranslations } from "next-intl";
 
+import CountryContext from "@/contexts/country";
 import BALRecovery from "@/components/bal-recovery/bal-recovery";
 import Tuto from "@/components/help/tuto";
 import Unauthorized from "@/components/help/tuto/unauthorized";
 import Problems from "@/components/help/help-tabs/problems";
-import {
-  VideoContainer,
-  PEERTUBE_LINK,
-} from "@/components/help/video-container";
+import HelpScreenshot from "@/components/help/help-screenshot";
+import helpTags from "@/components/help/tags";
 
 function BaseLocale() {
   const t = useTranslations("help.baseLocale");
-
-  // Inline markup used by the help copy. Keeping the components here (rather
-  // than in the catalog) is what lets a translator move a button or an
-  // emphasised term to wherever their language needs it in the sentence.
-  const tags = {
-    b: (chunks: React.ReactNode) => <b>{chunks}</b>,
-    em: (chunks: React.ReactNode) => (
-      <Strong size={500} fontStyle="italic">
-        {chunks}
-      </Strong>
-    ),
-    tab: (chunks: React.ReactNode) => <Tab isSelected>{chunks}</Tab>,
-    createButton: (chunks: React.ReactNode) => (
-      <Button
-        marginX={4}
-        appearance="primary"
-        intent="success"
-        iconAfter={PlusIcon}
-      >
-        {chunks}
-      </Button>
-    ),
-    saveButton: (chunks: React.ReactNode) => (
-      <Button marginX={4} appearance="primary">
-        {chunks}
-      </Button>
-    ),
-    cog: () => (
-      <span>
-        <CogIcon marginX={4} />
-      </span>
-    ),
-    mail: (chunks: React.ReactNode) => (
-      <a href="mailto:adresse@data.gouv.fr">{chunks}</a>
-    ),
-  };
+  const { countryProfile } = useContext(CountryContext);
 
   return (
     <Pane>
-      <VideoContainer
-        title={t("videoTitle")}
-        link={`${PEERTUBE_LINK}/w/f2b6yiXosmfoKkmyF4YLtE`}
-      />
-      <Tuto title={t("create.title")}>
+      <Tuto title={t("about.title")}>
         <Paragraph marginTop="default">
-          {t.rich("create.intro", tags)}
+          {t.rich("about.content", helpTags)}
         </Paragraph>
-        <OrderedList margin={8}>
-          <ListItem>{t.rich("create.step1", tags)}</ListItem>
-          <ListItem>{t("create.step2")}</ListItem>
-          <ListItem>{t("create.step3")}</ListItem>
-          <ListItem>{t.rich("create.step4", tags)}</ListItem>
-          <ListItem>{t.rich("create.step5", tags)}</ListItem>
-        </OrderedList>
+        <Paragraph marginTop="default">
+          {t.rich("about.countryLanguage", helpTags)}
+        </Paragraph>
       </Tuto>
 
-      <Tuto title={t("import.title")}>
+      <Tuto title={t("create.title")}>
         <Paragraph marginTop="default">
-          {t.rich("import.intro", tags)}
+          {t.rich("create.intro", helpTags)}
         </Paragraph>
         <OrderedList margin={8}>
-          <ListItem>{t.rich("import.step1", tags)}</ListItem>
-          <ListItem>{t.rich("import.step2", tags)}</ListItem>
-          <ListItem>{t("import.step3")}</ListItem>
-          <ListItem>{t.rich("import.step4", tags)}</ListItem>
+          <ListItem>
+            {t.rich("create.step1", helpTags)}
+            <HelpScreenshot name="newTerritory" />
+          </ListItem>
+          <ListItem>
+            {t.rich("create.step2", helpTags)}
+            <HelpScreenshot name="newImport" />
+          </ListItem>
+          <ListItem>
+            {t.rich("create.step3", helpTags)}
+            <HelpScreenshot name="newDetails" />
+          </ListItem>
         </OrderedList>
+        <Paragraph>{t.rich("create.demo", helpTags)}</Paragraph>
+      </Tuto>
+
+      <Tuto title={t("existing.title")}>
+        <Paragraph marginTop="default">
+          {t.rich("existing.content", helpTags)}
+        </Paragraph>
+        <HelpScreenshot name="publicBals" />
+      </Tuto>
+
+      <Tuto title={t("access.title")}>
+        <Paragraph marginTop="default">
+          {t.rich("access.content", helpTags)}
+        </Paragraph>
+        {!countryProfile.hasAccessRecovery && (
+          <Alert intent="warning" marginTop={16} title={t("access.warning")} />
+        )}
       </Tuto>
 
       <Tuto title={t("administer.title")}>
         <Paragraph marginTop="default">
-          {t.rich("administer.intro", tags)}
+          {t.rich("administer.intro", helpTags)}
         </Paragraph>
-        <Paragraph marginTop="default">{t("administer.youCan")}</Paragraph>
         <OrderedList margin={8}>
           <ListItem>{t("administer.item1")}</ListItem>
           <ListItem>{t("administer.item2")}</ListItem>
           <ListItem>{t("administer.item3")}</ListItem>
+          <ListItem>{t("administer.item4")}</ListItem>
         </OrderedList>
-
+        <HelpScreenshot name="settings" />
         <Paragraph marginTop="default">
-          {t.rich("administer.outro", tags)}
+          {t.rich("administer.outro", helpTags)}
         </Paragraph>
       </Tuto>
 
@@ -111,11 +83,11 @@ function BaseLocale() {
 
         <Tuto title={t("problems.communeNotFound.title")}>
           <Paragraph marginTop="default">
-            {t.rich("problems.communeNotFound.content", tags)}
+            {t.rich("problems.communeNotFound.content", helpTags)}
           </Paragraph>
         </Tuto>
 
-        <BALRecovery />
+        {countryProfile.hasAccessRecovery && <BALRecovery />}
       </Problems>
     </Pane>
   );

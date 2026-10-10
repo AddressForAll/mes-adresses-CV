@@ -518,242 +518,248 @@
     }
   },
   "header": {
-    "addressingGuides": "Guides de l’adressage",
     "help": "Besoin d’aide",
-    "logoAlt": "Page d’accueil du site mes-adresses.data.gouv.fr",
-    "videoTutorials": "Tutoriels vidéos"
+    "logoAlt": "Page d’accueil du site mes-adresses.data.gouv.fr"
   },
   "help": {
     "baseLocale": {
+      "about": {
+        "content": "Une Base Adresse Locale recense toutes les adresses d’une commune : ses <b>voies</b>, ses <b>toponymes</b> et ses <b>numéros</b>, chacun positionné sur la carte. Mes Adresses permet à la commune — ou à toute personne qui travaille avec elle — de la constituer et de la tenir à jour.",
+        "countryLanguage": "Choisissez le pays dans lequel vous travaillez avec le sélecteur en haut de la page. Le sélecteur de langue, juste à côté, ne change que la langue de l’interface : vous pouvez par exemple éditer une commune des États-Unis en portugais.",
+        "title": "Qu’est-ce qu’une Base Adresse Locale ?"
+      },
+      "access": {
+        "content": "Votre accès en édition est enregistré dans ce navigateur, et vos Bases Adresses Locales sont listées sur sa page d’accueil. Pour éditer depuis un autre appareil ou donner accès à un collègue, ouvrez le <menuButton>Menu</menuButton>, puis dans <b>Paramètres</b> cliquez sur <shareButton>Partage d’accès</shareButton> : vous obtenez le lien d’administration et son QR code.",
+        "title": "Conserver l’accès à votre Base Adresse Locale",
+        "warning": "Hors de France, un accès perdu ne peut pas encore être récupéré par email : conservez le lien d’administration en lieu sûr."
+      },
       "administer": {
-        "intro": "Accédez aux paramètres de votre Base Adresse Locale en cliquant sur l’icône <cog></cog> située en haut à droite de votre écran. Puis choissez «Paramètres».",
-        "item1": "Changer le nom de votre Base Adresse Locale",
-        "item2": "Ajouter ou supprimer des collaborateurs",
-        "item3": "Télécharger vos adresses au format .csv",
-        "outro": "Une fois vos réglages terminés, cliquez sur <saveButton>Enregistrer les changements</saveButton>",
-        "title": "Administrer votre Base Adresse Locale",
-        "youCan": "Il vous sera possible de :"
+        "intro": "Dans l’éditeur, cliquez sur <menuButton>Menu</menuButton> en haut à droite. L’onglet <b>Paramètres</b> vous permet de :",
+        "item1": "renommer la Base Adresse Locale",
+        "item2": "ajouter ou retirer des adresses email d’administrateurs",
+        "item3": "ajouter des fonds de carte",
+        "item4": "choisir les alertes de qualité affichées",
+        "outro": "Cliquez ensuite sur <primaryButton>Enregistrer les changements</primaryButton>. L’onglet <b>Corbeille</b> liste les voies, toponymes et numéros supprimés pour que vous puissiez les restaurer.",
+        "title": "Administrer votre Base Adresse Locale"
       },
       "create": {
-        "intro": "Sur la page <b>Nouvelle Base Adresse Locale</b>, sélectionnez l’onglet <tab>Créer</tab>",
-        "step1": "Indiquez le nom de votre Base Adresse Locale dans le champ <em>Nom</em>. Il vous permettra de pouvoir identifier votre Base Adresse Locale.",
-        "step2": "Indiquez l’adresse email de votre mairie ou de l’administrateur de la Base Adresse Locale. C’est cette adresse qui recevra le lien permettant d’accèder à l’édition de votre Base Adresse Locale.",
-        "step3": "Recherchez votre commune puis sélectionnez la dans la liste des suggestions.",
-        "step4": "Si vous souhaitez partir de zéro, décochez la case <em>Importer les voies et numéros depuis la BAN</em>.",
-        "step5": "Pour terminer, cliquez sur le bouton <createButton>Créer la Base Adresse Locale</createButton>",
-        "title": "Créer une nouvelle Base Adresse Locale"
+        "demo": "Vous voulez simplement essayer l’éditeur ? À la dernière étape, activez <em>Créer un Base locale de Demo ?</em> : aucune adresse email d’administrateur n’est alors nécessaire.",
+        "intro": "Sur la page d’accueil, cliquez sur <b>Créer une Base Adresse Locale</b>. La création se fait en trois étapes :",
+        "step1": "<b>Choix de la commune.</b> Aux États-Unis, choisissez l’<em>État</em>, le <em>Comté</em>, puis la <em>Ville ou localité</em> — ou le comté entier. Au Brésil, choisissez l’<em>État</em>, puis la <em>Municipalité</em>. En France, recherchez la commune par son nom. Cliquez ensuite sur <button>Créer une nouvelle Base Adresse Locale</button>.",
+        "step2": "<b>Import des données.</b> Choisissez votre point de départ : une Base Adresse Locale vide, ou un fichier CSV au format BAL (10 Mo maximum). En France, vous pouvez aussi partir des adresses déjà présentes dans la Base Adresse Nationale. Cliquez ensuite sur <primaryButton>Suivant</primaryButton>.",
+        "step3": "<b>Informations sur la BAL.</b> Vérifiez le nom proposé et saisissez au moins une adresse email d’administrateur, puis cliquez sur <primaryButton>Créer une Base Adresse Locale</primaryButton>.",
+        "title": "Créer une Base Adresse Locale"
       },
-      "import": {
-        "intro": "Sur la page <b>Nouvelle Base Adresse Locale</b>, sélectionnez l’onglet <tab>Importer un fichier CSV</tab>",
-        "step1": "Sélectionnez ou déposez votre fichier au format <b>csv</b>. Attention ce fichier ne doit pas dépasser 10 Mo.",
-        "step2": "Indiquez le nom de votre Base Adresse Locale dans le champ <em>Nom</em>. Il vous permettra de pouvoir identifier votre Base Adresse Locale.",
-        "step3": "Indiquez l’adresse email de votre mairie ou de l’administrateur de la Base Adresse Locale. C’est cette adresse qui recevra le lien permettant d’accèder à l’édition de votre Base Adresse Locale.",
-        "step4": "Pour terminer, cliquez sur le bouton <createButton>Créer la Base Adresse Locale</createButton>",
-        "title": "Importer une Base Adresse Locale"
+      "existing": {
+        "content": "Si des Bases Adresses Locales existent déjà pour la commune choisie, la première étape les liste pour que vous puissiez en ouvrir une plutôt que de repartir de zéro. Certains territoires ont été préchargés à partir des données ouvertes d’Overture Maps : ils apparaissent sur la page d’accueil sous <b>Explorer les Bases Adresses Locales existantes</b>, où chacun peut les consulter en lecture seule.",
+        "title": "Une Base Adresse Locale existe déjà pour ma commune"
       },
       "problems": {
-        "cannotEdit": "Je n’arrive pas à éditer ma BAL",
+        "cannotEdit": "Je ne peux pas modifier ma Base Adresse Locale",
         "communeNotFound": {
-          "content": "Si votre commune est une nouvelle commune issue d’une fusion, alors il est possible qu’elle n’apparaisse pas dans la liste des propositions. Si c’est votre cas, vous pouvez nous contacter sur <mail>adresse@data.gouv.fr</mail>",
+          "content": "Vérifiez d’abord que le bon pays est sélectionné en haut de la page. Hors de France, les listes d’États et de communes proviennent des limites administratives d’Overture Maps : quelques communes y manquent et ne peuvent pas encore être sélectionnées.",
           "title": "Je ne trouve pas ma commune"
         }
-      },
-      "videoTitle": "Création d’une Base Adresse Locale :"
+      }
     },
-    "contactUs": "Contactez nous sur",
     "havingAProblem": "Vous rencontrez un problème ?",
-    "noSolutionFound": "Vous n’avez pas trouvé la solution à votre problème ?",
     "numeros": {
       "add": {
-        "dragMarker": "Un <marker></marker> est apparu au centre de la carte, déplacez le à l’endroit souhaité à l’aide de votre souris",
-        "finish": "Pour terminer, cliquez sur le bouton <certifyButton>Certifier et enregister</certifyButton> si vous validez cette adresse ou <saveButton>Enregister</saveButton> pour vous laisser le temps de vérifier avant de certifier.",
-        "fromMapStep": "Cliquez sur le bouton <addIconButton></addIconButton>",
+        "dragMarker": "Un <marker></marker> apparaît au centre de la carte : faites-le glisser au bon endroit",
+        "finish": "Enfin, cliquez sur <certifyButton>Certifier et enregistrer</certifyButton> si vous êtes sûr de cette adresse, ou sur <saveButton>Enregistrer</saveButton> pour la vérifier plus tard.",
+        "fromMapStep": "Cliquez sur le bouton <addIconButton></addIconButton> (<b>Créer une adresse</b>) à droite de la carte",
         "fromSidebarStep": "Cliquez sur le bouton <addButton>Ajouter un numéro</addButton>",
-        "number": "Indiquez le numéro dans le champ <field>Numéro</field>",
-        "positionType": "Sélectionnez la position grâce au menu déroulant <field>Type</field>",
-        "selectVoie": "Recherchez la voie à laquelle le numéro appartient et sélectionnez la. À noter que si une voie est déjà sélectionnée alors elle vous sera proposée par défaut. Vous pouvez également créer une nouvelle voie directement en cliquant sur <createVoieButton>Créer une voie</createVoieButton>. Vous serez automatiquement redirigé vers cette voie.",
-        "suffix": "Indiquez le suffixe (exemple: bis) dans le champ <field>Suffixe</field>",
+        "number": "Saisissez le <b>Numéro</b> et, si besoin, un <b>Suffixe</b> (par exemple : A, bis)",
+        "numberless": "Si l’adresse n’a pas de numéro, cochez plutôt <b>Adresse sans numéro</b>. Vous pouvez conserver la désignation utilisée localement — comme « s/n » ou le nom d’une maison — dans le champ <b>Désignation d’origine</b>.",
+        "positionType": "Choisissez le <b>Type</b> de position (entrée, bâtiment…). Utilisez <b>Ajouter une position au numéro</b> pour en enregistrer plusieurs.",
+        "selectVoie": "Vérifiez la <b>Voie</b> : la voie en cours est proposée par défaut. Vous pouvez aussi en créer une directement avec <button>Créer une voie</button>.",
         "title": "Ajouter un numéro"
       },
-      "chooseDelete": "Dans le menu qui vient d’apparaître, choisissez <deleteItem>Supprimer…</deleteItem>",
-      "chooseEdit": "Dans le menu qui vient d’apparaître, choisissez <editItem>Modifier</editItem>",
+      "bulk": {
+        "step1": "Dans la liste des numéros d’une voie, cochez ceux que vous souhaitez modifier",
+        "step2": "Utilisez les <b>Actions groupées</b> qui apparaissent pour changer leur voie, leur toponyme ou leur type de position, ou pour les supprimer",
+        "title": "Modifier plusieurs numéros à la fois"
+      },
+      "chooseDelete": "Dans le menu qui apparaît, choisissez <deleteItem>Supprimer…</deleteItem>",
+      "chooseEdit": "Dans le menu qui apparaît, choisissez <editItem>Modifier</editItem>",
       "comment": {
-        "icon": "Vous remarquerez un <commentIcon></commentIcon> sur la ligne du numéro. Le survoler vous permettra de faire apparaitre le commentaire.",
-        "step3": "Remplissez le champ de texte <field>Commentaire</field> afin de laisser une note concernant le numéro",
-        "step4": "Pour enregistrer votre commentaire, cliquez sur le bouton <certifyButton>Certifier et enregister</certifyButton> ou <saveButton>Enregister</saveButton> si vous ne souhaitez pas certifier cette adresse pour le moment.",
+        "icon": "Une <commentIcon></commentIcon> apparaît alors sur la ligne du numéro : survolez-la pour lire le commentaire.",
+        "step3": "Remplissez le champ <b>Commentaire</b>",
+        "step4": "Cliquez sur <certifyButton>Certifier et enregistrer</certifyButton>, ou sur <saveButton>Enregistrer</saveButton> si vous ne souhaitez pas encore certifier cette adresse",
         "title": "Ajouter une note ou un commentaire"
       },
       "delete": {
-        "rightClick": "Faites un clique droit sur le numéro",
+        "bin": "Les numéros supprimés vont dans la <b>Corbeille</b> (dans le <b>Menu</b>), d’où vous pouvez les restaurer.",
+        "rightClick": "Faites un clic droit sur le numéro",
         "title": "Supprimer un numéro"
       },
       "edit": {
         "clickNumber": "Cliquez sur le numéro",
-        "title": "Éditer un numéro",
-        "whatYouCanChange": "Il vous est désormais possible de modifier le numéro, le suffixe, le type d’adresse ou encore sa position en déplaçant le <marker></marker> sur la carte et de certifier votre adresse."
+        "title": "Modifier un numéro",
+        "whatYouCanChange": "Modifiez le numéro, sa voie, son toponyme ou ses positions — en déplaçant le <marker></marker> sur la carte — puis enregistrez."
       },
       "fromMap": "Depuis la carte",
       "fromSidebar": "Depuis le menu latéral",
       "goodToKnow": {
-        "content": "Pour renforcer la qualité des adresses, nous vous recommandons de certifier la totalité de vos adresses. <b>Une adresse certifiée est déclarée authentique par la mairie</b>, ce qui renforce la qualité de la Base Adresse Locale et facilite sa réutilisation.",
+        "content": "Certifiez vos adresses une fois vérifiées. <b>Une adresse certifiée est déclarée fiable par la commune</b>, ce qui facilite la réutilisation de la Base Adresse Locale.",
         "title": "Bon à savoir"
       },
-      "moreButtonStep": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du numéro",
-      "openList": "Affichez la liste des numéros d’une voie en la sélectionnant depuis le menu latéral ou en cliquant sur son nom ou un de ses numéros directement depuis la carte.",
+      "moreButtonStep": "Cliquez sur le bouton <moreButton></moreButton> à droite du numéro",
+      "openList": "Affichez les numéros d’une voie en cliquant dessus dans l’onglet <b>Voies</b>, ou en cliquant sur son nom ou l’un de ses numéros sur la carte.",
       "parcelles": {
-        "colorCode": "Code couleur des parcelles :",
-        "linkable": "parcelle pouvant être associée",
-        "linked": "parcelle associée",
         "step3": "Depuis la carte, cliquez sur la ou les parcelles que vous souhaitez associer au numéro",
-        "step4": "Pour enregistrer les parcelles, cliquez sur le bouton <certifyButton>Certifier et enregister</certifyButton> ou <saveButton>Enregister</saveButton> si vous ne souhaitez pas certifier cette adresse pour le moment.",
-        "title": "Associer des parcelles",
-        "unlinkable": "parcelle pouvant être dissociée"
+        "step4": "Cliquez sur <certifyButton>Certifier et enregistrer</certifyButton>, ou sur <saveButton>Enregistrer</saveButton>",
+        "title": "Associer des parcelles"
       },
       "problems": {
-        "cannotAddOrDelete": "Je n’arrive pas à ajouter/supprimer un numéro",
+        "cannotAddOrDelete": "Je ne peux pas ajouter ou supprimer un numéro",
         "voieNotFound": {
-          "content": "Avant de créer un numéro depuis la carte, assurez vous que la voie à laquelle il appartient a bien été créée.",
-          "title": "Je ne trouve pas de voie lorsque j’ajoute un numéro depuis la carte"
+          "content": "Vérifiez que la voie a bien été créée au préalable, ou créez-la directement depuis le formulaire du numéro.",
+          "title": "Je ne trouve pas la voie lors de l’ajout d’un numéro depuis la carte"
         }
       },
       "uncertify": {
-        "step2": "En bas de page, cliquez sur le bouton <dangerButton>Ne plus certifier et enregistrer</dangerButton>",
+        "step3": "En bas du formulaire, cliquez sur <dangerButton>Ne plus certifier et enregistrer</dangerButton>",
         "title": "Ne plus certifier une adresse"
-      },
-      "videoTitle": "Création / Modification d’un numéro :"
+      }
     },
-    "or": "ou",
-    "publication": {
-      "conflict": {
-        "explanation": "Il peut arriver qu’une autre Base Adresse Locale soit déjà synchronisée avec la Base Adresse Nationale. Dans ce cas, votre Base Adresse Locale va entrer en conflit avec celle-ci.",
-        "force": "En cliquant sur <dangerButton>Forcer la publication</dangerButton> votre Base Adresse Locale sera publiée et remplacera celle actuellement en place.",
-        "title": "En cas de conflit"
+    "parcelles": {
+      "colorCode": "Code couleur des parcelles :",
+      "linkable": "parcelle pouvant être associée",
+      "linked": "parcelle associée",
+      "unlinkable": "parcelle pouvant être dissociée"
+    },
+    "screenshots": {
+      "downloads": "L’onglet Téléchargements du Menu",
+      "newDetails": "Étape 3 : nom et adresse email de l’administrateur de la Base Adresse Locale",
+      "newImport": "Étape 2 : choix du point de départ de la Base Adresse Locale",
+      "newTerritory": "Étape 1 : choix d’une commune des États-Unis avec les listes État, Comté et Ville ou localité",
+      "numeroForm": "Le formulaire d’ajout d’un numéro",
+      "publicBals": "Bases Adresses Locales préchargées, listées en lecture seule sur la page d’accueil",
+      "settings": "L’onglet Paramètres du Menu",
+      "voieForm": "Le formulaire d’ajout d’une voie",
+      "voiesList": "La liste des voies, avec son champ de recherche et ses boutons de filtre et d’ajout"
+    },
+    "share": {
+      "download": {
+        "comments": "Un export avec commentaires contient tout ce qui y est écrit : évitez d’y saisir des informations personnelles.",
+        "intro": "Ouvrez le <menuButton>Menu</menuButton>, puis l’onglet <b>Téléchargements</b>. Vous pouvez télécharger :",
+        "item1": "la Base Adresse Locale au format CSV (BAL), avec ou sans les commentaires",
+        "item2": "la liste des voies au format CSV",
+        "title": "Télécharger vos adresses"
+      },
+      "editAccess": {
+        "content": "Ouvrez le <menuButton>Menu</menuButton>, puis dans <b>Paramètres</b> cliquez sur <shareButton>Partage d’accès</shareButton> pour obtenir le lien d’administration et son QR code — pratique pour continuer sur un téléphone, sur le terrain.",
+        "title": "Partager l’accès en édition",
+        "warning": "Toute personne disposant de ce lien peut modifier la Base Adresse Locale : ne le partagez qu’avec des personnes de confiance."
       },
       "problems": {
-        "cannotEdit": "Je n’arrive pas à éditer ma BAL"
+        "cannotEdit": "Je ne peux pas modifier ma Base Adresse Locale"
       },
-      "publish": {
-        "step1": "Cliquez sur le bouton <publishButton>Publier</publishButton>",
-        "step2": "Authentifiez-vous via le courriel officiel de la mairie ou a votre compte Proconnect",
-        "step3": "Une fois l’habilitation obtenue, vous serez automatiquement invité à publier votre Base Adresse Locale en cliquant sur <successButton>Publier</successButton>",
-        "title": "Publier sa Base Adresse Locale"
+      "publication": {
+        "content": "En France, une Base Adresse Locale est publiée dans la Base Adresse Nationale. Cette démonstration n’envoie jamais de données à un service public : la publication est désactivée et le bouton <primaryButton>Publier</primaryButton> ne peut pas aboutir.",
+        "draft": "Votre Base Adresse Locale reste un <b>brouillon</b> : vous pouvez continuer à l’éditer et la télécharger à tout moment.",
+        "title": "Et la publication ?"
       },
-      "syncStatuses": {
-        "noHabilitation": "L’habilitation de la Base Adresse Locale n’est pas valide. Il vous faut renouveler celle-ci pour que les nouvelles modifications remontent dans la Base Adresse Nationale.",
-        "outdated": "Des modifications ont été détectées, elles seront automatiquement répercutées dans la Base Adresse Nationale dans les prochaines heures.",
-        "paused": "Vous avez suspendus les mises à jour de votre Base Adresse Locale. Aucune modification ne sera transmise à la Base Adresse Nationale. Vous pouvez relancer les mises à jours à tout moment.",
-        "replaced": "Une autre Base Adresse Locale a remplacé la votre, impossible de mettre à jour automatiquement vos adresses. Vous pouvez forcer la mise à jour afin de remplacer la Base Adresse Locale actuellement en place.",
-        "synced": "Votre Base Adresse Locale est à jour avec la Base Adresse Nationale. Toutes ses adresses sont prises en compte.",
-        "title": "Statuts de synchronisation"
-      },
-      "videoTitle": "Publication de votre Base Adresse Locale :"
+      "viewAccess": {
+        "content": "Partagez l’adresse de la page de l’éditeur telle qu’elle s’affiche dans votre navigateur. Les personnes qui l’ouvrent sans accès administrateur voient la Base Adresse Locale en <b>lecture seule</b>.",
+        "title": "Faire consulter vos adresses"
+      }
     },
-    "readGuides": "Consultez les guides de l’adressage",
     "sidebarTuto": {
       "hidden": "Ce menu peut-être caché afin de laisser plus d’espace à la cartographie.",
       "showAgain": "Pour le faire réapparaitre, cliquez sur le bouton <button></button> en haut à gauche de votre écran.",
       "title": "Je ne vois pas le menu latéral"
     },
     "tabs": {
-      "baseLocale": "Base locale",
+      "baseLocale": "Premiers pas",
       "numeros": "Numéros",
-      "publication": "Publication",
+      "share": "Partage et export",
       "toponymes": "Toponymes",
       "voies": "Voies"
     },
     "title": "Besoin d’aide ?",
     "toponymes": {
+      "about": {
+        "content": "Les toponymes sont des lieux nommés qui ne sont pas des voies numérotées : hameaux, quartiers, lieux-dits, voies sans adresse… Un numéro peut être associé à un toponyme en plus de sa voie.",
+        "title": "Qu’est-ce qu’un toponyme ?"
+      },
       "add": {
-        "step1": "Sélectionnez l‘onglet <tab>Liste des Toponymes</tab>, puis cliquez sur <addButton>Ajouter un toponyme</addButton>",
-        "step2": "Entrez le nom du toponyme dans le champs <muted>Nom du toponyme...</muted>",
-        "step3": "Un <marker></marker> est apparu sur la carte, vous pouvez le déplacer pour assigner une ou plusieurs positions à votre toponyme.<br></br>Vous pouvez préciser le type de position avec le menu déroulant <typeSelect>Segment</typeSelect> Si vous ne souhaitez pas définir de position pour le toponyme, cliquez simplement sur <trash></trash>",
+        "step1": "Cliquez sur le bouton <addIconButton></addIconButton> à côté du champ de recherche",
+        "step2": "Saisissez le nom dans le champ <em>Toponyme</em>",
+        "step3": "Un <marker></marker> apparaît sur la carte : déplacez-le pour positionner le toponyme. Vous pouvez ajouter d’autres positions, ou en retirer une avec <trash></trash>.",
+        "step4": "Cliquez sur <successButton>Enregistrer</successButton>",
         "title": "Ajouter un toponyme"
       },
-      "assign": {
-        "step1": "Cliquez sur le bouton <addButton>Ajouter un numéro</addButton>",
-        "step2": "Sélectionnez la voie du numéro que vous souhaitez assigner",
-        "step3": "Un menu déroulant va s’afficher. Vous pouvez sélectionner un ou plusieurs numéros de la liste. Tous les numéros de la liste seront assignés au toponyme si aucun numéro n’est sélectionné.",
-        "step4": "Pour terminer, cliquez sur le bouton <successButton>Enregistrer</successButton>",
-        "title": "Assigner un numéro à un toponyme"
-      },
       "delete": {
-        "step1": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du nom du toponyme",
-        "step2": "Dans le menu qui vient d’apparaître, choisissez <deleteItem>Supprimer…</deleteItem>",
-        "step3": "Pour terminer, confirmez votre choix en cliquant sur <dangerButton>Supprimer</dangerButton>",
+        "step2": "Dans le menu qui apparaît, choisissez <deleteItem>Supprimer…</deleteItem>",
+        "step3": "Confirmez en cliquant sur <dangerButton>Supprimer</dangerButton>",
         "title": "Supprimer un toponyme"
       },
       "edit": {
-        "step1": "Cliquez sur le nom du toponyme",
-        "step2": "Éditez le nom du toponyme",
-        "step3": "Vous pouvez également modifier la position du toponyme en déplaçant le <marker></marker> sur la carte",
-        "step4": "Vous pouvez ajouter des positions avec le bouton <addButton>Ajouter une position au toponyme</addButton> ou en supprimer avec le bouton <trash></trash>",
-        "step5": "Pour terminer, cliquez sur <successButton>Enregistrer</successButton>",
-        "title": "Éditer un toponyme"
+        "step2": "Dans le menu qui apparaît, choisissez <editItem>Modifier</editItem>",
+        "step3": "Modifiez le nom ou déplacez le <marker></marker> sur la carte, puis cliquez sur <successButton>Enregistrer</successButton>",
+        "title": "Modifier un toponyme"
       },
-      "openList": "Affichez la liste des toponymes d’une commune en cliquant sur le nom de celle-ci en haut à gauche de votre écran",
+      "link": {
+        "step1": "Cliquez sur le toponyme pour l’ouvrir",
+        "step2": "Cliquez sur <addButton>Associer des numéros</addButton>",
+        "step3": "Sélectionnez les numéros <b>Avec une voie</b> — choisissez une voie, puis tout ou partie de ses numéros — ou <b>En dessinant le contour</b> autour d’eux sur la carte",
+        "step4": "Cliquez sur <successButton>Enregistrer</successButton>",
+        "title": "Associer des numéros à un toponyme"
+      },
+      "moreButtonStep": "Cliquez sur le bouton <moreButton></moreButton> à droite du toponyme",
+      "openList": "Ouvrez l’onglet <b>Toponymes</b> en haut du menu latéral.",
       "parcelles": {
-        "colorCode": "Code couleur des parcelles :",
-        "linkable": "parcelle pouvant être associée",
-        "linked": "parcelle associée",
-        "step1": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du toponyme",
-        "step2": "Dans le menu qui vient d’apparaître, choisissez <editItem>Modifier</editItem>",
         "step3": "Depuis la carte, cliquez sur la ou les parcelles que vous souhaitez associer au toponyme",
-        "step4": "Pour enregistrer les parcelles, cliquez sur le bouton <successButton>Enregistrer</successButton>",
-        "title": "Associer des parcelles",
-        "unlinkable": "parcelle pouvant être dissociée"
+        "step4": "Cliquez sur <successButton>Enregistrer</successButton>",
+        "title": "Associer des parcelles"
       },
       "problems": {
-        "cannotAddOrDelete": "Je n’arrive pas à ajouter/supprimer un toponyme"
-      },
-      "videoTitle": "Création / Modification d’un toponyme :"
+        "cannotAddOrDelete": "Je ne peux pas ajouter ou supprimer un toponyme"
+      }
     },
     "unauthorized": {
-      "checkBadge": "Assurez vous que <badge>Édition impossible</badge> n’apparaisse pas en haut à droite de votre écran.",
-      "fix": "Cependant, si vous en êtes bien le propriétaire, il vous suffit de cliquer sur le lien qui vous a été envoyé par mail lors de la création de votre BAL.",
-      "meaning": "Il indique que vous n’êtes pas authentifié ou que vous n’avez pas les droits pour modifier cette BAL."
-    },
-    "video": {
-      "allTutorials": "Retouvez tous les tutoriels vidéos",
-      "iframeTitle": "Création d’une Base Adresse Locale"
+      "fix": "Rouvrez-la dans le navigateur où vous l’avez créée, ou avec le lien d’administration partagé par l’un de ses administrateurs (<b>Menu</b> › <b>Paramètres</b> › <b>Partage d’accès</b>).",
+      "readOnly": "Si le menu latéral affiche <em>Vous êtes en mode consultation</em>, vous consultez la Base Adresse Locale sans accès administrateur."
     },
     "voies": {
       "add": {
-        "step1": "Cliquez sur le bouton <addButton>Ajouter une voie</addButton>",
-        "step2": "Entrez le nom de la voie que vous souhaitez créer dans le champ <em>Nom de la voie…</em>",
-        "step3": "Pour terminer, cliquez sur le bouton <successButton>Ajouter</successButton>",
+        "step1": "Cliquez sur le bouton <addIconButton></addIconButton> à côté du champ de recherche",
+        "step2": "Saisissez le nom dans le champ <em>Nom de la voie</em>",
+        "step3": "Choisissez le <em>Type de numérotation</em> : <b>Numérique</b> (1, 2, 3…) ou <b>Métrique</b> (numéros calculés d’après la distance depuis le début de la voie)",
+        "step4": "Cliquez sur <successButton>Enregistrer</successButton>",
         "title": "Ajouter une voie"
       },
-      "convert": {
-        "intro": "Vous pouvez transformer une voie en toponyme si cette première ne contient aucun numéro.",
-        "step1": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du nom de la voie",
-        "step2": "Dans le menu qui vient d’apparaître, choisissez <convertButton>Convertir en voie sans adresses</convertButton>",
-        "step3": "Pour terminer, confirmez votre choix en cliquant sur <primaryButton>Confirmer</primaryButton>",
-        "step4": "Vous serez redirigé sur l’édition du nouveau toponyme",
-        "title": "Convertir une voie en voie sans adresses"
+      "certify": {
+        "step2": "Dans le menu qui apparaît, choisissez <certifyItem>Certifier</certifyItem>",
+        "step3": "Confirmez pour certifier toutes les adresses de la voie",
+        "title": "Certifier tous les numéros d’une voie"
       },
       "delete": {
-        "step1": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du nom de la voie",
-        "step2": "Dans le menu qui vient d’apparaître, choisissez <deleteItem>Supprimer…</deleteItem>",
-        "step3": "Pour terminer, confirmez votre choix en cliquant sur <dangerButton>Supprimer</dangerButton>",
+        "step2": "Dans le menu qui apparaît, choisissez <deleteItem>Supprimer…</deleteItem>",
+        "step3": "Confirmez en cliquant sur <dangerButton>Supprimer</dangerButton>. La voie et ses numéros vont dans la <b>Corbeille</b> (dans le <b>Menu</b>), d’où vous pouvez les restaurer.",
         "title": "Supprimer une voie"
       },
-      "openList": "Affichez la liste des voies d’une commune en cliquant sur le nom de celle-ci se trouvant en haut à gauche de votre écran.",
+      "moreButtonStep": "Cliquez sur le bouton <moreButton></moreButton> à droite de la voie",
+      "openList": "Ouvrez l’onglet <b>Voies</b> en haut du menu latéral.",
       "problems": {
-        "cannotAddOrDelete": "Je n’arrive pas à ajouter/supprimer une voie"
+        "cannotAddOrDelete": "Je ne peux pas ajouter ou supprimer une voie"
       },
       "rename": {
-        "step1": "Cliquez sur le du nom de la voie",
-        "step2": "Éditez le nom de la voie",
-        "step3": "Pour terminer, cliquez sur <successButton>Enregistrer</successButton>",
+        "step2": "Dans le menu qui apparaît, choisissez <editItem>Modifier</editItem>",
+        "step3": "Modifiez le nom, puis cliquez sur <successButton>Enregistrer</successButton>",
         "title": "Renommer une voie"
       },
-      "videoTitle": "Création / Modification d’une voie :",
+      "suggestions": {
+        "content": "Une <bulb></bulb> à côté d’une voie signifie que l’éditeur a une suggestion à son sujet : par exemple plusieurs voies portant le même nom, qui peuvent être fusionnées, ou une voie sans numéro, qui peut être convertie en toponyme.",
+        "handle": "Pour les passer en revue l’une après l’autre, cliquez sur le bouton <filterButton></filterButton>, choisissez <b>Avec suggestions</b>, puis <b>Traiter les suggestions</b>. Le même filtre liste aussi les voies <b>Sans certification</b>.",
+        "title": "Suggestions de qualité"
+      },
       "view": {
-        "fromMap": "Depuis la carte",
-        "fromMapStep": "Cliquez sur le nom de la voie ou sur l’un de ses numéros",
-        "fromSidebar": "Depuis le menu latéral",
-        "step1": "Cliquez sur le bouton <moreButton></moreButton> se situant à droite du nom de la voie",
-        "step2": "Dans le menu qui vient d’apparaître, choisissez <viewItem>Consulter</viewItem>",
+        "fromList": "Cliquez sur le nom de la voie pour ouvrir sa liste de numéros",
+        "fromMap": "Sur la carte, vous pouvez aussi cliquer sur le nom de la voie ou sur l’un de ses numéros",
+        "fromMenu": "Ou choisissez <viewItem>Consulter</viewItem> dans le menu <moreButton></moreButton> pour centrer la carte sur elle",
         "title": "Consulter une voie"
       }
     }

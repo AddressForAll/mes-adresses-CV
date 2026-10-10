@@ -518,242 +518,248 @@
     }
   },
   "header": {
-    "addressingGuides": "Addressing guides",
     "help": "Need help",
-    "logoAlt": "mes-adresses.data.gouv.fr home page",
-    "videoTutorials": "Video tutorials"
+    "logoAlt": "mes-adresses.data.gouv.fr home page"
   },
   "help": {
     "baseLocale": {
+      "about": {
+        "content": "A Local Address Base lists every address in a municipality: its <b>streets</b>, its <b>place names</b> and its <b>house numbers</b>, each positioned on the map. Mes Adresses lets the municipality — or anyone working with it — build it and keep it up to date.",
+        "countryLanguage": "Choose the country you work in with the selector at the top of the page. The language selector next to it only changes the interface language: you can, for example, edit a United States municipality in Portuguese.",
+        "title": "What is a Local Address Base?"
+      },
+      "access": {
+        "content": "Your editing access is saved in this browser, and your Local Address Bases are listed on its home page. To edit from another device or give a colleague access, open <menuButton>Menu</menuButton>, then in <b>Settings</b> click <shareButton>Share access</shareButton>: you get the administration link and its QR code.",
+        "title": "Keep access to your Local Address Base",
+        "warning": "Outside France, lost access cannot be recovered by email yet: keep the administration link somewhere safe."
+      },
       "administer": {
-        "intro": "Open your Local Address Base settings by clicking the <cog></cog> icon at the top right of your screen, then choose “Settings”.",
-        "item1": "Change the name of your Local Address Base",
-        "item2": "Add or remove collaborators",
-        "item3": "Download your addresses in .csv format",
-        "outro": "Once your settings are done, click <saveButton>Save changes</saveButton>",
-        "title": "Administer your Local Address Base",
-        "youCan": "You will be able to:"
+        "intro": "In the editor, click <menuButton>Menu</menuButton> at the top right. The <b>Settings</b> tab lets you:",
+        "item1": "rename the Local Address Base",
+        "item2": "add or remove administrator email addresses",
+        "item3": "add basemaps",
+        "item4": "choose which quality alerts are shown",
+        "outro": "Then click <primaryButton>Save changes</primaryButton>. The <b>Bin</b> tab lists deleted streets, place names and house numbers so that you can restore them.",
+        "title": "Administer your Local Address Base"
       },
       "create": {
-        "intro": "On the <b>New Local Address Base</b> page, select the <tab>Create</tab> tab",
-        "step1": "Enter the name of your Local Address Base in the <em>Name</em> field. It will let you identify your Local Address Base.",
-        "step2": "Enter the email address of your town hall or of the Local Address Base administrator. This address will receive the link giving access to editing your Local Address Base.",
-        "step3": "Search for your municipality, then select it from the list of suggestions.",
-        "step4": "If you want to start from scratch, uncheck the <em>Import streets and numbers from the National Address Base</em> box.",
-        "step5": "Finally, click the <createButton>Create the Local Address Base</createButton> button",
-        "title": "Create a new Local Address Base"
+        "demo": "Just want to try the editor? At the last step, turn on <em>Create a demo Local Address Base?</em>: no administrator email is needed.",
+        "intro": "On the home page, click <b>Create a Local Address Base</b>. Creation takes three steps:",
+        "step1": "<b>Choose the municipality.</b> In the United States, choose the <em>State</em>, the <em>County</em>, then the <em>City or town</em> — or the whole county. In Brazil, choose the <em>State</em>, then the <em>Municipality</em>. In France, search for the municipality by name. Then click <button>Create a new Local Address Base</button>.",
+        "step2": "<b>Data import.</b> Choose your starting point: an empty Local Address Base, or a CSV file in BAL format (10 MB maximum). In France, you can also start from the addresses already in the National Address Base. Then click <primaryButton>Next</primaryButton>.",
+        "step3": "<b>Local Address Base details.</b> Check the suggested name and enter at least one administrator email address, then click <primaryButton>Create a Local Address Base</primaryButton>.",
+        "title": "Create a Local Address Base"
       },
-      "import": {
-        "intro": "On the <b>New Local Address Base</b> page, select the <tab>Import a CSV file</tab> tab",
-        "step1": "Select or drop your file in <b>csv</b> format. Note that this file must not exceed 10 MB.",
-        "step2": "Enter the name of your Local Address Base in the <em>Name</em> field. It will let you identify your Local Address Base.",
-        "step3": "Enter the email address of your town hall or of the Local Address Base administrator. This address will receive the link giving access to editing your Local Address Base.",
-        "step4": "Finally, click the <createButton>Create the Local Address Base</createButton> button",
-        "title": "Import a Local Address Base"
+      "existing": {
+        "content": "If Local Address Bases already exist for the municipality you choose, the first step lists them so that you can open one instead of starting over. Some territories have been pre-loaded from Overture Maps open data: they appear on the home page under <b>Explore existing Local Address Bases</b>, where anyone can view them in read-only mode.",
+        "title": "A Local Address Base already exists for my municipality"
       },
       "problems": {
         "cannotEdit": "I cannot edit my Local Address Base",
         "communeNotFound": {
-          "content": "If your municipality is a new one resulting from a merger, it may not appear in the list of suggestions. If that is your case, you can contact us at <mail>adresse@data.gouv.fr</mail>",
+          "content": "First check that the right country is selected at the top of the page. Outside France, the lists of states and municipalities come from Overture Maps administrative boundaries: a few municipalities are missing from them and cannot be selected yet.",
           "title": "I cannot find my municipality"
         }
-      },
-      "videoTitle": "Creating a Local Address Base:"
+      }
     },
-    "contactUs": "Contact us at",
     "havingAProblem": "Having a problem?",
-    "noSolutionFound": "Didn’t find a solution to your problem?",
     "numeros": {
       "add": {
-        "dragMarker": "A <marker></marker> has appeared in the centre of the map; drag it to the desired spot with your mouse",
-        "finish": "Finally, click <certifyButton>Certify and save</certifyButton> if you are confident in this address, or <saveButton>Save</saveButton> to give yourself time to check before certifying.",
-        "fromMapStep": "Click the <addIconButton></addIconButton> button",
+        "dragMarker": "A <marker></marker> appears in the centre of the map: drag it to the right spot",
+        "finish": "Finally, click <certifyButton>Certify and save</certifyButton> if you are sure of this address, or <saveButton>Save</saveButton> to check it later.",
+        "fromMapStep": "Click the <addIconButton></addIconButton> button (<b>Create an address</b>) on the right of the map",
         "fromSidebarStep": "Click the <addButton>Add a house number</addButton> button",
-        "number": "Enter the number in the <field>Number</field> field",
-        "positionType": "Select the position using the <field>Type</field> drop-down",
-        "selectVoie": "Search for the street the number belongs to and select it. Note that if a street is already selected, it will be offered by default. You can also create a new street directly by clicking <createVoieButton>Create a street</createVoieButton>. You will be redirected to that street automatically.",
-        "suffix": "Enter the suffix (for example: bis) in the <field>Suffix</field> field",
+        "number": "Enter the <b>Number</b> and, if needed, a <b>Suffix</b> (for example: A, bis)",
+        "numberless": "If the address has no number, tick <b>Address without a number</b> instead. You can keep the designation used locally — such as “s/n” or a house name — in the <b>Source designation</b> field.",
+        "positionType": "Choose the position <b>Type</b> (entrance, building…). Use <b>Add a position to the house number</b> to record several.",
+        "selectVoie": "Check the <b>Street</b>: the current street is offered by default. You can also create one directly with <button>Create a street</button>.",
         "title": "Add a house number"
+      },
+      "bulk": {
+        "step1": "In a street’s list of house numbers, tick the ones you want to change",
+        "step2": "Use the <b>Bulk actions</b> that appear to change their street, place name or position type, or to delete them",
+        "title": "Edit several house numbers at once"
       },
       "chooseDelete": "In the menu that appears, choose <deleteItem>Delete…</deleteItem>",
       "chooseEdit": "In the menu that appears, choose <editItem>Edit</editItem>",
       "comment": {
-        "icon": "You will notice a <commentIcon></commentIcon> on the house number’s row. Hovering over it reveals the comment.",
-        "step3": "Fill in the <field>Comment</field> text field to leave a note about the house number",
-        "step4": "To save your comment, click <certifyButton>Certify and save</certifyButton>, or <saveButton>Save</saveButton> if you do not want to certify this address yet.",
+        "icon": "A <commentIcon></commentIcon> then appears on the house number’s row: hover over it to read the comment.",
+        "step3": "Fill in the <b>Comment</b> field",
+        "step4": "Click <certifyButton>Certify and save</certifyButton>, or <saveButton>Save</saveButton> if you do not want to certify this address yet",
         "title": "Add a note or a comment"
       },
       "delete": {
+        "bin": "Deleted house numbers go to the <b>Bin</b> (in <b>Menu</b>), from which you can restore them.",
         "rightClick": "Right-click the house number",
         "title": "Delete a house number"
       },
       "edit": {
         "clickNumber": "Click the house number",
         "title": "Edit a house number",
-        "whatYouCanChange": "You can now change the number, the suffix, the address type, or its position by moving the <marker></marker> on the map — and certify your address."
+        "whatYouCanChange": "Change the number, its street, its place name or its positions — by moving the <marker></marker> on the map — then save."
       },
       "fromMap": "From the map",
       "fromSidebar": "From the side menu",
       "goodToKnow": {
-        "content": "To improve address quality, we recommend certifying all of your addresses. <b>A certified address is declared authentic by the town hall</b>, which strengthens the quality of the Local Address Base and makes it easier to reuse.",
+        "content": "Certify your addresses once you have checked them. <b>A certified address is declared reliable by the municipality</b>, which makes the Local Address Base easier to reuse.",
         "title": "Good to know"
       },
       "moreButtonStep": "Click the <moreButton></moreButton> button to the right of the house number",
-      "openList": "Display a street’s house numbers by selecting it in the side menu, or by clicking its name or one of its numbers directly on the map.",
+      "openList": "Open a street’s house numbers by clicking it in the <b>Streets</b> tab, or by clicking its name or one of its numbers on the map.",
       "parcelles": {
-        "colorCode": "Parcel colour code:",
-        "linkable": "parcel that can be linked",
-        "linked": "linked parcel",
         "step3": "On the map, click the parcel or parcels you want to link to the house number",
-        "step4": "To save the parcels, click <certifyButton>Certify and save</certifyButton>, or <saveButton>Save</saveButton> if you do not want to certify this address yet.",
-        "title": "Link parcels",
-        "unlinkable": "parcel that can be unlinked"
+        "step4": "Click <certifyButton>Certify and save</certifyButton>, or <saveButton>Save</saveButton>",
+        "title": "Link parcels"
       },
       "problems": {
         "cannotAddOrDelete": "I cannot add or delete a house number",
         "voieNotFound": {
-          "content": "Before creating a house number from the map, make sure the street it belongs to has already been created.",
+          "content": "Make sure the street has been created first, or create it directly from the house number form.",
           "title": "I cannot find a street when adding a house number from the map"
         }
       },
       "uncertify": {
-        "step2": "At the bottom of the page, click the <dangerButton>Stop certifying and save</dangerButton> button",
+        "step3": "At the bottom of the form, click <dangerButton>Stop certifying and save</dangerButton>",
         "title": "Stop certifying an address"
-      },
-      "videoTitle": "Creating / editing a house number:"
+      }
     },
-    "or": "or",
-    "publication": {
-      "conflict": {
-        "explanation": "Another Local Address Base may already be synchronised with the National Address Base. In that case, your Local Address Base will conflict with it.",
-        "force": "By clicking <dangerButton>Force publication</dangerButton> your Local Address Base will be published and will replace the one currently in place.",
-        "title": "In case of a conflict"
+    "parcelles": {
+      "colorCode": "Parcel colour code:",
+      "linkable": "parcel that can be linked",
+      "linked": "linked parcel",
+      "unlinkable": "parcel that can be unlinked"
+    },
+    "screenshots": {
+      "downloads": "The Downloads tab of the Menu",
+      "newDetails": "Step 3: name and administrator email address of the Local Address Base",
+      "newImport": "Step 2: choosing the starting point of the Local Address Base",
+      "newTerritory": "Step 1: choosing a United States municipality with the State, County and City or town drop-downs",
+      "numeroForm": "The form for adding a house number",
+      "publicBals": "Pre-loaded Local Address Bases listed on the home page, in read-only mode",
+      "settings": "The Settings tab of the Menu",
+      "voieForm": "The form for adding a street",
+      "voiesList": "The list of streets, with its search field and its filter and add buttons"
+    },
+    "share": {
+      "download": {
+        "comments": "An export with comments includes everything written in them: avoid entering personal information in comments.",
+        "intro": "Open <menuButton>Menu</menuButton>, then the <b>Downloads</b> tab. You can download:",
+        "item1": "the Local Address Base in CSV (BAL) format, with or without comments",
+        "item2": "the list of streets in CSV format",
+        "title": "Download your addresses"
+      },
+      "editAccess": {
+        "content": "Open <menuButton>Menu</menuButton>, then in <b>Settings</b> click <shareButton>Share access</shareButton> to get the administration link and its QR code — handy for carrying on from a phone in the field.",
+        "title": "Share editing access",
+        "warning": "Anyone with this link can edit the Local Address Base: only share it with people you trust."
       },
       "problems": {
         "cannotEdit": "I cannot edit my Local Address Base"
       },
-      "publish": {
-        "step1": "Click the <publishButton>Publish</publishButton> button",
-        "step2": "Authenticate with the town hall’s official email address or with your ProConnect account",
-        "step3": "Once the authorization is granted, you will automatically be prompted to publish your Local Address Base by clicking <successButton>Publish</successButton>",
-        "title": "Publish your Local Address Base"
+      "publication": {
+        "content": "In France, a Local Address Base is published to the National Address Base. This demonstration never sends data to any government service: publication is disabled, so the <primaryButton>Publish</primaryButton> button cannot be completed.",
+        "draft": "Your Local Address Base stays a <b>draft</b>: you can keep editing it and download it at any time.",
+        "title": "What about publication?"
       },
-      "syncStatuses": {
-        "noHabilitation": "The Local Address Base’s authorization is not valid. You need to renew it so that new changes reach the National Address Base.",
-        "outdated": "Changes have been detected; they will be propagated automatically to the National Address Base within the next few hours.",
-        "paused": "You have paused updates for your Local Address Base. No change will be sent to the National Address Base. You can resume updates at any time.",
-        "replaced": "Another Local Address Base has replaced yours, so your addresses cannot be updated automatically. You can force the update in order to replace the Local Address Base currently in place.",
-        "synced": "Your Local Address Base is in sync with the National Address Base. All of its addresses are taken into account.",
-        "title": "Synchronisation statuses"
-      },
-      "videoTitle": "Publishing your Local Address Base:"
+      "viewAccess": {
+        "content": "Share the address of the editor page as shown in your browser. People who open it without administrator access see the Local Address Base in <b>read-only</b> mode.",
+        "title": "Let others view your addresses"
+      }
     },
-    "readGuides": "Read the addressing guides",
     "sidebarTuto": {
       "hidden": "This menu can be hidden to leave more room for the map.",
       "showAgain": "To bring it back, click the <button></button> button at the top left of your screen.",
       "title": "I cannot see the side menu"
     },
     "tabs": {
-      "baseLocale": "Local base",
+      "baseLocale": "Getting started",
       "numeros": "Numbers",
-      "publication": "Publication",
+      "share": "Share & export",
       "toponymes": "Place names",
       "voies": "Streets"
     },
     "title": "Need help?",
     "toponymes": {
+      "about": {
+        "content": "Place names are named places that are not numbered streets: hamlets, neighbourhoods, localities, streets without addresses… A house number can be linked to a place name in addition to its street.",
+        "title": "What is a place name?"
+      },
       "add": {
-        "step1": "Select the <tab>Place names list</tab> tab, then click <addButton>Add a place name</addButton>",
-        "step2": "Enter the place name in the <muted>Place name...</muted> field",
-        "step3": "A <marker></marker> has appeared on the map; you can move it to assign one or more positions to your place name.<br></br>You can specify the position type with the <typeSelect>Segment</typeSelect> drop-down. If you do not want to define a position for the place name, simply click <trash></trash>",
+        "step1": "Click the <addIconButton></addIconButton> button next to the search field",
+        "step2": "Enter the name in the <em>Place name</em> field",
+        "step3": "A <marker></marker> appears on the map: move it to position the place name. You can add more positions, or remove one with <trash></trash>.",
+        "step4": "Click <successButton>Save</successButton>",
         "title": "Add a place name"
       },
-      "assign": {
-        "step1": "Click the <addButton>Add a house number</addButton> button",
-        "step2": "Select the street of the house number you want to assign",
-        "step3": "A drop-down will appear. You can select one or more numbers from the list. If no number is selected, every number in the list will be assigned to the place name.",
-        "step4": "Finally, click the <successButton>Save</successButton> button",
-        "title": "Assign a house number to a place name"
-      },
       "delete": {
-        "step1": "Click the <moreButton></moreButton> button to the right of the place name",
         "step2": "In the menu that appears, choose <deleteItem>Delete…</deleteItem>",
-        "step3": "Finally, confirm your choice by clicking <dangerButton>Delete</dangerButton>",
+        "step3": "Confirm by clicking <dangerButton>Delete</dangerButton>",
         "title": "Delete a place name"
       },
       "edit": {
-        "step1": "Click the place name",
-        "step2": "Edit the place name",
-        "step3": "You can also change the place name’s position by moving the <marker></marker> on the map",
-        "step4": "You can add positions with the <addButton>Add a position to the place name</addButton> button, or remove them with the <trash></trash> button",
-        "step5": "Finally, click <successButton>Save</successButton>",
+        "step2": "In the menu that appears, choose <editItem>Edit</editItem>",
+        "step3": "Change the name or move the <marker></marker> on the map, then click <successButton>Save</successButton>",
         "title": "Edit a place name"
       },
-      "openList": "Display the list of a municipality’s place names by clicking its name at the top left of your screen",
+      "link": {
+        "step1": "Click the place name to open it",
+        "step2": "Click <addButton>Link house numbers</addButton>",
+        "step3": "Select the house numbers <b>By street</b> — choose a street, then some or all of its numbers — or <b>By drawing an outline</b> around them on the map",
+        "step4": "Click <successButton>Save</successButton>",
+        "title": "Link house numbers to a place name"
+      },
+      "moreButtonStep": "Click the <moreButton></moreButton> button to the right of the place name",
+      "openList": "Open the <b>Place names</b> tab at the top of the side menu.",
       "parcelles": {
-        "colorCode": "Parcel colour code:",
-        "linkable": "parcel that can be linked",
-        "linked": "linked parcel",
-        "step1": "Click the <moreButton></moreButton> button to the right of the place name",
-        "step2": "In the menu that appears, choose <editItem>Edit</editItem>",
         "step3": "On the map, click the parcel or parcels you want to link to the place name",
-        "step4": "To save the parcels, click the <successButton>Save</successButton> button",
-        "title": "Link parcels",
-        "unlinkable": "parcel that can be unlinked"
+        "step4": "Click <successButton>Save</successButton>",
+        "title": "Link parcels"
       },
       "problems": {
         "cannotAddOrDelete": "I cannot add or delete a place name"
-      },
-      "videoTitle": "Creating / editing a place name:"
+      }
     },
     "unauthorized": {
-      "checkBadge": "Make sure that <badge>Editing unavailable</badge> does not appear at the top right of your screen.",
-      "fix": "If you are indeed its owner, simply click the link that was emailed to you when your Local Address Base was created.",
-      "meaning": "It means you are not signed in, or that you do not have the rights to edit this Local Address Base."
-    },
-    "video": {
-      "allTutorials": "Find all the video tutorials",
-      "iframeTitle": "Creating a Local Address Base"
+      "fix": "Open it again in the browser you created it in, or with the administration link shared by one of its administrators (<b>Menu</b> › <b>Settings</b> › <b>Share access</b>).",
+      "readOnly": "If the side menu shows <em>You are in read-only mode</em>, you are viewing the Local Address Base without administrator access."
     },
     "voies": {
       "add": {
-        "step1": "Click the <addButton>Add a street</addButton> button",
-        "step2": "Enter the name of the street you want to create in the <em>Street name…</em> field",
-        "step3": "Finally, click the <successButton>Add</successButton> button",
+        "step1": "Click the <addIconButton></addIconButton> button next to the search field",
+        "step2": "Enter the name in the <em>Street name</em> field",
+        "step3": "Choose the <em>Numbering type</em>: <b>Sequential</b> (1, 2, 3…) or <b>Metric</b> (numbers based on the distance from the start of the street)",
+        "step4": "Click <successButton>Save</successButton>",
         "title": "Add a street"
       },
-      "convert": {
-        "intro": "You can turn a street into a place name if it contains no house numbers.",
-        "step1": "Click the <moreButton></moreButton> button to the right of the street name",
-        "step2": "In the menu that appears, choose <convertButton>Convert into a street without addresses</convertButton>",
-        "step3": "Finally, confirm your choice by clicking <primaryButton>Confirm</primaryButton>",
-        "step4": "You will be redirected to editing the new place name",
-        "title": "Convert a street into a street without addresses"
+      "certify": {
+        "step2": "In the menu that appears, choose <certifyItem>Certify</certifyItem>",
+        "step3": "Confirm to certify every address on the street",
+        "title": "Certify all the house numbers of a street"
       },
       "delete": {
-        "step1": "Click the <moreButton></moreButton> button to the right of the street name",
         "step2": "In the menu that appears, choose <deleteItem>Delete…</deleteItem>",
-        "step3": "Finally, confirm your choice by clicking <dangerButton>Delete</dangerButton>",
+        "step3": "Confirm by clicking <dangerButton>Delete</dangerButton>. The street and its house numbers go to the <b>Bin</b> (in <b>Menu</b>), from which you can restore them.",
         "title": "Delete a street"
       },
-      "openList": "Display the list of a municipality’s streets by clicking its name at the top left of your screen.",
+      "moreButtonStep": "Click the <moreButton></moreButton> button to the right of the street",
+      "openList": "Open the <b>Streets</b> tab at the top of the side menu.",
       "problems": {
         "cannotAddOrDelete": "I cannot add or delete a street"
       },
       "rename": {
-        "step1": "Click the street name",
-        "step2": "Edit the street name",
-        "step3": "Finally, click <successButton>Save</successButton>",
+        "step2": "In the menu that appears, choose <editItem>Edit</editItem>",
+        "step3": "Change the name, then click <successButton>Save</successButton>",
         "title": "Rename a street"
       },
-      "videoTitle": "Creating / editing a street:",
+      "suggestions": {
+        "content": "A <bulb></bulb> next to a street means the editor has a suggestion for it: for example, several streets sharing the same name, which can be merged, or a street without house numbers, which can be converted into a place name.",
+        "handle": "To review them one after another, click the <filterButton></filterButton> button, choose <b>With suggestions</b>, then <b>Handle the suggestions</b>. The same filter also lists the streets <b>Without certification</b>.",
+        "title": "Quality suggestions"
+      },
       "view": {
-        "fromMap": "From the map",
-        "fromMapStep": "Click the street name or one of its house numbers",
-        "fromSidebar": "From the side menu",
-        "step1": "Click the <moreButton></moreButton> button to the right of the street name",
-        "step2": "In the menu that appears, choose <viewItem>View</viewItem>",
+        "fromList": "Click the street name to open its list of house numbers",
+        "fromMap": "On the map, you can also click the street name or one of its house numbers",
+        "fromMenu": "Or choose <viewItem>View</viewItem> in the <moreButton></moreButton> menu to centre the map on it",
         "title": "View a street"
       }
     }
