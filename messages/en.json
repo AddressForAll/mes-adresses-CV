@@ -241,7 +241,6 @@
     "ortho": "Aerial imagery",
     "planIgn": "IGN map",
     "satellite": "Satellite (Esri)",
-    "street": "Street map (CARTO)",
     "vector": "OpenStreetMap map"
   },
   "basesLocalesList": {

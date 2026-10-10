@@ -55,7 +55,6 @@ import {
   ortho,
   planIGN,
   vector,
-  street,
   satellite,
 } from "./styles";
 import { getCountry } from "@/lib/countries";
@@ -153,9 +152,6 @@ function Map({
       case MapStyle.PLAN_IGN:
         return planIGN;
 
-      case MapStyle.STREET:
-        return street;
-
       case MapStyle.SATELLITE:
         return satellite;
 
@@ -166,7 +162,7 @@ function Map({
 
   function generateNewStyle(style: MapStyle | string) {
     const baseStyle = getBaseStyle(style);
-    // The worldwide basemaps (street/satellite) declare no "cadastre" vector
+    // The worldwide satellite basemap declares no "cadastre" vector
     // source — pushing cadastreLayers onto them would reference a
     // non-existent source and error. Only the French styles carry it.
     const layers = getCountry(baseLocale.country).hasCadastre ? LAYERS : [];

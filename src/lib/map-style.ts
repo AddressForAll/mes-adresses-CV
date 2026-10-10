@@ -8,6 +8,5 @@ export enum MapStyle {
   ORTHO = "ortho",
   VECTOR = "vector",
   PLAN_IGN = "plan-ign",
-  STREET = "street",
   SATELLITE = "satellite",
 }

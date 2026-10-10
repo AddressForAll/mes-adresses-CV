@@ -50,7 +50,7 @@ export const COUNTRIES: Record<string, CountryProfile> = {
   br: {
     code: "br",
     label: "Brasil",
-    basemaps: [MapStyle.SATELLITE, MapStyle.STREET],
+    basemaps: [MapStyle.SATELLITE],
     defaultBasemap: MapStyle.SATELLITE,
     hasCadastre: false,
     hasBanImport: false,
@@ -72,11 +72,10 @@ export const COUNTRIES: Record<string, CountryProfile> = {
   us: {
     code: "us",
     label: "United States",
-    // Satellite first, to match France's imagery-first default
-    // (commune.hasOrtho ? ORTHO : VECTOR in contexts/map.tsx) — French BALs
-    // open on aerial photography for nearly every commune, so a US BAL
-    // defaulting to the plain street map instead reads as broken.
-    basemaps: [MapStyle.SATELLITE, MapStyle.STREET],
+    // Esri satellite is the only worldwide basemap; a CARTO street map was
+    // dropped as redundant. It matches France's imagery-first default
+    // (commune.hasOrtho ? ORTHO : VECTOR in contexts/map.tsx).
+    basemaps: [MapStyle.SATELLITE],
     defaultBasemap: MapStyle.SATELLITE,
     hasCadastre: false,
     hasBanImport: false,
