@@ -51,6 +51,11 @@ export interface CountryProfile {
   geocode: GeocodeFormat | null;
   /** Brazilian *inscrição imobiliária* (property registration) field. */
   hasInscricaoImobiliaria: boolean;
+  /**
+   * Upstream's first-visit welcome dialog. Its copy is about publishing to
+   * the French national address base (BAN), so it only makes sense in France.
+   */
+  hasWelcomeMessage: boolean;
 }
 
 export const DEFAULT_COUNTRY = "fr";
@@ -70,6 +75,7 @@ export const COUNTRIES: Record<string, CountryProfile> = {
     // Codes seen so far are 8 characters, shown like a CEP (XXXXX-XXX).
     geocode: { prefix: "BR", groups: [5, 3] },
     hasInscricaoImobiliaria: true,
+    hasWelcomeMessage: false,
   },
   fr: {
     code: "fr",
@@ -82,6 +88,7 @@ export const COUNTRIES: Record<string, CountryProfile> = {
     geoApi: "fr",
     geocode: null,
     hasInscricaoImobiliaria: false,
+    hasWelcomeMessage: true,
   },
   us: {
     code: "us",
@@ -100,6 +107,7 @@ export const COUNTRIES: Record<string, CountryProfile> = {
     // US AFA.codes format not known yet: shown as stored.
     geocode: { prefix: "US" },
     hasInscricaoImobiliaria: false,
+    hasWelcomeMessage: false,
   },
 };
 

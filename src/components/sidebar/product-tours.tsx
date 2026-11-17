@@ -5,17 +5,19 @@ import LocalStorageContext from "@/contexts/local-storage";
 import SignalementProductTour from "../signalement/product-tour/signalement-product-tour";
 import { CommuneType } from "@/types/commune";
 import BalDataContext from "@/contexts/bal-data";
+import { getCommuneCountry, getCountry } from "@/lib/countries";
 
 function ProductTours({ commune }: { commune: CommuneType }) {
   const { pendingSignalementsCount } = useContext(SignalementContext);
   const { isHabilitationProcessDisplayed } = useContext(BalDataContext);
   const { wasWelcomed } = useContext(LocalStorageContext);
+  const { hasWelcomeMessage } = getCountry(getCommuneCountry(commune.code));
 
   return (
     <>
-      <WelcomeMessage commune={commune} />
+      {hasWelcomeMessage && <WelcomeMessage commune={commune} />}
       {pendingSignalementsCount > 0 &&
-        wasWelcomed &&
+        (wasWelcomed || !hasWelcomeMessage) &&
         !isHabilitationProcessDisplayed && <SignalementProductTour />}
     </>
   );
