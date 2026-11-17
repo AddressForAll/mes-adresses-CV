@@ -410,12 +410,14 @@ export class BasesLocalesService {
      * Find all Voie in Bal
      * @param select
      * @param baseLocaleId
+     * @param hasSuffixeOrParcelles Only numeros with a suffixe or parcelles: the ones the editor alerts can flag
      * @returns Numero
      * @throws ApiError
      */
     public static findNumeros(
         select: Array<string>,
         baseLocaleId: string,
+        hasSuffixeOrParcelles?: boolean,
     ): CancelablePromise<Array<Numero>> {
         return __request(OpenAPI, {
             method: 'GET',
@@ -425,6 +427,7 @@ export class BasesLocalesService {
             },
             query: {
                 'select': select,
+                'hasSuffixeOrParcelles': hasSuffixeOrParcelles,
             },
         });
     }
