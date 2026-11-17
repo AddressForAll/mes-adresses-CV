@@ -3,6 +3,8 @@ import { Pane, Badge, Text, Strong } from "evergreen-ui";
 import { useTranslations } from "next-intl";
 import BalDataContext from "@/contexts/bal-data";
 import { CommuneType } from "@/types/commune";
+import { getCommuneCountry, getCountry } from "@/lib/countries";
+import { displayGeocode } from "@/lib/utils/geocode";
 
 interface PopupFeatureNumeroProps {
   feature: {
@@ -19,6 +21,8 @@ interface PopupFeatureNumeroProps {
       parcelles: string;
       suffixe: string;
       postalCode?: string;
+      geocode?: string;
+      inscricaoImobiliaria?: string;
     };
   };
   commune: CommuneType;
@@ -40,6 +44,9 @@ function PopupFeatureNumero({ feature, commune }: PopupFeatureNumeroProps) {
     (t) => t.id === feature.properties?.idToponyme
   );
 
+  const country = getCountry(getCommuneCountry(commune.code));
+  const { geocode, inscricaoImobiliaria } = feature.properties;
+
   return (
     <Pane display="flex" flexDirection="column">
       <Strong>
@@ -52,6 +59,18 @@ function PopupFeatureNumero({ feature, commune }: PopupFeatureNumeroProps) {
           : ""}
         {commune.nom}
       </Text>
+      {geocode && (
+        <Text size={300}>
+          {t("geocodeLabel")}{" "}
+          <Strong size={300}>{displayGeocode(geocode, country.geocode)}</Strong>
+        </Text>
+      )}
+      {inscricaoImobiliaria && (
+        <Text size={300} marginBottom="10px">
+          {t("inscricaoImobiliariaLabel")}{" "}
+          <Strong size={300}>{inscricaoImobiliaria}</Strong>
+        </Text>
+      )}
       {feature.properties.certifie ? (
         <Badge color="green">{t("certified")}</Badge>
       ) : (

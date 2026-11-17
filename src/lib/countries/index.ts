@@ -1,4 +1,5 @@
 import { MapStyle } from "@/lib/map-style";
+import { GeocodeFormat } from "@/lib/utils/geocode";
 
 export interface CountryProfile {
   code: string;
@@ -42,6 +43,14 @@ export interface CountryProfile {
    * this never triggers.
    */
   minInitialZoom?: number;
+  /**
+   * AFA.codes geocode presentation for this country's addresses, or `null`
+   * where the editor offers no geocode field (France). `groups` is only set
+   * where the code length is known; other codes are shown as stored.
+   */
+  geocode: GeocodeFormat | null;
+  /** Brazilian *inscrição imobiliária* (property registration) field. */
+  hasInscricaoImobiliaria: boolean;
 }
 
 export const DEFAULT_COUNTRY = "fr";
@@ -58,6 +67,9 @@ export const COUNTRIES: Record<string, CountryProfile> = {
     geoApi: "territories",
     territoryLevels: ["state", "municipality"],
     minInitialZoom: 13,
+    // Codes seen so far are 8 characters, shown like a CEP (XXXXX-XXX).
+    geocode: { prefix: "BR", groups: [5, 3] },
+    hasInscricaoImobiliaria: true,
   },
   fr: {
     code: "fr",
@@ -68,6 +80,8 @@ export const COUNTRIES: Record<string, CountryProfile> = {
     hasBanImport: true,
     hasAccessRecovery: true,
     geoApi: "fr",
+    geocode: null,
+    hasInscricaoImobiliaria: false,
   },
   us: {
     code: "us",
@@ -83,6 +97,9 @@ export const COUNTRIES: Record<string, CountryProfile> = {
     geoApi: "territories",
     territoryLevels: ["state", "county", "place"],
     minInitialZoom: 13,
+    // US AFA.codes format not known yet: shown as stored.
+    geocode: { prefix: "US" },
+    hasInscricaoImobiliaria: false,
   },
 };
 

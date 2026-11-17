@@ -8,6 +8,8 @@ export type CreateNumeroDTO = {
     numeroTexte?: string | null;
     suffixe?: string | null;
     comment?: string | null;
+    geocode?: string | null;
+    inscricaoImobiliaria?: string | null;
     toponymeId?: string | null;
     parcelles?: Array<string>;
     certifie?: boolean;

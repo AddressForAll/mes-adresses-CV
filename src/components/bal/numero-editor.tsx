@@ -1,10 +1,25 @@
 import React, { useState, useCallback, useContext, useEffect } from "react";
 import { xor, sortBy } from "lodash";
-import { Checkbox, Pane, SelectField, TextInputField } from "evergreen-ui";
+import {
+  Checkbox,
+  FormField,
+  Pane,
+  SelectField,
+  Text,
+  TextInput,
+  TextInputField,
+} from "evergreen-ui";
 import { useTranslations } from "next-intl";
 
 import { normalizeSort } from "@/lib/normalize";
 import { computeCompletNumero } from "@/lib/utils/numero";
+import {
+  GEOCODE_MAX_LENGTH,
+  formatGeocode,
+  isValidGeocode,
+  normalizeGeocode,
+} from "@/lib/utils/geocode";
+import { getCommuneCountry, getCountry } from "@/lib/countries";
 
 import MarkersContext from "@/contexts/markers";
 import BalDataContext from "@/contexts/bal-data";
@@ -95,6 +110,14 @@ function NumeroEditor({
   const [selectedNomVoie, setSelectedNomVoie] = useState("");
   const [suffixe, onSuffixeChange] = useInput(initialValue?.suffixe || "");
   const [comment, onCommentChange] = useInput(initialValue?.comment || "");
+  const country = getCountry(getCommuneCountry(commune.code));
+  const geocodeFormat = country.geocode;
+  const [geocode, setGeocode] = useState(
+    formatGeocode(initialValue?.geocode, geocodeFormat)
+  );
+  const [inscricaoImobiliaria, onInscricaoImobiliariaChange] = useInput(
+    initialValue?.inscricaoImobiliaria || ""
+  );
   const { toaster } = useContext(LayoutContext);
   const { getValidationMessage, setValidationMessages } =
     useValidationMessage();
@@ -149,6 +172,13 @@ function NumeroEditor({
       parcelles: highlightedParcelles,
       certifie: certifie ?? (initialValue?.certifie || false),
       communeDeleguee: communeDeleguee,
+      // Only sent where the field is shown, so a French edit never touches it.
+      ...(geocodeFormat && {
+        geocode: normalizeGeocode(geocode, geocodeFormat),
+      }),
+      ...(country.hasInscricaoImobiliaria && {
+        inscricaoImobiliaria: inscricaoImobiliaria.trim() || null,
+      }),
     };
 
     if (markers.length > 0) {
@@ -178,6 +208,10 @@ function NumeroEditor({
     comment,
     communeDeleguee,
     highlightedParcelles,
+    geocode,
+    geocodeFormat,
+    inscricaoImobiliaria,
+    country.hasInscricaoImobiliaria,
   ]);
 
   const onFormSubmit = useCallback(
@@ -188,6 +222,13 @@ function NumeroEditor({
 
       if (!isNumberless && parseInt(numero) === 99999) {
         setValidationMessages([`numero:${t("reservedNumero")}`]);
+        setIsLoading(false);
+        return;
+      }
+
+      const geocodeCode = normalizeGeocode(geocode, geocodeFormat);
+      if (geocodeFormat && geocodeCode && !isValidGeocode(geocodeCode)) {
+        setValidationMessages([`geocode:${t("geocodeInvalid")}`]);
         setIsLoading(false);
         return;
       }
@@ -272,10 +313,22 @@ function NumeroEditor({
       toaster,
       numero,
       isNumberless,
+      geocode,
+      geocodeFormat,
       reloadNumerosAlerts,
       reloadVoieAlerts,
     ]
   );
+
+  // Regroup the code on blur (`r7fgj2z2` → `R7FGJ-2Z2`), so what's typed in
+  // any form settles on the shape it's stored and shown in. Left as typed
+  // when it isn't a valid code, so the error points at what the user wrote.
+  const handleGeocodeBlur = () => {
+    const code = normalizeGeocode(geocode, geocodeFormat);
+    if (code && isValidGeocode(code)) {
+      setGeocode(formatGeocode(code, geocodeFormat));
+    }
+  };
 
   useEffect(() => {
     onNumeroChange({
@@ -534,6 +587,72 @@ function NumeroEditor({
           </FormInput>
         ) : (
           <DisabledFormInput label={t("parcelles")} />
+        )}
+
+        {geocodeFormat && (
+          <FormInput>
+            <FormField
+              label={t("geocode")}
+              description={t("geocodeHint")}
+              validationMessage={
+                getValidationMessage("geocode")
+                  ? t("geocodeInvalid")
+                  : undefined
+              }
+            >
+              <Pane display="flex" alignItems="center">
+                {geocodeFormat.prefix && (
+                  <Text
+                    size={400}
+                    color="muted"
+                    paddingX={8}
+                    height={32}
+                    display="flex"
+                    alignItems="center"
+                    background="tint2"
+                    borderTopLeftRadius={4}
+                    borderBottomLeftRadius={4}
+                    border="1px solid #d8dae5"
+                    borderRight="none"
+                  >
+                    {geocodeFormat.prefix}-
+                  </Text>
+                )}
+                <TextInput
+                  flex={1}
+                  width="100%"
+                  disabled={isLoading}
+                  value={geocode}
+                  // Room for a pasted prefix and separators around the code.
+                  maxLength={GEOCODE_MAX_LENGTH + 8}
+                  placeholder={geocodeFormat.groups
+                    ?.map((size) => "X".repeat(size))
+                    .join("-")}
+                  style={{ textTransform: "uppercase" }}
+                  borderTopLeftRadius={geocodeFormat.prefix ? 0 : undefined}
+                  borderBottomLeftRadius={geocodeFormat.prefix ? 0 : undefined}
+                  isInvalid={Boolean(getValidationMessage("geocode"))}
+                  onChange={(e) => setGeocode(e.target.value)}
+                  onBlur={handleGeocodeBlur}
+                />
+              </Pane>
+            </FormField>
+          </FormInput>
+        )}
+
+        {country.hasInscricaoImobiliaria && (
+          <FormInput>
+            <TextInputField
+              label={t("inscricaoImobiliaria")}
+              description={t("inscricaoImobiliariaHint")}
+              disabled={isLoading}
+              value={inscricaoImobiliaria}
+              maxLength={64}
+              marginBottom={0}
+              onChange={onInscricaoImobiliariaChange}
+              validationMessage={getValidationMessage("inscricaoImobiliaria")}
+            />
+          </FormInput>
         )}
 
         <Comment
