@@ -14,9 +14,10 @@ import { useTranslations } from "next-intl";
 import { normalizeSort } from "@/lib/normalize";
 import { computeCompletNumero } from "@/lib/utils/numero";
 import {
-  GEOCODE_MAX_LENGTH,
   formatGeocode,
+  geocodeLength,
   isValidGeocode,
+  maskGeocodeInput,
   normalizeGeocode,
 } from "@/lib/utils/geocode";
 import { getCommuneCountry, getCountry } from "@/lib/countries";
@@ -112,6 +113,16 @@ function NumeroEditor({
   const [comment, onCommentChange] = useInput(initialValue?.comment || "");
   const country = getCountry(getCommuneCountry(commune.code));
   const geocodeFormat = country.geocode;
+  const geocodeFullLength = geocodeLength(geocodeFormat);
+  const geocodePattern = geocodeFormat?.groups
+    ?.map((size) => "X".repeat(size))
+    .join("-");
+  const geocodeError = geocodeFullLength
+    ? t("geocodeWrongLength", {
+        length: geocodeFullLength,
+        pattern: geocodePattern,
+      })
+    : t("geocodeInvalid");
   const [geocode, setGeocode] = useState(
     formatGeocode(initialValue?.geocode, geocodeFormat)
   );
@@ -227,8 +238,12 @@ function NumeroEditor({
       }
 
       const geocodeCode = normalizeGeocode(geocode, geocodeFormat);
-      if (geocodeFormat && geocodeCode && !isValidGeocode(geocodeCode)) {
-        setValidationMessages([`geocode:${t("geocodeInvalid")}`]);
+      if (
+        geocodeFormat &&
+        geocodeCode &&
+        !isValidGeocode(geocodeCode, geocodeFormat)
+      ) {
+        setValidationMessages([`geocode:${geocodeError}`]);
         setIsLoading(false);
         return;
       }
@@ -315,19 +330,28 @@ function NumeroEditor({
       isNumberless,
       geocode,
       geocodeFormat,
+      geocodeError,
       reloadNumerosAlerts,
       reloadVoieAlerts,
     ]
   );
 
-  // Regroup the code on blur (`r7fgj2z2` → `R7FGJ-2Z2`), so what's typed in
-  // any form settles on the shape it's stored and shown in. Left as typed
-  // when it isn't a valid code, so the error points at what the user wrote.
-  const handleGeocodeBlur = () => {
-    const code = normalizeGeocode(geocode, geocodeFormat);
-    if (code && isValidGeocode(code)) {
-      setGeocode(formatGeocode(code, geocodeFormat));
-    }
+  // Masked as typed: letters and digits only, uppercase, capped at the
+  // country's length, hyphen added between groups (`r7fgj2z2` → `R7FGJ-2Z2`).
+  const handleGeocodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.target;
+    const inputType = (event.nativeEvent as InputEvent).inputType || "";
+    const masked = maskGeocodeInput(input.value, geocodeFormat, {
+      caret: input.selectionStart ?? input.value.length,
+      isDeleting: inputType.startsWith("delete"),
+    });
+    setGeocode(masked.value);
+    // Put the cursor back where the edit happened once React re-renders.
+    requestAnimationFrame(() => {
+      if (document.activeElement === input) {
+        input.setSelectionRange(masked.caret, masked.caret);
+      }
+    });
   };
 
   useEffect(() => {
@@ -594,11 +618,7 @@ function NumeroEditor({
             <FormField
               label={t("geocode")}
               description={t("geocodeHint")}
-              validationMessage={
-                getValidationMessage("geocode")
-                  ? t("geocodeInvalid")
-                  : undefined
-              }
+              validationMessage={getValidationMessage("geocode")}
             >
               <Pane display="flex" alignItems="center">
                 {geocodeFormat.prefix && (
@@ -623,17 +643,14 @@ function NumeroEditor({
                   width="100%"
                   disabled={isLoading}
                   value={geocode}
-                  // Room for a pasted prefix and separators around the code.
-                  maxLength={GEOCODE_MAX_LENGTH + 8}
-                  placeholder={geocodeFormat.groups
-                    ?.map((size) => "X".repeat(size))
-                    .join("-")}
+                  autoComplete="off"
+                  spellCheck={false}
+                  placeholder={geocodePattern}
                   style={{ textTransform: "uppercase" }}
                   borderTopLeftRadius={geocodeFormat.prefix ? 0 : undefined}
                   borderBottomLeftRadius={geocodeFormat.prefix ? 0 : undefined}
                   isInvalid={Boolean(getValidationMessage("geocode"))}
-                  onChange={(e) => setGeocode(e.target.value)}
-                  onBlur={handleGeocodeBlur}
+                  onChange={handleGeocodeChange}
                 />
               </Pane>
             </FormField>
