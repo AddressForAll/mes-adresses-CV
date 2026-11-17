@@ -59,9 +59,12 @@ export function AlertsContextProvider(props: ChildrenProps) {
   const reloadNumerosAlerts = useCallback(
     async (balId: string, ignoredAlertCodes: AlertCodeEnum[] = []) => {
       if (communeParcellesIds !== null) {
+        // Only numeros with a suffixe or parcelles can raise these alerts;
+        // fetching every numero took ~17s for a 940k-address BAL.
         const balNumeros = await BasesLocalesService.findNumeros(
           ["id", "numero", "suffixe", "voieId", "parcelles"],
-          balId
+          balId,
+          true
         );
         const newNumerosAlerts: Record<string, AlertNumero[]> = {};
         for (const numero of balNumeros) {
