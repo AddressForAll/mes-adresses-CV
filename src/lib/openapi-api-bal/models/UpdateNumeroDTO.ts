@@ -8,6 +8,8 @@ export type UpdateNumeroDTO = {
     numeroTexte?: string | null;
     suffixe?: string | null;
     comment?: string | null;
+    geocode?: string | null;
+    inscricaoImobiliaria?: string | null;
     toponymeId?: string | null;
     voieId?: string;
     parcelles?: Array<string>;

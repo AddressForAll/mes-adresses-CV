@@ -21,6 +21,8 @@ export type Numero = {
     postalCode?: string | null;
     numeroComplet: string;
     comment: string;
+    geocode?: string | null;
+    inscricaoImobiliaria?: string | null;
     parcelles: Array<string>;
     certifie: boolean;
     communeDeleguee: string;
